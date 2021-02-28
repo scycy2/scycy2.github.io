@@ -8,7 +8,7 @@
       <link href="2021/02/28/%E8%A1%8C%E5%88%97%E5%BC%8F/"/>
       <url>2021/02/28/%E8%A1%8C%E5%88%97%E5%BC%8F/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h4 id="1-n阶行列式"><a href="#1-n阶行列式" class="headerlink" title="1. n阶行列式"></a>1. n阶行列式</h4><ul><li><p>逆序：在一个排列中，如果一对数的前后位置与大小顺序相反，即前面的数大于后面的数，那么它们就称为一个<strong>逆序</strong>。</p></li><li><p>逆序数：一个排列中逆序的总数就称为这个排列的<strong>逆序数</strong>。</p></li><li><p>从n个不同元素中任取m（m≤n）个元素，按照一定的顺序排列起来，叫做从n个不同元素中取出m个元素的一个排列。当m=n时所有的排列情况叫<strong>全排列</strong>。</p></li><li><p>$j_1j_2\cdots j_n$为$1,2,\cdots,n$的一个排列。</p></li><li><p>$\tau(j_1j_1\cdots j_n)$表示排列$j_1j_2\cdots j_n$的逆序数。</p></li><li><p>$$<br>D = \left|</p><pre><code>        \begin&#123;matrix&#125;            a_&#123;11&#125; &amp; a_&#123;12&#125; &amp; \cdots &amp; a_&#123;1n&#125;\\            a_&#123;21&#125; &amp; a_&#123;22&#125; &amp; \cdots &amp; a_&#123;2n&#125;\\            \vdots &amp; \vdots &amp; \ddots &amp; \vdots\\            a_&#123;n1&#125; &amp; a_&#123;n2&#125; &amp; \cdots &amp; a_&#123;nn&#125;\\        \end&#123;matrix&#125;</code></pre><p>\right| = \sum_{j_1j_2\cdots j_n}(-1)^{\tau(j_1j_2\cdots j_n)}a_{1j_1}a_{2j_2}\cdots a_{nj_n}<br>$$</p></li><li><p>下三角行列式<br>$$<br>\left|</p><pre><code>        \begin&#123;matrix&#125;            a_&#123;11&#125; &amp; 0      &amp; \cdots &amp; 0     \\            a_&#123;21&#125; &amp; a_&#123;22&#125; &amp; \cdots &amp; 0     \\            \vdots &amp; \vdots &amp; \ddots &amp; \vdots\\            a_&#123;n1&#125; &amp; a_&#123;n2&#125; &amp; \cdots &amp; a_&#123;nn&#125;\\        \end&#123;matrix&#125;</code></pre><p>\right| = a_{11}a_{22}\cdots a_{nn}<br>$$</p></li><li><p>上三角行列式同上</p></li></ul>]]></content>
       
       
       <categories>
@@ -66,9 +66,9 @@
       
         <tags>
             
-            <tag> 未完待续 </tag>
-            
             <tag> 算法 </tag>
+            
+            <tag> 未完待续 </tag>
             
             <tag> java </tag>
             
@@ -99,9 +99,9 @@
       
         <tags>
             
-            <tag> 未完待续 </tag>
-            
             <tag> 算法 </tag>
+            
+            <tag> 未完待续 </tag>
             
             <tag> java </tag>
             
@@ -132,11 +132,11 @@
       
         <tags>
             
-            <tag> 未完待续 </tag>
-            
             <tag> 算法 </tag>
             
             <tag> 总结 </tag>
+            
+            <tag> 未完待续 </tag>
             
             <tag> java </tag>
             
@@ -165,11 +165,11 @@
       
         <tags>
             
-            <tag> 未完待续 </tag>
-            
             <tag> 算法 </tag>
             
             <tag> 总结 </tag>
+            
+            <tag> 未完待续 </tag>
             
             <tag> java </tag>
             
@@ -225,11 +225,11 @@
       
         <tags>
             
+            <tag> 未完待续 </tag>
+            
             <tag> 原创 </tag>
             
             <tag> 亲身经历 </tag>
-            
-            <tag> 未完待续 </tag>
             
         </tags>
       
