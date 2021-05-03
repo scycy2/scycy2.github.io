@@ -460,14 +460,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-19
+                    2021-05-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    337
+                    266
                 </div>
                 
 
@@ -484,60 +484,62 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="1-二叉树定义-java"><a href="#1-二叉树定义-java" class="headerlink" title="1. 二叉树定义(java)"></a>1. 二叉树定义(java)</h4><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// Definition for a binary tree node.</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TreeNode</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> val<span class="token punctuation">;</span>
-  TreeNode left<span class="token punctuation">;</span>
-  TreeNode right<span class="token punctuation">;</span>
-  <span class="token function">TreeNode</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> val <span class="token operator">=</span> x<span class="token punctuation">;</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
-<h4 id="2-前、中、后序遍历-递归版"><a href="#2-前、中、后序遍历-递归版" class="headerlink" title="2. 前、中、后序遍历(递归版)"></a>2. 前、中、后序遍历(递归版)</h4><pre class=" language-java"><code class="language-java"><span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-  <span class="token keyword">public</span> List<span class="token operator">&lt;</span>Integer<span class="token operator">></span> <span class="token function">preorderTraversal</span><span class="token punctuation">(</span>TreeNode root<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    List<span class="token operator">&lt;</span>Integer<span class="token operator">></span> res <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token function">helper</span><span class="token punctuation">(</span>root<span class="token punctuation">,</span> res<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> res<span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+                <h4 id="1-二叉树定义-java"><a href="#1-二叉树定义-java" class="headerlink" title="1. 二叉树定义(java)"></a>1. 二叉树定义(java)</h4><pre class=" language-lang-java"><code class="language-lang-java">// Definition for a binary tree node.
+public class TreeNode {
+    int val;
+  TreeNode left;
+  TreeNode right;
+  TreeNode(int x) { val = x; }
+}
+</code></pre>
+<h4 id="2-前、中、后序遍历-递归版"><a href="#2-前、中、后序遍历-递归版" class="headerlink" title="2. 前、中、后序遍历(递归版)"></a>2. 前、中、后序遍历(递归版)</h4><pre class=" language-lang-java"><code class="language-lang-java">class Solution {
+  public List<Integer> preorderTraversal(TreeNode root) {
+    List<Integer> res = new ArrayList<>();
+    helper(root, res);
+    return res;
+  }
 
-  <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">helper</span><span class="token punctuation">(</span>TreeNode root<span class="token punctuation">,</span> List <span class="token operator">&lt;</span>Integer<span class="token operator">></span> res<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-      <span class="token comment" spellcheck="true">// res.add(root.val); // 前序遍历，先将root的值加入List中</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>root<span class="token punctuation">.</span>left <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        <span class="token function">helper</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">,</span> res<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-      <span class="token comment" spellcheck="true">// res.add(root.val); // 中序遍历，先将左边节点的值加入List中，再加入root的值</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>root<span class="token punctuation">.</span>right <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-          <span class="token function">helper</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">,</span> res<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-      <span class="token comment" spellcheck="true">// res.add(root.val); // 后序遍历，先将左右节点的值加入List中，最后加入root的值</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
-<h4 id="3-前、中、后序遍历-迭代版"><a href="#3-前、中、后序遍历-迭代版" class="headerlink" title="3. 前、中、后序遍历(迭代版)"></a>3. 前、中、后序遍历(迭代版)</h4><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//前序</span>
-<span class="token keyword">class</span> <span class="token class-name">Solution</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    <span class="token keyword">public</span> List<span class="token operator">&lt;</span>Integer<span class="token operator">></span> <span class="token function">preorderTraversal</span><span class="token punctuation">(</span>TreeNode root<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-      List<span class="token operator">&lt;</span>Integer<span class="token operator">></span> ans <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-      <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    LinkedList<span class="token operator">&lt;</span>TreeNode<span class="token operator">></span> stack <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LinkedList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 需要不断的增删，因此用LinkedList</span>
-    stack<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>root<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">!</span>nodes<span class="token punctuation">.</span><span class="token function">isEmpty</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-      TreeNode n <span class="token operator">=</span> stack<span class="token punctuation">.</span><span class="token function">pollLast</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">//根据stack先进后出的原则，先从上到下获取所有左节点的值，再往右获取所有右节点的值</span>
-      ans<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>n<span class="token punctuation">.</span>val<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>n<span class="token punctuation">.</span>right <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        stack<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>n<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-      <span class="token keyword">if</span> <span class="token punctuation">(</span>n<span class="token punctuation">.</span>left <span class="token operator">!=</span> null<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-        stack<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>n<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
-      <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+  public void helper(TreeNode root, List <Integer> res) {
+    if (root != null) {
+      // res.add(root.val); // 前序遍历，先将root的值加入List中
+        if (root.left != null) {
+        helper(root.left, res);
+      }
+      // res.add(root.val); // 中序遍历，先将左边节点的值加入List中，再加入root的值
+      if (root.right != null) {
+          helper(root.right, res);
+      }
+      // res.add(root.val); // 后序遍历，先将左右节点的值加入List中，最后加入root的值
+    }
+  }
+}
+</code></pre>
+<h4 id="3-前、中、后序遍历-迭代版"><a href="#3-前、中、后序遍历-迭代版" class="headerlink" title="3. 前、中、后序遍历(迭代版)"></a>3. 前、中、后序遍历(迭代版)</h4><pre class=" language-lang-java"><code class="language-lang-java">//前序
+class Solution {
+    public List<Integer> preorderTraversal(TreeNode root) {
+      List<Integer> ans = new LinkedList<>();
+    if (root == null) {
+      return ans;
+    }
+    LinkedList<TreeNode> stack = new LinkedList<>(); // 需要不断的增删，因此用LinkedList
+    stack.add(root);
+    while (!nodes.isEmpty()) {
+      TreeNode n = stack.pollLast(); //根据stack先进后出的原则，先从上到下获取所有左节点的值，再往右获取所有右节点的值
+      ans.add(n.val);
+      if (n.right != null) {
+        stack.add(n.right);
+      }
+      if (n.left != null) {
+        stack.add(n.left);
+      }
+    }
 
-    <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
-    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+    return ans;
+    }
+}
 
 
-<span class="token comment" spellcheck="true">// 中序</span>
+// 中序
 </code></pre>
 <h4 id="4-层次遍历"><a href="#4-层次遍历" class="headerlink" title="4. 层次遍历"></a>4. 层次遍历</h4>
             </div>
@@ -915,7 +917,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4.7k</span>&nbsp;字
+                class="white-color">3.5k</span>&nbsp;字
             
             
             
@@ -1080,21 +1082,6 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 
 </html>

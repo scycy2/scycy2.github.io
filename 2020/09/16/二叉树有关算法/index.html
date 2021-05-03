@@ -467,7 +467,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    104
+                    88
                 </div>
                 
 
@@ -484,27 +484,28 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="1-二叉树定义-java"><a href="#1-二叉树定义-java" class="headerlink" title="1. 二叉树定义(java)"></a>1. 二叉树定义(java)</h4><pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">// Definition for a binary tree node.</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TreeNode</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    <span class="token keyword">int</span> val<span class="token punctuation">;</span>
-  TreeNode left<span class="token punctuation">;</span>
-  TreeNode right<span class="token punctuation">;</span>
-  <span class="token function">TreeNode</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span> val <span class="token operator">=</span> x<span class="token punctuation">;</span> <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
-<h4 id="2-二叉树翻转"><a href="#2-二叉树翻转" class="headerlink" title="2. 二叉树翻转"></a>2. 二叉树翻转</h4><img src="/2020/09/16/%E4%BA%8C%E5%8F%89%E6%A0%91%E6%9C%89%E5%85%B3%E7%AE%97%E6%B3%95/apple/blog/source/_posts/二叉树有关算法/截屏2020-09-16 下午4.04.19.png" style="zoom:50%;">
-
-<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//简单递归即可实现</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-  <span class="token keyword">public</span> TreeNode <span class="token function">invertTree</span><span class="token punctuation">(</span>TreeNode root<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token keyword">return</span> null<span class="token punctuation">;</span>
-    TreeNode left <span class="token operator">=</span> <span class="token function">invertTree</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    TreeNode right <span class="token operator">=</span> <span class="token function">invertTree</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    root<span class="token punctuation">.</span>right <span class="token operator">=</span> left<span class="token punctuation">;</span>
-    root<span class="token punctuation">.</span>left <span class="token operator">=</span> right<span class="token punctuation">;</span>
-    <span class="token keyword">return</span> root<span class="token punctuation">;</span>
-  <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
-<span class="token comment" spellcheck="true">// 当然还可以用四种遍历来解决这道题</span></code></pre>
+                <h4 id="1-二叉树定义-java"><a href="#1-二叉树定义-java" class="headerlink" title="1. 二叉树定义(java)"></a>1. 二叉树定义(java)</h4><pre class=" language-lang-java"><code class="language-lang-java">// Definition for a binary tree node.
+public class TreeNode {
+    int val;
+  TreeNode left;
+  TreeNode right;
+  TreeNode(int x) { val = x; }
+}
+</code></pre>
+<h4 id="2-二叉树翻转"><a href="#2-二叉树翻转" class="headerlink" title="2. 二叉树翻转"></a>2. 二叉树翻转</h4><p><img src="/2020/09/16/%E4%BA%8C%E5%8F%89%E6%A0%91%E6%9C%89%E5%85%B3%E7%AE%97%E6%B3%95/apple/blog/source/_posts/二叉树有关算法/截屏2020-09-16 下午4.04.19.png" style="zoom:50%;"></p>
+<pre class=" language-lang-java"><code class="language-lang-java">//简单递归即可实现
+public class Solution{
+  public TreeNode invertTree(TreeNode root) {
+    if (root == null) return null;
+    TreeNode left = invertTree(root.left);
+    TreeNode right = invertTree(root.right);
+    root.right = left;
+    root.left = right;
+    return root;
+  }
+}
+// 当然还可以用四种遍历来解决这道题
+</code></pre>
 
             </div>
             <hr/>
@@ -889,7 +890,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4.7k</span>&nbsp;字
+                class="white-color">3.5k</span>&nbsp;字
             
             
             
@@ -1054,21 +1055,6 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 
 </html>
