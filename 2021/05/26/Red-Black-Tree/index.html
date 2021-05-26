@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="算法复杂度, 学习, 算法, java, 记录">
+    <meta name="keywords" content="Red-Black Tree, 学习, 算法, java, 记录">
     <meta name="description" content="大学狗的学习之旅">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>算法复杂度 | 再`見</title>
+    <title>Red-Black Tree | 再`見</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -286,12 +286,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">算法复杂度</h1>
+                    <h1 class="description center-align post-title">Red-Black Tree</h1>
                 </div>
             </div>
         </div>
@@ -408,12 +408,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                <span class="chip bg-color">算法</span>
+                            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                                <span class="chip bg-color">数据结构</span>
                             </a>
                         
-                            <a href="/tags/%E5%A4%8D%E6%9D%82%E5%BA%A6%E8%AE%A1%E7%AE%97/">
-                                <span class="chip bg-color">复杂度计算</span>
+                            <a href="/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/">
+                                <span class="chip bg-color">红黑树</span>
                             </a>
                         
                     </div>
@@ -424,8 +424,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                学习
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                学习笔记
                             </a>
                         
                     </div>
@@ -437,21 +437,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-29
+                    2021-05-26
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-12-19
+                    2021-05-26
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    678
+                    560
                 </div>
                 
 
@@ -468,145 +468,147 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>最近学习了时间和空间复杂度计算</p>
-<h3 id="1-时间复杂度"><a href="#1-时间复杂度" class="headerlink" title="1. 时间复杂度"></a>1. 时间复杂度</h3><h4 id="1-1-大O表示法："><a href="#1-1-大O表示法：" class="headerlink" title="1.1 大O表示法："></a>1.1 大O表示法：</h4><p>用O(n)来体现算法的时间复杂度。</p>
-<p>大O表示法O(f(n))中f(n)可以是1、n<sup>2</sup>、logn等，接下来看看如何推倒大O阶。</p>
-<h4 id="1-2-推导大O阶规则："><a href="#1-2-推导大O阶规则：" class="headerlink" title="1.2 推导大O阶规则："></a>1.2 推导大O阶规则：</h4><p>a. <strong>用1来代替运行时间中的所有加法常数</strong></p>
-<p>b. <strong>f(n)若是多项式，只保留最高阶项即可</strong></p>
-<p>c. <strong>去掉最高阶项系数</strong></p>
-<h4 id="1-3"><a href="#1-3" class="headerlink" title="1.3"></a>1.3</h4><ul>
-<li><p>常数阶</p>
-<pre class=" language-lang-java"><code class="language-lang-java">int i = 0; 
-i++;
-System.out.println("O");
-i--;
-//每一句都只执行一次
-</code></pre>
-<p>这段代码执行次数为4次，根据规则a，其时间复杂度为O(1)。</p>
-<pre class=" language-lang-java"><code class="language-lang-java">int i = 0;
-while (i < 100) {
-    i++;
-}
-System.out.Println(i);
-</code></pre>
-<p>这段代码虽然循环了100次，但它的时间复杂度依然为O(1)，因为它的执行次数只是一个较大的常数.</p>
-</li>
-<li><p>线性阶</p>
-<pre class=" language-lang-java"><code class="language-lang-java">for (int i = 0; i < n; i++) {
-    System.out.println(i);
-}
-</code></pre>
-<p>此段代码为for循环，其中<code>int i = 0</code>只执行一次，<code>i &lt; n</code>执行n次，<code>i++</code>执行n次，打印语句也执行了n次，因此这段代码执行次数为3n+1，根据规则，T(n) = O(n)。</p>
-</li>
-<li><p>对数阶</p>
-<pre class=" language-lang-java"><code class="language-lang-java">int i = 0; //执行一次
-while (i < n) { 
-    i *= 2;
-}
-System.out.println(i); //执行一次
-</code></pre>
-<p>中间循环体<code>i &lt; n</code>以及<code>i *= 2</code>都分别执行了log<sub>2</sub>n次，因为i每次翻倍增加，通过计算可知中间循环体循环了log<sub>2</sub>n次，一次这段代码执行次数为1+2log<sub>2</sub>n，根据规则，T(n) = O(logn)。</p>
-</li>
-<li><p>平方阶</p>
-<pre class=" language-lang-java"><code class="language-lang-java">for (int i = 0; i < n; i++) {
-    for (int j = 0; j < n; j++) { // for (int j = 0; j < i + 1; j++)
-        System.out.println(i + " " + j);
-    }
-}
-</code></pre>
-<p>最内层循环体执行次数为xn<sup>2</sup>(x为某常数)，可得该段代码执行次数最高阶项为xn<sup>2</sup>，根据规则，T(n) = O(n<sup>2</sup>)。</p>
-<p>同样可得立方阶，四次方阶……</p>
-</li>
-<li><p>碰到的较复杂的算法复杂度分析</p>
-<pre class=" language-lang-java"><code class="language-lang-java">/**
- * Definition for singly-linked list.
- * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) { val = x; }
- * }
- */
-//合并K个有序链表
-class Solution {
-    public ListNode mergeKLists(ListNode[] lists) {
-        if (lists.length == 0) {
-            return null;
-        }
-        ListNode ans = lists[0];
-        for (int i = 1; i < lists.length; i++) {
-            if (lists[i] == null) continue;
-            ans = mergeTwoLists(ans, lists[i]);
-        }
-        return ans;
+                <h2 align="center">Red-Black Trees</h2>
 
-    }
-
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        ListNode head = new ListNode();
-        ListNode curr = head;
-        while(l1 != null && l2 != null) {
-            if (l1.val <= l2.val) {
-                curr.next = l1;
-                curr = curr.next;
-                l1 = l1.next;
-            }else {
-                curr.next = l2;
-                curr = curr.next;
-                l2 = l2.next;
-            }
-        }
-
-        if (l1 == null) {
-            curr.next = l2;
-        }
-        if (l2 == null) {
-            curr.next = l1;
-        }
-        return head.next;
-    }
-}
-</code></pre>
-<p>首先分析<code>mergeTwoLists</code>函数的时间复杂度，假设每个链表的长度为n，可简单地得出该函数的T(o) = O(n + n) = O(n) (为简便，只计算循环体执行次数)。再分析<code>mergeKLists</code>函数的时间复杂度，同样的每个链表长度都为n，第一次合并前两个链表，此时<code>ans</code> 的长度都为2n，第x次合并后，长度变为xn，第x次的时间代价为O(n + (x - 1) $\times$ n) = O(x $\times$ n)，此时总的时间代价可用求和公式计算O($\sum_{i=1}^k(i\times n)$) = O($\frac{(1+k)\times k}{2}\times n$) = O(k<sup>2</sup>$\times $n)，所以时间复杂度为O(k<sup>2</sup> $\times$ n)。</p>
+<h4 id="1-Definition"><a href="#1-Definition" class="headerlink" title="1. Definition"></a>1. Definition</h4><ul>
+<li>A red-black tree is a binary search tree that satisfies the following properties:<ul>
+<li><strong>Root Property</strong>: the root is black</li>
+<li><strong>External Property</strong>: every leaf is black</li>
+<li><strong>Internal/Red Property</strong>: the children of a red node are black</li>
+<li><strong>Depth Property</strong>: all the leaves have the same <em>black depth</em>, defined as the number of proper ancestors that are black</li>
+</ul>
 </li>
 </ul>
-<h3 id="2-空间复杂度"><a href="#2-空间复杂度" class="headerlink" title="2. 空间复杂度"></a>2. 空间复杂度</h3><h4 id="2-1-空间复杂度是对一个算法在运行过程中临时占用存储空间大小的一个量度，与时间复杂度一样反应的是一个趋势，用S-n-来定义。"><a href="#2-1-空间复杂度是对一个算法在运行过程中临时占用存储空间大小的一个量度，与时间复杂度一样反应的是一个趋势，用S-n-来定义。" class="headerlink" title="2.1 空间复杂度是对一个算法在运行过程中临时占用存储空间大小的一个量度，与时间复杂度一样反应的是一个趋势，用S(n)来定义。"></a>2.1 空间复杂度是对一个算法在运行过程中临时占用存储空间大小的一个量度，与时间复杂度一样反应的是一个趋势，用S(n)来定义。</h4><h4 id="2-2"><a href="#2-2" class="headerlink" title="2.2"></a>2.2</h4><p>空间复杂度常用的有O(1), O(n), O(n<sup>2</sup>)</p>
-<h4 id="2-3"><a href="#2-3" class="headerlink" title="2.3"></a>2.3</h4><ul>
-<li><p>O(1)</p>
-<pre class=" language-lang-java"><code class="language-lang-java">public static void BubbleSort(int[] nums) {
-  for (int i = 0; i < nums.length - 1; i++) {
-    for (int j = 0; j < nums.length - 1 - i; j++) {
-      if (nums[j] > nums[j+1]) {
-        int temp = nums[j];
-        nums[j] = nums[j+1];
-        nums[j+1] = temp;
-      }
-    }
-  }
-}
-</code></pre>
-<p>经典的冒泡排序以及插入排序、选择排序等都是空间复杂度为O(1)的算法，因为它没有临时占用额外的存储空间，只在自己的数组里进行交换。</p>
+<h4 id="2-From-Red-Black-to-2-4-Trees"><a href="#2-From-Red-Black-to-2-4-Trees" class="headerlink" title="2. From Red-Black to $(2,4)$ Trees"></a>2. From Red-Black to $(2,4)$ Trees</h4><ul>
+<li>Given a red-black tree, we can construct a corresponding $(2,4)$ tree:<ul>
+<li>merge every red node $w$ into its parent, storing the entry from $w$ at its parent</li>
+<li>the children of $w$ become ordered children of the parent</li>
+</ul>
 </li>
-<li><p>O(n)</p>
-<pre class=" language-lang-java"><code class="language-lang-java">class Solution {
-    public int climbStairs(int n) {
-        int[] dp = new int[n+1];
-        dp[0] = 0;
-        dp[1] = 1;
-        if (n == 1) {
-            return dp[n];
-        }
-        dp[2] = 2;
-        if (n >= 3){
-            for (int i = 3; i <= n; i++) {
-                dp[i] = dp[i-1] + dp[i-2];
-            }
-        }
-        return dp[n];
-    }
-}
-</code></pre>
-<p>这是leetcode上一道算法题，需要你计算爬到n阶且每次只能爬1或2阶有多少种不同的方法。很显然这是一道动态规划的题目，因此我们可以new一个数组来保存爬1～n阶各有多少种方法，而到n阶的方法就是到n-1阶和到n-2阶的方法和。这里我们new了一个长度为n+1的数组，用了额外的空间来存储我们需要的数据，因此空间复杂度为O(n+1) = O(n)。</p>
+<li>Depth Property:<ul>
+<li>$(2,4)$ Tree: all the external nodes have the same depth</li>
+<li>Red-Black Tree: all the leaves have the same <em>black depth</em></li>
+</ul>
 </li>
+<li>A red-black tree is a representation of a $(2,4)$ tree by means of a binary tree whose nodes are colored red or black</li>
+<li>In comparison with its associated $(2,4)$ tree, a red-black tree has<ul>
+<li>same logarithmic time performance</li>
+<li>simpler implementation with a single node type</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-Height-of-a-Red-Black-Tree"><a href="#3-Height-of-a-Red-Black-Tree" class="headerlink" title="3. Height of a Red-Black Tree"></a>3. Height of a Red-Black Tree</h4><ul>
+<li>Theorem: A red-black tree storing $n$ items has height $O(\log n)$<ul>
+<li>Proof:<ul>
+<li>The height of a red-black tree is at most twice the height of its associated $(2,4)$ tree, which is $O(\log n)$</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-Search"><a href="#4-Search" class="headerlink" title="4. Search"></a>4. Search</h4><ul>
+<li>The search algorithm for a red-black tree is the same as that for a binary search tree</li>
+<li>Searching in a red-black tree takes $O(\log n)$ time</li>
+</ul>
+<h4 id="5-Insertion"><a href="#5-Insertion" class="headerlink" title="5. Insertion"></a>5. Insertion</h4><ul>
+<li><p>To insert $(k, o)$, we execute the insertion algorithm for binary search trees and color <strong>red</strong> the newly inserted node $z$ <em>unless it is the root</em></p>
+<ul>
+<li>We preserve the root, external, and depth properties</li>
+<li>If the parent $v$ of $z$ is black, we also preserve the internal property and we are done</li>
+<li>Else ($v$ is red) we have a <strong>double red</strong> (i.e., a violation of the internal property), which requires a reorganization of the tree</li>
+</ul>
+</li>
+<li><p><strong>Remedying a Double Red</strong></p>
+<ul>
+<li>Consider a double red with child $z$ and parent $v$, and let $w$ be the sibling of $v$</li>
+<li>Case1: $w$ is black<ul>
+<li>The double red is an incorrect replacement of a 4-node</li>
+<li><strong>Restructuring</strong>: we change the 4-node replacement</li>
+</ul>
+</li>
+<li>Case2: $w$ is red<ul>
+<li>The double red corresponds to an overflow</li>
+<li><strong>Recoloring</strong>: we perform the equivalent of a <strong>split</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Restructuring</strong></p>
+<ul>
+<li><p>A restructuring remedies a child-parent double red when the parent red node has a black sibling</p>
+</li>
+<li><p>It is equivalent to restoring the <em>correct replacement</em> of a 4-node</p>
+</li>
+<li><p>The internal property is restored and the other properties are preserved</p>
+</li>
+<li><p>There are four restructuring configrations depending on whether the double red nodes are left or right children</p>
+<p><img src="/2021/05/26/Red-Black-Tree/apple/Desktop/Y3/ACE/pictures/Screen Shot 2021-05-10 at 7.22.25 PM.png" style="zoom:50%;"></p>
+</li>
+</ul>
+</li>
+<li><p><strong>Recoloring</strong></p>
+<ul>
+<li>A recoloring remedies a child-parent double red when the parent red node has a red sibling</li>
+<li>The parent $v$ and its sibling $w$ become black and the grandparent $u$ becomes red, unless it is the root</li>
+<li>It is equivalent to performing a split on a 5-node</li>
+<li><em>The double red violation may propagate to the grangparent $u$</em></li>
+</ul>
+</li>
+<li><p>Analysis of Insertion</p>
+<ul>
+<li><pre class=" language-lang-pseudocode"><code class="language-lang-pseudocode">Algorithm insert(k, o)
+1. We search for key k to locate the insertion node z
+2. We add the new entry (k, o) at node z and color z red
+3. while doubleRed(z)
+        if isBlack(sibling(parent(z)))
+            z <- restructure(z)
+            return
+        else sibling(parent(z)) is red
+            z <- recolor(z)
+</code></pre>
+</li>
+<li><p>Recall that a red-black tree has $O(\log n)$ height</p>
+</li>
+<li><p>Step 1 takes $O(\log n)$ time because we visit $O(\log n)$ nodes</p>
+</li>
+<li><p>Step 2 takes $O(1)$ time</p>
+</li>
+<li><p>Step 3 takes $O(\log n)$ time because we perform</p>
+<ul>
+<li>$O(\log n)$ recoloring, each taking $O(1)$ time, and</li>
+<li>at most one restructuring taking $O(1)$ time</li>
+</ul>
+</li>
+<li><p>Thus, an insertion in a red-black tree takes $O(\log n)$ time</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="6-Deletion"><a href="#6-Deletion" class="headerlink" title="6. Deletion"></a>6. Deletion</h4><ul>
+<li>To perform operation $remove(k)$, we first execute the deletion algorithm for binary search trees</li>
+<li>Let $v$ be the internal node removed, $w$ the external node removed, and $r$ the sibling of $w$<ul>
+<li>If $v$ was red, the resulting tree remains a valid red-black tree</li>
+<li>If $v$ was black and $r$ was red, we color $r$ black and we are done</li>
+<li>Else ($v$ and $r$ were both black) we color $r$ <strong><em>double black</em></strong>, to preserve the depth property</li>
+</ul>
+</li>
+<li><strong>Remedying a Double Black</strong><ul>
+<li>The algorithm for remedying a double black node $r$ with sibling $y$ considers three cases</li>
+<li>Case1: $y$ is black and has a red child<ul>
+<li>We perform a <strong>restructuring</strong>, equivalent to a <strong>transfer</strong>, and we are done.</li>
+</ul>
+</li>
+<li>Case2: sibling $y$ of $r$ is black and its children are both black<ul>
+<li>We perform a <strong>recoloring</strong>, equivalent to a <strong>fusion</strong>, which may propagate up the double black violation</li>
+</ul>
+</li>
+<li>Case3: $y$ is red<ul>
+<li>We perform an <strong>adjustment</strong>, equivalent to choosing a different representation of a 3-node, after which either Case 1 or Case 2 applies</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Deletion in a red-black tree takes $O(\log n)$ time</li>
 </ul>
 
             </div>
@@ -633,7 +635,7 @@ class Solution {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://scycy2.github.io/2020/07/29/%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6/">https://scycy2.github.io/2020/07/29/%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6/</a>
+                    <a href="https://scycy2.github.io/2021/05/26/Red-Black-Tree/">https://scycy2.github.io/2021/05/26/Red-Black-Tree/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -671,12 +673,12 @@ class Solution {
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                    <span class="chip bg-color">算法</span>
+                                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                                    <span class="chip bg-color">数据结构</span>
                                 </a>
                             
-                                <a href="/tags/%E5%A4%8D%E6%9D%82%E5%BA%A6%E8%AE%A1%E7%AE%97/">
-                                    <span class="chip bg-color">复杂度计算</span>
+                                <a href="/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/">
+                                    <span class="chip bg-color">红黑树</span>
                                 </a>
                             
                         </div>
@@ -718,45 +720,43 @@ class Solution {
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/09/13/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9B%9B%E7%A7%8D%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F/">
+                <a href="/2021/05/26/Red-Black-Tree/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="二叉树四种遍历方式">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Red-Black Tree">
                         
-                        <span class="card-title">二叉树四种遍历方式</span>
+                        <span class="card-title">Red-Black Tree</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            二叉树遍历
+                            红黑树定义及简单操作
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-09-13
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-26
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    学习
-                                </a>
-                            
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0/%E8%AE%B0%E5%BD%95/" class="post-category">
-                                    记录
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    学习笔记
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -764,20 +764,8 @@ class Solution {
                         <span class="chip bg-color">数据结构</span>
                     </a>
                     
-                    <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
-                        <span class="chip bg-color">未完待续</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%80%BB%E7%BB%93/">
-                        <span class="chip bg-color">总结</span>
-                    </a>
-                    
-                    <a href="/tags/java/">
-                        <span class="chip bg-color">java</span>
+                    <a href="/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/">
+                        <span class="chip bg-color">红黑树</span>
                     </a>
                     
                 </div>
@@ -791,30 +779,31 @@ class Solution {
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/18/hexo-theme-matery%E4%B8%BB%E9%A2%98%E9%83%A8%E5%88%86%E4%BC%98%E5%8C%96/">
+                <a href="/2021/02/28/%E8%A1%8C%E5%88%97%E5%BC%8F/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="hexo-theme-matery主题部分优化">
                         
-                        <span class="card-title">hexo-theme-matery主题部分优化</span>
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="行列式">
+                        
+                        <span class="card-title">行列式</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            hexo 优化
+                            行列式笔记
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-18
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-28
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Hexo-%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="post-category">
-                                    Hexo 个人博客
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    学习笔记
                                 </a>
                             
                             
@@ -824,16 +813,12 @@ class Solution {
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%8E%9F%E5%88%9B/">
-                        <span class="chip bg-color">原创</span>
+                    <a href="/tags/%E6%95%B0%E5%AD%A6/">
+                        <span class="chip bg-color">数学</span>
                     </a>
                     
-                    <a href="/tags/%E4%BA%B2%E8%BA%AB%E7%BB%8F%E5%8E%86/">
-                        <span class="chip bg-color">亲身经历</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
-                        <span class="chip bg-color">未完待续</span>
+                    <a href="/tags/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/">
+                        <span class="chip bg-color">线性代数</span>
                     </a>
                     
                 </div>
@@ -968,53 +953,9 @@ class Solution {
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
-
 
 
     <footer class="page-footer bg-color">
-    
-    <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-    "HTML-CSS": { 
-        preferredFont: "TeX", 
-        availableFonts: ["STIX","TeX"], 
-        linebreaks: { automatic:true }, 
-        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
-    },
-    tex2jax: { 
-        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
-        processEscapes: true, 
-        ignoreClass: "tex2jax_ignore|dno",
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {  
-        equationNumbers: { autoNumber: "AMS" },
-        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
-        Macros: { href: "{}" } 
-    },
-    messageStyle: "none"
-    }); 
-</script>
-<!-- 给MathJax元素添加has-jax class -->
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<!-- 通过连接CDN加载MathJax的js代码 -->
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
     
     
     <div class="container row center-align" style="margin-bottom: 15px !important;">
