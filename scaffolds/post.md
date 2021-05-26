@@ -6,5 +6,4 @@ categories:
 cover:
 summary:
 img:
-mathjax: 
 ---
