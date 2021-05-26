@@ -6,6 +6,7 @@ categories: '学习笔记'
 cover: true
 summary: "红黑树定义及简单操作"
 img:
+mathjax: true
 ---
 
 <h2 align='center'>Red-Black Trees</h2>
