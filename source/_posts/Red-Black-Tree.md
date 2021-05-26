@@ -70,7 +70,7 @@ img:
 
   * There are four restructuring configrations depending on whether the double red nodes are left or right children
 
-    <img src="/Users/apple/Desktop/Y3/ACE/pictures/Screen Shot 2021-05-10 at 7.22.25 PM.png" style="zoom:50%;" />
+    <img src="Red-Black-Tree/Screen Shot 2021-05-10 at 7.22.25 PM.png" style="zoom:50%;" />
 
 * **Recoloring**
 
