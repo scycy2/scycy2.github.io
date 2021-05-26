@@ -132,7 +132,7 @@ indexbtn:
 # icon/button will not show up if you leave the corresponding socialLink empty
 # 首页 banner 中的第二行个人信息配置，留空即不启用
 socialLink:
-  github:  https://github.com/scycy2
+  github: https://github.com/scycy2
   email: Chenglei.You@outlook.com
   facebook: # https://www.facebook.com/xxx
   twitter: # https://twitter.com/xxx
