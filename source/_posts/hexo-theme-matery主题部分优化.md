@@ -6,6 +6,7 @@ categories: "Hexo 个人博客"
 summary: "hexo 优化"
 cover: true
 img: /medias/featureimages/25.jpg
+mathjax: true
 ---
 
 hexo-theme-matery下载与配置: <https://github.com/blinkfox/hexo-theme-matery>
