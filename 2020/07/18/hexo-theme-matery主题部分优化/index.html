@@ -480,13 +480,13 @@
 <p>首先找到<code>/hexo-theme-matery/layout/about.ejs</code> ，并找到代码如下：</p>
 <pre class=" language-lang-js"><code class="language-lang-js"><div class="author"> //作者信息
     <div class="post-statis hide-on-large-only" data-aos="zoom-in-right">
-        <%- partial('_partial/post-statis') %>
-    </div> //引用另一个文件，表示的是左边文章、分类、标签以及他们的数量
-    <div class="title"><%- config.author %></div> //作者名字，在blog/_config.yml中配置
-    <div class="career"><%- theme.profile.career %></div> //作者职业，在/hexo-theme-matery/layout/about.ejs中配置
+        <%- partial('_partial post-statis') %>
+    </%-></div> //引用另一个文件，表示的是左边文章、分类、标签以及他们的数量
+    <div class="title"><%- config.author %></%-></div> //作者名字，在blog/_config.yml中配置
+    <div class="career"><%- theme.profile.career %></%-></div> //作者职业，在/hexo-theme-matery/layout/about.ejs中配置
     <div class="social-link hide-on-large-only" data-aos="zoom-in-left">
-    <%- partial('_partial/social-link') %>
-    </div> //右边github、email、QQ等的链接，也可自己减少或增加
+    <%- partial('_partial social-link') %>
+    </%-></div> //右边github、email、QQ等的链接，也可自己减少或增加
 </div>
 </code></pre>
 <p>因此想要修改或增加自己的信息，需要在相应的配置文件里进行修改或增加。</p>
@@ -897,7 +897,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">3.8k</span>&nbsp;字
+                class="white-color">4.2k</span>&nbsp;字
             
             
             
