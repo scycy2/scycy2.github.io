@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Red-Black Tree, 学习, 算法, java, 记录">
+    <meta name="keywords" content="Linear Regression, 学习, 算法, java, 记录">
     <meta name="description" content="大学狗的学习之旅">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Red-Black Tree | 再`見</title>
+    <title>Linear Regression | 再`見</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -286,12 +286,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Red-Black Tree</h1>
+                    <h1 class="description center-align post-title">Linear Regression</h1>
                 </div>
             </div>
         </div>
@@ -408,12 +408,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                                <span class="chip bg-color">数据结构</span>
+                            <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
+                                <span class="chip bg-color">未完待续</span>
                             </a>
                         
-                            <a href="/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/">
-                                <span class="chip bg-color">红黑树</span>
+                            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">机器学习</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">
+                                <span class="chip bg-color">线性回归</span>
                             </a>
                         
                     </div>
@@ -437,21 +441,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-26
+                    2021-06-01
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-05-26
+                    2021-06-01
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    560
+                    617
                 </div>
                 
 
@@ -468,149 +472,67 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 align="center">Red-Black Trees</h2>
-
-<h4 id="1-Definition"><a href="#1-Definition" class="headerlink" title="1. Definition"></a>1. Definition</h4><ul>
-<li>A red-black tree is a binary search tree that satisfies the following properties:<ul>
-<li><strong>Root Property</strong>: the root is black</li>
-<li><strong>External Property</strong>: every leaf is black</li>
-<li><strong>Internal/Red Property</strong>: the children of a red node are black</li>
-<li><strong>Depth Property</strong>: all the leaves have the same <em>black depth</em>, defined as the number of proper ancestors that are black</li>
+                <h5 id="Notation"><a href="#Notation" class="headerlink" title="Notation"></a>Notation</h5><ul>
+<li>$x^{(i)}$ to denote the “input” variables, also called input features.</li>
+<li>$y^{(i)}$ to denote the “output” or target variable that we are trying to predict.</li>
+<li>A pair $(x^{(i)}, y^{(i)})$ is called a training example.</li>
+<li>The dataset that we’ll be using to learn - a list of $m$ training examples $(x^{(i)}, y^{(i)}); i = 1, \cdots, m$ - is called a training set.</li>
+<li>Note that the superscript “$(i)$” in the notation is simply an index into the training set, and has nothing to do with exponentiation.</li>
+<li>$X$ to denote the space of input values.</li>
+<li>$Y$ to denote the space of output values.</li>
 </ul>
+<h4 id="1-Model-Representation"><a href="#1-Model-Representation" class="headerlink" title="1. Model Representation"></a>1. Model Representation</h4><ul>
+<li>Given a training set, to learn a function $h: X\rightarrow Y$ so that $h(x)$ is a “good” predictor for the corresponding value of $y$. $h$ is called a hypothesis.</li>
+<li>When the target variable that we’re trying to predict is continuous, we call the learning problem a regression problem.</li>
+</ul>
+<h4 id="2-Cost-Function-Loss-Function"><a href="#2-Cost-Function-Loss-Function" class="headerlink" title="2. Cost Function (Loss Function)"></a>2. Cost Function (Loss Function)</h4><ul>
+<li><p>This takes an average difference (actually a fancier version of an average) of all the results of the hypothesis with inputs from $x$’s and the actual output $y$’s.</p>
+</li>
+<li><script type="math/tex; mode=display">
+J(\theta_0, \theta_1) = \frac{1}{2m}\sum_{i=1}^{m}(\hat{y_i} - y_i)^2 = \frac{1}{2m}\sum_{i=1}^{m}(h_{\theta}(x_i) - y_i)^2</script></li>
+<li><p>This function is otherwise called the “Squared error function”, or “Mean squared error”. The mean is halved $(\frac{1}{2})$ as a convenience for the computation of the gradient descent, as the derivative term of the square function will cancel out the $\frac{1}{2}$ term.</p>
+</li>
+<li><p>As a goal, we should try to minimize the cost function.</p>
 </li>
 </ul>
-<h4 id="2-From-Red-Black-to-2-4-Trees"><a href="#2-From-Red-Black-to-2-4-Trees" class="headerlink" title="2. From Red-Black to $(2,4)$ Trees"></a>2. From Red-Black to $(2,4)$ Trees</h4><ul>
-<li>Given a red-black tree, we can construct a corresponding $(2,4)$ tree:<ul>
-<li>merge every red node $w$ into its parent, storing the entry from $w$ at its parent</li>
-<li>the children of $w$ become ordered children of the parent</li>
-</ul>
+<h4 id="3-Gradient-Descent"><a href="#3-Gradient-Descent" class="headerlink" title="3. Gradient Descent"></a>3. Gradient Descent</h4><ul>
+<li><p>The slope of the tangent is the derivative at that point and it will give us a direction to move towards. We make steps down the cost function in the direction with the steepest descent. The size of each step is determined by the parameter $\alpha$, which is called the learning rate.</p>
 </li>
-<li>Depth Property:<ul>
-<li>$(2,4)$ Tree: all the external nodes have the same depth</li>
-<li>Red-Black Tree: all the leaves have the same <em>black depth</em></li>
-</ul>
+<li><p>A smaller $\alpha$ would result in a smaller step and a larger $\alpha$ results in a larger step. The direction in which the step is taken is determined by the partial derivative of $J(\theta_0, \theta_1)$.</p>
 </li>
-<li>A red-black tree is a representation of a $(2,4)$ tree by means of a binary tree whose nodes are colored red or black</li>
-<li>In comparison with its associated $(2,4)$ tree, a red-black tree has<ul>
-<li>same logarithmic time performance</li>
-<li>simpler implementation with a single node type</li>
-</ul>
-</li>
-</ul>
-<h4 id="3-Height-of-a-Red-Black-Tree"><a href="#3-Height-of-a-Red-Black-Tree" class="headerlink" title="3. Height of a Red-Black Tree"></a>3. Height of a Red-Black Tree</h4><ul>
-<li>Theorem: A red-black tree storing $n$ items has height $O(\log n)$<ul>
-<li>Proof:<ul>
-<li>The height of a red-black tree is at most twice the height of its associated $(2,4)$ tree, which is $O(\log n)$</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="4-Search"><a href="#4-Search" class="headerlink" title="4. Search"></a>4. Search</h4><ul>
-<li>The search algorithm for a red-black tree is the same as that for a binary search tree</li>
-<li>Searching in a red-black tree takes $O(\log n)$ time</li>
-</ul>
-<h4 id="5-Insertion"><a href="#5-Insertion" class="headerlink" title="5. Insertion"></a>5. Insertion</h4><ul>
-<li><p>To insert $(k, o)$, we execute the insertion algorithm for binary search trees and color <strong>red</strong> the newly inserted node $z$ <em>unless it is the root</em></p>
+<li><p>The gradient descent algorithm is:</p>
 <ul>
-<li>We preserve the root, external, and depth properties</li>
-<li>If the parent $v$ of $z$ is black, we also preserve the internal property and we are done</li>
-<li>Else ($v$ is red) we have a <strong>double red</strong> (i.e., a violation of the internal property), which requires a reorganization of the tree</li>
-</ul>
-</li>
-<li><p><strong>Remedying a Double Red</strong></p>
-<ul>
-<li>Consider a double red with child $z$ and parent $v$, and let $w$ be the sibling of $v$</li>
-<li>Case1: $w$ is black<ul>
-<li>The double red is an incorrect replacement of a 4-node</li>
-<li><strong>Restructuring</strong>: we change the 4-node replacement</li>
-</ul>
-</li>
-<li>Case2: $w$ is red<ul>
-<li>The double red corresponds to an overflow</li>
-<li><strong>Recoloring</strong>: we perform the equivalent of a <strong>split</strong></li>
-</ul>
+<li><p>repeat until convergence:</p>
+<script type="math/tex; mode=display">
+\theta_j := \theta_j - \alpha\frac{\partial}{\partial \theta_j}J(\theta_0, \theta_1)</script><p>where</p>
+<p>$j = 0, 1$ represents the feature index number.</p>
 </li>
 </ul>
 </li>
-<li><p><strong>Restructuring</strong></p>
-<ul>
-<li><p>A restructuring remedies a child-parent double red when the parent red node has a black sibling</p>
+<li><p>At each iterarion $j$, one should simultaneously update the parameters $\theta_1, \theta_2, \cdots, \theta_n$. Updating a specific parameter prior to calculating another one on the $j^{(th)}$ iteration would yield to a wrong implementation.</p>
 </li>
-<li><p>It is equivalent to restoring the <em>correct replacement</em> of a 4-node</p>
-</li>
-<li><p>The internal property is restored and the other properties are preserved</p>
-</li>
-<li><p>There are four restructuring configrations depending on whether the double red nodes are left or right children</p>
-<p><img src="/2021/05/26/Red-Black-Tree/Screen Shot 2021-05-10 at 7.22.25 PM.png" style="zoom:50%;"></p>
-</li>
+<li>We should adjust our parameter $\alpha$ to ensure that the gradient descent algorithm converges in a reasonable time. Failure to converge or too much time to obtain the minimum value imply that our step size is wrong.</li>
+<li>Gradient descent can converge to a local minimum, even with the learning rate $\alpha$ fixed. As we approach a local optimum, gradient descent will automatically take smaller steps. So, no need to decrese $\alpha$ over time.</li>
 </ul>
+<h4 id="4-Multiple-Features"><a href="#4-Multiple-Features" class="headerlink" title="4. Multiple Features"></a>4. Multiple Features</h4><ul>
+<li><p>Linear regression with multiple variables is also known as “multivariate linear regression”.</p>
 </li>
-<li><p><strong>Recoloring</strong></p>
-<ul>
-<li>A recoloring remedies a child-parent double red when the parent red node has a red sibling</li>
-<li>The parent $v$ and its sibling $w$ become black and the grandparent $u$ becomes red, unless it is the root</li>
-<li>It is equivalent to performing a split on a 5-node</li>
-<li><em>The double red violation may propagate to the grangparent $u$</em></li>
+<li><p>$x^{(i)}_j = $ value of feature $j$ in the $i^{th}$ training example</p>
+</li>
+<li><p>$x^{(i)} = $ the input (features) of the $i^{th}$ training example</p>
+</li>
+<li><p>$m = $ the number of training examples</p>
+</li>
+<li><p>$n = $ the number of features</p>
+</li>
+<li><p>The multivariable form of the hypothesis function accommodating these multiple features is as follows:</p>
+<script type="math/tex; mode=display">
+h_{\theta}(x) = \theta_0 + \theta_1x_1 + \theta_2x_2 + \theta_3x_3 + \cdots + \theta_nx_n</script></li>
+<li><p>Using the definition of matrix multiplication, our multivariable hypothesis function can be concisely represented as:</p>
+<script type="math/tex; mode=display">
+h_{\theta}(x) = \begin{bmatrix}\theta_0 & \theta_1 & \cdots & \theta_n\end{bmatrix} \begin{bmatrix}x_0\\x_1\\ \vdots\\ x_n\end{bmatrix} = \theta^Tx</script></li>
 </ul>
-</li>
-<li><p>Analysis of Insertion</p>
-<ul>
-<li><pre class=" language-lang-pseudocode"><code class="language-lang-pseudocode">Algorithm insert(k, o)
-1. We search for key k to locate the insertion node z
-2. We add the new entry (k, o) at node z and color z red
-3. while doubleRed(z)
-        if isBlack(sibling(parent(z)))
-            z <- restructure(z)
-            return
-        else sibling(parent(z)) is red
-            z <- recolor(z)
-</code></pre>
-</li>
-<li><p>Recall that a red-black tree has $O(\log n)$ height</p>
-</li>
-<li><p>Step 1 takes $O(\log n)$ time because we visit $O(\log n)$ nodes</p>
-</li>
-<li><p>Step 2 takes $O(1)$ time</p>
-</li>
-<li><p>Step 3 takes $O(\log n)$ time because we perform</p>
-<ul>
-<li>$O(\log n)$ recoloring, each taking $O(1)$ time, and</li>
-<li>at most one restructuring taking $O(1)$ time</li>
-</ul>
-</li>
-<li><p>Thus, an insertion in a red-black tree takes $O(\log n)$ time</p>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="6-Deletion"><a href="#6-Deletion" class="headerlink" title="6. Deletion"></a>6. Deletion</h4><ul>
-<li>To perform operation $remove(k)$, we first execute the deletion algorithm for binary search trees</li>
-<li>Let $v$ be the internal node removed, $w$ the external node removed, and $r$ the sibling of $w$<ul>
-<li>If $v$ was red, the resulting tree remains a valid red-black tree</li>
-<li>If $v$ was black and $r$ was red, we color $r$ black and we are done</li>
-<li>Else ($v$ and $r$ were both black) we color $r$ <strong><em>double black</em></strong>, to preserve the depth property</li>
-</ul>
-</li>
-<li><strong>Remedying a Double Black</strong><ul>
-<li>The algorithm for remedying a double black node $r$ with sibling $y$ considers three cases</li>
-<li>Case1: $y$ is black and has a red child<ul>
-<li>We perform a <strong>restructuring</strong>, equivalent to a <strong>transfer</strong>, and we are done.</li>
-</ul>
-</li>
-<li>Case2: sibling $y$ of $r$ is black and its children are both black<ul>
-<li>We perform a <strong>recoloring</strong>, equivalent to a <strong>fusion</strong>, which may propagate up the double black violation</li>
-</ul>
-</li>
-<li>Case3: $y$ is red<ul>
-<li>We perform an <strong>adjustment</strong>, equivalent to choosing a different representation of a 3-node, after which either Case 1 or Case 2 applies</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Deletion in a red-black tree takes $O(\log n)$ time</li>
-</ul>
-
+<h4 id="5-Gradient-Descent-for-Multiple-Variables"><a href="#5-Gradient-Descent-for-Multiple-Variables" class="headerlink" title="5. Gradient Descent for Multiple Variables"></a>5. Gradient Descent for Multiple Variables</h4>
             </div>
             <hr/>
 
@@ -635,7 +557,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://scycy2.github.io/2021/05/26/Red-Black-Tree/">https://scycy2.github.io/2021/05/26/Red-Black-Tree/</a>
+                    <a href="https://scycy2.github.io/2021/06/01/Linear-Regression/">https://scycy2.github.io/2021/06/01/Linear-Regression/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -673,12 +595,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                                    <span class="chip bg-color">数据结构</span>
+                                <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
+                                    <span class="chip bg-color">未完待续</span>
                                 </a>
                             
-                                <a href="/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/">
-                                    <span class="chip bg-color">红黑树</span>
+                                <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">机器学习</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">
+                                    <span class="chip bg-color">线性回归</span>
                                 </a>
                             
                         </div>
@@ -720,9 +646,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/06/01/Linear-Regression/">
                     <div class="card-image">
@@ -740,9 +667,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-01
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-01
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -755,6 +682,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -781,31 +709,31 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/09/17/%E5%A0%86/">
+                <a href="/2021/05/26/Red-Black-Tree/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="堆">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Red-Black Tree">
                         
-                        <span class="card-title">堆</span>
+                        <span class="card-title">Red-Black Tree</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            java中堆的一些操作
+                            红黑树定义及简单操作
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-26
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    学习
+                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    学习笔记
                                 </a>
                             
                             
@@ -819,16 +747,8 @@
                         <span class="chip bg-color">数据结构</span>
                     </a>
                     
-                    <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
-                        <span class="chip bg-color">未完待续</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                    <a href="/tags/java/">
-                        <span class="chip bg-color">java</span>
+                    <a href="/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/">
+                        <span class="chip bg-color">红黑树</span>
                     </a>
                     
                 </div>

@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Linear Regression</title>
+      <link href="2021/06/01/Linear-Regression/"/>
+      <url>2021/06/01/Linear-Regression/</url>
+      
+        <content type="html"><![CDATA[<h5 id="Notation"><a href="#Notation" class="headerlink" title="Notation"></a>Notation</h5><ul><li>$x^{(i)}$ to denote the “input” variables, also called input features.</li><li>$y^{(i)}$ to denote the “output” or target variable that we are trying to predict.</li><li>A pair $(x^{(i)}, y^{(i)})$ is called a training example.</li><li>The dataset that we’ll be using to learn - a list of $m$ training examples $(x^{(i)}, y^{(i)}); i = 1, \cdots, m$ - is called a training set.</li><li>Note that the superscript “$(i)$” in the notation is simply an index into the training set, and has nothing to do with exponentiation.</li><li>$X$ to denote the space of input values.</li><li>$Y$ to denote the space of output values.</li></ul><h4 id="1-Model-Representation"><a href="#1-Model-Representation" class="headerlink" title="1. Model Representation"></a>1. Model Representation</h4><ul><li>Given a training set, to learn a function $h: X\rightarrow Y$ so that $h(x)$ is a “good” predictor for the corresponding value of $y$. $h$ is called a hypothesis.</li><li>When the target variable that we’re trying to predict is continuous, we call the learning problem a regression problem.</li></ul><h4 id="2-Cost-Function-Loss-Function"><a href="#2-Cost-Function-Loss-Function" class="headerlink" title="2. Cost Function (Loss Function)"></a>2. Cost Function (Loss Function)</h4><ul><li><p>This takes an average difference (actually a fancier version of an average) of all the results of the hypothesis with inputs from $x$’s and the actual output $y$’s.</p></li><li><script type="math/tex; mode=display">J(\theta_0, \theta_1) = \frac{1}{2m}\sum_{i=1}^{m}(\hat{y_i} - y_i)^2 = \frac{1}{2m}\sum_{i=1}^{m}(h_{\theta}(x_i) - y_i)^2</script></li><li><p>This function is otherwise called the “Squared error function”, or “Mean squared error”. The mean is halved $(\frac{1}{2})$ as a convenience for the computation of the gradient descent, as the derivative term of the square function will cancel out the $\frac{1}{2}$ term.</p></li><li><p>As a goal, we should try to minimize the cost function.</p></li></ul><h4 id="3-Gradient-Descent"><a href="#3-Gradient-Descent" class="headerlink" title="3. Gradient Descent"></a>3. Gradient Descent</h4><ul><li><p>The slope of the tangent is the derivative at that point and it will give us a direction to move towards. We make steps down the cost function in the direction with the steepest descent. The size of each step is determined by the parameter $\alpha$, which is called the learning rate.</p></li><li><p>A smaller $\alpha$ would result in a smaller step and a larger $\alpha$ results in a larger step. The direction in which the step is taken is determined by the partial derivative of $J(\theta_0, \theta_1)$.</p></li><li><p>The gradient descent algorithm is:</p><ul><li><p>repeat until convergence:</p><script type="math/tex; mode=display">\theta_j := \theta_j - \alpha\frac{\partial}{\partial \theta_j}J(\theta_0, \theta_1)</script><p>where</p><p>$j = 0, 1$ represents the feature index number.</p></li></ul></li><li><p>At each iterarion $j$, one should simultaneously update the parameters $\theta_1, \theta_2, \cdots, \theta_n$. Updating a specific parameter prior to calculating another one on the $j^{(th)}$ iteration would yield to a wrong implementation.</p></li><li>We should adjust our parameter $\alpha$ to ensure that the gradient descent algorithm converges in a reasonable time. Failure to converge or too much time to obtain the minimum value imply that our step size is wrong.</li><li>Gradient descent can converge to a local minimum, even with the learning rate $\alpha$ fixed. As we approach a local optimum, gradient descent will automatically take smaller steps. So, no need to decrese $\alpha$ over time.</li></ul><h4 id="4-Multiple-Features"><a href="#4-Multiple-Features" class="headerlink" title="4. Multiple Features"></a>4. Multiple Features</h4><ul><li><p>Linear regression with multiple variables is also known as “multivariate linear regression”.</p></li><li><p>$x^{(i)}_j = $ value of feature $j$ in the $i^{th}$ training example</p></li><li><p>$x^{(i)} = $ the input (features) of the $i^{th}$ training example</p></li><li><p>$m = $ the number of training examples</p></li><li><p>$n = $ the number of features</p></li><li><p>The multivariable form of the hypothesis function accommodating these multiple features is as follows:</p><script type="math/tex; mode=display">h_{\theta}(x) = \theta_0 + \theta_1x_1 + \theta_2x_2 + \theta_3x_3 + \cdots + \theta_nx_n</script></li><li><p>Using the definition of matrix multiplication, our multivariable hypothesis function can be concisely represented as:</p><script type="math/tex; mode=display">h_{\theta}(x) = \begin{bmatrix}\theta_0 & \theta_1 & \cdots & \theta_n\end{bmatrix} \begin{bmatrix}x_0\\x_1\\ \vdots\\ x_n\end{bmatrix} = \theta^Tx</script></li></ul><h4 id="5-Gradient-Descent-for-Multiple-Variables"><a href="#5-Gradient-Descent-for-Multiple-Variables" class="headerlink" title="5. Gradient Descent for Multiple Variables"></a>5. Gradient Descent for Multiple Variables</h4>]]></content>
+      
+      
+      <categories>
+          
+          <category> 学习笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 未完待续 </tag>
+            
+            <tag> 机器学习 </tag>
+            
+            <tag> 线性回归 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Red-Black Tree</title>
       <link href="2021/05/26/Red-Black-Tree/"/>
       <url>2021/05/26/Red-Black-Tree/</url>
@@ -206,11 +235,11 @@
       
         <tags>
             
+            <tag> 未完待续 </tag>
+            
             <tag> 原创 </tag>
             
             <tag> 亲身经历 </tag>
-            
-            <tag> 未完待续 </tag>
             
         </tags>
       
