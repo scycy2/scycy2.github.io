@@ -2,7 +2,7 @@
 title: Red-Black Tree
 date: 2021-05-26 13:22:45
 tags: ['数据结构','红黑树']
-categories: '学习笔记'
+categories: '课堂笔记'
 cover: true
 summary: "红黑树定义及简单操作"
 img:

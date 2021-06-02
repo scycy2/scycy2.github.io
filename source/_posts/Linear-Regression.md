@@ -2,7 +2,7 @@
 title: Linear Regression
 date: 2021-06-01 22:12:14
 tags: ['未完待续', '机器学习', '线性回归']
-categories: ['学习笔记']
+categories: ['自学笔记']
 cover: false
 summary: Linear Regression
 img:
