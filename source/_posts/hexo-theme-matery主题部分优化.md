@@ -1,8 +1,8 @@
 ---
 title: hexo-theme-matery主题部分优化
 date: 2020-07-18 15:23:52
-tags: ["原创", "亲身经历","未完待续"]
-categories: "Hexo 个人博客"
+tags: ["hexo" ,"未完待续"]
+categories: "博客优化"
 summary: "hexo 优化"
 cover: true
 img: /medias/featureimages/25.jpg
