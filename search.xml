@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Priority Queue</title>
+      <link href="2021/06/02/Priority-Queue/"/>
+      <url>2021/06/02/Priority-Queue/</url>
+      
+        <content type="html"><![CDATA[<h4 id="1-Definition"><a href="#1-Definition" class="headerlink" title="1. Definition"></a>1. Definition</h4><ul><li>A priority queue is an abstract data type for storing a collection of prioritized elements that supports<ul><li>arbitrary element insertion,</li><li>removal of elements in order of priority (the element with the first priority can be removed at any time)</li></ul></li></ul><h4 id="2-Priority-Queue-ADT"><a href="#2-Priority-Queue-ADT" class="headerlink" title="2. Priority Queue ADT"></a>2. Priority Queue ADT</h4><ul><li>A priority queue stores a collection of entries</li><li>Each entry is a pair (key, value)</li><li><strong>Entry ADT</strong><ul><li>An <em>entry</em> in a priority queue is simply a key-value pair</li><li>Priority queues store entries to allow for efficient insertion and removal based on keys</li></ul></li></ul><h4 id="3-Sequence-based-Priority-Queue"><a href="#3-Sequence-based-Priority-Queue" class="headerlink" title="3. Sequence-based Priority Queue"></a>3. Sequence-based Priority Queue</h4><ul><li>Implementation with an unsorted list<ul><li><em>insert</em> takes $O(1)$ time since we can insert the item at the beginning or end of the sequence</li><li><em>removeMin</em> and <em>min</em> take $O(n)$ time since we have to traverse the entire sequence to find the smallest key</li></ul></li><li>Implementation with a sorted list<ul><li><em>insert</em> takes $O(n)$ time since we have to find the place where to insert the item</li><li><em>removeMin</em> and <em>min</em> take $O(1)$ time, since the smallest key is at the beginning</li></ul></li></ul><h4 id="4-Priority-Queue-Sorting"><a href="#4-Priority-Queue-Sorting" class="headerlink" title="4. Priority Queue Sorting"></a>4. Priority Queue Sorting</h4><ul><li>Use a priority queue to sort a list of comparable elements<ul><li>Insert the elements one by one with a series of <em>insert</em> operations</li><li>Remove the elements in sorted order with a series of <em>removeMin</em> operations</li></ul></li><li>Selection-Sort<ul><li>Selection-sort is the variation of PQ-sort where the prioroty queue is implemented with an unsorted sequence</li><li>Running time of Selection-sort:<ul><li>Inserting the elements into the priority queue with $n$ insert operations takes $O(n)$ time</li><li>Removing the elements in sorted order from the priority queue with $n$ <em>removeMin</em> operations takes time proportional to $1+2+\cdots + n$</li></ul></li><li>Selection-sort runs in $O(n^2)$ time</li></ul></li><li>Insertion-Sort<ul><li>Insertion-sort is the variation of PQ-sort where the priority queue is implemented with a sorted sequence</li><li>Running time of Insertion-sort:<ul><li>Inserting the elements into the priority queue with $n$ <em>insert</em> operations takes time proportional to $1+2+\cdots +n$</li><li>Removing the elements in sorted order from the priority queue with a series of $n$ <em>removeMin</em> operations takes $O(n)$ time</li></ul></li><li>Insertion-sort runs in $O(n^2)$ time</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 课堂笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 数据结构 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Linear Regression</title>
       <link href="2021/06/01/Linear-Regression/"/>
       <url>2021/06/01/Linear-Regression/</url>
@@ -13,7 +38,7 @@
       
       <categories>
           
-          <category> 学习笔记 </category>
+          <category> 自学笔记 </category>
           
       </categories>
       
@@ -42,7 +67,7 @@
       
       <categories>
           
-          <category> 学习笔记 </category>
+          <category> 课堂笔记 </category>
           
       </categories>
       
@@ -64,12 +89,12 @@
       <link href="2020/09/17/%E5%A0%86/"/>
       <url>2020/09/17/%E5%A0%86/</url>
       
-        <content type="html"><![CDATA[<h4 id="1-什么是堆？"><a href="#1-什么是堆？" class="headerlink" title="1. 什么是堆？"></a>1. 什么是堆？</h4>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
       
       <categories>
           
-          <category> 学习笔记 </category>
+          <category> 课堂笔记 </category>
           
       </categories>
       
@@ -79,8 +104,6 @@
             <tag> 未完待续 </tag>
             
             <tag> 数据结构 </tag>
-            
-            <tag> 算法 </tag>
             
         </tags>
       
@@ -111,9 +134,11 @@
             
             <tag> 算法 </tag>
             
+            <tag> 二叉树 </tag>
+            
             <tag> java </tag>
             
-            <tag> 二叉树 </tag>
+            <tag> 总结 </tag>
             
         </tags>
       
@@ -131,7 +156,7 @@
       
       <categories>
           
-          <category> 学习笔记 </category>
+          <category> 自学笔记 </category>
           
       </categories>
       
@@ -158,7 +183,7 @@
       
       <categories>
           
-          <category> 学习笔记 </category>
+          <category> 自学笔记 </category>
           
       </categories>
       
@@ -171,9 +196,9 @@
             
             <tag> 算法 </tag>
             
-            <tag> 总结 </tag>
-            
             <tag> java </tag>
+            
+            <tag> 总结 </tag>
             
         </tags>
       
@@ -191,7 +216,7 @@
       
       <categories>
           
-          <category> 学习笔记 </category>
+          <category> 自学笔记 </category>
           
       </categories>
       

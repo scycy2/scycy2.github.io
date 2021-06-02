@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="二叉树四种遍历方式, 学习, 算法, java, 记录">
+    <meta name="keywords" content="Priority Queue, 学习, 算法, java, 记录">
     <meta name="description" content="大学狗的学习之旅">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>二叉树四种遍历方式 | 再`見</title>
+    <title>Priority Queue | 再`見</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -286,12 +286,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">二叉树四种遍历方式</h1>
+                    <h1 class="description center-align post-title">Priority Queue</h1>
                 </div>
             </div>
         </div>
@@ -408,24 +408,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
-                                <span class="chip bg-color">未完待续</span>
-                            </a>
-                        
                             <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
                                 <span class="chip bg-color">数据结构</span>
-                            </a>
-                        
-                            <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                <span class="chip bg-color">算法</span>
-                            </a>
-                        
-                            <a href="/tags/java/">
-                                <span class="chip bg-color">java</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%80%BB%E7%BB%93/">
-                                <span class="chip bg-color">总结</span>
                             </a>
                         
                     </div>
@@ -436,8 +420,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" class="post-category">
-                                自学笔记
+                            <a href="/categories/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/" class="post-category">
+                                课堂笔记
                             </a>
                         
                     </div>
@@ -449,7 +433,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-09-13
+                    2021-06-02
                 </div>
                 
 
@@ -463,14 +447,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    266
+                    356
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    2 分
                 </div>
                 
 
@@ -480,64 +464,62 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="1-二叉树定义-java"><a href="#1-二叉树定义-java" class="headerlink" title="1. 二叉树定义(java)"></a>1. 二叉树定义(java)</h4><pre class=" language-lang-java"><code class="language-lang-java">// Definition for a binary tree node.
-public class TreeNode {
-    int val;
-  TreeNode left;
-  TreeNode right;
-  TreeNode(int x) { val = x; }
-}
-</code></pre>
-<h4 id="2-前、中、后序遍历-递归版"><a href="#2-前、中、后序遍历-递归版" class="headerlink" title="2. 前、中、后序遍历(递归版)"></a>2. 前、中、后序遍历(递归版)</h4><pre class=" language-lang-java"><code class="language-lang-java">class Solution {
-  public List<Integer> preorderTraversal(TreeNode root) {
-    List<Integer> res = new ArrayList<>();
-    helper(root, res);
-    return res;
-  }
+                <h4 id="1-Definition"><a href="#1-Definition" class="headerlink" title="1. Definition"></a>1. Definition</h4><ul>
+<li>A priority queue is an abstract data type for storing a collection of prioritized elements that supports<ul>
+<li>arbitrary element insertion,</li>
+<li>removal of elements in order of priority (the element with the first priority can be removed at any time)</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-Priority-Queue-ADT"><a href="#2-Priority-Queue-ADT" class="headerlink" title="2. Priority Queue ADT"></a>2. Priority Queue ADT</h4><ul>
+<li>A priority queue stores a collection of entries</li>
+<li>Each entry is a pair (key, value)</li>
+<li><strong>Entry ADT</strong><ul>
+<li>An <em>entry</em> in a priority queue is simply a key-value pair</li>
+<li>Priority queues store entries to allow for efficient insertion and removal based on keys</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-Sequence-based-Priority-Queue"><a href="#3-Sequence-based-Priority-Queue" class="headerlink" title="3. Sequence-based Priority Queue"></a>3. Sequence-based Priority Queue</h4><ul>
+<li>Implementation with an unsorted list<ul>
+<li><em>insert</em> takes $O(1)$ time since we can insert the item at the beginning or end of the sequence</li>
+<li><em>removeMin</em> and <em>min</em> take $O(n)$ time since we have to traverse the entire sequence to find the smallest key</li>
+</ul>
+</li>
+<li>Implementation with a sorted list<ul>
+<li><em>insert</em> takes $O(n)$ time since we have to find the place where to insert the item</li>
+<li><em>removeMin</em> and <em>min</em> take $O(1)$ time, since the smallest key is at the beginning</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-Priority-Queue-Sorting"><a href="#4-Priority-Queue-Sorting" class="headerlink" title="4. Priority Queue Sorting"></a>4. Priority Queue Sorting</h4><ul>
+<li>Use a priority queue to sort a list of comparable elements<ul>
+<li>Insert the elements one by one with a series of <em>insert</em> operations</li>
+<li>Remove the elements in sorted order with a series of <em>removeMin</em> operations</li>
+</ul>
+</li>
+<li>Selection-Sort<ul>
+<li>Selection-sort is the variation of PQ-sort where the prioroty queue is implemented with an unsorted sequence</li>
+<li>Running time of Selection-sort:<ul>
+<li>Inserting the elements into the priority queue with $n$ insert operations takes $O(n)$ time</li>
+<li>Removing the elements in sorted order from the priority queue with $n$ <em>removeMin</em> operations takes time proportional to $1+2+\cdots + n$</li>
+</ul>
+</li>
+<li>Selection-sort runs in $O(n^2)$ time</li>
+</ul>
+</li>
+<li>Insertion-Sort<ul>
+<li>Insertion-sort is the variation of PQ-sort where the priority queue is implemented with a sorted sequence</li>
+<li>Running time of Insertion-sort:<ul>
+<li>Inserting the elements into the priority queue with $n$ <em>insert</em> operations takes time proportional to $1+2+\cdots +n$</li>
+<li>Removing the elements in sorted order from the priority queue with a series of $n$ <em>removeMin</em> operations takes $O(n)$ time</li>
+</ul>
+</li>
+<li>Insertion-sort runs in $O(n^2)$ time</li>
+</ul>
+</li>
+</ul>
 
-  public void helper(TreeNode root, List <Integer> res) {
-    if (root != null) {
-      // res.add(root.val); // 前序遍历，先将root的值加入List中
-        if (root.left != null) {
-        helper(root.left, res);
-      }
-      // res.add(root.val); // 中序遍历，先将左边节点的值加入List中，再加入root的值
-      if (root.right != null) {
-          helper(root.right, res);
-      }
-      // res.add(root.val); // 后序遍历，先将左右节点的值加入List中，最后加入root的值
-    }
-  }
-}
-</code></pre>
-<h4 id="3-前、中、后序遍历-迭代版"><a href="#3-前、中、后序遍历-迭代版" class="headerlink" title="3. 前、中、后序遍历(迭代版)"></a>3. 前、中、后序遍历(迭代版)</h4><pre class=" language-lang-java"><code class="language-lang-java">//前序
-class Solution {
-    public List<Integer> preorderTraversal(TreeNode root) {
-      List<Integer> ans = new LinkedList<>();
-    if (root == null) {
-      return ans;
-    }
-    LinkedList<TreeNode> stack = new LinkedList<>(); // 需要不断的增删，因此用LinkedList
-    stack.add(root);
-    while (!nodes.isEmpty()) {
-      TreeNode n = stack.pollLast(); //根据stack先进后出的原则，先从上到下获取所有左节点的值，再往右获取所有右节点的值
-      ans.add(n.val);
-      if (n.right != null) {
-        stack.add(n.right);
-      }
-      if (n.left != null) {
-        stack.add(n.left);
-      }
-    }
-
-    return ans;
-    }
-}
-
-
-// 中序
-</code></pre>
-<h4 id="4-层次遍历"><a href="#4-层次遍历" class="headerlink" title="4. 层次遍历"></a>4. 层次遍历</h4>
             </div>
             <hr/>
 
@@ -562,7 +544,7 @@ class Solution {
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://scycy2.github.io/2020/09/13/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9B%9B%E7%A7%8D%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F/">https://scycy2.github.io/2020/09/13/%E4%BA%8C%E5%8F%89%E6%A0%91%E5%9B%9B%E7%A7%8D%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F/</a>
+                    <a href="https://scycy2.github.io/2021/06/02/Priority-Queue/">https://scycy2.github.io/2021/06/02/Priority-Queue/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -600,24 +582,8 @@ class Solution {
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
-                                    <span class="chip bg-color">未完待续</span>
-                                </a>
-                            
                                 <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
                                     <span class="chip bg-color">数据结构</span>
-                                </a>
-                            
-                                <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                    <span class="chip bg-color">算法</span>
-                                </a>
-                            
-                                <a href="/tags/java/">
-                                    <span class="chip bg-color">java</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%80%BB%E7%BB%93/">
-                                    <span class="chip bg-color">总结</span>
                                 </a>
                             
                         </div>
@@ -659,29 +625,80 @@ class Solution {
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/09/15/%E6%8E%92%E5%BA%8F%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/">
+                <a href="/2021/06/02/Priority-Queue/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="排序方法汇总">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Priority Queue">
                         
-                        <span class="card-title">排序方法汇总</span>
+                        <span class="card-title">Priority Queue</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            各种常见排序方法汇总
+                            优先队列简介
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-09-15
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    课堂笔记
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">数据结构</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/06/01/Linear-Regression/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Linear Regression">
+                        
+                        <span class="card-title">Linear Regression</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Linear Regression
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-01
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -701,61 +718,12 @@ class Solution {
                         <span class="chip bg-color">未完待续</span>
                     </a>
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/07/29/%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="算法复杂度">
-                        
-                        <span class="card-title">算法复杂度</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            算法复杂度详解
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    自学笔记
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
-                    </a>
-                    
-                    <a href="/tags/%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6/">
-                        <span class="chip bg-color">算法复杂度</span>
+                    <a href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">
+                        <span class="chip bg-color">线性回归</span>
                     </a>
                     
                 </div>
@@ -890,9 +858,53 @@ class Solution {
 </main>
 
 
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
 
 
     <footer class="page-footer bg-color">
+    
+    <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
     
     
     <div class="container row center-align" style="margin-bottom: 15px !important;">
