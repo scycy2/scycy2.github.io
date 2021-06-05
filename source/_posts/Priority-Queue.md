@@ -3,7 +3,7 @@ title: Priority Queue
 date: 2021-06-02 12:48:53
 tags: ["数据结构"]
 categories: ["课堂笔记"]
-cover:
+cover: false
 summary: "优先队列简介"
 img:
 mathjax: true
