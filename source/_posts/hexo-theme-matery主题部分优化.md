@@ -5,7 +5,7 @@ tags: ["hexo" ,"未完待续"]
 categories: "博客优化"
 summary: "hexo 优化"
 cover: true
-img: /medias/featureimages/25.jpg
+img: /medias/featureimages/6.jpg
 mathjax: false
 ---
 

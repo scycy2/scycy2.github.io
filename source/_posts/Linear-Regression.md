@@ -5,7 +5,7 @@ tags: ['未完待续', '机器学习', '线性回归']
 categories: ['自学笔记']
 cover: true
 summary: Linear Regression
-img:
+img: /medias/featureimages/26.jpg
 mathjax: true
 ---
 
