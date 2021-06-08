@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="hexo-theme-matery主题部分优化, 学习, 算法, java, 记录">
+    <meta name="keywords" content="Logistic Regression -- Classification, 学习, 算法, java, 记录">
     <meta name="description" content="大学狗的学习之旅">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>hexo-theme-matery主题部分优化 | 再`見</title>
+    <title>Logistic Regression -- Classification | 再`見</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -286,12 +286,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">hexo-theme-matery主题部分优化</h1>
+                    <h1 class="description center-align post-title">Logistic Regression -- Classification</h1>
                 </div>
             </div>
         </div>
@@ -408,12 +408,20 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
-                                <span class="chip bg-color">未完待续</span>
+                            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">机器学习</span>
                             </a>
                         
-                            <a href="/tags/hexo/">
-                                <span class="chip bg-color">hexo</span>
+                            <a href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/">
+                                <span class="chip bg-color">逻辑回归</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/">
+                                <span class="chip bg-color">分类问题</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
+                                <span class="chip bg-color">未完待续</span>
                             </a>
                         
                     </div>
@@ -424,8 +432,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96/" class="post-category">
-                                博客优化
+                            <a href="/categories/%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" class="post-category">
+                                自学笔记
                             </a>
                         
                     </div>
@@ -437,21 +445,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-07-18
+                    2021-06-08
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-05
+                    2021-06-08
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    557
+                    379
                 </div>
                 
 
@@ -468,67 +476,52 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>hexo-theme-matery下载与配置: <a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery">https://github.com/blinkfox/hexo-theme-matery</a></p>
-<h3 id="1-关于个人信息的添加及修改："><a href="#1-关于个人信息的添加及修改：" class="headerlink" title="1. 关于个人信息的添加及修改："></a>1. 关于个人信息的添加及修改：</h3><p>以自己的个人信息作说明：</p>
-<p>原：<img src="/2020/07/18/hexo-theme-matery%E4%B8%BB%E9%A2%98%E9%83%A8%E5%88%86%E4%BC%98%E5%8C%96/yuan.png" style="zoom:50%;"></p>
-<p>现：</p>
-<p><img src="/2020/07/18/hexo-theme-matery%E4%B8%BB%E9%A2%98%E9%83%A8%E5%88%86%E4%BC%98%E5%8C%96/PersonalInfo.png" style="zoom:50%;"></p>
-<p>首先找到<code>/hexo-theme-matery/layout/about.ejs</code> ，并找到代码如下：</p>
-<pre class=" language-lang-js"><code class="language-lang-js"><div class="author"> //作者信息
-    <div class="post-statis hide-on-large-only" data-aos="zoom-in-right">
-        <%- partial('_partial/post-statis') %>
-    </div> //引用另一个文件，表示的是左边文章、分类、标签以及他们的数量
-    <div class="title"><%- config.author %></div> //作者名字，在blog/_config.yml中配置
-    <div class="career"><%- theme.profile.career %></div> //作者职业，在/hexo-theme-matery/layout/about.ejs中配置
-    <div class="social-link hide-on-large-only" data-aos="zoom-in-left">
-    <%- partial('_partial/social-link') %>
-    </div> //右边github、email、QQ等的链接，也可自己减少或增加
-</div>
-</code></pre>
-<p>因此想要修改或增加自己的信息，需要在相应的配置文件里进行修改或增加。</p>
-<p>比如我自己做的修改，首先打开<code>hexo-theme-matery</code>下的<code>_config.yml</code>文件，并找到<code>profile</code>属性，</p>
-<pre class=" language-lang-yml"><code class="language-lang-yml">profile:
-  avatar: /medias/头像.jpg
-  career: Undergraduate
-  school: University of Nottingham Ningbo China (UNNC)
-  major: Computer Science with Artificial Intelligence (4+0)
-  introduction: If you wish to succeed, you should use persistence as your good friend, experience as your reference, prudence as your brother and hope as your sentry.
-</code></pre>
-<p>在<code>profile</code>里修改了头像，职业，以及新增了学校和专业。</p>
-<p>那么该如何将这些特性在网页里显示出来呢？我们需要在上面说的<code>about.ejs</code>这个文件里做相应的修改。</p>
-<pre><code>&lt;div class=&quot;title&quot;&gt;&lt;%- config.author %&gt;&lt;/div&gt;
-&lt;div class=&quot;career&quot;&gt;&lt;%- theme.profile.career %&gt;&lt;/div&gt;
-&lt;div class=&quot;major&quot;&gt;&lt;%- theme.profile.major %&gt;&lt;/div&gt;
-&lt;div class=&quot;school&quot;&gt;&lt;%- theme.profile.school %&gt;&lt;/div&gt;
-</code></pre><p>只要加几个<code>div</code>块元素，就能显示你的其他信息。</p>
-<h3 id="2-Post封面图片的修改"><a href="#2-Post封面图片的修改" class="headerlink" title="2. Post封面图片的修改"></a>2. Post封面图片的修改</h3><p>先找到<code>/hexo-theme/matery/layout/_partial/post_cover.ejs</code>中的代码</p>
-<pre class=" language-lang-js"><code class="language-lang-js">if (page.img) {
-    featureimg = url_for(page.img); // 如果设置了img属性，那么封面图片就是你设置的图片
-} else {
-    var hashCode = function (str) {
-        if (!str && str.length === 0) {
-            return 0;
-        }
-
-        var hash = 0;
-        for (var i = 0, len = str.length; i < len; i++) {
-            hash = ((hash << 5) - hash) + str.charCodeAt(i);
-            hash |= 0;
-        }
-        return hash;
-    };
-
-    var len = theme.featureImages.length;
-    var num = Math.abs(hashCode(page.title) % len);
-
-    featureimg = theme.jsDelivr.url
-            ? theme.jsDelivr.url + url_for(theme.featureImages[num])
-            : url_for(theme.featureImages[num]);
-} // 否则将会采用作者的算法，根据title的长度来计算hashcode，再根据hashcode从默认的图片中选出一张。如果两篇文章的title都是四个字，那这两篇的封面就是同一张图片。
-</code></pre>
-<p>根据代码可知，想要一篇post用特定的图片，就必须设置这篇post的img属性。如下</p>
-<p><img src="/2020/07/18/hexo-theme-matery%E4%B8%BB%E9%A2%98%E9%83%A8%E5%88%86%E4%BC%98%E5%8C%96/屏幕快照 2020-07-20 下午2.41.07.png" style="zoom:50%;"></p>
-<p>可将图片移至<code>hexo-theme-matery/source/medias/featureimages</code>下，并将img属性设置为<code>/medias/featureimages/‘图片名’</code>即可。</p>
+                <h4 id="1-Classification"><a href="#1-Classification" class="headerlink" title="1. Classification"></a>1. Classification</h4><ul>
+<li>The classification problem is just like the regression problem, except that the values we now want to predict take on only a small number of discrete values.</li>
+<li><strong>Binary classification problem</strong><ul>
+<li>$y$ can take on only two values, $0$ and $1$. (Multi-class later)</li>
+<li>$0$ is called the negative class, and $1$ the positive class, and they are sometimes also denoted by the symbols “-“ and “+”.</li>
+<li>Given $x^{(i)}$, the corresponding $y^{(i)}$ is also called the <strong>label</strong> for the training example.</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-Hypothesis-Representation"><a href="#2-Hypothesis-Representation" class="headerlink" title="2. Hypothesis Representation"></a>2. Hypothesis Representation</h4><ul>
+<li><p>By using the “Sigmoid Function”, also called the “Logistic Function”:</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+& h_{\theta}(x) = g(\theta^Tx)\\
+& z = \theta^Tx\\
+& g(z) = \frac{1}{1+e^{-z}}
+\end{align*}</script></li>
+<li><p>The function $g(z)$, maps any real number to the $(0,1)$ interval, making it useful for transforming an arbitrary-valued function into a function suited for classification.</p>
+</li>
+<li><p>$h_{\theta}(x)$ will give us the <strong>probability</strong> that our output is $1$. The probability that the prediction is $0$ is just the complement of the probability that it is $1$.</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+& h_{\theta}(x) = P(y=1\mid x;\theta) = 1 - P(y=0\mid x;\theta)\\
+& P(y=0\mid x;\theta) + P(y=1\mid x;\theta) = 1
+\end{align*}</script></li>
+</ul>
+<h4 id="3-Decision-Boundary"><a href="#3-Decision-Boundary" class="headerlink" title="3. Decision Boundary"></a>3. Decision Boundary</h4><ul>
+<li><script type="math/tex; mode=display">
+\theta^Tx\ge 0 \Rightarrow y=1\\
+\theta^Tx\lt 0 \Rightarrow y=0</script></li>
+<li><p>The <strong>decision boundary</strong> is the line that separates the area where $y = 1$ and where $y = 0$. It is created by the hypothesis function.</p>
+</li>
+<li><p>The input to the sigmoid function $g(z)$ (e.g. $\theta^TX$) doesn’t need to be linear, and could be a function that describes a circle or any shape to fit our data.</p>
+</li>
+</ul>
+<h4 id="4-Cost-Function"><a href="#4-Cost-Function" class="headerlink" title="4. Cost Function"></a>4. Cost Function</h4><ul>
+<li><p>We cannot use the same cost function that we use for linear regression because the Logistic Function will cause the output to be wavy, causing many local optima. In other words, it will not be a convex function.</p>
+</li>
+<li><p>Instead, our cost function for logistic regression looks like:</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+& J(\theta) = \frac{1}{m}\sum^m_{i=1}Cost(h_\theta(x^{(i)}), y^{(i)})\\
+& Cost(h_\theta(x), y) = -\log(h_\theta(x))\quad\quad if\ y = 1\\
+& Cost(h_\theta(x), y) = -\log(1-h_\theta(x))\ if\ y = 0
+\end{align*}</script></li>
+</ul>
 
             </div>
             <hr/>
@@ -554,7 +547,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://scycy2.github.io/2020/07/18/hexo-theme-matery%E4%B8%BB%E9%A2%98%E9%83%A8%E5%88%86%E4%BC%98%E5%8C%96/">https://scycy2.github.io/2020/07/18/hexo-theme-matery%E4%B8%BB%E9%A2%98%E9%83%A8%E5%88%86%E4%BC%98%E5%8C%96/</a>
+                    <a href="https://scycy2.github.io/2021/06/08/Logistic-Regression-Classification/">https://scycy2.github.io/2021/06/08/Logistic-Regression-Classification/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -592,12 +585,20 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
-                                    <span class="chip bg-color">未完待续</span>
+                                <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">机器学习</span>
                                 </a>
                             
-                                <a href="/tags/hexo/">
-                                    <span class="chip bg-color">hexo</span>
+                                <a href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/">
+                                    <span class="chip bg-color">逻辑回归</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/">
+                                    <span class="chip bg-color">分类问题</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
+                                    <span class="chip bg-color">未完待续</span>
                                 </a>
                             
                         </div>
@@ -639,29 +640,29 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/07/29/%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6/">
+                <a href="/2021/06/08/Logistic-Regression-Classification/">
                     <div class="card-image">
                         
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Logistic Regression -- Classification">
                         
-                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="算法复杂度">
-                        
-                        <span class="card-title">算法复杂度</span>
+                        <span class="card-title">Logistic Regression -- Classification</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            算法复杂度详解
+                            Logistic Regression
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-29
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -674,15 +675,24 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
                     </a>
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6/">
-                        <span class="chip bg-color">算法复杂度</span>
+                    <a href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/">
+                        <span class="chip bg-color">逻辑回归</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/">
+                        <span class="chip bg-color">分类问题</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
+                        <span class="chip bg-color">未完待续</span>
                     </a>
                     
                 </div>
@@ -696,29 +706,33 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/07/16/hello-world/">
+                <a href="/2021/06/02/Priority-Queue/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Priority Queue">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">Priority Queue</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            你好，世界
+                            优先队列简介
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-07-16
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-02
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            CL Turbo
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    课堂笔记
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -726,8 +740,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%88%9D%E5%A7%8B%E5%86%85%E5%AE%B9/">
-                        <span class="chip bg-color">初始内容</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">数据结构</span>
                     </a>
                     
                 </div>
@@ -862,9 +876,53 @@
 </main>
 
 
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
 
 
     <footer class="page-footer bg-color">
+    
+    <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": { 
+        preferredFont: "TeX", 
+        availableFonts: ["STIX","TeX"], 
+        linebreaks: { automatic:true }, 
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
+    },
+    tex2jax: { 
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
+        processEscapes: true, 
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {  
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
+        Macros: { href: "{}" } 
+    },
+    messageStyle: "none"
+    }); 
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
     
     
     <div class="container row center-align" style="margin-bottom: 15px !important;">
