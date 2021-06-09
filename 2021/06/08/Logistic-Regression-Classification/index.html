@@ -452,21 +452,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-08
+                    2021-06-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    379
+                    777
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
 
@@ -521,6 +521,59 @@
 & Cost(h_\theta(x), y) = -\log(h_\theta(x))\quad\quad if\ y = 1\\
 & Cost(h_\theta(x), y) = -\log(1-h_\theta(x))\ if\ y = 0
 \end{align*}</script></li>
+<li><script type="math/tex; mode=display">
+\begin{align*}
+& Cost(h_{\theta}(x), y) = 0\ if\ h_\theta(x) = y\\
+& Cost(h_\theta(x), y) \rightarrow \infin\ if\ y = 0\ and\ h_\theta(x)\rightarrow 1\\
+& Cost(h_\theta(x), y) \rightarrow \infin\ if\ y = 1\ and\ h_\theta(x) \rightarrow 0
+\end{align*}</script></li>
+<li><p>If the correct answer ‘$y$’ is $0$, then the cost function will be $0$ if our hypothesis function also ouputs $0$. If the hypothesis approaches $1$, then the cost function will approach infinity. If the correct answer ‘$y$’ is $1$, the case is reverse.</p>
+</li>
+<li><p>Not that writing the cost function in this way guarantees that $J(\theta)$ is convex for logistic regression.</p>
+</li>
+</ul>
+<h4 id="5-Simplified-Cost-Function"><a href="#5-Simplified-Cost-Function" class="headerlink" title="5. Simplified Cost Function"></a>5. Simplified Cost Function</h4><ul>
+<li><p>Compress the cost function’s two conditional cses into one case:</p>
+<script type="math/tex; mode=display">
+Cost(h_\theta(x), y) = -y\log(h_\theta(x)) - (1-y)\log(1-h_\theta(x))</script></li>
+<li><p>Cost function</p>
+<script type="math/tex; mode=display">
+J(\theta) = -\frac{1}{m}\sum_{i=1}^m[y^{(i)}\log(h_\theta(x^{(i)})) + (1-y^{(i)})\log(1 - h_\theta(x^{(i)}))]</script></li>
+<li><p>A vectorized implementation:</p>
+<script type="math/tex; mode=display">
+h = g(X\theta)\\
+J(\theta) = \frac{1}{m}(-y^T\log(h) - (1-y)^T\log(1-h))</script></li>
+</ul>
+<h4 id="6-Gradient-Descent"><a href="#6-Gradient-Descent" class="headerlink" title="6. Gradient Descent"></a>6. Gradient Descent</h4><ul>
+<li><script type="math/tex; mode=display">
+\begin{align*}
+& Repeat\ \{ \\
+& \theta_j := \theta_j - \frac{\alpha}{m}\sum_{i=1}^m(h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)}\\
+& \}
+\end{align*}</script></li>
+<li><p>A vectorized implementation:</p>
+<script type="math/tex; mode=display">
+\theta := \theta - \frac{\alpha}{m}X^T(g(X\theta) - \vec{y})</script></li>
+</ul>
+<h4 id="7-Advanced-Optimization"><a href="#7-Advanced-Optimization" class="headerlink" title="7. Advanced Optimization"></a>7. Advanced Optimization</h4><ul>
+<li>“Conjugate gradient”, “BFGS”, and “L-BFGS” are more sophisticated, faster ways to optimize $\theta$ that can be used instead of gradient descent.</li>
+</ul>
+<h4 id="8-Multiclass-Classification-One-vs-all"><a href="#8-Multiclass-Classification-One-vs-all" class="headerlink" title="8. Multiclass Classification: One-vs-all"></a>8. Multiclass Classification: One-vs-all</h4><ul>
+<li><p>Instead of $y = \{0, 1\}$, we will expand the definition so that $y = \{0, 1\cdots n\}$.</p>
+</li>
+<li><p>Since $y = \{0, 1\cdots n\}$, we divide the problem into $n+1$ binary classification problems; in each one, predict the probability that ‘$y$’ is a member of one of our classes.</p>
+</li>
+<li><script type="math/tex; mode=display">
+\begin{align*}
+& y\in {0, 1\cdots n}\\
+& h_\theta^{(0)}(x) = P(y = 0\mid x;\theta)\\
+& h_\theta^{(1)}(x) = P(y = 1\mid x;\theta)\\
+& \cdots\\
+& h_\theta^{(n)}(x) = P(y = n\mid x;\theta)\\
+& prediction = \max_{i}(h_\theta^{(i)}(x))
+\end{align*}</script></li>
+<li><p>We are basically choosing one class and then lumping all the others into a single second class. Do this repeatedly, applying binary logistic regression to each case, and then use the hypothesis that returned the highest value as our prediction.</p>
+</li>
 </ul>
 
             </div>
@@ -640,29 +693,28 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/06/08/Logistic-Regression-Classification/">
+                <a href="/2021/06/09/Overfitting/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Logistic Regression -- Classification">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Overfitting">
                         
-                        <span class="card-title">Logistic Regression -- Classification</span>
+                        <span class="card-title">Overfitting</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Logistic Regression
+                            过拟合
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-08
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-09
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -675,7 +727,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -683,16 +734,20 @@
                         <span class="chip bg-color">机器学习</span>
                     </a>
                     
-                    <a href="/tags/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/">
-                        <span class="chip bg-color">逻辑回归</span>
-                    </a>
-                    
                     <a href="/tags/%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/">
                         <span class="chip bg-color">分类问题</span>
                     </a>
                     
-                    <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
-                        <span class="chip bg-color">未完待续</span>
+                    <a href="/tags/%E8%BF%87%E6%8B%9F%E5%90%88/">
+                        <span class="chip bg-color">过拟合</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98/">
+                        <span class="chip bg-color">回归问题</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%AD%A3%E5%88%99%E5%8C%96/">
+                        <span class="chip bg-color">正则化</span>
                     </a>
                     
                 </div>
@@ -935,7 +990,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">5.8k</span>&nbsp;字
+                class="white-color">6.8k</span>&nbsp;字
             
             
             
