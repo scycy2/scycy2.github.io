@@ -61,4 +61,73 @@ mathjax: true
   & Cost(h_\theta(x), y) = -\log(1-h_\theta(x))\ if\ y = 0
   \end{align*}
   $$
+
+* $$
+  \begin{align*}
+  & Cost(h_{\theta}(x), y) = 0\ if\ h_\theta(x) = y\\
+  & Cost(h_\theta(x), y) \rightarrow \infin\ if\ y = 0\ and\ h_\theta(x)\rightarrow 1\\
+  & Cost(h_\theta(x), y) \rightarrow \infin\ if\ y = 1\ and\ h_\theta(x) \rightarrow 0
+  \end{align*}
+  $$
+
+* If the correct answer '$y$' is $0$, then the cost function will be $0$ if our hypothesis function also ouputs $0$. If the hypothesis approaches $1$, then the cost function will approach infinity. If the correct answer '$y$' is $1$, the case is reverse.
+
+* Not that writing the cost function in this way guarantees that $J(\theta)$ is convex for logistic regression.
+
+#### 5. Simplified Cost Function
+
+* Compress the cost function's two conditional cses into one case:
+  $$
+  Cost(h_\theta(x), y) = -y\log(h_\theta(x)) - (1-y)\log(1-h_\theta(x))
+  $$
+
+* Cost function
+  $$
+  J(\theta) = -\frac{1}{m}\sum_{i=1}^m[y^{(i)}\log(h_\theta(x^{(i)})) + (1-y^{(i)})\log(1 - h_\theta(x^{(i)}))]
+  $$
+
+* A vectorized implementation:
+  $$
+  h = g(X\theta)\\
+  J(\theta) = \frac{1}{m}(-y^T\log(h) - (1-y)^T\log(1-h))
+  $$
+
+#### 6. Gradient Descent
+
+* $$
+  \begin{align*}
+  & Repeat\ \{ \\
+  & \theta_j := \theta_j - \frac{\alpha}{m}\sum_{i=1}^m(h_\theta(x^{(i)}) - y^{(i)})x_j^{(i)}\\
+  & \}
+  \end{align*}
+  $$
+
+* A vectorized implementation:
+  $$
+  \theta := \theta - \frac{\alpha}{m}X^T(g(X\theta) - \vec{y})
+  $$
   
+
+#### 7. Advanced Optimization
+
+* "Conjugate gradient", "BFGS", and "L-BFGS" are more sophisticated, faster ways to optimize $\theta$ that can be used instead of gradient descent.
+
+#### 8. Multiclass Classification: One-vs-all
+
+* Instead of $y = \{0, 1\}$, we will expand the definition so that $y = \{0, 1\cdots n\}$.
+
+* Since $y = \{0, 1\cdots n\}$, we divide the problem into $n+1$ binary classification problems; in each one, predict the probability that '$y$' is a member of one of our classes.
+
+* 
+  $$
+  \begin{align*}
+  & y\in {0, 1\cdots n}\\
+  & h_\theta^{(0)}(x) = P(y = 0\mid x;\theta)\\
+  & h_\theta^{(1)}(x) = P(y = 1\mid x;\theta)\\
+  & \cdots\\
+  & h_\theta^{(n)}(x) = P(y = n\mid x;\theta)\\
+  & prediction = \max_{i}(h_\theta^{(i)}(x))
+  \end{align*}
+  $$
+
+* We are basically choosing one class and then lumping all the others into a single second class. Do this repeatedly, applying binary logistic regression to each case, and then use the hypothesis that returned the highest value as our prediction.
