@@ -239,22 +239,22 @@ mySkills:
   data:
     Java:
       background: 'linear-gradient(to right, #FF0066 0%, #FF00CC 100%)'
-      percent: 90%
+      percent: 70%
     JavaScript:
       background: 'linear-gradient(to right, #9900FF 0%, #CC66FF 100%)'
-      percent: 60%
+      percent: 50%
     HTML5:
       background: 'linear-gradient(to right, #2196F3 0%, #42A5F5 100%)'
-      percent: 80%
+      percent: 60%
     CSS:
       background: 'linear-gradient(to right, #00BCD4 0%, #80DEEA 100%)'
       percent: 50%
     SQL:
       background: 'linear-gradient(to right, #4CAF50 0%, #81C784 100%)'
-      percent: 90%
-    程序设计:
+      percent: 80%
+    机器学习:
       background: 'linear-gradient(to right, #FFEB3B 0%, #FFF176 100%)'
-      percent: 75%
+      percent: 40%
 
 # config gallery of my photos in about page.
 # If you don't want to display this `Gallery` content, you can deactivate or delete this configuration.
