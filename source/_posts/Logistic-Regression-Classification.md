@@ -1,7 +1,7 @@
 ---
 title: Logistic Regression -- Classification
 date: 2021-06-08 15:26:22
-tags: ['机器学习','逻辑回归','分类问题', '未完待续']
+tags: ['机器学习','逻辑回归','分类问题']
 categories: ['自学笔记']
 cover: true
 summary: Logistic Regression
@@ -106,7 +106,6 @@ mathjax: true
   $$
   \theta := \theta - \frac{\alpha}{m}X^T(g(X\theta) - \vec{y})
   $$
-  
 
 #### 7. Advanced Optimization
 
