@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Red-Black Tree, 学习, 算法, java, 记录">
+    <meta name="keywords" content="Neural Network, 学习, 算法, java, 记录">
     <meta name="description" content="大学狗的学习之旅">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Red-Black Tree | 再`見</title>
+    <title>Neural Network | 再`見</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -286,12 +286,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Red-Black Tree</h1>
+                    <h1 class="description center-align post-title">Neural Network</h1>
                 </div>
             </div>
         </div>
@@ -408,12 +408,16 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                                <span class="chip bg-color">数据结构</span>
+                            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">机器学习</span>
                             </a>
                         
-                            <a href="/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/">
-                                <span class="chip bg-color">红黑树</span>
+                            <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
+                                <span class="chip bg-color">未完待续</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+                                <span class="chip bg-color">神经网络</span>
                             </a>
                         
                     </div>
@@ -424,8 +428,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/" class="post-category">
-                                课堂笔记
+                            <a href="/categories/%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" class="post-category">
+                                自学笔记
                             </a>
                         
                     </div>
@@ -437,28 +441,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-05-26
+                    2021-06-16
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-05
+                    2021-06-16
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    560
+                    466
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    2 分
                 </div>
                 
 
@@ -468,147 +472,62 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 align="center">Red-Black Trees</h2>
-
-<h4 id="1-Definition"><a href="#1-Definition" class="headerlink" title="1. Definition"></a>1. Definition</h4><ul>
-<li>A red-black tree is a binary search tree that satisfies the following properties:<ul>
-<li><strong>Root Property</strong>: the root is black</li>
-<li><strong>External Property</strong>: every leaf is black</li>
-<li><strong>Internal/Red Property</strong>: the children of a red node are black</li>
-<li><strong>Depth Property</strong>: all the leaves have the same <em>black depth</em>, defined as the number of proper ancestors that are black</li>
-</ul>
+                <h4 id="1-Model-Representation"><a href="#1-Model-Representation" class="headerlink" title="1. Model Representation"></a>1. Model Representation</h4><ul>
+<li><p>Input: features $x_1\cdots x_n$</p>
+</li>
+<li><p>Output: the result of the hypothesis function.</p>
+</li>
+<li><p><img src="/2021/06/16/Neural-Network/Neural Network Rep1.png" style="zoom:50%;"></p>
+</li>
+<li><p>$x_0$ input node is called the “bias unit”. It is always equal to $1$.</p>
+</li>
+<li><p>The same logistic function as in classification, $\frac{1}{1+e^{-\theta^Tx}}$, which is also called sigmoid (logistic) <strong>activation</strong> function.</p>
+</li>
+<li><p>“theta” parameters are called “weights”.</p>
+</li>
+<li><p>A simplistic representation:</p>
+<script type="math/tex; mode=display">
+[x_0x_1x_2]\rightarrow [\ ]\rightarrow h_\theta(x)</script></li>
+<li><p>Inpur nodes (layer 1), known as the “input layer”, go into another node (layer 2), which finally outputs the hypothesis function, known as the “output layer”.</p>
+</li>
+<li><p>The intermediate layers of nodes between the input and output layers called the “hidden layers”.</p>
+</li>
+<li><p><img src="/2021/06/16/Neural-Network/Neural Network Rep2.png" style="zoom:50%;"></p>
+</li>
+<li><p>We label these intermediate or “hidden” layer nodes $a_0^2\cdots a_n^2$ and call them “activation units”.</p>
+</li>
+<li><script type="math/tex; mode=display">
+\begin{align*}
+& a_i^{(j)} = \text{activation}\ \text{of unit}\ i\ \text{in layer}\ j\\
+& \Theta^{(j)} = \text{matrix of weights controlling function mapping from layer}\ j \text{ to layer}\ j+1
+\end{align*}</script></li>
+<li><script type="math/tex; mode=display">
+[x_0x_1x_2x_3]\rightarrow \left[a_1^{(2)}a_2^{(2)}a_3^{(2)}\right]\rightarrow h_\theta(x)</script></li>
+<li><p>The values for each of the “activation” nodes is obtained as follows:</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+&& a_1^{(2)} = g(\Theta_{10}^{(1)}x_0 + \Theta_{11}^{(1)}x_2 + \Theta_{12}^{(1)}x_1 + \Theta_{13}^{(1)}x_3)\\
+&& a_2^{(2)} = g(\Theta_{20}^{(1)}x_0 + \Theta_{21}^{(1)}x_2 + \Theta_{22}^{(1)}x_1 + \Theta_{23}^{(1)}x_3)\\
+&& a_3^{(2)} = g(\Theta_{30}^{(1)}x_0 + \Theta_{31}^{(1)}x_2 + \Theta_{32}^{(1)}x_1 + \Theta_{33}^{(1)}x_3)\\
+&& h_\Theta(x) = a_1^{(3)} = g(\Theta_{10}^{(2)}a_0^{(2)} + \Theta_{11}^{(2)}a_1^{(2)} + \Theta_{12}^{(2)}a_2^{(2)} + \Theta_{13}^{(2)}a_3^{(2)})
+\end{align*}</script></li>
+<li><p>The dimensions of matrices of weights is determined as follows:</p>
+<p><strong>If network has $s_j$ units in layer $j$ and $s_{j+1}$ units in layer $j+1$, then $\Theta^{(j)}$ will be of dimension $s_{j+1}\times (s_j+1)$</strong>.</p>
+<p>The $+1$ comes from the addition in $\Theta^{(j)}$ of the “bias nodes”, $x_0$ and $\Theta_0^{(j)}$. In other words the output nodes will not include the bias nodes while the inputs will.</p>
 </li>
 </ul>
-<h4 id="2-From-Red-Black-to-2-4-Trees"><a href="#2-From-Red-Black-to-2-4-Trees" class="headerlink" title="2. From Red-Black to $(2,4)$ Trees"></a>2. From Red-Black to $(2,4)$ Trees</h4><ul>
-<li>Given a red-black tree, we can construct a corresponding $(2,4)$ tree:<ul>
-<li>merge every red node $w$ into its parent, storing the entry from $w$ at its parent</li>
-<li>the children of $w$ become ordered children of the parent</li>
-</ul>
+<h4 id="2-Vectorized-Representation"><a href="#2-Vectorized-Representation" class="headerlink" title="2. Vectorized Representation"></a>2. Vectorized Representation</h4><ul>
+<li><p>Setting $x = a^{(1)}$</p>
+<p>$z^{(j)} = \Theta^{(j-1)}a^{(j-1)}$</p>
 </li>
-<li>Depth Property:<ul>
-<li>$(2,4)$ Tree: all the external nodes have the same depth</li>
-<li>Red-Black Tree: all the leaves have the same <em>black depth</em></li>
-</ul>
+<li><p>Multiply matrix $\Theta^{(j-1)}$ with dimensions $s_j\times (n+1)$ (where $s_j$ is the number of activation nodes) by vector $a^{(j-1)}$ with height $n+1$. This gives vector $z^{(j)}$ with height $s_j$. Now the vector of activation nodes for layer $j$ as follows:</p>
+<script type="math/tex; mode=display">
+a^{(j)} = g(z^{(j)})</script><p>where function $g$ can be applied element-wise to vector $z^{(j)}$</p>
 </li>
-<li>A red-black tree is a representation of a $(2,4)$ tree by means of a binary tree whose nodes are colored red or black</li>
-<li>In comparison with its associated $(2,4)$ tree, a red-black tree has<ul>
-<li>same logarithmic time performance</li>
-<li>simpler implementation with a single node type</li>
-</ul>
+<li><p>Add a bias unit (equal to $1$) to layer $j$ after we have computed $a^{(j)}$. This will be element $a_0^{(j)}$ and will be equal to $1$.</p>
 </li>
-</ul>
-<h4 id="3-Height-of-a-Red-Black-Tree"><a href="#3-Height-of-a-Red-Black-Tree" class="headerlink" title="3. Height of a Red-Black Tree"></a>3. Height of a Red-Black Tree</h4><ul>
-<li>Theorem: A red-black tree storing $n$ items has height $O(\log n)$<ul>
-<li>Proof:<ul>
-<li>The height of a red-black tree is at most twice the height of its associated $(2,4)$ tree, which is $O(\log n)$</li>
-</ul>
+<li><p>Final result $h_\Theta(x) = a^{(j+1)} = g(z^{(j+1)}) = g(\Theta^{(j)}a^{(j)})$</p>
 </li>
-</ul>
-</li>
-</ul>
-<h4 id="4-Search"><a href="#4-Search" class="headerlink" title="4. Search"></a>4. Search</h4><ul>
-<li>The search algorithm for a red-black tree is the same as that for a binary search tree</li>
-<li>Searching in a red-black tree takes $O(\log n)$ time</li>
-</ul>
-<h4 id="5-Insertion"><a href="#5-Insertion" class="headerlink" title="5. Insertion"></a>5. Insertion</h4><ul>
-<li><p>To insert $(k, o)$, we execute the insertion algorithm for binary search trees and color <strong>red</strong> the newly inserted node $z$ <em>unless it is the root</em></p>
-<ul>
-<li>We preserve the root, external, and depth properties</li>
-<li>If the parent $v$ of $z$ is black, we also preserve the internal property and we are done</li>
-<li>Else ($v$ is red) we have a <strong>double red</strong> (i.e., a violation of the internal property), which requires a reorganization of the tree</li>
-</ul>
-</li>
-<li><p><strong>Remedying a Double Red</strong></p>
-<ul>
-<li>Consider a double red with child $z$ and parent $v$, and let $w$ be the sibling of $v$</li>
-<li>Case1: $w$ is black<ul>
-<li>The double red is an incorrect replacement of a 4-node</li>
-<li><strong>Restructuring</strong>: we change the 4-node replacement</li>
-</ul>
-</li>
-<li>Case2: $w$ is red<ul>
-<li>The double red corresponds to an overflow</li>
-<li><strong>Recoloring</strong>: we perform the equivalent of a <strong>split</strong></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>Restructuring</strong></p>
-<ul>
-<li><p>A restructuring remedies a child-parent double red when the parent red node has a black sibling</p>
-</li>
-<li><p>It is equivalent to restoring the <em>correct replacement</em> of a 4-node</p>
-</li>
-<li><p>The internal property is restored and the other properties are preserved</p>
-</li>
-<li><p>There are four restructuring configrations depending on whether the double red nodes are left or right children</p>
-<p><img src="/2021/05/26/Red-Black-Tree/Screen Shot 2021-05-10 at 7.22.25 PM.png" style="zoom:50%;"></p>
-</li>
-</ul>
-</li>
-<li><p><strong>Recoloring</strong></p>
-<ul>
-<li>A recoloring remedies a child-parent double red when the parent red node has a red sibling</li>
-<li>The parent $v$ and its sibling $w$ become black and the grandparent $u$ becomes red, unless it is the root</li>
-<li>It is equivalent to performing a split on a 5-node</li>
-<li><em>The double red violation may propagate to the grangparent $u$</em></li>
-</ul>
-</li>
-<li><p>Analysis of Insertion</p>
-<ul>
-<li><pre class=" language-lang-pseudocode"><code class="language-lang-pseudocode">Algorithm insert(k, o)
-1. We search for key k to locate the insertion node z
-2. We add the new entry (k, o) at node z and color z red
-3. while doubleRed(z)
-        if isBlack(sibling(parent(z)))
-            z <- restructure(z)
-            return
-        else sibling(parent(z)) is red
-            z <- recolor(z)
-</code></pre>
-</li>
-<li><p>Recall that a red-black tree has $O(\log n)$ height</p>
-</li>
-<li><p>Step 1 takes $O(\log n)$ time because we visit $O(\log n)$ nodes</p>
-</li>
-<li><p>Step 2 takes $O(1)$ time</p>
-</li>
-<li><p>Step 3 takes $O(\log n)$ time because we perform</p>
-<ul>
-<li>$O(\log n)$ recoloring, each taking $O(1)$ time, and</li>
-<li>at most one restructuring taking $O(1)$ time</li>
-</ul>
-</li>
-<li><p>Thus, an insertion in a red-black tree takes $O(\log n)$ time</p>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="6-Deletion"><a href="#6-Deletion" class="headerlink" title="6. Deletion"></a>6. Deletion</h4><ul>
-<li>To perform operation $remove(k)$, we first execute the deletion algorithm for binary search trees</li>
-<li>Let $v$ be the internal node removed, $w$ the external node removed, and $r$ the sibling of $w$<ul>
-<li>If $v$ was red, the resulting tree remains a valid red-black tree</li>
-<li>If $v$ was black and $r$ was red, we color $r$ black and we are done</li>
-<li>Else ($v$ and $r$ were both black) we color $r$ <strong><em>double black</em></strong>, to preserve the depth property</li>
-</ul>
-</li>
-<li><strong>Remedying a Double Black</strong><ul>
-<li>The algorithm for remedying a double black node $r$ with sibling $y$ considers three cases</li>
-<li>Case1: $y$ is black and has a red child<ul>
-<li>We perform a <strong>restructuring</strong>, equivalent to a <strong>transfer</strong>, and we are done.</li>
-</ul>
-</li>
-<li>Case2: sibling $y$ of $r$ is black and its children are both black<ul>
-<li>We perform a <strong>recoloring</strong>, equivalent to a <strong>fusion</strong>, which may propagate up the double black violation</li>
-</ul>
-</li>
-<li>Case3: $y$ is red<ul>
-<li>We perform an <strong>adjustment</strong>, equivalent to choosing a different representation of a 3-node, after which either Case 1 or Case 2 applies</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Deletion in a red-black tree takes $O(\log n)$ time</li>
 </ul>
 
             </div>
@@ -635,7 +554,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://scycy2.github.io/2021/05/26/Red-Black-Tree/">https://scycy2.github.io/2021/05/26/Red-Black-Tree/</a>
+                    <a href="https://scycy2.github.io/2021/06/16/Neural-Network/">https://scycy2.github.io/2021/06/16/Neural-Network/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -673,12 +592,16 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                                    <span class="chip bg-color">数据结构</span>
+                                <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">机器学习</span>
                                 </a>
                             
-                                <a href="/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/">
-                                    <span class="chip bg-color">红黑树</span>
+                                <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
+                                    <span class="chip bg-color">未完待续</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+                                    <span class="chip bg-color">神经网络</span>
                                 </a>
                             
                         </div>
@@ -720,28 +643,87 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/06/01/Linear-Regression/">
+                <a href="/2021/06/16/Neural-Network/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/26.jpg" class="responsive-img" alt="Linear Regression">
                         
-                        <span class="card-title">Linear Regression</span>
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Neural Network">
+                        
+                        <span class="card-title">Neural Network</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Linear Regression
+                            神经网络
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-01
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-16
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    自学笔记
+                                </a>
+                            
+                            
                         </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
+                        <span class="chip bg-color">未完待续</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">神经网络</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/06/09/Overfitting/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Overfitting">
+                        
+                        <span class="card-title">Overfitting</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            过拟合
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-09
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -761,61 +743,20 @@
                         <span class="chip bg-color">机器学习</span>
                     </a>
                     
-                    <a href="/tags/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/">
-                        <span class="chip bg-color">线性回归</span>
+                    <a href="/tags/%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/">
+                        <span class="chip bg-color">分类问题</span>
                     </a>
                     
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/09/17/%E5%A0%86/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="堆">
-                        
-                        <span class="card-title">堆</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            堆简介
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-17
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    课堂笔记
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                        <span class="chip bg-color">数据结构</span>
+                    <a href="/tags/%E8%BF%87%E6%8B%9F%E5%90%88/">
+                        <span class="chip bg-color">过拟合</span>
                     </a>
                     
-                    <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
-                        <span class="chip bg-color">未完待续</span>
+                    <a href="/tags/%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98/">
+                        <span class="chip bg-color">回归问题</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%AD%A3%E5%88%99%E5%8C%96/">
+                        <span class="chip bg-color">正则化</span>
                     </a>
                     
                 </div>

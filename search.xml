@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>Neural Network</title>
+      <link href="2021/06/16/Neural-Network/"/>
+      <url>2021/06/16/Neural-Network/</url>
+      
+        <content type="html"><![CDATA[<h4 id="1-Model-Representation"><a href="#1-Model-Representation" class="headerlink" title="1. Model Representation"></a>1. Model Representation</h4><ul><li><p>Input: features $x_1\cdots x_n$</p></li><li><p>Output: the result of the hypothesis function.</p></li><li><p><img src="/2021/06/16/Neural-Network/Neural Network Rep1.png" style="zoom:50%;"></p></li><li><p>$x_0$ input node is called the “bias unit”. It is always equal to $1$.</p></li><li><p>The same logistic function as in classification, $\frac{1}{1+e^{-\theta^Tx}}$, which is also called sigmoid (logistic) <strong>activation</strong> function.</p></li><li><p>“theta” parameters are called “weights”.</p></li><li><p>A simplistic representation:</p><script type="math/tex; mode=display">[x_0x_1x_2]\rightarrow [\ ]\rightarrow h_\theta(x)</script></li><li><p>Inpur nodes (layer 1), known as the “input layer”, go into another node (layer 2), which finally outputs the hypothesis function, known as the “output layer”.</p></li><li><p>The intermediate layers of nodes between the input and output layers called the “hidden layers”.</p></li><li><p><img src="/2021/06/16/Neural-Network/Neural Network Rep2.png" style="zoom:50%;"></p></li><li><p>We label these intermediate or “hidden” layer nodes $a_0^2\cdots a_n^2$ and call them “activation units”.</p></li><li><script type="math/tex; mode=display">\begin{align*}& a_i^{(j)} = \text{activation}\ \text{of unit}\ i\ \text{in layer}\ j\\& \Theta^{(j)} = \text{matrix of weights controlling function mapping from layer}\ j \text{ to layer}\ j+1\end{align*}</script></li><li><script type="math/tex; mode=display">[x_0x_1x_2x_3]\rightarrow \left[a_1^{(2)}a_2^{(2)}a_3^{(2)}\right]\rightarrow h_\theta(x)</script></li><li><p>The values for each of the “activation” nodes is obtained as follows:</p><script type="math/tex; mode=display">\begin{align*}&& a_1^{(2)} = g(\Theta_{10}^{(1)}x_0 + \Theta_{11}^{(1)}x_2 + \Theta_{12}^{(1)}x_1 + \Theta_{13}^{(1)}x_3)\\&& a_2^{(2)} = g(\Theta_{20}^{(1)}x_0 + \Theta_{21}^{(1)}x_2 + \Theta_{22}^{(1)}x_1 + \Theta_{23}^{(1)}x_3)\\&& a_3^{(2)} = g(\Theta_{30}^{(1)}x_0 + \Theta_{31}^{(1)}x_2 + \Theta_{32}^{(1)}x_1 + \Theta_{33}^{(1)}x_3)\\&& h_\Theta(x) = a_1^{(3)} = g(\Theta_{10}^{(2)}a_0^{(2)} + \Theta_{11}^{(2)}a_1^{(2)} + \Theta_{12}^{(2)}a_2^{(2)} + \Theta_{13}^{(2)}a_3^{(2)})\end{align*}</script></li><li><p>The dimensions of matrices of weights is determined as follows:</p><p><strong>If network has $s_j$ units in layer $j$ and $s_{j+1}$ units in layer $j+1$, then $\Theta^{(j)}$ will be of dimension $s_{j+1}\times (s_j+1)$</strong>.</p><p>The $+1$ comes from the addition in $\Theta^{(j)}$ of the “bias nodes”, $x_0$ and $\Theta_0^{(j)}$. In other words the output nodes will not include the bias nodes while the inputs will.</p></li></ul><h4 id="2-Vectorized-Representation"><a href="#2-Vectorized-Representation" class="headerlink" title="2. Vectorized Representation"></a>2. Vectorized Representation</h4><ul><li><p>Setting $x = a^{(1)}$</p><p>$z^{(j)} = \Theta^{(j-1)}a^{(j-1)}$</p></li><li><p>Multiply matrix $\Theta^{(j-1)}$ with dimensions $s_j\times (n+1)$ (where $s_j$ is the number of activation nodes) by vector $a^{(j-1)}$ with height $n+1$. This gives vector $z^{(j)}$ with height $s_j$. Now the vector of activation nodes for layer $j$ as follows:</p><script type="math/tex; mode=display">a^{(j)} = g(z^{(j)})</script><p>where function $g$ can be applied element-wise to vector $z^{(j)}$</p></li><li><p>Add a bias unit (equal to $1$) to layer $j$ after we have computed $a^{(j)}$. This will be element $a_0^{(j)}$ and will be equal to $1$.</p></li><li><p>Final result $h_\Theta(x) = a^{(j+1)} = g(z^{(j+1)}) = g(\Theta^{(j)}a^{(j)})$</p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 自学笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 机器学习 </tag>
+            
+            <tag> 未完待续 </tag>
+            
+            <tag> 神经网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Overfitting</title>
       <link href="2021/06/09/Overfitting/"/>
       <url>2021/06/09/Overfitting/</url>
@@ -190,11 +219,11 @@
             
             <tag> 数据结构 </tag>
             
-            <tag> 未完待续 </tag>
-            
             <tag> 算法 </tag>
             
             <tag> 总结 </tag>
+            
+            <tag> 未完待续 </tag>
             
             <tag> java </tag>
             
@@ -223,9 +252,9 @@
       
         <tags>
             
-            <tag> 未完待续 </tag>
-            
             <tag> 算法 </tag>
+            
+            <tag> 未完待续 </tag>
             
         </tags>
       
@@ -252,11 +281,11 @@
             
             <tag> 数据结构 </tag>
             
-            <tag> 未完待续 </tag>
-            
             <tag> 算法 </tag>
             
             <tag> 总结 </tag>
+            
+            <tag> 未完待续 </tag>
             
             <tag> java </tag>
             
@@ -310,9 +339,9 @@
       
         <tags>
             
-            <tag> hexo </tag>
-            
             <tag> 未完待续 </tag>
+            
+            <tag> hexo </tag>
             
         </tags>
       
