@@ -412,12 +412,12 @@
                                 <span class="chip bg-color">机器学习</span>
                             </a>
                         
-                            <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
-                                <span class="chip bg-color">未完待续</span>
-                            </a>
-                        
                             <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
                                 <span class="chip bg-color">神经网络</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
+                                <span class="chip bg-color">未完待续</span>
                             </a>
                         
                     </div>
@@ -448,21 +448,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-06-16
+                    2021-06-22
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    466
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    6 分
                 </div>
                 
 
@@ -527,6 +527,58 @@ a^{(j)} = g(z^{(j)})</script><p>where function $g$ can be applied element-wise t
 <li><p>Add a bias unit (equal to $1$) to layer $j$ after we have computed $a^{(j)}$. This will be element $a_0^{(j)}$ and will be equal to $1$.</p>
 </li>
 <li><p>Final result $h_\Theta(x) = a^{(j+1)} = g(z^{(j+1)}) = g(\Theta^{(j)}a^{(j)})$</p>
+</li>
+</ul>
+<h4 id="3-Cost-Function"><a href="#3-Cost-Function" class="headerlink" title="3. Cost Function"></a>3. Cost Function</h4><ul>
+<li><p>First define a few variables need to use:</p>
+<ul>
+<li>$L = \text{total number of layers in the network}$</li>
+<li>$s_l = \text{number of units (not counting bias unit) in layer } l$</li>
+<li>$K = \text{number of output units/classes}$</li>
+</ul>
+</li>
+<li><p>In neural networks, we may have many output nodes. Denote $h_\theta(x)_k$ as being a hypothesis that results in the $k^{th}$ output.</p>
+</li>
+<li><p>The cost function for neural networks is going to be generalization of the one used for logistic regression.</p>
+<script type="math/tex; mode=display">
+J(\Theta) = -\frac{1}{m} \sum_{i=1}^{m} \sum_{k-1}^{K} \left[y_{k}^{(i)} \log((h_\Theta(x^{(i)}))_k) + (1-y_k^{(i)})\log(1-(h_\Theta(x^{(i)}))_k)\right] + \frac{\lambda}{2m} \sum_{l=1}^{L-1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_l+1}(\Theta_{j, i}^{(i)})^2</script><p>We have added a few nested summations to account for our multiple output nodes. In the first part of the equation, before the square brackets, we have an additional nested summation that loops through the number of output nodes.</p>
+</li>
+<li><p>In the regularization part, after the square brackets, we must account for multiple theta matrices. The number of columns in our current theta matrix is equal to the number of nodes in our current layer (including the bias unit). The number of rows in our current theta matrix is equal to the number of nodes in the next layer (excluding the bias unit). As before with logistic regression, we square every term.</p>
+</li>
+<li><p>Note:</p>
+<ul>
+<li>the double sum simply adds up the logistic regression costs calculated for each cell in the output layer.</li>
+<li>the triple sum simply adds up the squares of all the individual $\Theta$s in the entire network.</li>
+<li>the $i$ in the triple sum does <strong>not</strong> refer to training example $i$.</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-Backpropagation-Algorithm"><a href="#4-Backpropagation-Algorithm" class="headerlink" title="4. Backpropagation Algorithm"></a>4. Backpropagation Algorithm</h4><ul>
+<li><p>“Backpropagation” is neural-network terminology for minimizing the cost function.</p>
+</li>
+<li><p>Compute the partial derivative of $J(\Theta)$:</p>
+<script type="math/tex; mode=display">
+\frac{\partial}{\partial \Theta_{i, j}^{(l)}}J(\Theta)</script></li>
+<li><p>Procedure:</p>
+<ul>
+<li>Given training examples set $\{(x^{(1)}, y^{(1)})\cdots(x^{(m)}, y^{(m)})\}$</li>
+<li>Set $\Delta_{ij}^{(l)} = 0$ for all $(l, i, j)$</li>
+<li>For $i = 1$ to $m$:<ul>
+<li>Set $a^{(1)} = x^{(i)}$</li>
+<li>Perform forward propagation to compute $a^{(l)}$ for $l = 2,3,\cdots, L$</li>
+<li>Using $y^{(i)}$, compute $\delta^{(L)} = a^{(L)} - y^{(i)}$</li>
+<li>Compute $\delta^{(L-1)}, \delta^{(L-2)}, \cdots, \delta^{(2)}$ using $\delta^{(l)} = ((\Theta^{(l)})^T\delta^{(l+1)})\ .<em>\ a^{(l)}\ .</em>\ (1-a^{(l)})$<ul>
+<li>The delta values of layer $l$ are calculated by multiplying the delta values in the next layer with the theta matrix of layer $l$. We then element-wise multiply that with a function called $g^{\prime}$, or g-prime, which is the derivative of the activation function $g$ evaluated with the input values given by $z^{(l)}$.</li>
+</ul>
+</li>
+<li>$\Delta_{ij}^{(l)} := \Delta_{ij}^{(l)} + a_j^{(l)}\delta_i^{(l+1)}$</li>
+</ul>
+</li>
+<li>$D_{ij}^{(l)} := \Delta_{ij}^{(l)} + \lambda \Theta_{ij}^{(l)} \text{ if } j \ne 0$</li>
+<li>$D_{ij}^{(l)} := \Delta_{ij}^{(l)} \text{ if } j = 0$</li>
+</ul>
+</li>
+<li><p>Intuitively, $\delta_j^{(l)}$ is the “error” for $a_j^{(l)}$ (unit $j$ in layer $l$). More formally, the delta values are actually the derivative of the cost function: $\delta_j^{(l)} = \frac{\partial}{\partial z_j^{(l)}}cost(t)$</p>
 </li>
 </ul>
 
@@ -596,12 +648,12 @@ a^{(j)} = g(z^{(j)})</script><p>where function $g$ can be applied element-wise t
                                     <span class="chip bg-color">机器学习</span>
                                 </a>
                             
-                                <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
-                                    <span class="chip bg-color">未完待续</span>
-                                </a>
-                            
                                 <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
                                     <span class="chip bg-color">神经网络</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
+                                    <span class="chip bg-color">未完待续</span>
                                 </a>
                             
                         </div>
@@ -687,12 +739,12 @@ a^{(j)} = g(z^{(j)})</script><p>where function $g$ can be applied element-wise t
                         <span class="chip bg-color">机器学习</span>
                     </a>
                     
-                    <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
-                        <span class="chip bg-color">未完待续</span>
-                    </a>
-                    
                     <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
                         <span class="chip bg-color">神经网络</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
+                        <span class="chip bg-color">未完待续</span>
                     </a>
                     
                 </div>
@@ -950,7 +1002,7 @@ a^{(j)} = g(z^{(j)})</script><p>where function $g$ can be applied element-wise t
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">7.3k</span>&nbsp;字
+                class="white-color">7.8k</span>&nbsp;字
             
             
             
