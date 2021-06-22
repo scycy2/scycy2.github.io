@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Neural Network, 学习, 算法, java, 记录">
+    <meta name="keywords" content="Support Vector Machine, 学习, 算法, java, 记录">
     <meta name="description" content="大学狗的学习之旅">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Neural Network | 再`見</title>
+    <title>Support Vector Machine | 再`見</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -286,12 +286,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Neural Network</h1>
+                    <h1 class="description center-align post-title">Support Vector Machine</h1>
                 </div>
             </div>
         </div>
@@ -408,16 +408,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                                <span class="chip bg-color">机器学习</span>
-                            </a>
-                        
-                            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
-                                <span class="chip bg-color">神经网络</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
-                                <span class="chip bg-color">未完待续</span>
+                            <a href="/tags/%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/">
+                                <span class="chip bg-color">自学笔记</span>
                             </a>
                         
                     </div>
@@ -428,8 +420,12 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" class="post-category">
-                                自学笔记
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                机器学习
+                            </a>
+                        
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" class="post-category">
+                                支持向量机
                             </a>
                         
                     </div>
@@ -441,7 +437,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-06-16
+                    2021-06-22
                 </div>
                 
 
@@ -455,14 +451,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    0
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    6 分
+                    1 分
                 </div>
                 
 
@@ -472,116 +468,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="1-Model-Representation"><a href="#1-Model-Representation" class="headerlink" title="1. Model Representation"></a>1. Model Representation</h4><ul>
-<li><p>Input: features $x_1\cdots x_n$</p>
-</li>
-<li><p>Output: the result of the hypothesis function.</p>
-</li>
-<li><p><img src="/2021/06/16/Neural-Network/Neural Network Rep1.png" style="zoom:50%;"></p>
-</li>
-<li><p>$x_0$ input node is called the “bias unit”. It is always equal to $1$.</p>
-</li>
-<li><p>The same logistic function as in classification, $\frac{1}{1+e^{-\theta^Tx}}$, which is also called sigmoid (logistic) <strong>activation</strong> function.</p>
-</li>
-<li><p>“theta” parameters are called “weights”.</p>
-</li>
-<li><p>A simplistic representation:</p>
-<script type="math/tex; mode=display">
-[x_0x_1x_2]\rightarrow [\ ]\rightarrow h_\theta(x)</script></li>
-<li><p>Inpur nodes (layer 1), known as the “input layer”, go into another node (layer 2), which finally outputs the hypothesis function, known as the “output layer”.</p>
-</li>
-<li><p>The intermediate layers of nodes between the input and output layers called the “hidden layers”.</p>
-</li>
-<li><p><img src="/2021/06/16/Neural-Network/Neural Network Rep2.png" style="zoom:50%;"></p>
-</li>
-<li><p>We label these intermediate or “hidden” layer nodes $a_0^2\cdots a_n^2$ and call them “activation units”.</p>
-</li>
-<li><script type="math/tex; mode=display">
-\begin{align*}
-& a_i^{(j)} = \text{activation}\ \text{of unit}\ i\ \text{in layer}\ j\\
-& \Theta^{(j)} = \text{matrix of weights controlling function mapping from layer}\ j \text{ to layer}\ j+1
-\end{align*}</script></li>
-<li><script type="math/tex; mode=display">
-[x_0x_1x_2x_3]\rightarrow \left[a_1^{(2)}a_2^{(2)}a_3^{(2)}\right]\rightarrow h_\theta(x)</script></li>
-<li><p>The values for each of the “activation” nodes is obtained as follows:</p>
-<script type="math/tex; mode=display">
-\begin{align*}
-&& a_1^{(2)} = g(\Theta_{10}^{(1)}x_0 + \Theta_{11}^{(1)}x_2 + \Theta_{12}^{(1)}x_1 + \Theta_{13}^{(1)}x_3)\\
-&& a_2^{(2)} = g(\Theta_{20}^{(1)}x_0 + \Theta_{21}^{(1)}x_2 + \Theta_{22}^{(1)}x_1 + \Theta_{23}^{(1)}x_3)\\
-&& a_3^{(2)} = g(\Theta_{30}^{(1)}x_0 + \Theta_{31}^{(1)}x_2 + \Theta_{32}^{(1)}x_1 + \Theta_{33}^{(1)}x_3)\\
-&& h_\Theta(x) = a_1^{(3)} = g(\Theta_{10}^{(2)}a_0^{(2)} + \Theta_{11}^{(2)}a_1^{(2)} + \Theta_{12}^{(2)}a_2^{(2)} + \Theta_{13}^{(2)}a_3^{(2)})
-\end{align*}</script></li>
-<li><p>The dimensions of matrices of weights is determined as follows:</p>
-<p><strong>If network has $s_j$ units in layer $j$ and $s_{j+1}$ units in layer $j+1$, then $\Theta^{(j)}$ will be of dimension $s_{j+1}\times (s_j+1)$</strong>.</p>
-<p>The $+1$ comes from the addition in $\Theta^{(j)}$ of the “bias nodes”, $x_0$ and $\Theta_0^{(j)}$. In other words the output nodes will not include the bias nodes while the inputs will.</p>
-</li>
-</ul>
-<h4 id="2-Vectorized-Representation"><a href="#2-Vectorized-Representation" class="headerlink" title="2. Vectorized Representation"></a>2. Vectorized Representation</h4><ul>
-<li><p>Setting $x = a^{(1)}$</p>
-<p>$z^{(j)} = \Theta^{(j-1)}a^{(j-1)}$</p>
-</li>
-<li><p>Multiply matrix $\Theta^{(j-1)}$ with dimensions $s_j\times (n+1)$ (where $s_j$ is the number of activation nodes) by vector $a^{(j-1)}$ with height $n+1$. This gives vector $z^{(j)}$ with height $s_j$. Now the vector of activation nodes for layer $j$ as follows:</p>
-<script type="math/tex; mode=display">
-a^{(j)} = g(z^{(j)})</script><p>where function $g$ can be applied element-wise to vector $z^{(j)}$</p>
-</li>
-<li><p>Add a bias unit (equal to $1$) to layer $j$ after we have computed $a^{(j)}$. This will be element $a_0^{(j)}$ and will be equal to $1$.</p>
-</li>
-<li><p>Final result $h_\Theta(x) = a^{(j+1)} = g(z^{(j+1)}) = g(\Theta^{(j)}a^{(j)})$</p>
-</li>
-</ul>
-<h4 id="3-Cost-Function"><a href="#3-Cost-Function" class="headerlink" title="3. Cost Function"></a>3. Cost Function</h4><ul>
-<li><p>First define a few variables need to use:</p>
-<ul>
-<li>$L = \text{total number of layers in the network}$</li>
-<li>$s_l = \text{number of units (not counting bias unit) in layer } l$</li>
-<li>$K = \text{number of output units/classes}$</li>
-</ul>
-</li>
-<li><p>In neural networks, we may have many output nodes. Denote $h_\theta(x)_k$ as being a hypothesis that results in the $k^{th}$ output.</p>
-</li>
-<li><p>The cost function for neural networks is going to be generalization of the one used for logistic regression.</p>
-<script type="math/tex; mode=display">
-J(\Theta) = -\frac{1}{m} \sum_{i=1}^{m} \sum_{k-1}^{K} \left[y_{k}^{(i)} \log((h_\Theta(x^{(i)}))_k) + (1-y_k^{(i)})\log(1-(h_\Theta(x^{(i)}))_k)\right] + \frac{\lambda}{2m} \sum_{l=1}^{L-1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_l+1}(\Theta_{j, i}^{(i)})^2</script><p>We have added a few nested summations to account for our multiple output nodes. In the first part of the equation, before the square brackets, we have an additional nested summation that loops through the number of output nodes.</p>
-</li>
-<li><p>In the regularization part, after the square brackets, we must account for multiple theta matrices. The number of columns in our current theta matrix is equal to the number of nodes in our current layer (including the bias unit). The number of rows in our current theta matrix is equal to the number of nodes in the next layer (excluding the bias unit). As before with logistic regression, we square every term.</p>
-</li>
-<li><p>Note:</p>
-<ul>
-<li>the double sum simply adds up the logistic regression costs calculated for each cell in the output layer.</li>
-<li>the triple sum simply adds up the squares of all the individual $\Theta$s in the entire network.</li>
-<li>the $i$ in the triple sum does <strong>not</strong> refer to training example $i$.</li>
-</ul>
-</li>
-</ul>
-<h4 id="4-Backpropagation-Algorithm"><a href="#4-Backpropagation-Algorithm" class="headerlink" title="4. Backpropagation Algorithm"></a>4. Backpropagation Algorithm</h4><ul>
-<li><p>“Backpropagation” is neural-network terminology for minimizing the cost function.</p>
-</li>
-<li><p>Compute the partial derivative of $J(\Theta)$:</p>
-<script type="math/tex; mode=display">
-\frac{\partial}{\partial \Theta_{i, j}^{(l)}}J(\Theta)</script></li>
-<li><p>Procedure:</p>
-<ul>
-<li>Given training examples set $\{(x^{(1)}, y^{(1)})\cdots(x^{(m)}, y^{(m)})\}$</li>
-<li>Set $\Delta_{ij}^{(l)} = 0$ for all $(l, i, j)$</li>
-<li>For $i = 1$ to $m$:<ul>
-<li>Set $a^{(1)} = x^{(i)}$</li>
-<li>Perform forward propagation to compute $a^{(l)}$ for $l = 2,3,\cdots, L$</li>
-<li>Using $y^{(i)}$, compute $\delta^{(L)} = a^{(L)} - y^{(i)}$</li>
-<li>Compute $\delta^{(L-1)}, \delta^{(L-2)}, \cdots, \delta^{(2)}$ using $\delta^{(l)} = ((\Theta^{(l)})^T\delta^{(l+1)})\ .<em>\ a^{(l)}\ .</em>\ (1-a^{(l)})$<ul>
-<li>The delta values of layer $l$ are calculated by multiplying the delta values in the next layer with the theta matrix of layer $l$. We then element-wise multiply that with a function called $g^{\prime}$, or g-prime, which is the derivative of the activation function $g$ evaluated with the input values given by $z^{(l)}$.</li>
-</ul>
-</li>
-<li>$\Delta_{ij}^{(l)} := \Delta_{ij}^{(l)} + a_j^{(l)}\delta_i^{(l+1)}$</li>
-</ul>
-</li>
-<li>$D_{ij}^{(l)} := \Delta_{ij}^{(l)} + \lambda \Theta_{ij}^{(l)} \text{ if } j \ne 0$</li>
-<li>$D_{ij}^{(l)} := \Delta_{ij}^{(l)} \text{ if } j = 0$</li>
-</ul>
-</li>
-<li><p>Intuitively, $\delta_j^{(l)}$ is the “error” for $a_j^{(l)}$ (unit $j$ in layer $l$). More formally, the delta values are actually the derivative of the cost function: $\delta_j^{(l)} = \frac{\partial}{\partial z_j^{(l)}}cost(t)$</p>
-</li>
-</ul>
-
+                
             </div>
             <hr/>
 
@@ -606,7 +493,7 @@ J(\Theta) = -\frac{1}{m} \sum_{i=1}^{m} \sum_{k-1}^{K} \left[y_{k}^{(i)} \log((h
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://scycy2.github.io/2021/06/16/Neural-Network/">https://scycy2.github.io/2021/06/16/Neural-Network/</a>
+                    <a href="https://scycy2.github.io/2021/06/22/Support-Vector-Machine/">https://scycy2.github.io/2021/06/22/Support-Vector-Machine/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -644,16 +531,8 @@ J(\Theta) = -\frac{1}{m} \sum_{i=1}^{m} \sum_{k-1}^{K} \left[y_{k}^{(i)} \log((h
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                                    <span class="chip bg-color">机器学习</span>
-                                </a>
-                            
-                                <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
-                                    <span class="chip bg-color">神经网络</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
-                                    <span class="chip bg-color">未完待续</span>
+                                <a href="/tags/%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/">
+                                    <span class="chip bg-color">自学笔记</span>
                                 </a>
                             
                         </div>
@@ -695,9 +574,10 @@ J(\Theta) = -\frac{1}{m} \sum_{i=1}^{m} \sum_{k-1}^{K} \left[y_{k}^{(i)} \log((h
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/06/22/Support-Vector-Machine/">
                     <div class="card-image">
@@ -715,9 +595,9 @@ J(\Theta) = -\frac{1}{m} \sum_{i=1}^{m} \sum_{k-1}^{K} \left[y_{k}^{(i)} \log((h
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-22
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -734,6 +614,7 @@ J(\Theta) = -\frac{1}{m} \sum_{i=1}^{m} \sum_{k-1}^{K} \left[y_{k}^{(i)} \log((h
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -752,23 +633,24 @@ J(\Theta) = -\frac{1}{m} \sum_{i=1}^{m} \sum_{k-1}^{K} \left[y_{k}^{(i)} \log((h
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/06/09/Overfitting/">
+                <a href="/2021/06/16/Neural-Network/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Overfitting">
                         
-                        <span class="card-title">Overfitting</span>
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Neural Network">
+                        
+                        <span class="card-title">Neural Network</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            过拟合
+                            神经网络
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-16
                             </span>
                         <span class="publish-author">
                             
@@ -789,20 +671,12 @@ J(\Theta) = -\frac{1}{m} \sum_{i=1}^{m} \sum_{k-1}^{K} \left[y_{k}^{(i)} \log((h
                         <span class="chip bg-color">机器学习</span>
                     </a>
                     
-                    <a href="/tags/%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/">
-                        <span class="chip bg-color">分类问题</span>
+                    <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
+                        <span class="chip bg-color">神经网络</span>
                     </a>
                     
-                    <a href="/tags/%E8%BF%87%E6%8B%9F%E5%90%88/">
-                        <span class="chip bg-color">过拟合</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98/">
-                        <span class="chip bg-color">回归问题</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%AD%A3%E5%88%99%E5%8C%96/">
-                        <span class="chip bg-color">正则化</span>
+                    <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
+                        <span class="chip bg-color">未完待续</span>
                     </a>
                     
                 </div>
