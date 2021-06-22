@@ -79,3 +79,52 @@ mathjax: true
 
 * Final result $h_\Theta(x) = a^{(j+1)} = g(z^{(j+1)}) = g(\Theta^{(j)}a^{(j)})$
 
+#### 3. Cost Function
+
+* First define a few variables need to use:
+
+  * $L = \text{total number of layers in the network}$
+  * $s_l = \text{number of units (not counting bias unit) in layer } l$
+  * $K = \text{number of output units/classes}$
+
+* In neural networks, we may have many output nodes. Denote $h_\theta(x)_k$ as being a hypothesis that results in the $k^{th}$ output.
+
+* The cost function for neural networks is going to be generalization of the one used for logistic regression.
+  $$
+  J(\Theta) = -\frac{1}{m} \sum_{i=1}^{m} \sum_{k-1}^{K} \left[y_{k}^{(i)} \log((h_\Theta(x^{(i)}))_k) + (1-y_k^{(i)})\log(1-(h_\Theta(x^{(i)}))_k)\right] + \frac{\lambda}{2m} \sum_{l=1}^{L-1} \sum_{i=1}^{s_l} \sum_{j=1}^{s_l+1}(\Theta_{j, i}^{(i)})^2
+  $$
+  We have added a few nested summations to account for our multiple output nodes. In the first part of the equation, before the square brackets, we have an additional nested summation that loops through the number of output nodes.
+
+* In the regularization part, after the square brackets, we must account for multiple theta matrices. The number of columns in our current theta matrix is equal to the number of nodes in our current layer (including the bias unit). The number of rows in our current theta matrix is equal to the number of nodes in the next layer (excluding the bias unit). As before with logistic regression, we square every term.
+
+* Note:
+
+  * the double sum simply adds up the logistic regression costs calculated for each cell in the output layer.
+  * the triple sum simply adds up the squares of all the individual $\Theta$s in the entire network.
+  * the $i$ in the triple sum does **not** refer to training example $i$.
+
+#### 4. Backpropagation Algorithm
+
+* "Backpropagation" is neural-network terminology for minimizing the cost function.
+
+* Compute the partial derivative of $J(\Theta)$:
+  $$
+  \frac{\partial}{\partial \Theta_{i, j}^{(l)}}J(\Theta)
+  $$
+
+* Procedure:
+
+  * Given training examples set $\{(x^{(1)}, y^{(1)})\cdots(x^{(m)}, y^{(m)})\}$
+  * Set $\Delta_{ij}^{(l)} = 0$ for all $(l, i, j)$
+  * For $i = 1$ to $m$:
+    * Set $a^{(1)} = x^{(i)}$
+    * Perform forward propagation to compute $a^{(l)}$ for $l = 2,3,\cdots, L$
+    * Using $y^{(i)}$, compute $\delta^{(L)} = a^{(L)} - y^{(i)}$
+    * Compute $\delta^{(L-1)}, \delta^{(L-2)}, \cdots, \delta^{(2)}$ using $\delta^{(l)} = ((\Theta^{(l)})^T\delta^{(l+1)})\ .*\ a^{(l)}\ .*\ (1-a^{(l)})$
+      * The delta values of layer $l$ are calculated by multiplying the delta values in the next layer with the theta matrix of layer $l$. We then element-wise multiply that with a function called $g^{\prime}$, or g-prime, which is the derivative of the activation function $g$ evaluated with the input values given by $z^{(l)}$.
+    * $\Delta_{ij}^{(l)} := \Delta_{ij}^{(l)} + a_j^{(l)}\delta_i^{(l+1)}$
+  * $D_{ij}^{(l)} := \Delta_{ij}^{(l)} + \lambda \Theta_{ij}^{(l)} \text{ if } j \ne 0$
+  * $D_{ij}^{(l)} := \Delta_{ij}^{(l)} \text{ if } j = 0$
+
+* Intuitively, $\delta_j^{(l)}$ is the "error" for $a_j^{(l)}$ (unit $j$ in layer $l$). More formally, the delta values are actually the derivative of the cost function: $\delta_j^{(l)} = \frac{\partial}{\partial z_j^{(l)}}cost(t)$
+
