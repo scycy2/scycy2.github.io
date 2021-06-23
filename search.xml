@@ -8,7 +8,7 @@
       <link href="2021/06/22/Support-Vector-Machine/"/>
       <url>2021/06/22/Support-Vector-Machine/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<h4 id="1-Optimization-Objective"><a href="#1-Optimization-Objective" class="headerlink" title="1. Optimization Objective"></a>1. Optimization Objective</h4><ul><li><script type="math/tex; mode=display">\min_\theta C \sum_{i=1}^m\left[y^{(i)}cost_1(\theta^Tx^{(i)}) + (1-y^{(i)})cost_0(\theta^Tx^{(i)})\right] + \frac{1}{2}\sum_{i=1}^n\theta_J^2</script></li><li><p>$z = \theta^Tx$</p></li><li><p><img src="/2021/06/22/Support-Vector-Machine/cost1.png" style="zoom:50%;"> <img src="/2021/06/22/Support-Vector-Machine/cost0.png" style="zoom:50%;"></p></li><li><p>if $y = 1$, $\theta^Tx \ge 1$</p><p>if $y=0$, $\theta^Tx\le -1$</p></li></ul><h4 id="2-Decision-Boundary"><a href="#2-Decision-Boundary" class="headerlink" title="2. Decision Boundary"></a>2. Decision Boundary</h4><ul><li><script type="math/tex; mode=display">\begin{align*}& \min_\theta \frac{1}{2}\sum_{i=1}^n\theta_j^2\\& s.t.\quad \theta^Tx^{(i)} \ge 1\quad \text{if}\ y^{(i)} = 1\\& \quad \quad\ \ \ \theta^Tx^{(i)} \le -1\quad \text{if}\ y^{(i)} = 0\end{align*}</script></li><li><p>Linearly Separable case</p><p><img src="/2021/06/22/Support-Vector-Machine/LinearSeparable.png" style="zoom:50%;"></p></li><li><p><img src="/2021/06/22/Support-Vector-Machine/LinearSeparable1.png" style="zoom:50%;"></p></li></ul><h4 id="3-Kernel"><a href="#3-Kernel" class="headerlink" title="3. Kernel"></a>3. Kernel</h4><ul><li><p>Given $x$, compute new feature depending on proximity to landmarks $l^{(1)}, l^{(2)}, l^{(3)}, \cdots$</p></li><li><p>$f_1 = similarity(x, l^{(1)}) = \exp\left(-\frac{\Vert x-l^{(1)}\Vert^2}{2\sigma^2}\right)$</p><p>if $x \approx l^{(1)}: f_1 \approx \exp\left(-\frac{0^2}{2\sigma^2}\right) \approx 1$</p><p>If $x$ is far from $l^{(1)}: f_1 = \exp\left(-\frac{(\text{large number})^2}{2\sigma^2}\right) \approx 0$</p></li><li><p><strong>SVM with Kernels</strong></p><ul><li><p>Given $(x^{(1)}, y^{(1)}), (x^{(2)}, y^{(2)}), \cdots, (x^{(m)}, y^{(m)})$</p></li><li><p>Choose $l^{(1)} = x^{(1)}, l^{(2)} = x^{(2)}, \cdots, l^{(m)} = x^{(m)}$</p></li><li><p>Given example $x$:</p><ul><li>$f_1 = similarity(x, l^{(1)})$</li><li>$f_2 = similarity(x, l^{(2)})$</li><li>$\cdots$</li></ul></li><li><p>For training example $(x^{(i)}, y^{(i)})$</p><ul><li>$x^{(i)}\rightarrow {f_1^{(i)} = sim(x^{(i)}, l^{(1)})\\ \vdots \\ f_m^{(i)} = sim(x^{(i)}), l^{(m)}}$</li><li>$f^{(i)} = x^{(i)}\\f_0^{(i)} = 1$</li></ul></li><li><p>Hypothesis: Given $x$, compute features $f\in R^{m+1}$</p><ul><li><p>Predict “$y=1$” if $\theta^Tf \ge 0$</p></li><li><p>Training</p><script type="math/tex; mode=display">\min_\theta C \sum_{i=1}^m\left[y^{(i)}cost_1(\theta^Tf^{(i)}) + (1-y^{(i)})cost_0(\theta^Tf^{(i)})\right] + \frac{1}{2}\sum_{i=1}^n\theta_J^2</script></li></ul></li></ul></li></ul><h4 id="4-SVM-parameters"><a href="#4-SVM-parameters" class="headerlink" title="4. SVM parameters"></a>4. SVM parameters</h4><ul><li>$C(=\frac{1}{\lambda})$<ul><li>Large $C$: Lower bias, high variance.</li><li>Small $C$: Higher bias, low variance.</li></ul></li><li>$\sigma^2$<ul><li>Large $\sigma^2$: Features $f_i$ vary more smoothly. Higher bias, lower variance.</li><li>Small $\sigma^2$: Features $f_i$ vary less smoothly. Lower bias, higher variance.</li></ul></li></ul><h4 id="5-Logistic-regression-vs-SVMs"><a href="#5-Logistic-regression-vs-SVMs" class="headerlink" title="5. Logistic regression vs. SVMs"></a>5. Logistic regression vs. SVMs</h4><p>$n = \text{number of features }(x\in R^{n+1}), m = \text{number of training examples}$</p><ul><li>If $n$ is large (relative to $m$):<ul><li>Use logistic regression, or SVM without a kernel (“linear kernel”)</li></ul></li><li>If $n$ is small, $m$ is intermediate:<ul><li>Use SVM with Gaussian kernel</li></ul></li><li>If $n$ is small, $m$ is large:<ul><li>Create/add more features, then use logistic regression or SVM without a kernel</li></ul></li><li>Neural network likely to work well for most of these settings, but may be slower to train.</li></ul>]]></content>
       
       
       <categories>
@@ -250,11 +250,11 @@
             
             <tag> 算法 </tag>
             
-            <tag> 总结 </tag>
+            <tag> 二叉树 </tag>
             
             <tag> java </tag>
             
-            <tag> 二叉树 </tag>
+            <tag> 总结 </tag>
             
         </tags>
       
@@ -312,9 +312,9 @@
             
             <tag> 算法 </tag>
             
-            <tag> 总结 </tag>
-            
             <tag> java </tag>
+            
+            <tag> 总结 </tag>
             
         </tags>
       
