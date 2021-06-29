@@ -1,7 +1,7 @@
 ---
 title: hexo-theme-matery主题部分优化
 date: 2020-07-18 15:23:52
-tags: ["hexo" ,"未完待续"]
+tags: ["hexo"]
 categories: "博客优化"
 summary: "hexo 优化"
 cover: true
