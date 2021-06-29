@@ -4,7 +4,7 @@ date: 2021-06-29 19:16:12
 tags: ['self learning notes']
 categories: ['machine learning', 'bias/variance', 'cross validation', 'learning curves']
 cover:
-summary: Some useful advice when applying machine learning
+summary: Advice when applying ML
 img:
 mathjax: true
 ---
