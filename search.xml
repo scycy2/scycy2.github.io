@@ -4,6 +4,37 @@
   
     
     <entry>
+      <title>Advice for applying machine learning</title>
+      <link href="2021/06/29/Advice-for-applying-machine-learning/"/>
+      <url>2021/06/29/Advice-for-applying-machine-learning/</url>
+      
+        <content type="html"><![CDATA[<h4 id="1-Evaluating-a-Learning-Algorithm"><a href="#1-Evaluating-a-Learning-Algorithm" class="headerlink" title="1. Evaluating a Learning Algorithm"></a>1. Evaluating a Learning Algorithm</h4><h5 id="1-1-Evaluating-a-Hypothesis"><a href="#1-1-Evaluating-a-Hypothesis" class="headerlink" title="1.1 Evaluating a Hypothesis"></a>1.1 Evaluating a Hypothesis</h5><ul><li><p>A hypothesis may have a low error for the training examples but still be inaccurate (because of overfitting). Thus, to evaluate a hypothesis, given a dataset of training examples, we can split up the data into two sets: a <strong>training set</strong> and a <strong>test set</strong>. Typically, the training set consists of $70\%$ of data and the test set is the remaining $30\%$.</p></li><li><p>The new procedure using these two sets is then:</p><ul><li>Learn $\Theta$ and minimize $J_{train}(\Theta)$ using the training set</li><li>Compute the test set error $J_{test}(\Theta)$</li></ul></li><li><p><strong>The test set error</strong></p><ul><li><p>For linear regression: $J_{test}(\Theta) = \frac{1}{2m_{test}}\Sigma_{i=1}^{m_{test}}(h_\Theta(x_{test}^{(i)})-y_{test}^{(i)})^2$</p></li><li><p>For classification ~ Misclassification error (aka $0/1$ misclassification error): </p><script type="math/tex; mode=display">err(h_\Theta(x), y) = \begin{cases}1\quad \text{if } h_\Theta \ge 0.5 \text{ and } y=0 \text{ or } h_\Theta \lt 0.5 \text{ and } y=1\\ 0\quad \text{otherwise}\end{cases}</script><script type="math/tex; mode=display">\text{Test Error} = \frac{1}{m_{test}}\Sigma_{i=1}^{m_{test}}err(h_\Theta(x_{test}^{(i)}), y_{test}^{(i)})</script></li></ul></li></ul><h5 id="1-2-Model-Selection-and-Train-Validation-Test-Sets"><a href="#1-2-Model-Selection-and-Train-Validation-Test-Sets" class="headerlink" title="1.2 Model Selection and Train/Validation/Test Sets"></a>1.2 Model Selection and Train/Validation/Test Sets</h5><ul><li><p>Just because a learning algorithm fits a training set well, that does not mean it is a good hypothesis. It could overfit and as a result the predication on the test set would be poor. The error of the hypothesis as measured on the dataset with which you trained the parameters will be lower than the error on any other data set.</p></li><li><p>Given many models with different polynomial degrees, we can use a systematic approach to identify the ‘best’ function. In order to choose the model of the hypothesis, test each degree of polynomial and look at the error result.</p></li><li>One way to break down the dataset into the three sets is:<ul><li>Training set: $60\%$</li><li>Cross validation set: $20\%$</li><li>Test set: $20\%$</li></ul></li><li>Calculate three separate error values for the three different sets using the following method:<ol><li>Optimize the parameters in $\Theta$ using the training set for each polynomial degree.</li><li>Find the polynomial degree $d$ with the least error using the cross validation set.</li><li>Estimate the generalization error using the test set with $J_{test}(\Theta^{(d)})$, (d = theta from polynomial with lower error);</li></ol></li><li>This way, the degree of the polynomial $d$ has not been trained using the test set.</li></ul><h4 id="2-Bias-vs-Variance"><a href="#2-Bias-vs-Variance" class="headerlink" title="2. Bias vs. Variance"></a>2. Bias vs. Variance</h4><h5 id="2-1-Diagnosing-Bias-vs-Variance"><a href="#2-1-Diagnosing-Bias-vs-Variance" class="headerlink" title="2.1 Diagnosing Bias vs. Variance"></a>2.1 Diagnosing Bias vs. Variance</h5><ul><li><p>Need to distinguish whether <strong>bias</strong> or <strong>variance</strong> is the problem contributing to bad predictions.</p></li><li><p>High bias is underfitting and high variance is overfitting. Ideally, we need to find a golden mean between these two.</p></li><li><p>The training error will tend to <strong>decrease</strong> as we increase the degree $d$ of the polynomial.</p><p>At the same time, the cross validation error will tend to <strong>decrease</strong> as we increase $d$ up to a point, and then it will <strong>increase</strong> as $d$ is increased, forming a convex curve.</p></li><li><p><strong>High bias (underfitting)</strong>: both $J_{train}(\Theta)$ and $J_{CV}(\Theta)$ will be high. Also, $J_{CV}(\Theta) \approx J_{train}(\Theta)$</p></li><li><p><strong>High variance (overfitting)</strong>: $J_{train}(\Theta)$ will be low and $J_{CV}(\Theta)$ will be much greater than $J_{train}(\Theta)$</p></li><li><p>Summurized in the figure below:</p><p><img src="/2021/06/29/Advice-for-applying-machine-learning/BiasAndVariance.png" style="zoom:50%;"></p></li></ul><h5 id="2-2-Regularization-and-Bias-Variance"><a href="#2-2-Regularization-and-Bias-Variance" class="headerlink" title="2.2 Regularization and Bias/Variance"></a>2.2 Regularization and Bias/Variance</h5><ul><li><p><img src="/2021/06/29/Advice-for-applying-machine-learning/RegularizationAndBias:Variance.png" style="zoom:50%;"></p></li><li><p>In the figure above, as $\lambda$ increases, the fit becomes more rigid. On the other hand, as $\lambda$ approaches $0$, the model tends to overfit the data.</p></li><li>In order to choose the model and the regularization term $\lambda$, need to:<ol><li>Create a list of lambdas (i.e. $\lambda \in \{0, 0.01, 0.02, 0.04, 0.08, 0.16, 0.32, 0.64, 1.28, 2.56, 5.12, 10.24\}$);</li><li>Create a set of models with different degrees or any other variants.</li><li>Iterate through the $\lambda$s and for each $\lambda$ go through all the models to learn some $\Theta$.</li><li>Compute the cross validation error using the learned $\Theta$ (computed with $\lambda$) on the $J_{CV}(\Theta)$ <strong>without</strong> regularization or $\lambda = 0$.</li><li>Select the best combo that produces the lowest error on the cross validation set.</li><li>Using the best combo $\Theta$ and $\lambda$, apply in on $J_{test}(\Theta)$ to see if it has a good generalization of the problem.</li></ol></li></ul><h5 id="2-3-Learning-Curves"><a href="#2-3-Learning-Curves" class="headerlink" title="2.3 Learning Curves"></a>2.3 Learning Curves</h5><ul><li>Training an algorithm on a very few number of data points (such as 1, 2 or 3) will easily have 0 errors because we can always find a quadratic curve that touches exactly those number of points. Hence<ul><li>As the training set gets larger, the error for a quadratic function increases.</li><li>The error value will plateau out after a certain $m$, or training set size.</li></ul></li><li><strong>Experiencing high bias</strong>:<ul><li><strong>Low training set size</strong>: causes $J_{train}(\Theta)$ to be low and $J_{CV}(\Theta)$ to be high.</li><li><strong>Large traning set size</strong>: causes both $J_{train}(\Theta)$ and $J_{CV}(\Theta)$ to be high with $J_{train}(\Theta) \approx J_{CV}(\Theta)$.</li><li>If a learning algorithm is suffering from <strong>high bias</strong>, getting more training data will not <strong>(by itself)</strong> help much.</li></ul></li><li><strong>Experiencing high variance</strong>:<ul><li><strong>Low training set size</strong>: $J_{train}(\Theta)$ will be low and $J_{CV}(\Theta)$ will be high.</li><li><strong>Large training set size</strong>: $J_{train}(\Theta)$ increases with training set size and $J_{CV}(\Theta)$ continues to decrease without leveling off. Also, $J_{train}(\Theta) \lt J_{CV}(\Theta)$ but the difference between them remains significant.</li><li>If a learning algorithm is suffering from <strong>high variance</strong>, getting more training data is likely to help.</li></ul></li></ul><h5 id="2-4-Deciding-what-to-do-next-revisited"><a href="#2-4-Deciding-what-to-do-next-revisited" class="headerlink" title="2.4 Deciding what to do next revisited"></a>2.4 Deciding what to do next revisited</h5><ul><li>The decision process can be broken down as follows:<ul><li><strong>Getting more training examples</strong>: Fixes high variance</li><li><strong>Trying smaller sets of features</strong>: Fixes high variance</li><li><strong>Adding features</strong>: Fixes high bias</li><li><strong>Adding polynomial features</strong>: Fixes high bias</li><li><strong>Decreasing $\lambda$</strong>: Fixes high bias</li><li><strong>Increasing $\lambda$</strong>: Fixes high variance</li></ul></li><li><strong>Diagnosing Neural Networks</strong><ul><li>A neural network with fewer parameters is <strong>prone to underfitting</strong>. It is also <strong>Computationally cheaper</strong>.</li><li>A large neural network with more parameters is <strong>prone to overfitting</strong>. It is also <strong>computationally expensive</strong>. In this case, use regularization (increase $\lambda$) to address overfitting.</li><li>Using a single hidden layer is a good starting default. You can train your neural network on a number of hidden layers using cross validation set. Then select the one that performs best.</li></ul></li><li><strong>Model Complexity Effects</strong>:<ul><li>Lower-order polynomials (low model complexity) have high bias and low variance. In this case, the model fits poorly consistently.</li><li>Higher-order polynomials (high model complexity) fit the training data extremely well and the test data extremely poorly. These have low bias on the training data, but very high variance.</li><li>In reality, we would want to choose a model somewhere in between, that can generalize well but also fits the data reasonably well.</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> machine learning </category>
+          
+          <category> bias/variance </category>
+          
+          <category> cross validation </category>
+          
+          <category> learning curves </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> self learning notes </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Support Vector Machine</title>
       <link href="2021/06/22/Support-Vector-Machine/"/>
       <url>2021/06/22/Support-Vector-Machine/</url>
@@ -250,11 +281,11 @@
             
             <tag> 算法 </tag>
             
-            <tag> 二叉树 </tag>
+            <tag> 总结 </tag>
             
             <tag> java </tag>
             
-            <tag> 总结 </tag>
+            <tag> 二叉树 </tag>
             
         </tags>
       
@@ -312,9 +343,9 @@
             
             <tag> 算法 </tag>
             
-            <tag> java </tag>
-            
             <tag> 总结 </tag>
+            
+            <tag> java </tag>
             
         </tags>
       
