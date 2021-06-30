@@ -1,8 +1,8 @@
 ---
 title: Advice for applying machine learning
 date: 2021-06-29 19:16:12
-tags: ['self learning notes']
-categories: ['machine learning', 'bias/variance', 'cross validation', 'learning curves']
+tags: ['machine learning', 'bias/variance', 'cross validation', 'learning curves']
+categories: ['self learning notes']
 cover:
 summary: Advice when applying ML
 img:
@@ -28,7 +28,7 @@ mathjax: true
     $$
     err(h_\Theta(x), y) = \begin{cases}1\quad \text{if } h_\Theta \ge 0.5 \text{ and } y=0 \text{ or } h_\Theta \lt 0.5 \text{ and } y=1\\ 0\quad \text{otherwise}\end{cases}
     $$
-     
+    
     $$
     \text{Test Error} = \frac{1}{m_{test}}\Sigma_{i=1}^{m_{test}}err(h_\Theta(x_{test}^{(i)}), y_{test}^{(i)})
     $$
