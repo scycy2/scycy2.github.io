@@ -13,20 +13,20 @@
       
       <categories>
           
-          <category> machine learning </category>
-          
-          <category> bias/variance </category>
-          
-          <category> cross validation </category>
-          
-          <category> learning curves </category>
+          <category> self learning notes </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> self learning notes </tag>
+            <tag> machine learning </tag>
+            
+            <tag> bias/variance </tag>
+            
+            <tag> cross validation </tag>
+            
+            <tag> learning curves </tag>
             
         </tags>
       
@@ -80,9 +80,9 @@
             
             <tag> 机器学习 </tag>
             
-            <tag> 神经网络 </tag>
-            
             <tag> 未完待续 </tag>
+            
+            <tag> 神经网络 </tag>
             
         </tags>
       
@@ -248,9 +248,9 @@
       
         <tags>
             
-            <tag> 未完待续 </tag>
-            
             <tag> 数据结构 </tag>
+            
+            <tag> 未完待续 </tag>
             
         </tags>
       
@@ -275,13 +275,13 @@
       
         <tags>
             
-            <tag> 未完待续 </tag>
-            
             <tag> 数据结构 </tag>
             
             <tag> 算法 </tag>
             
             <tag> 总结 </tag>
+            
+            <tag> 未完待续 </tag>
             
             <tag> java </tag>
             
@@ -310,9 +310,9 @@
       
         <tags>
             
-            <tag> 未完待续 </tag>
-            
             <tag> 算法 </tag>
+            
+            <tag> 未完待续 </tag>
             
         </tags>
       
@@ -337,13 +337,13 @@
       
         <tags>
             
-            <tag> 未完待续 </tag>
-            
             <tag> 数据结构 </tag>
             
             <tag> 算法 </tag>
             
             <tag> 总结 </tag>
+            
+            <tag> 未完待续 </tag>
             
             <tag> java </tag>
             
