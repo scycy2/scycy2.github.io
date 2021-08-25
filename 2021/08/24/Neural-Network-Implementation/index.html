@@ -456,7 +456,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.5k
+                    1.4k
                 </div>
                 
 
@@ -486,7 +486,7 @@
                                   Wl -- weight matrix of shape (layer_dims[l], layer_dims[l-1])
                                   bl -- bias vector of shape (layer_dims[l], 1)
   """</span>
-  parameters <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;&amp;#125;</span>
+  parameters <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
   L <span class="token operator">=</span> len<span class="token punctuation">(</span>layer_dims<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># number of layers in the network</span>
 
   <span class="token keyword">for</span> l <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> L<span class="token punctuation">)</span><span class="token punctuation">:</span>
@@ -654,7 +654,7 @@
              grads["dW" + str(l)] = ...
              grads["db" + str(l)] = ... 
     """</span>
-    grads <span class="token operator">=</span> <span class="token operator">&amp;</span><span class="token comment" spellcheck="true">#123;&amp;#125;</span>
+    grads <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
     L <span class="token operator">=</span> len<span class="token punctuation">(</span>caches<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># the number of layers</span>
     m <span class="token operator">=</span> AL<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>
     Y <span class="token operator">=</span> Y<span class="token punctuation">.</span>reshape<span class="token punctuation">(</span>AL<span class="token punctuation">.</span>shape<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># after this line, Y is the same shape as AL</span>
@@ -736,7 +736,7 @@
                 
         <span class="token comment" spellcheck="true"># Print the cost every 100 iterations</span>
         <span class="token keyword">if</span> print_cost <span class="token operator">and</span> i <span class="token operator">%</span> <span class="token number">100</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">or</span> i <span class="token operator">==</span> num_iterations <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">:</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Cost after iteration &amp;#123;&amp;#125;: &amp;#123;&amp;#125;"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>i<span class="token punctuation">,</span> np<span class="token punctuation">.</span>squeeze<span class="token punctuation">(</span>cost<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Cost after iteration {}: {}"</span><span class="token punctuation">.</span>format<span class="token punctuation">(</span>i<span class="token punctuation">,</span> np<span class="token punctuation">.</span>squeeze<span class="token punctuation">(</span>cost<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
         <span class="token keyword">if</span> i <span class="token operator">%</span> <span class="token number">100</span> <span class="token operator">==</span> <span class="token number">0</span> <span class="token operator">or</span> i <span class="token operator">==</span> num_iterations<span class="token punctuation">:</span>
             costs<span class="token punctuation">.</span>append<span class="token punctuation">(</span>cost<span class="token punctuation">)</span>
     
@@ -1116,7 +1116,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">12k</span>&nbsp;字
+                class="white-color">11.7k</span>&nbsp;字
             
             
             
