@@ -29,7 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -471,60 +472,59 @@
 <img src="/2020/07/18/hexo-theme-matery%E4%B8%BB%E9%A2%98%E9%83%A8%E5%88%86%E4%BC%98%E5%8C%96/PersonalInfo.png" style="zoom:50%;">
 
 <p>首先找到<code>/hexo-theme-matery/layout/about.ejs</code> ，并找到代码如下：</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"author"</span><span class="token operator">></span> <span class="token comment">//作者信息</span>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"author"</span><span class="token operator">></span> <span class="token comment" spellcheck="true">//作者信息</span>
     <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"post-statis hide-on-large-only"</span> data<span class="token operator">-</span>aos<span class="token operator">=</span><span class="token string">"zoom-in-right"</span><span class="token operator">></span>
         <span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">-</span> <span class="token function">partial</span><span class="token punctuation">(</span><span class="token string">'_partial/post-statis'</span><span class="token punctuation">)</span> <span class="token operator">%</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span> <span class="token comment">//引用另一个文件，表示的是左边文章、分类、标签以及他们的数量</span>
-    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"title"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">-</span> config<span class="token punctuation">.</span>author <span class="token operator">%</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span> <span class="token comment">//作者名字，在blog/_config.yml中配置</span>
-    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"career"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">-</span> theme<span class="token punctuation">.</span>profile<span class="token punctuation">.</span>career <span class="token operator">%</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span> <span class="token comment">//作者职业，在/hexo-theme-matery/layout/about.ejs中配置</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span> <span class="token comment" spellcheck="true">//引用另一个文件，表示的是左边文章、分类、标签以及他们的数量</span>
+    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"title"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">-</span> config<span class="token punctuation">.</span>author <span class="token operator">%</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span> <span class="token comment" spellcheck="true">//作者名字，在blog/_config.yml中配置</span>
+    <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"career"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">-</span> theme<span class="token punctuation">.</span>profile<span class="token punctuation">.</span>career <span class="token operator">%</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span> <span class="token comment" spellcheck="true">//作者职业，在/hexo-theme-matery/layout/about.ejs中配置</span>
     <span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"social-link hide-on-large-only"</span> data<span class="token operator">-</span>aos<span class="token operator">=</span><span class="token string">"zoom-in-left"</span><span class="token operator">></span>
     <span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">-</span> <span class="token function">partial</span><span class="token punctuation">(</span><span class="token string">'_partial/social-link'</span><span class="token punctuation">)</span> <span class="token operator">%</span><span class="token operator">></span>
-    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span> <span class="token comment">//右边github、email、QQ等的链接，也可自己减少或增加</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span> <span class="token comment" spellcheck="true">//右边github、email、QQ等的链接，也可自己减少或增加</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>因此想要修改或增加自己的信息，需要在相应的配置文件里进行修改或增加。</p>
 <p>比如我自己做的修改，首先打开<code>hexo-theme-matery</code>下的<code>_config.yml</code>文件，并找到<code>profile</code>属性，</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">profile:
-  avatar: &#x2F;medias&#x2F;头像.jpg
+<pre class="line-numbers language-yml"><code class="language-yml">profile:
+  avatar: /medias/头像.jpg
   career: Undergraduate
   school: University of Nottingham Ningbo China (UNNC)
   major: Computer Science with Artificial Intelligence (4+0)
-  introduction: If you wish to succeed, you should use persistence as your good friend, experience as your reference, prudence as your brother and hope as your sentry.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+  introduction: If you wish to succeed, you should use persistence as your good friend, experience as your reference, prudence as your brother and hope as your sentry.
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>在<code>profile</code>里修改了头像，职业，以及新增了学校和专业。</p>
 <p>那么该如何将这些特性在网页里显示出来呢？我们需要在上面说的<code>about.ejs</code>这个文件里做相应的修改。</p>
-<pre class="line-numbers language-none"><code class="language-none">&lt;div class&#x3D;&quot;title&quot;&gt;&lt;%- config.author %&gt;&lt;&#x2F;div&gt;
-&lt;div class&#x3D;&quot;career&quot;&gt;&lt;%- theme.profile.career %&gt;&lt;&#x2F;div&gt;
-&lt;div class&#x3D;&quot;major&quot;&gt;&lt;%- theme.profile.major %&gt;&lt;&#x2F;div&gt;
-&lt;div class&#x3D;&quot;school&quot;&gt;&lt;%- theme.profile.school %&gt;&lt;&#x2F;div&gt;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
+<pre><code>&lt;div class=&quot;title&quot;&gt;&lt;%- config.author %&gt;&lt;/div&gt;
+&lt;div class=&quot;career&quot;&gt;&lt;%- theme.profile.career %&gt;&lt;/div&gt;
+&lt;div class=&quot;major&quot;&gt;&lt;%- theme.profile.major %&gt;&lt;/div&gt;
+&lt;div class=&quot;school&quot;&gt;&lt;%- theme.profile.school %&gt;&lt;/div&gt;
+</code></pre>
 <p>只要加几个<code>div</code>块元素，就能显示你的其他信息。</p>
 <h3 id="2-Post封面图片的修改"><a href="#2-Post封面图片的修改" class="headerlink" title="2. Post封面图片的修改"></a>2. Post封面图片的修改</h3><p>先找到<code>/hexo-theme/matery/layout/_partial/post_cover.ejs</code>中的代码</p>
-<pre class="line-numbers language-js" data-language="js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span>page<span class="token punctuation">.</span>img<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-    featureimg <span class="token operator">=</span> <span class="token function">url_for</span><span class="token punctuation">(</span>page<span class="token punctuation">.</span>img<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 如果设置了img属性，那么封面图片就是你设置的图片</span>
-<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
-    <span class="token keyword">var</span> <span class="token function-variable function">hashCode</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">str</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>str <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+<pre class="line-numbers language-js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span>page<span class="token punctuation">.</span>img<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    featureimg <span class="token operator">=</span> <span class="token function">url_for</span><span class="token punctuation">(</span>page<span class="token punctuation">.</span>img<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 如果设置了img属性，那么封面图片就是你设置的图片</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token keyword">else</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">var</span> hashCode <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>str<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>str <span class="token operator">&amp;&amp;</span> str<span class="token punctuation">.</span>length <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
             <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
 
         <span class="token keyword">var</span> hash <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> len <span class="token operator">=</span> str<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
-            hash <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>hash <span class="token operator">&lt;&lt;</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token operator">-</span> hash<span class="token punctuation">)</span> <span class="token operator">+</span> str<span class="token punctuation">.</span><span class="token function">charCodeAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
-            hash <span class="token operator">|=</span> <span class="token number">0</span><span class="token punctuation">;</span>
-        <span class="token punctuation">&#125;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span> len <span class="token operator">=</span> str<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> len<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            hash <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>hash <span class="token operator">&lt;</span><span class="token operator">&lt;</span> <span class="token number">5</span><span class="token punctuation">)</span> <span class="token operator">-</span> hash<span class="token punctuation">)</span> <span class="token operator">+</span> str<span class="token punctuation">.</span><span class="token function">charCodeAt</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            hash <span class="token operator">|</span><span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
         <span class="token keyword">return</span> hash<span class="token punctuation">;</span>
-    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
 
     <span class="token keyword">var</span> len <span class="token operator">=</span> theme<span class="token punctuation">.</span>featureImages<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
     <span class="token keyword">var</span> num <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span><span class="token function">hashCode</span><span class="token punctuation">(</span>page<span class="token punctuation">.</span>title<span class="token punctuation">)</span> <span class="token operator">%</span> len<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     featureimg <span class="token operator">=</span> theme<span class="token punctuation">.</span>jsDelivr<span class="token punctuation">.</span>url
             <span class="token operator">?</span> theme<span class="token punctuation">.</span>jsDelivr<span class="token punctuation">.</span>url <span class="token operator">+</span> <span class="token function">url_for</span><span class="token punctuation">(</span>theme<span class="token punctuation">.</span>featureImages<span class="token punctuation">[</span>num<span class="token punctuation">]</span><span class="token punctuation">)</span>
-            <span class="token operator">:</span> <span class="token function">url_for</span><span class="token punctuation">(</span>theme<span class="token punctuation">.</span>featureImages<span class="token punctuation">[</span>num<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">&#125;</span> <span class="token comment">// 否则将会采用作者的算法，根据title的长度来计算hashcode，再根据hashcode从默认的图片中选出一张。如果两篇文章的title都是四个字，那这两篇的封面就是同一张图片。</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+            <span class="token punctuation">:</span> <span class="token function">url_for</span><span class="token punctuation">(</span>theme<span class="token punctuation">.</span>featureImages<span class="token punctuation">[</span>num<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 否则将会采用作者的算法，根据title的长度来计算hashcode，再根据hashcode从默认的图片中选出一张。如果两篇文章的title都是四个字，那这两篇的封面就是同一张图片。</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>根据代码可知，想要一篇post用特定的图片，就必须设置这篇post的img属性。如下</p>
 <img src="/2020/07/18/hexo-theme-matery%E4%B8%BB%E9%A2%98%E9%83%A8%E5%88%86%E4%BC%98%E5%8C%96/屏幕快照 2020-07-20 下午2.41.07.png" style="zoom:50%;">
 
@@ -873,7 +873,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">12.2k</span>&nbsp;字
+                class="white-color">12k</span>&nbsp;字
             
             
             

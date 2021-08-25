@@ -29,7 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
@@ -451,14 +452,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    834
+                    560
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    5 Min
+                    3 Min
                 </div>
                 
 
@@ -555,16 +556,16 @@
 </li>
 <li><p>Analysis of Insertion</p>
 <ul>
-<li><pre><code class="pseudocode">Algorithm insert(k, o)
+<li><pre class="line-numbers language-pseudocode"><code class="language-pseudocode">Algorithm insert(k, o)
 1. We search for key k to locate the insertion node z
 2. We add the new entry (k, o) at node z and color z red
 3. while doubleRed(z)
         if isBlack(sibling(parent(z)))
-            z &lt;- restructure(z)
+            z <- restructure(z)
             return
         else sibling(parent(z)) is red
-            z &lt;- recolor(z)
-</code></pre>
+            z <- recolor(z)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>Recall that a red-black tree has $O(\log n)$ height</p>
 </li>
@@ -1008,7 +1009,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">12.2k</span>&nbsp;字
+                class="white-color">12k</span>&nbsp;字
             
             
             
