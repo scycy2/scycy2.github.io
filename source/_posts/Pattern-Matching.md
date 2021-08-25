@@ -5,7 +5,7 @@ tags: ["模式匹配", "算法"]
 categories: ["课堂笔记"]
 cover:
 summary: Pattern Matching
-img:
+img: /medias/featureimages/25.jpg
 mathjax: true
 ---
 
