@@ -561,7 +561,11 @@
 2. We add the new entry (k, o) at node z and color z red
 3. while doubleRed(z)
         if isBlack(sibling(parent(z)))
-            z <- restructure(z) return else sibling(parent(z)) is red z <- recolor(z) <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></-></code></pre>
+            z <- restructure(z)
+            return
+        else sibling(parent(z)) is red
+            z <- recolor(z)
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>Recall that a red-black tree has $O(\log n)$ height</p>
 </li>
@@ -772,7 +776,7 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/09/17/%E5%A0%86/">
+                <a href="/2020/11/22/%E5%A0%86/">
                     <div class="card-image">
                         
                         
@@ -789,7 +793,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-17
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-22
                             </span>
                         <span class="publish-author">
                             
