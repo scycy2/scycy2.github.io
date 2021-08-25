@@ -35,6 +35,7 @@
 
 body {
     background-color: #eaeaea;
+    /*background-attachment: fixed;*/
     margin: 0;
     color: #34495e;
 }
