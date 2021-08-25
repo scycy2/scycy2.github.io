@@ -1,7 +1,7 @@
 ---
 title: Neural Network
 date: 2021-06-16 13:47:38
-tags: ['神经网络', '机器学习', '未完待续']
+tags: ['神经网络', '机器学习']
 categories: ['自学笔记']
 cover:
 summary: 神经网络
