@@ -259,6 +259,33 @@
     
     
     <entry>
+      <title>Pattern Matching</title>
+      <link href="2021/04/15/Pattern-Matching/"/>
+      <url>2021/04/15/Pattern-Matching/</url>
+      
+        <content type="html"><![CDATA[<h4 id="1-What-is-pattern-matching"><a href="#1-What-is-pattern-matching" class="headerlink" title="1. What is pattern matching?"></a>1. What is pattern matching?</h4><ul><li>Given:<ul><li>A text string of length $n$</li><li>A pattern string of length $m\lt n$</li></ul></li><li>Determine:<ul><li>Whether the pattern is a <em><strong>substring</strong></em> of the text;</li><li>Find all indices at which the pattern begins.</li></ul></li></ul><h4 id="2-Brute-force-algorithm"><a href="#2-Brute-force-algorithm" class="headerlink" title="2. Brute-force algorithm"></a>2. Brute-force algorithm</h4><ul><li>Compare the pattern $P$ with the text $T$ for each possible shift of $P$ relative to $T$, until either<ul><li>A match is found, or</li><li>All placements of the pattern have been tried.</li></ul></li><li>Brute-force pattern matching runs in time $O(nm)$ in worst case.</li></ul><h4 id="3-Boyer-Moore-algorithm"><a href="#3-Boyer-Moore-algorithm" class="headerlink" title="3. Boyer-Moore algorithm"></a>3. Boyer-Moore algorithm</h4><ul><li><p>Boyer-Moore heuristics</p><ul><li><em><strong>Looking-glass heuristic</strong></em>: Compare $P$ with a subsequence of $T$ from  <em><strong>right to left</strong></em>.</li><li><em><strong>Character-jump heuristic</strong></em>: When a mismatch occurs at $T[i] = c$<ul><li>If $P$ contains $c$, shift $P$ to align the <em><strong>last (right-most)</strong></em> occurrence of $c$ in $P$ with $T[i]$</li><li>Else, shift $P$ to align $P[0]$ with $T[i+1]$</li></ul></li></ul></li><li><p>Last-occurrence function</p><ul><li>Objective: speed up the search by <em><strong>look-up table</strong></em>.</li><li>BM algorithm <em><strong>preprocesses the pattern $P$</strong></em> and the alphabet $S$ to build the last-occurrence function $L$ mapping $S$ to integers, where $L(c)$ is defined as<ul><li>The largest index $i$ such that $P[i] = c$ or</li><li>$-1$ if no such index exists.</li></ul></li></ul></li><li><p>The Boyer-Moore algorithm</p><ul><li><pre class="line-numbers language-pseudocode"><code class="language-pseudocode">Algorithm BoyerMooreMatch(T, P, Alphabet)    L = lastOccurenceFunction(P, Alphabet)    i = m - 1    j = m - 1    repeat        if T[i] == P[j] // matching            if j == 0                return i // match at i            else                i = i - 1                j = j - 1        else // character-jump            l = L[T[i]]            i = i + m - min(j, 1 + l)            j = m - 1 //rightmost    until i > n - 1    return -1 // no match<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ul></li><li><p>Analysis</p><ul><li>Boyer-Moore’s algorithm runs in time $O(nm)$ in worst case</li><li>The worst case may occur in images and DNA sequences but unlikely in English text.</li><li>Boyer-Moore’s algorithm is <em><strong>significantly faster</strong></em> than the brute-force algorithm on English text.</li></ul></li><li><p>Key innovations of BM algorithm</p><ul><li><em><strong>Pre-indexing mismatched Text characters in Pattern.</strong></em></li></ul></li></ul><h4 id="4-KMP-algorithm"><a href="#4-KMP-algorithm" class="headerlink" title="4. KMP algorithm"></a>4. KMP algorithm</h4><ul><li><p>Key idea of KMP algorithm: precompute <em><strong>self-overlaps</strong></em> between portion of the pattern, so when a mismatch occurs, we know the maximum amount to shift the pattern.</p></li><li><p>Failure function</p><ul><li><p>Indicate the shift of the pattern upon a failed comparison.</p><ul><li>$f(k)$: the length of <em><strong>the longest prefix</strong></em> of the pattern that is a suffix of the substring pattern$[1,2,\cdots,k]$. pattern$[0]$ is excluded as we shift at least one character.</li><li>Mismatch at pattern$[k+1]$, $f(k)$ tells how many preceding characters can be reused to restart the pattern.</li></ul></li><li><pre class="line-numbers language-pseudocode"><code class="language-pseudocode">Algorithm failureFunction(P)    F[0] = 0    i = 1    j = 0    while i < m        if P[i] == P[j]            F[i] = j + 1            i = i + 1            j = j + 1        else if j > 0 then            j = F[j-1]        else            F[i] = 0 //no match            i = i + 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ul></li><li><p>Time complexity</p><ul><li>$O(|P|+|T|)$.</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 课堂笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 模式匹配 </tag>
+            
+            <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>堆</title>
       <link href="2020/11/22/%E5%A0%86/"/>
       <url>2020/11/22/%E5%A0%86/</url>
@@ -300,9 +327,9 @@
       
         <tags>
             
-            <tag> 数据结构 </tag>
-            
             <tag> 算法 </tag>
+            
+            <tag> 数据结构 </tag>
             
             <tag> 总结 </tag>
             
@@ -362,9 +389,9 @@
       
         <tags>
             
-            <tag> 数据结构 </tag>
-            
             <tag> 算法 </tag>
+            
+            <tag> 数据结构 </tag>
             
             <tag> 总结 </tag>
             

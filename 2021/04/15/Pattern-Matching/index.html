@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="Neural Network, 学习, 算法, java, 记录">
+    <meta name="keywords" content="Pattern Matching, 学习, 算法, java, 记录">
     <meta name="description" content="大学狗的学习之旅">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Neural Network | 再`見</title>
+    <title>Pattern Matching | 再`見</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -287,12 +287,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/26.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Neural Network</h1>
+                    <h1 class="description center-align post-title">Pattern Matching</h1>
                 </div>
             </div>
         </div>
@@ -409,12 +409,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                                <span class="chip bg-color">机器学习</span>
+                            <a href="/tags/%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/">
+                                <span class="chip bg-color">模式匹配</span>
                             </a>
                         
-                            <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
-                                <span class="chip bg-color">神经网络</span>
+                            <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                <span class="chip bg-color">算法</span>
                             </a>
                         
                     </div>
@@ -425,8 +425,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" class="post-category">
-                                自学笔记
+                            <a href="/categories/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/" class="post-category">
+                                课堂笔记
                             </a>
                         
                     </div>
@@ -438,7 +438,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-06-16
+                    2021-04-15
                 </div>
                 
 
@@ -452,14 +452,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1k
+                    472
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    6 Min
+                    2 Min
                 </div>
                 
 
@@ -469,96 +469,116 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="1-Model-Representation"><a href="#1-Model-Representation" class="headerlink" title="1. Model Representation"></a>1. Model Representation</h4><ul>
-<li><p>Input: features $x_1\cdots x_n$</p>
+                <h4 id="1-What-is-pattern-matching"><a href="#1-What-is-pattern-matching" class="headerlink" title="1. What is pattern matching?"></a>1. What is pattern matching?</h4><ul>
+<li>Given:<ul>
+<li>A text string of length $n$</li>
+<li>A pattern string of length $m\lt n$</li>
+</ul>
 </li>
-<li><p>Output: the result of the hypothesis function.</p>
-</li>
-<li><img src="/2021/06/16/Neural-Network/Neural Network Rep1.png" style="zoom:50%;"></li>
-<li><p>$x_0$ input node is called the “bias unit”. It is always equal to $1$.</p>
-</li>
-<li><p>The same logistic function as in classification, $\frac{1}{1+e^{-\theta^Tx}}$, which is also called sigmoid (logistic) <strong>activation</strong> function.</p>
-</li>
-<li><p>“theta” parameters are called “weights”.</p>
-</li>
-<li><p>A simplistic representation:<br>$$<br>[x_0x_1x_2]\rightarrow [\ ]\rightarrow h_\theta(x)<br>$$</p>
-</li>
-<li><p>Inpur nodes (layer 1), known as the “input layer”, go into another node (layer 2), which finally outputs the hypothesis function, known as the “output layer”.</p>
-</li>
-<li><p>The intermediate layers of nodes between the input and output layers called the “hidden layers”.</p>
-</li>
-<li><img src="/2021/06/16/Neural-Network/Neural Network Rep2.png" style="zoom:50%;"></li>
-<li><p>We label these intermediate or “hidden” layer nodes $a_0^2\cdots a_n^2$ and call them “activation units”.</p>
-</li>
-<li><p>$$<br>\begin{align*}<br>&amp; a_i^{(j)} = \text{activation}\ \text{of unit}\ i\ \text{in layer}\ j\<br>&amp; \Theta^{(j)} = \text{matrix of weights controlling function mapping from layer}\ j \text{ to layer}\ j+1<br>\end{align*}<br>$$</p>
-</li>
-<li><p>$$<br>[x_0x_1x_2x_3]\rightarrow \left[a_1^{(2)}a_2^{(2)}a_3^{(2)}\right]\rightarrow h_\theta(x)<br>$$</p>
-</li>
-<li><p>The values for each of the “activation” nodes is obtained as follows:<br>$$<br>\begin{align*}<br>&amp;&amp; a_1^{(2)} = g(\Theta_{10}^{(1)}x_0 + \Theta_{11}^{(1)}x_2 + \Theta_{12}^{(1)}x_1 + \Theta_{13}^{(1)}x_3)\<br>&amp;&amp; a_2^{(2)} = g(\Theta_{20}^{(1)}x_0 + \Theta_{21}^{(1)}x_2 + \Theta_{22}^{(1)}x_1 + \Theta_{23}^{(1)}x_3)\<br>&amp;&amp; a_3^{(2)} = g(\Theta_{30}^{(1)}x_0 + \Theta_{31}^{(1)}x_2 + \Theta_{32}^{(1)}x_1 + \Theta_{33}^{(1)}x_3)\<br>&amp;&amp; h_\Theta(x) = a_1^{(3)} = g(\Theta_{10}^{(2)}a_0^{(2)} + \Theta_{11}^{(2)}a_1^{(2)} + \Theta_{12}^{(2)}a_2^{(2)} + \Theta_{13}^{(2)}a_3^{(2)})<br>\end{align*}<br>$$</p>
-</li>
-<li><p>The dimensions of matrices of weights is determined as follows:</p>
-<p><strong>If network has $s_j$ units in layer $j$ and $s_{j+1}$ units in layer $j+1$, then $\Theta^{(j)}$ will be of dimension $s_{j+1}\times (s_j+1)$</strong>.</p>
-<p>The $+1$ comes from the addition in $\Theta^{(j)}$ of the “bias nodes”, $x_0$ and $\Theta_0^{(j)}$. In other words the output nodes will not include the bias nodes while the inputs will.</p>
+<li>Determine:<ul>
+<li>Whether the pattern is a <em><strong>substring</strong></em> of the text;</li>
+<li>Find all indices at which the pattern begins.</li>
+</ul>
 </li>
 </ul>
-<h4 id="2-Vectorized-Representation"><a href="#2-Vectorized-Representation" class="headerlink" title="2. Vectorized Representation"></a>2. Vectorized Representation</h4><ul>
-<li><p>Setting $x = a^{(1)}$</p>
-<p>$z^{(j)} = \Theta^{(j-1)}a^{(j-1)}$</p>
-</li>
-<li><p>Multiply matrix $\Theta^{(j-1)}$ with dimensions $s_j\times (n+1)$ (where $s_j$ is the number of activation nodes) by vector $a^{(j-1)}$ with height $n+1$. This gives vector $z^{(j)}$ with height $s_j$. Now the vector of activation nodes for layer $j$ as follows:<br>$$<br>a^{(j)} = g(z^{(j)})<br>$$<br>where function $g$ can be applied element-wise to vector $z^{(j)}$</p>
-</li>
-<li><p>Add a bias unit (equal to $1$) to layer $j$ after we have computed $a^{(j)}$. This will be element $a_0^{(j)}$ and will be equal to $1$.</p>
-</li>
-<li><p>Final result $h_\Theta(x) = a^{(j+1)} = g(z^{(j+1)}) = g(\Theta^{(j)}a^{(j)})$</p>
-</li>
+<h4 id="2-Brute-force-algorithm"><a href="#2-Brute-force-algorithm" class="headerlink" title="2. Brute-force algorithm"></a>2. Brute-force algorithm</h4><ul>
+<li>Compare the pattern $P$ with the text $T$ for each possible shift of $P$ relative to $T$, until either<ul>
+<li>A match is found, or</li>
+<li>All placements of the pattern have been tried.</li>
 </ul>
-<h4 id="3-Cost-Function"><a href="#3-Cost-Function" class="headerlink" title="3. Cost Function"></a>3. Cost Function</h4><ul>
-<li><p>First define a few variables need to use:</p>
+</li>
+<li>Brute-force pattern matching runs in time $O(nm)$ in worst case.</li>
+</ul>
+<h4 id="3-Boyer-Moore-algorithm"><a href="#3-Boyer-Moore-algorithm" class="headerlink" title="3. Boyer-Moore algorithm"></a>3. Boyer-Moore algorithm</h4><ul>
+<li><p>Boyer-Moore heuristics</p>
 <ul>
-<li>$L = \text{total number of layers in the network}$</li>
-<li>$s_l = \text{number of units (not counting bias unit) in layer } l$</li>
-<li>$K = \text{number of output units/classes}$</li>
+<li><em><strong>Looking-glass heuristic</strong></em>: Compare $P$ with a subsequence of $T$ from  <em><strong>right to left</strong></em>.</li>
+<li><em><strong>Character-jump heuristic</strong></em>: When a mismatch occurs at $T[i] = c$<ul>
+<li>If $P$ contains $c$, shift $P$ to align the <em><strong>last (right-most)</strong></em> occurrence of $c$ in $P$ with $T[i]$</li>
+<li>Else, shift $P$ to align $P[0]$ with $T[i+1]$</li>
 </ul>
 </li>
-<li><p>In neural networks, we may have many output nodes. Denote $h_\theta(x)_k$ as being a hypothesis that results in the $k^{th}$ output.</p>
+</ul>
 </li>
-<li><p>The cost function for neural networks is going to be generalization of the one used for logistic regression.<br>$$<br>J(\Theta) = -\frac{1}{m} \sum_{i=1}^{m} \sum_{k-1}^{K} \left[y_{k}^{(i)} \log((h_\Theta(x^{(i)}))<em>k) + (1-y_k^{(i)})\log(1-(h_\Theta(x^{(i)}))<em>k)\right] + \frac{\lambda}{2m} \sum</em>{l=1}^{L-1} \sum</em>{i=1}^{s_l} \sum_{j=1}^{s_l+1}(\Theta_{j, i}^{(i)})^2<br>$$<br>We have added a few nested summations to account for our multiple output nodes. In the first part of the equation, before the square brackets, we have an additional nested summation that loops through the number of output nodes.</p>
-</li>
-<li><p>In the regularization part, after the square brackets, we must account for multiple theta matrices. The number of columns in our current theta matrix is equal to the number of nodes in our current layer (including the bias unit). The number of rows in our current theta matrix is equal to the number of nodes in the next layer (excluding the bias unit). As before with logistic regression, we square every term.</p>
-</li>
-<li><p>Note:</p>
+<li><p>Last-occurrence function</p>
 <ul>
-<li>the double sum simply adds up the logistic regression costs calculated for each cell in the output layer.</li>
-<li>the triple sum simply adds up the squares of all the individual $\Theta$s in the entire network.</li>
-<li>the $i$ in the triple sum does <strong>not</strong> refer to training example $i$.</li>
+<li>Objective: speed up the search by <em><strong>look-up table</strong></em>.</li>
+<li>BM algorithm <em><strong>preprocesses the pattern $P$</strong></em> and the alphabet $S$ to build the last-occurrence function $L$ mapping $S$ to integers, where $L(c)$ is defined as<ul>
+<li>The largest index $i$ such that $P[i] = c$ or</li>
+<li>$-1$ if no such index exists.</li>
 </ul>
 </li>
 </ul>
-<h4 id="4-Backpropagation-Algorithm"><a href="#4-Backpropagation-Algorithm" class="headerlink" title="4. Backpropagation Algorithm"></a>4. Backpropagation Algorithm</h4><ul>
-<li><p>“Backpropagation” is neural-network terminology for minimizing the cost function.</p>
 </li>
-<li><p>Compute the partial derivative of $J(\Theta)$:<br>$$<br>\frac{\partial}{\partial \Theta_{i, j}^{(l)}}J(\Theta)<br>$$</p>
-</li>
-<li><p>Procedure:</p>
+<li><p>The Boyer-Moore algorithm</p>
 <ul>
-<li>Given training examples set ${(x^{(1)}, y^{(1)})\cdots(x^{(m)}, y^{(m)})}$</li>
-<li>Set $\Delta_{ij}^{(l)} = 0$ for all $(l, i, j)$</li>
-<li>For $i = 1$ to $m$:<ul>
-<li>Set $a^{(1)} = x^{(i)}$</li>
-<li>Perform forward propagation to compute $a^{(l)}$ for $l = 2,3,\cdots, L$</li>
-<li>Using $y^{(i)}$, compute $\delta^{(L)} = a^{(L)} - y^{(i)}$</li>
-<li>Compute $\delta^{(L-1)}, \delta^{(L-2)}, \cdots, \delta^{(2)}$ using $\delta^{(l)} = ((\Theta^{(l)})^T\delta^{(l+1)})\ .*\ a^{(l)}\ .*\ (1-a^{(l)})$<ul>
-<li>The delta values of layer $l$ are calculated by multiplying the delta values in the next layer with the theta matrix of layer $l$. We then element-wise multiply that with a function called $g^{\prime}$, or g-prime, which is the derivative of the activation function $g$ evaluated with the input values given by $z^{(l)}$.</li>
+<li><pre class="line-numbers language-pseudocode"><code class="language-pseudocode">Algorithm BoyerMooreMatch(T, P, Alphabet)
+    L = lastOccurenceFunction(P, Alphabet)
+    i = m - 1
+    j = m - 1
+    repeat
+        if T[i] == P[j] // matching
+            if j == 0
+                return i // match at i
+            else
+                i = i - 1
+                j = j - 1
+        else // character-jump
+            l = L[T[i]]
+            i = i + m - min(j, 1 + l)
+            j = m - 1 //rightmost
+    until i > n - 1
+    return -1 // no match
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
 </ul>
 </li>
-<li>$\Delta_{ij}^{(l)} := \Delta_{ij}^{(l)} + a_j^{(l)}\delta_i^{(l+1)}$</li>
+<li><p>Analysis</p>
+<ul>
+<li>Boyer-Moore’s algorithm runs in time $O(nm)$ in worst case</li>
+<li>The worst case may occur in images and DNA sequences but unlikely in English text.</li>
+<li>Boyer-Moore’s algorithm is <em><strong>significantly faster</strong></em> than the brute-force algorithm on English text.</li>
 </ul>
 </li>
-<li>$D_{ij}^{(l)} := \Delta_{ij}^{(l)} + \lambda \Theta_{ij}^{(l)} \text{ if } j \ne 0$</li>
-<li>$D_{ij}^{(l)} := \Delta_{ij}^{(l)} \text{ if } j = 0$</li>
+<li><p>Key innovations of BM algorithm</p>
+<ul>
+<li><em><strong>Pre-indexing mismatched Text characters in Pattern.</strong></em></li>
 </ul>
 </li>
-<li><p>Intuitively, $\delta_j^{(l)}$ is the “error” for $a_j^{(l)}$ (unit $j$ in layer $l$). More formally, the delta values are actually the derivative of the cost function: $\delta_j^{(l)} = \frac{\partial}{\partial z_j^{(l)}}cost(t)$</p>
+</ul>
+<h4 id="4-KMP-algorithm"><a href="#4-KMP-algorithm" class="headerlink" title="4. KMP algorithm"></a>4. KMP algorithm</h4><ul>
+<li><p>Key idea of KMP algorithm: precompute <em><strong>self-overlaps</strong></em> between portion of the pattern, so when a mismatch occurs, we know the maximum amount to shift the pattern.</p>
+</li>
+<li><p>Failure function</p>
+<ul>
+<li><p>Indicate the shift of the pattern upon a failed comparison.</p>
+<ul>
+<li>$f(k)$: the length of <em><strong>the longest prefix</strong></em> of the pattern that is a suffix of the substring pattern$[1,2,\cdots,k]$. pattern$[0]$ is excluded as we shift at least one character.</li>
+<li>Mismatch at pattern$[k+1]$, $f(k)$ tells how many preceding characters can be reused to restart the pattern.</li>
+</ul>
+</li>
+<li><pre class="line-numbers language-pseudocode"><code class="language-pseudocode">Algorithm failureFunction(P)
+    F[0] = 0
+    i = 1
+    j = 0
+    while i < m
+        if P[i] == P[j]
+            F[i] = j + 1
+            i = i + 1
+            j = j + 1
+        else if j > 0 then
+            j = F[j-1]
+        else
+            F[i] = 0 //no match
+            i = i + 1
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
+</li>
+<li><p>Time complexity</p>
+<ul>
+<li>$O(|P|+|T|)$.</li>
+</ul>
 </li>
 </ul>
 
@@ -586,7 +606,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://scycy2.github.io/2021/06/16/Neural-Network/">https://scycy2.github.io/2021/06/16/Neural-Network/</a>
+                    <a href="https://scycy2.github.io/2021/04/15/Pattern-Matching/">https://scycy2.github.io/2021/04/15/Pattern-Matching/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -624,12 +644,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                                    <span class="chip bg-color">机器学习</span>
+                                <a href="/tags/%E6%A8%A1%E5%BC%8F%E5%8C%B9%E9%85%8D/">
+                                    <span class="chip bg-color">模式匹配</span>
                                 </a>
                             
-                                <a href="/tags/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/">
-                                    <span class="chip bg-color">神经网络</span>
+                                <a href="/tags/%E7%AE%97%E6%B3%95/">
+                                    <span class="chip bg-color">算法</span>
                                 </a>
                             
                         </div>
@@ -675,35 +695,31 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/06/22/Support-Vector-Machine/">
+                <a href="/2021/05/26/Red-Black-Tree/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Support Vector Machine">
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Red-Black Tree">
                         
-                        <span class="card-title">Support Vector Machine</span>
+                        <span class="card-title">Red-Black Tree</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Support Vector Machine
+                            红黑树定义及简单操作
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-22
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-26
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    机器学习
-                                </a>
-                            
-                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA/" class="post-category">
-                                    支持向量机
+                            <a href="/categories/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    课堂笔记
                                 </a>
                             
                             
@@ -713,8 +729,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/">
-                        <span class="chip bg-color">自学笔记</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">数据结构</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/">
+                        <span class="chip bg-color">红黑树</span>
                     </a>
                     
                 </div>
@@ -728,30 +748,31 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/06/09/Overfitting/">
+                <a href="/2020/11/22/%E5%A0%86/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Overfitting">
                         
-                        <span class="card-title">Overfitting</span>
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="堆">
+                        
+                        <span class="card-title">堆</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            过拟合
+                            堆简介
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-22
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    自学笔记
+                            <a href="/categories/%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    课堂笔记
                                 </a>
                             
                             
@@ -761,24 +782,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">机器学习</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98/">
-                        <span class="chip bg-color">分类问题</span>
-                    </a>
-                    
-                    <a href="/tags/%E8%BF%87%E6%8B%9F%E5%90%88/">
-                        <span class="chip bg-color">过拟合</span>
-                    </a>
-                    
-                    <a href="/tags/%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98/">
-                        <span class="chip bg-color">回归问题</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%AD%A3%E5%88%99%E5%8C%96/">
-                        <span class="chip bg-color">正则化</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
+                        <span class="chip bg-color">数据结构</span>
                     </a>
                     
                 </div>
