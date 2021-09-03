@@ -1,8 +1,8 @@
 ---
 title: Logistic Regression -- Classification
 date: 2021-06-08 15:26:22
-tags: ['机器学习','逻辑回归','分类问题']
-categories: ['自学笔记']
+tags: ['Machine Learning' ,'Classification']
+categories: ['self-study notes']
 cover: true
 summary: Logistic Regression
 img: /medias/featureimages/21.jpg

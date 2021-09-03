@@ -1,10 +1,10 @@
 ---
 title: Red-Black Tree
 date: 2021-05-26 13:22:45
-tags: ['数据结构','红黑树']
-categories: '课堂笔记'
+tags: ['Data Structure','Algorithm']
+categories: 'class notes'
 cover: false
-summary: "红黑树定义及简单操作"
+summary: "Red Black Tree and Operations"
 img:
 mathjax: true
 ---

@@ -1,10 +1,10 @@
 ---
 title: Priority Queue
 date: 2021-06-02 12:48:53
-tags: ["数据结构"]
-categories: ["课堂笔记"]
+tags: ["Data Structure", 'Algorithm']
+categories: ["class notes"]
 cover: false
-summary: "优先队列简介"
+summary: "Priority Queue Introduction"
 img:
 mathjax: true
 ---

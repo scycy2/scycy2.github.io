@@ -1,8 +1,8 @@
 ---
 title: Advice for applying machine learning
 date: 2021-06-29 19:16:12
-tags: ['machine learning', 'bias/variance', 'cross validation', 'learning curves']
-categories: ['self learning notes']
+tags: ['Machine Learning', 'Bias/Variance', 'Cross Validation', 'Learning Curves']
+categories: ['self-study notes']
 cover:
 summary: Advice when applying ML
 img:

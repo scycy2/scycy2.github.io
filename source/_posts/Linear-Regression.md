@@ -1,8 +1,8 @@
 ---
 title: Linear Regression
 date: 2021-06-01 22:12:14
-tags: ['机器学习', '线性回归']
-categories: ['自学笔记']
+tags: ['Machine Learning']
+categories: ['self-study notes']
 cover: true
 summary: Linear Regression
 img: /medias/featureimages/26.jpg

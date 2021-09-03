@@ -1,10 +1,10 @@
 ---
 title: Overfitting
 date: 2021-06-09 16:14:59
-tags: ['机器学习', '过拟合', '分类问题', '回归问题', '正则化']
-categories: ['自学笔记']
+tags: ['Machine Learning', 'Overfitting', 'Classification', 'Regression', 'Regularization']
+categories: ['self-study notes']
 cover:
-summary: 过拟合
+summary: Overfitting
 img: /medias/featureimages/16.jpg
 mathjax: true
 ---
@@ -80,4 +80,3 @@ mathjax: true
   & \}
   \end{align*}
   $$
-  

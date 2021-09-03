@@ -1,10 +1,10 @@
 ---
 title: Neural-Network Implementation
 date: 2021-08-24 20:35:03
-tags: ['深度神经网络', '机器学习', 'Python']
-categories: ['自学笔记']
+tags: ['Neural Network', 'Machine Learning', 'Python']
+categories: ['self-study notes']
 cover:
-summary: 神经网络实现
+summary: Neural-Network Implementation
 img:
 mathjax: false
 ---

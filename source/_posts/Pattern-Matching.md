@@ -1,8 +1,8 @@
 ---
 title: Pattern Matching
 date: 2021-04-15 20:06:45
-tags: ["模式匹配", "算法"]
-categories: ["课堂笔记"]
+tags: ["Algorithm"]
+categories: ["class notes"]
 cover:
 summary: Pattern Matching
 img: /medias/featureimages/25.jpg

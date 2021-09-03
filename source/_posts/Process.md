@@ -1,10 +1,10 @@
 ---
-title: Process(进程)
+title: Process
 date: 2020-12-21 13:20:47
-tags: ["操作系统", "进程"]
-categories: ["课堂笔记"]
+tags: ["Operating System", "Context Switching"]
+categories: ["class notes"]
 cover:
-summary: 进程
+summary: Process
 img:
 ---
 

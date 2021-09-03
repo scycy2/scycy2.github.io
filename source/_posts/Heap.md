@@ -1,10 +1,10 @@
 ---
-title: 堆
+title: Heap
 date: 2020-11-22 13:38:18
-tags: ["数据结构"]
-categories: ["课堂笔记"]
+tags: ["Data Structure", "Algorithm"]
+categories: ["class notes"]
 cover:
-summary: "堆简介"
+summary: "Heap Introduction"
 img:
 mathjax: true
 ---
