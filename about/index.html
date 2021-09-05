@@ -346,7 +346,7 @@
 
 
 <div class="statis">
-    <span class="count"><a href="/categories">6</a></span>
+    <span class="count"><a href="/categories">5</a></span>
     <span class="name">Categories</span>
 </div>
 
@@ -376,7 +376,7 @@
 
 
 <div class="statis">
-    <span class="count"><a href="/categories">6</a></span>
+    <span class="count"><a href="/categories">5</a></span>
     <span class="name">Categories</span>
 </div>
 
@@ -563,7 +563,7 @@
                 type: 'pie',
                 radius: '50%',
                 color: ['#6772e5', '#ff9e0f', '#fa755a', '#3ecf8e', '#82d3f4', '#ab47bc', '#525f7f', '#f51c47', '#26A69A'],
-                data: [{"name":"self-study notes","value":7},{"name":"class notes","value":6},{"name":"self-study notes","value":1},{"name":"博客优化","value":1},{"name":"自学笔记","value":3},{"name":"学习笔记","value":1}],
+                data: [{"name":"self-study notes","value":7},{"name":"class notes","value":6},{"name":"自学笔记","value":3},{"name":"学习笔记","value":1},{"name":"博客优化","value":1}],
                 itemStyle: {
                     emphasis: {
                         shadowBlur: 10,
@@ -701,7 +701,7 @@
             <div class="skillbar">
                 <div class="skillbar-title"
                      style="background: linear-gradient(to right, #FFEB3B 0%, #FFF176 100%); width: 40%">
-                    <span>机器学习</span>
+                    <span>Machine Learning</span>
                 </div>
                 <div class="skill-bar-percent">40%</div>
             </div>
@@ -717,10 +717,6 @@
         <div class="sub-title center-align"><i class="fa fa-book"></i>&nbsp;&nbsp;Other Skills</div>
         <div class="tag-chips center-align">
             
-            
-            <a href="/tags/Machine-Learning/">
-                <span class="chip center-align waves-effect waves-light chip-default">Machine Learning</span>
-            </a>
             
             
             
@@ -814,12 +810,6 @@
             
             
             
-            <a href="/tags/hexo/">
-                <span class="chip center-align waves-effect waves-light chip-default">hexo</span>
-            </a>
-            
-            
-            
             <a href="/tags/%E7%AE%97%E6%B3%95/">
                 <span class="chip center-align waves-effect waves-light chip-default">算法</span>
             </a>
@@ -852,6 +842,12 @@
             
             
             
+            <a href="/tags/hexo/">
+                <span class="chip center-align waves-effect waves-light chip-default">hexo</span>
+            </a>
+            
+            
+            
             <a href="/tags/%E7%AE%97%E6%B3%95%E5%A4%8D%E6%9D%82%E5%BA%A6/">
                 <span class="chip center-align waves-effect waves-light chip-default">算法复杂度</span>
             </a>
@@ -875,6 +871,47 @@
 
     <footer class="page-footer bg-color">
     
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="tencent"
+                   type="playlist"
+                   id="7917344806"
+                   fixed='true'
+                   autoplay='true'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='metadata'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
     
     <div class="container row center-align" style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
