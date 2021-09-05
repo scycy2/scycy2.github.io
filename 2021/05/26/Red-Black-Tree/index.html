@@ -561,11 +561,7 @@
 2. We add the new entry (k, o) at node z and color z red
 3. while doubleRed(z)
         if isBlack(sibling(parent(z)))
-            z <- restructure(z)
-            return
-        else sibling(parent(z)) is red
-            z <- recolor(z)
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+            z <- restructure(z) return else sibling(parent(z)) is red z <- recolor(z) <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></-></code></pre>
 </li>
 <li><p>Recall that a red-black tree has $O(\log n)$ height</p>
 </li>
