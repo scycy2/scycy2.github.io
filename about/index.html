@@ -464,13 +464,13 @@
 
                 <style type="text/css">
     #posts-chart,
+    #categories-chart,
     #tags-chart {
-        width: 100%;
+        width: 115%;
         height: 300px;
         margin: 0.5rem auto;
         padding: 0.5rem;
-    },
-    #categories-chart
+    }
 </style>
 
 <div id="postCharts" class="post-charts">
@@ -483,11 +483,11 @@
         </div>
 
         <div class="chart col s12 m6 l4" data-aos="zoom-in-up">
-            <div id="tags-chart"></div>
+            <div id="categories-chart"></div>
         </div>
 
-	<div class="chart col s12 m6 l4" data-aos="zoom-in-up">
-            <div id="categories-chart"></div>
+        <div class="chart col s12 m6 l4" data-aos="zoom-in-up">
+            <div id="tags-chart"></div>
         </div>
     </div>
 </div>
@@ -495,8 +495,8 @@
 <script type="text/javascript" src="/libs/echarts/echarts.min.js"></script>
 <script>
     let postsChart = echarts.init(document.getElementById('posts-chart'));
-    let tagsChart = echarts.init(document.getElementById('tags-chart'));
     let categoriesChart = echarts.init(document.getElementById('categories-chart'));
+    let tagsChart = echarts.init(document.getElementById('tags-chart'));
 
     
 
@@ -625,8 +625,8 @@
 
     // render the charts
     postsChart.setOption(postsOption);
-    tagsChart.setOption(tagsOption);
     categoriesChart.setOption(categoriesOption);
+    tagsChart.setOption(tagsOption);
 </script>
 
 
