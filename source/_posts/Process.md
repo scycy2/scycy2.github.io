@@ -1,6 +1,6 @@
 ---
 title: Process
-date: 2020-12-21 13:20:47
+date: 2020-10-10 13:20:47
 tags: ["Operating System", "Context Switching"]
 categories: ["class notes"]
 cover:

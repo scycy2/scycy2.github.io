@@ -80,7 +80,7 @@ music:
   server: tencent   #require	music platform: netease, tencent, kugou, xiami, baidu
   type: playlist    #require song, playlist, album, search, artist
   id: 7917344806     #require	song id / playlist id / album id / search keyword
-  fixed: false      # 开启吸底模式
+  fixed: true     # 开启吸底模式
   autoplay: true    # 是否自动播放
   theme: '#42b983'
   loop: 'all'       # 音频循环播放, 可选值: 'all', 'one', 'none'
@@ -252,7 +252,7 @@ mySkills:
     SQL:
       background: 'linear-gradient(to right, #4CAF50 0%, #81C784 100%)'
       percent: 80%
-    机器学习:
+    Machine Learning:
       background: 'linear-gradient(to right, #FFEB3B 0%, #FFF176 100%)'
       percent: 40%
 
