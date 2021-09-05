@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="Red-Black Tree, 学习, 算法, java, 记录">
+    <meta name="keywords" content="Process Scheduling, 学习, 算法, java, 记录">
     <meta name="description" content="大学狗的学习之旅">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Red-Black Tree | 再`見</title>
+    <title>Process Scheduling | 再`見</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -287,12 +287,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/7.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Red-Black Tree</h1>
+                    <h1 class="description center-align post-title">Process Scheduling</h1>
                 </div>
             </div>
         </div>
@@ -409,12 +409,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Data-Structure/">
-                                <span class="chip bg-color">Data Structure</span>
+                            <a href="/tags/Operating-System/">
+                                <span class="chip bg-color">Operating System</span>
                             </a>
                         
-                            <a href="/tags/Algorithm/">
-                                <span class="chip bg-color">Algorithm</span>
+                            <a href="/tags/Process-Classification/">
+                                <span class="chip bg-color">Process Classification</span>
                             </a>
                         
                     </div>
@@ -429,6 +429,10 @@
                                 class notes
                             </a>
                         
+                            <a href="/categories/class-notes/self-study-notes/" class="post-category">
+                                self-study notes
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -438,28 +442,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-05-26
+                    2020-10-13
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-09-03
+                    2021-09-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    560
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    3 Min
+                    5 Min
                 </div>
                 
 
@@ -469,146 +473,146 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 align="center">Red-Black Trees</h2>
-
-<h4 id="1-Definition"><a href="#1-Definition" class="headerlink" title="1. Definition"></a>1. Definition</h4><ul>
-<li>A red-black tree is a binary search tree that satisfies the following properties:<ul>
-<li><strong>Root Property</strong>: the root is black</li>
-<li><strong>External Property</strong>: every leaf is black</li>
-<li><strong>Internal/Red Property</strong>: the children of a red node are black</li>
-<li><strong>Depth Property</strong>: all the leaves have the same <em>black depth</em>, defined as the number of proper ancestors that are black</li>
-</ul>
+                <h4 id="1-CPU密集型进程："><a href="#1-CPU密集型进程：" class="headerlink" title="1. CPU密集型进程："></a>1. CPU密集型进程：</h4><ol>
+<li>CPU密集型也叫计算密集型，指的是系统的硬盘、内存性能相对CPU要好很多，此时，系统运作大部分的状况是CPU Loading 100%，CPU要读/写I/O(硬盘/内存)，I/O在很短的时间就可以完成，而CPU还有许多运算要处理，CPU Loading很高。</li>
+<li>在多重程序系统中，大部份时间用来做计算、逻辑判断等CPU动作的程序称之CPU bound。例如一个计算圆周率至小数点一千位以下的程序，在执行的过程当中绝大部份时间用在三角函数和开根号的计算，便是属于CPU bound的程序。</li>
+<li>CPU bound的程序一般而言CPU占用率相当高。这可能是因为任务本身不太需要访问I/O设备，也可能是因为程序是多线程实现因此屏蔽掉了等待I/O的时间。</li>
+</ol>
+<h4 id="2-IO密集型进程："><a href="#2-IO密集型进程：" class="headerlink" title="2. IO密集型进程："></a>2. IO密集型进程：</h4><ol>
+<li>IO密集型指的是系统的CPU性能相对硬盘、内存要好很多，此时，系统运作，大部分的状况是CPU在等I/O (硬盘/内存) 的读/写操作，此时CPU Loading并不高。</li>
+<li>I/O bound的程序一般在达到性能极限时，CPU占用率仍然较低。这可能是因为任务本身需要大量I/O操作，而pipeline做得不是很好，没有充分利用处理器能力。</li>
+</ol>
+<h4 id="3-CPU密集型-vs-IO密集型"><a href="#3-CPU密集型-vs-IO密集型" class="headerlink" title="3. CPU密集型 vs IO密集型:"></a>3. CPU密集型 vs IO密集型:</h4><ol>
+<li><p>计算密集型任务的特点是要进行大量的计算，消耗CPU资源，比如计算圆周率、对视频进行高清解码等等，全靠CPU的运算能力。这种计算密集型任务虽然也可以用多任务完成，但是任务越多，花在任务切换的时间就越多，CPU执行任务的效率就越低，<strong>所以，要最高效地利用CPU，计算密集型任务同时进行的数量应当等于CPU的核心数。</strong></p>
+<p>计算密集型任务由于主要消耗CPU资源，因此，代码运行效率至关重要。Python这样的脚本语言运行效率很低，完全不适合计算密集型任务。对于计算密集型任务，最好用C语言编写。</p>
 </li>
-</ul>
-<h4 id="2-From-Red-Black-to-2-4-Trees"><a href="#2-From-Red-Black-to-2-4-Trees" class="headerlink" title="2. From Red-Black to $(2,4)$ Trees"></a>2. From Red-Black to $(2,4)$ Trees</h4><ul>
-<li>Given a red-black tree, we can construct a corresponding $(2,4)$ tree:<ul>
-<li>merge every red node $w$ into its parent, storing the entry from $w$ at its parent</li>
-<li>the children of $w$ become ordered children of the parent</li>
-</ul>
+<li><p>第二种任务的类型是IO密集型，涉及到网络、磁盘IO的任务都是IO密集型任务，这类任务的特点是CPU消耗很少，任务的大部分时间都在等待IO操作完成（因为IO的速度远远低于CPU和内存的速度）。对于IO密集型任务，任务越多，CPU效率越高，但也有一个限度。常见的大部分任务都是IO密集型任务，比如Web应用。</p>
+<p>IO密集型任务执行期间，99%的时间都花在IO上，花在CPU上的时间很少，因此，用运行速度极快的C语言替换用Python这样运行速度极低的脚本语言，完全无法提升运行效率。对于IO密集型任务，最合适的语言就是开发效率最高（代码量最少）的语言，脚本语言是首选，C语言最差。</p>
 </li>
-<li>Depth Property:<ul>
-<li>$(2,4)$ Tree: all the external nodes have the same depth</li>
-<li>Red-Black Tree: all the leaves have the same <em>black depth</em></li>
-</ul>
-</li>
-<li>A red-black tree is a representation of a $(2,4)$ tree by means of a binary tree whose nodes are colored red or black</li>
-<li>In comparison with its associated $(2,4)$ tree, a red-black tree has<ul>
-<li>same logarithmic time performance</li>
-<li>simpler implementation with a single node type</li>
-</ul>
-</li>
-</ul>
-<h4 id="3-Height-of-a-Red-Black-Tree"><a href="#3-Height-of-a-Red-Black-Tree" class="headerlink" title="3. Height of a Red-Black Tree"></a>3. Height of a Red-Black Tree</h4><ul>
-<li>Theorem: A red-black tree storing $n$ items has height $O(\log n)$<ul>
-<li>Proof:<ul>
-<li>The height of a red-black tree is at most twice the height of its associated $(2,4)$ tree, which is $O(\log n)$</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="4-Search"><a href="#4-Search" class="headerlink" title="4. Search"></a>4. Search</h4><ul>
-<li>The search algorithm for a red-black tree is the same as that for a binary search tree</li>
-<li>Searching in a red-black tree takes $O(\log n)$ time</li>
-</ul>
-<h4 id="5-Insertion"><a href="#5-Insertion" class="headerlink" title="5. Insertion"></a>5. Insertion</h4><ul>
-<li><p>To insert $(k, o)$, we execute the insertion algorithm for binary search trees and color <strong>red</strong> the newly inserted node $z$ <em>unless it is the root</em></p>
+</ol>
+<h4 id="4-进程调度"><a href="#4-进程调度" class="headerlink" title="4. 进程调度"></a>4. 进程调度</h4><ol>
+<li><strong>Classification by Time Horizon</strong></li>
+</ol>
 <ul>
-<li>We preserve the root, external, and depth properties</li>
-<li>If the parent $v$ of $z$ is black, we also preserve the internal property and we are done</li>
-<li>Else ($v$ is red) we have a <strong>double red</strong> (i.e., a violation of the internal property), which requires a reorganization of the tree</li>
+<li><strong>Long term</strong>: applies to new processes and controls the <strong>degree of multiprogramming</strong> by deciding which processes to admit to the system when a good <strong>mix</strong> of <strong>CPU</strong> and <strong>I/O bound processes</strong> is favorable to keep all resources as busy as possible.</li>
+<li><strong>Medium term</strong>: controls <strong>swapping</strong> and the <strong>degree of multi-programming</strong> (Memory management).</li>
+<li><strong>Short term (dispatcher)</strong>: decide which process to run next.</li>
 </ul>
-</li>
-<li><p><strong>Remedying a Double Red</strong></p>
+<ol start="2">
+<li><strong>Classification by Approach</strong></li>
+</ol>
 <ul>
-<li>Consider a double red with child $z$ and parent $v$, and let $w$ be the sibling of $v$</li>
-<li>Case1: $w$ is black<ul>
-<li>The double red is an incorrect replacement of a 4-node</li>
-<li><strong>Restructuring</strong>: we change the 4-node replacement</li>
-</ul>
-</li>
-<li>Case2: $w$ is red<ul>
-<li>The double red corresponds to an overflow</li>
-<li><strong>Recoloring</strong>: we perform the equivalent of a <strong>split</strong></li>
+<li><strong>Non-preemptive(非抢占式或非剥夺式)</strong>: processes are only interrupted voluntarily</li>
+<li><strong>Preemptive(抢占式或剥夺式)</strong>: processes can be <strong>interrupted forcefully</strong> or <strong>voluntarily</strong><ul>
+<li>E.g. preemptive scheduling algorithm picks a process and lets it run for a maximum of some fixed time. (clock interrupt)</li>
+<li>This requires context switches, which generates <strong>overhead</strong></li>
+<li>Prevents processes from <strong>monopolizing(垄断，独占) the CPU</strong></li>
+<li><strong>Most popular</strong> modern operation systems are preemptive</li>
 </ul>
 </li>
 </ul>
-</li>
-<li><p><strong>Restructuring</strong></p>
+<h4 id="5-性能评估："><a href="#5-性能评估：" class="headerlink" title="5. 性能评估："></a>5. 性能评估：</h4><ol>
+<li><strong>User oriented criteria</strong>: </li>
+</ol>
 <ul>
-<li><p>A restructuring remedies a child-parent double red when the parent red node has a black sibling</p>
+<li><p><strong>Response time(响应时间)</strong>: minimize the time between creating the job and its first</p>
+<p>execution</p>
 </li>
-<li><p>It is equivalent to restoring the <em>correct replacement</em> of a 4-node</p>
+<li><p><strong>Turnaround time(周转时间)</strong>: minimize the time between creating the job and finishing it</p>
 </li>
-<li><p>The internal property is restored and the other properties are preserved</p>
-</li>
-<li><p>There are four restructuring configrations depending on whether the double red nodes are left or right children</p>
-<img src="/2021/05/26/Red-Black-Tree/Screen Shot 2021-05-10 at 7.22.25 PM.png" style="zoom:50%;"></li>
 </ul>
-</li>
-<li><p><strong>Recoloring</strong></p>
+<ol start="2">
+<li><strong>System oriented criteria</strong>:</li>
+</ol>
 <ul>
-<li>A recoloring remedies a child-parent double red when the parent red node has a red sibling</li>
-<li>The parent $v$ and its sibling $w$ become black and the grandparent $u$ becomes red, unless it is the root</li>
-<li>It is equivalent to performing a split on a 5-node</li>
-<li><em>The double red violation may propagate to the grangparent $u$</em></li>
+<li><strong>Throughput(吞吐量)</strong>: maximize the number of jobs processed per hour</li>
+<li><strong>Fairness(公平)</strong>: <ul>
+<li>Are processing power/waiting time equally distributed?</li>
+<li>Is there any process with excessively long waiting time? (<strong>starvation</strong>)</li>
 </ul>
 </li>
-<li><p>Analysis of Insertion</p>
+</ul>
+<h4 id="6-调度算法："><a href="#6-调度算法：" class="headerlink" title="6. 调度算法："></a>6. 调度算法：</h4><ol>
+<li>Overview:</li>
+</ol>
 <ul>
-<li><pre class="line-numbers language-pseudocode"><code class="language-pseudocode">Algorithm insert(k, o)
-1. We search for key k to locate the insertion node z
-2. We add the new entry (k, o) at node z and color z red
-3. while doubleRed(z)
-        if isBlack(sibling(parent(z)))
-            z <- restructure(z)
-            return
-        else sibling(parent(z)) is red
-            z <- recolor(z)
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<li><strong>Algorithms</strong>:<ul>
+<li>First Come First Served (FCFS) / First In First Out (FIFO) (<strong>Batch System</strong>)</li>
+<li>Shortest job first (<strong>Batch System</strong>)</li>
+<li>Round Robin (<strong>Interactive System</strong>)</li>
+<li>Priority Queue (<strong>Interactive System</strong>)</li>
+</ul>
 </li>
-<li><p>Recall that a red-black tree has $O(\log n)$ height</p>
+<li>Performance measured used:<ul>
+<li><strong>Average response time(平均响应时间)</strong>: the average of the time taken for all the processes to start</li>
+<li><strong>Average turnaround time(平均周转时间)</strong>: the average time taken for all the processes to finish</li>
+</ul>
 </li>
-<li><p>Step 1 takes $O(\log n)$ time because we visit $O(\log n)$ nodes</p>
-</li>
-<li><p>Step 2 takes $O(1)$ time</p>
-</li>
-<li><p>Step 3 takes $O(\log n)$ time because we perform</p>
+</ul>
+<ol start="2">
+<li><strong>First Come First Served</strong>:</li>
+</ol>
 <ul>
-<li>$O(\log n)$ recoloring, each taking $O(1)$ time, and</li>
-<li>at most one restructuring taking $O(1)$ time</li>
+<li>Concept: a <strong>non-preemptive algorithm</strong> that operates as a <strong>strict queueing mechanism</strong> and schedules the processes in the same order that they were added to the queue</li>
+<li>Advantages:<ul>
+<li><strong>positional fairness</strong> and easy to implement</li>
 </ul>
 </li>
-<li><p>Thus, an insertion in a red-black tree takes $O(\log n)$ time</p>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="6-Deletion"><a href="#6-Deletion" class="headerlink" title="6. Deletion"></a>6. Deletion</h4><ul>
-<li>To perform operation $remove(k)$, we first execute the deletion algorithm for binary search trees</li>
-<li>Let $v$ be the internal node removed, $w$ the external node removed, and $r$ the sibling of $w$<ul>
-<li>If $v$ was red, the resulting tree remains a valid red-black tree</li>
-<li>If $v$ was black and $r$ was red, we color $r$ black and we are done</li>
-<li>Else ($v$ and $r$ were both black) we color $r$ <em><strong>double black</strong></em>, to preserve the depth property</li>
-</ul>
-</li>
-<li><strong>Remedying a Double Black</strong><ul>
-<li>The algorithm for remedying a double black node $r$ with sibling $y$ considers three cases</li>
-<li>Case1: $y$ is black and has a red child<ul>
-<li>We perform a <strong>restructuring</strong>, equivalent to a <strong>transfer</strong>, and we are done.</li>
-</ul>
-</li>
-<li>Case2: sibling $y$ of $r$ is black and its children are both black<ul>
-<li>We perform a <strong>recoloring</strong>, equivalent to a <strong>fusion</strong>, which may propagate up the double black violation</li>
-</ul>
-</li>
-<li>Case3: $y$ is red<ul>
-<li>We perform an <strong>adjustment</strong>, equivalent to choosing a different representation of a 3-node, after which either Case 1 or Case 2 applies</li>
+<li>Disadvantages:<ul>
+<li><strong>Favours long processes</strong> over short ones (think of the supermarket checkout!)</li>
+<li>Could <strong>compromise resource utilisation</strong>, i.e., CPU vs. I/O devices</li>
 </ul>
 </li>
 </ul>
+<ol start="3">
+<li><strong>Shortest Job First:</strong></li>
+</ol>
+<ul>
+<li>Concept: A <strong>non-preemptive algorithm</strong> that starts processes in order of <strong>ascending processing time</strong> using a provided/known estimate of the processing</li>
+<li>Advantages: results in the <strong>optimal turn around time</strong></li>
+<li>Disadvantages:<ul>
+<li><strong>Starvation</strong> might occur</li>
+<li><strong>Fairness</strong> is compromised</li>
+<li><strong>Processing times have to be known</strong> beforehand or estimated by</li>
+</ul>
 </li>
-<li>Deletion in a red-black tree takes $O(\log n)$ time</li>
+</ul>
+<ol start="4">
+<li><strong>Round Robin:</strong></li>
+</ol>
+<ul>
+<li>Concept: a <strong>preemptive version of FCFS</strong> that forces <strong>context switches</strong> at <strong>periodic intervals</strong> or <strong>time slices (Time quantum)</strong><ul>
+<li>Processes run in the order that they were added to the queue</li>
+<li>Processes are forcefully <strong>interrupted by the timer</strong></li>
+</ul>
+</li>
+<li>Advantages:<ul>
+<li>Improved <strong>response time</strong></li>
+<li>Effective for general purpose <strong>time sharing systems</strong></li>
+</ul>
+</li>
+<li>Disadvantages:<ul>
+<li>Increased <strong>context switching</strong> and thus overhead</li>
+<li>Can <strong>reduce to FCFS</strong> (只要时间片足够长，就是FCFS算法)</li>
+</ul>
+</li>
+</ul>
+<ol start="5">
+<li><strong>Priority Queues:</strong></li>
+</ol>
+<ul>
+<li>Concept: A <strong>preemptive algorithm</strong> that schedules processes by priority (high to low)<ul>
+<li>The process priority is saved in the <strong>process control block</strong></li>
+</ul>
+</li>
+<li>Advantages:<ul>
+<li>can <strong>prioritise I/O bound jobs</strong></li>
+</ul>
+</li>
+<li>Disadvantages:<ul>
+<li>low priority processes may suffer from <strong>starvation</strong> (with static priorities)</li>
+</ul>
+</li>
 </ul>
 
             </div>
@@ -635,7 +639,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://scycy2.github.io/2021/05/26/Red-Black-Tree/">https://scycy2.github.io/2021/05/26/Red-Black-Tree/</a>
+                    <a href="https://scycy2.github.io/2020/10/13/Process-scheduling/">https://scycy2.github.io/2020/10/13/Process-scheduling/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -673,12 +677,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Data-Structure/">
-                                    <span class="chip bg-color">Data Structure</span>
+                                <a href="/tags/Operating-System/">
+                                    <span class="chip bg-color">Operating System</span>
                                 </a>
                             
-                                <a href="/tags/Algorithm/">
-                                    <span class="chip bg-color">Algorithm</span>
+                                <a href="/tags/Process-Classification/">
+                                    <span class="chip bg-color">Process Classification</span>
                                 </a>
                             
                         </div>
@@ -724,30 +728,31 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/06/01/Linear-Regression/">
+                <a href="/2020/11/22/Heap/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/26.jpg" class="responsive-img" alt="Linear Regression">
                         
-                        <span class="card-title">Linear Regression</span>
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Heap">
+                        
+                        <span class="card-title">Heap</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Linear Regression
+                            Heap Introduction
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-01
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-22
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/self-study-notes/" class="post-category">
-                                    self-study notes
+                            <a href="/categories/class-notes/" class="post-category">
+                                    class notes
                                 </a>
                             
                             
@@ -757,8 +762,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Machine-Learning/">
-                        <span class="chip bg-color">Machine Learning</span>
+                    <a href="/tags/Data-Structure/">
+                        <span class="chip bg-color">Data Structure</span>
+                    </a>
+                    
+                    <a href="/tags/Algorithm/">
+                        <span class="chip bg-color">Algorithm</span>
                     </a>
                     
                 </div>
@@ -772,23 +781,24 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/04/15/Pattern-Matching/">
+                <a href="/2020/10/10/Process/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/25.jpg" class="responsive-img" alt="Pattern Matching">
                         
-                        <span class="card-title">Pattern Matching</span>
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Process">
+                        
+                        <span class="card-title">Process</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Pattern Matching
+                            Process
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-10
                             </span>
                         <span class="publish-author">
                             
@@ -805,8 +815,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Algorithm/">
-                        <span class="chip bg-color">Algorithm</span>
+                    <a href="/tags/Operating-System/">
+                        <span class="chip bg-color">Operating System</span>
+                    </a>
+                    
+                    <a href="/tags/Context-Switching/">
+                        <span class="chip bg-color">Context Switching</span>
                     </a>
                     
                 </div>
@@ -941,53 +955,9 @@
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
-
 
 
     <footer class="page-footer bg-color">
-    
-    <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-    "HTML-CSS": { 
-        preferredFont: "TeX", 
-        availableFonts: ["STIX","TeX"], 
-        linebreaks: { automatic:true }, 
-        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
-    },
-    tex2jax: { 
-        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
-        processEscapes: true, 
-        ignoreClass: "tex2jax_ignore|dno",
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {  
-        equationNumbers: { autoNumber: "AMS" },
-        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
-        Macros: { href: "{}" } 
-    },
-    messageStyle: "none"
-    }); 
-</script>
-<!-- 给MathJax元素添加has-jax class -->
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<!-- 通过连接CDN加载MathJax的js代码 -->
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
     
     
     <div class="container row center-align" style="margin-bottom: 15px !important;">

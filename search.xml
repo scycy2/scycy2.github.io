@@ -80,9 +80,9 @@
       
         <tags>
             
-            <tag> Algorithm </tag>
-            
             <tag> Machine Learning </tag>
+            
+            <tag> Algorithm </tag>
             
         </tags>
       
@@ -136,9 +136,9 @@
             
             <tag> Machine Learning </tag>
             
-            <tag> Overfitting </tag>
-            
             <tag> Classification </tag>
+            
+            <tag> Overfitting </tag>
             
             <tag> Regression </tag>
             
@@ -282,33 +282,6 @@
     
     
     <entry>
-      <title>Process</title>
-      <link href="2020/12/21/Process/"/>
-      <url>2020/12/21/Process/</url>
-      
-        <content type="html"><![CDATA[<h4 id="1-Definition"><a href="#1-Definition" class="headerlink" title="1. Definition"></a>1. Definition</h4><ul><li>The simplified definition: “a process is a <strong>running instance</strong> of a program”<ul><li>A program is <strong>passive</strong> entity and “sits” on a disk, not doing anything.</li><li>A process has <strong>control structures</strong> associated with it, may be <strong>active</strong>, and may have <strong>resources</strong> assigned to it (e.g. I/O devices, memory, processor). It has a program, input, output and a state.</li><li>A single <strong>processor</strong> may be shared among several <strong>processes</strong>.</li></ul></li><li>A process is registered with the OS using its <strong>“control structures”</strong>: i.e. an entry in the OS’s <strong>process table</strong> to a <strong>process control blocks</strong> (PCB)</li><li>The <strong>process control block</strong> contains all information necessary to <strong>administer the process</strong> and is <strong>essential</strong> for <strong>context switching</strong> in <strong>multiprogramming systems</strong></li></ul><h4 id="2-Menory-Image-of-Processes"><a href="#2-Menory-Image-of-Processes" class="headerlink" title="2. Menory Image of Processes"></a>2. Menory Image of Processes</h4><ul><li>A <strong>process’ memory image</strong> contains:<ul><li>The program <strong>code</strong> (could be shared between multiple processes running the same code)</li><li>A <strong>data</strong> segment: process-specified data (input and output, global variable)</li><li>call <strong>stack</strong>: keep track of active subroutines (function parameters, local variables)</li><li><strong>Heap</strong>: hold intermediate computation data generated during run time</li></ul></li><li>Every process has its own <strong>logical address space</strong>, in which the <strong>stack</strong> and <strong>heap</strong> are placed at <strong>opposite sides</strong> to allow them to grow</li></ul><h4 id="3-Process-States-and-Transitions"><a href="#3-Process-States-and-Transitions" class="headerlink" title="3. Process States and Transitions"></a>3. Process States and Transitions</h4><ul><li><p>Diagram</p><img src="/2020/12/21/Process/Screen Shot 2020-12-21 at 1.50.28 PM.png" style="zoom:50%;"></li><li><p>State transitions include:</p><ul><li>1  <strong>New -&gt; ready</strong>: admit the process and commit to execution</li><li>2  <strong>Running -&gt; blocked</strong>: e.g. process is waiting for input or carried out a system call</li><li>3  <strong>Ready -&gt; running</strong>: the process is selected by the <strong>process sceduler</strong></li><li>4  <strong>Blocked -&gt; ready</strong>: event happens, e.g. I/O operation has finished</li><li>5  <strong>Running -&gt; ready</strong>: the process is preempted, e.g., by a <strong>timer interrupt</strong> or by <strong>pause</strong></li><li>6  <strong>Running -&gt; exit</strong>: process has finished, e.g. program ended or exception encountered</li></ul></li></ul><h4 id="4-Context-Switching-Multiprogramming"><a href="#4-Context-Switching-Multiprogramming" class="headerlink" title="4. Context Switching (Multiprogramming)"></a>4. Context Switching (Multiprogramming)</h4><ul><li><p>Modern computers are <strong>multiprogramming</strong> systems:</p></li><li><p>Assuming a <strong>single processor system</strong>, the instructions of individual processes are executed <strong>sequentially</strong></p><ul><li>CPU’s rapid switching back and forth from process to process is called <strong>multiprogramming</strong>.</li><li>Multiprogramming is achieved by <strong>alternating</strong> processes and <strong>context switching</strong></li><li><strong>True parallelism</strong> requires <strong>mutiple processors</strong></li></ul></li><li><p>When a <strong>context switch</strong> takes place, the system <strong>saves the state</strong> of the old process and <strong>loads the state</strong> of the new process (created <strong>overhead</strong>)</p><ul><li><strong>Saved</strong> =&gt; the process control block is <strong>updated</strong></li><li><strong>(Re-)started</strong> =&gt; the process control block <strong>read</strong></li></ul></li><li><p>A <strong>trade-off</strong> exists between <strong>“responsiveness”</strong> and <strong>“overhead”</strong></p><ul><li><strong>Short time slices</strong> result in <strong>good response time</strong> but <strong>low effective “utilisation”</strong></li><li><strong>Long time slices</strong> result in <strong>poor response time</strong> but <strong>better effective “utilisation”</strong></li></ul></li><li><p>The OS uses <strong>process control block</strong> and a <strong>process table</strong> to manage processes and maintain their information</p></li><li><p>A <strong>process control block</strong> contains three types of <strong>attributes</strong>:</p><ul><li><strong>Process identification</strong> (PID, UID, Parent PID)</li><li><strong>Process state information</strong> (user registers, program counters, stack pointer, program status word, memory management information, files, etc.)</li><li><strong>Process control information</strong> (process state, scheduling information, etc.)</li></ul></li><li><p><strong>Process control blocks</strong> are <strong>kernel data structures</strong>, i.e. they are <strong>protected</strong> and only accessible in <strong>kernel mode!</strong></p><ul><li>Allowing user applications to access them directly could <strong>compromise their integrity</strong></li><li>The <strong>operating system manages</strong> them on the user’s behalf through <strong>system calls</strong></li></ul></li><li><p>Switching Processes</p><ul><li><img src="/2020/12/21/Process/Screen Shot 2020-12-21 at 3.42.30 PM.png" style="zoom:50%;"></li><li><p>1  Save process state (program counter, registers)</p></li><li><p>2  Update PCB (running -&gt; ready)</p></li><li><p>3  Move PCB to appropriate queue (ready/blocked)</p></li><li><p>4  Run scheduler, select new process</p></li><li><p>5  Update to running state in PCB</p></li><li><p>6  Update memory structures</p></li><li><p>7  Restore process</p></li></ul></li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> class notes </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Operating System </tag>
-            
-            <tag> Context Switching </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Heap</title>
       <link href="2020/11/22/Heap/"/>
       <url>2020/11/22/Heap/</url>
@@ -328,6 +301,62 @@
             <tag> Data Structure </tag>
             
             <tag> Algorithm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Process Scheduling</title>
+      <link href="2020/10/13/Process-scheduling/"/>
+      <url>2020/10/13/Process-scheduling/</url>
+      
+        <content type="html"><![CDATA[<h4 id="1-CPU密集型进程："><a href="#1-CPU密集型进程：" class="headerlink" title="1. CPU密集型进程："></a>1. CPU密集型进程：</h4><ol><li>CPU密集型也叫计算密集型，指的是系统的硬盘、内存性能相对CPU要好很多，此时，系统运作大部分的状况是CPU Loading 100%，CPU要读/写I/O(硬盘/内存)，I/O在很短的时间就可以完成，而CPU还有许多运算要处理，CPU Loading很高。</li><li>在多重程序系统中，大部份时间用来做计算、逻辑判断等CPU动作的程序称之CPU bound。例如一个计算圆周率至小数点一千位以下的程序，在执行的过程当中绝大部份时间用在三角函数和开根号的计算，便是属于CPU bound的程序。</li><li>CPU bound的程序一般而言CPU占用率相当高。这可能是因为任务本身不太需要访问I/O设备，也可能是因为程序是多线程实现因此屏蔽掉了等待I/O的时间。</li></ol><h4 id="2-IO密集型进程："><a href="#2-IO密集型进程：" class="headerlink" title="2. IO密集型进程："></a>2. IO密集型进程：</h4><ol><li>IO密集型指的是系统的CPU性能相对硬盘、内存要好很多，此时，系统运作，大部分的状况是CPU在等I/O (硬盘/内存) 的读/写操作，此时CPU Loading并不高。</li><li>I/O bound的程序一般在达到性能极限时，CPU占用率仍然较低。这可能是因为任务本身需要大量I/O操作，而pipeline做得不是很好，没有充分利用处理器能力。</li></ol><h4 id="3-CPU密集型-vs-IO密集型"><a href="#3-CPU密集型-vs-IO密集型" class="headerlink" title="3. CPU密集型 vs IO密集型:"></a>3. CPU密集型 vs IO密集型:</h4><ol><li><p>计算密集型任务的特点是要进行大量的计算，消耗CPU资源，比如计算圆周率、对视频进行高清解码等等，全靠CPU的运算能力。这种计算密集型任务虽然也可以用多任务完成，但是任务越多，花在任务切换的时间就越多，CPU执行任务的效率就越低，<strong>所以，要最高效地利用CPU，计算密集型任务同时进行的数量应当等于CPU的核心数。</strong></p><p>计算密集型任务由于主要消耗CPU资源，因此，代码运行效率至关重要。Python这样的脚本语言运行效率很低，完全不适合计算密集型任务。对于计算密集型任务，最好用C语言编写。</p></li><li><p>第二种任务的类型是IO密集型，涉及到网络、磁盘IO的任务都是IO密集型任务，这类任务的特点是CPU消耗很少，任务的大部分时间都在等待IO操作完成（因为IO的速度远远低于CPU和内存的速度）。对于IO密集型任务，任务越多，CPU效率越高，但也有一个限度。常见的大部分任务都是IO密集型任务，比如Web应用。</p><p>IO密集型任务执行期间，99%的时间都花在IO上，花在CPU上的时间很少，因此，用运行速度极快的C语言替换用Python这样运行速度极低的脚本语言，完全无法提升运行效率。对于IO密集型任务，最合适的语言就是开发效率最高（代码量最少）的语言，脚本语言是首选，C语言最差。</p></li></ol><h4 id="4-进程调度"><a href="#4-进程调度" class="headerlink" title="4. 进程调度"></a>4. 进程调度</h4><ol><li><strong>Classification by Time Horizon</strong></li></ol><ul><li><strong>Long term</strong>: applies to new processes and controls the <strong>degree of multiprogramming</strong> by deciding which processes to admit to the system when a good <strong>mix</strong> of <strong>CPU</strong> and <strong>I/O bound processes</strong> is favorable to keep all resources as busy as possible.</li><li><strong>Medium term</strong>: controls <strong>swapping</strong> and the <strong>degree of multi-programming</strong> (Memory management).</li><li><strong>Short term (dispatcher)</strong>: decide which process to run next.</li></ul><ol start="2"><li><strong>Classification by Approach</strong></li></ol><ul><li><strong>Non-preemptive(非抢占式或非剥夺式)</strong>: processes are only interrupted voluntarily</li><li><strong>Preemptive(抢占式或剥夺式)</strong>: processes can be <strong>interrupted forcefully</strong> or <strong>voluntarily</strong><ul><li>E.g. preemptive scheduling algorithm picks a process and lets it run for a maximum of some fixed time. (clock interrupt)</li><li>This requires context switches, which generates <strong>overhead</strong></li><li>Prevents processes from <strong>monopolizing(垄断，独占) the CPU</strong></li><li><strong>Most popular</strong> modern operation systems are preemptive</li></ul></li></ul><h4 id="5-性能评估："><a href="#5-性能评估：" class="headerlink" title="5. 性能评估："></a>5. 性能评估：</h4><ol><li><strong>User oriented criteria</strong>: </li></ol><ul><li><p><strong>Response time(响应时间)</strong>: minimize the time between creating the job and its first</p><p>execution</p></li><li><p><strong>Turnaround time(周转时间)</strong>: minimize the time between creating the job and finishing it</p></li></ul><ol start="2"><li><strong>System oriented criteria</strong>:</li></ol><ul><li><strong>Throughput(吞吐量)</strong>: maximize the number of jobs processed per hour</li><li><strong>Fairness(公平)</strong>: <ul><li>Are processing power/waiting time equally distributed?</li><li>Is there any process with excessively long waiting time? (<strong>starvation</strong>)</li></ul></li></ul><h4 id="6-调度算法："><a href="#6-调度算法：" class="headerlink" title="6. 调度算法："></a>6. 调度算法：</h4><ol><li>Overview:</li></ol><ul><li><strong>Algorithms</strong>:<ul><li>First Come First Served (FCFS) / First In First Out (FIFO) (<strong>Batch System</strong>)</li><li>Shortest job first (<strong>Batch System</strong>)</li><li>Round Robin (<strong>Interactive System</strong>)</li><li>Priority Queue (<strong>Interactive System</strong>)</li></ul></li><li>Performance measured used:<ul><li><strong>Average response time(平均响应时间)</strong>: the average of the time taken for all the processes to start</li><li><strong>Average turnaround time(平均周转时间)</strong>: the average time taken for all the processes to finish</li></ul></li></ul><ol start="2"><li><strong>First Come First Served</strong>:</li></ol><ul><li>Concept: a <strong>non-preemptive algorithm</strong> that operates as a <strong>strict queueing mechanism</strong> and schedules the processes in the same order that they were added to the queue</li><li>Advantages:<ul><li><strong>positional fairness</strong> and easy to implement</li></ul></li><li>Disadvantages:<ul><li><strong>Favours long processes</strong> over short ones (think of the supermarket checkout!)</li><li>Could <strong>compromise resource utilisation</strong>, i.e., CPU vs. I/O devices</li></ul></li></ul><ol start="3"><li><strong>Shortest Job First:</strong></li></ol><ul><li>Concept: A <strong>non-preemptive algorithm</strong> that starts processes in order of <strong>ascending processing time</strong> using a provided/known estimate of the processing</li><li>Advantages: results in the <strong>optimal turn around time</strong></li><li>Disadvantages:<ul><li><strong>Starvation</strong> might occur</li><li><strong>Fairness</strong> is compromised</li><li><strong>Processing times have to be known</strong> beforehand or estimated by</li></ul></li></ul><ol start="4"><li><strong>Round Robin:</strong></li></ol><ul><li>Concept: a <strong>preemptive version of FCFS</strong> that forces <strong>context switches</strong> at <strong>periodic intervals</strong> or <strong>time slices (Time quantum)</strong><ul><li>Processes run in the order that they were added to the queue</li><li>Processes are forcefully <strong>interrupted by the timer</strong></li></ul></li><li>Advantages:<ul><li>Improved <strong>response time</strong></li><li>Effective for general purpose <strong>time sharing systems</strong></li></ul></li><li>Disadvantages:<ul><li>Increased <strong>context switching</strong> and thus overhead</li><li>Can <strong>reduce to FCFS</strong> (只要时间片足够长，就是FCFS算法)</li></ul></li></ul><ol start="5"><li><strong>Priority Queues:</strong></li></ol><ul><li>Concept: A <strong>preemptive algorithm</strong> that schedules processes by priority (high to low)<ul><li>The process priority is saved in the <strong>process control block</strong></li></ul></li><li>Advantages:<ul><li>can <strong>prioritise I/O bound jobs</strong></li></ul></li><li>Disadvantages:<ul><li>low priority processes may suffer from <strong>starvation</strong> (with static priorities)</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> class notes </category>
+          
+          <category> self-study notes </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Operating System </tag>
+            
+            <tag> Process Classification </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Process</title>
+      <link href="2020/10/10/Process/"/>
+      <url>2020/10/10/Process/</url>
+      
+        <content type="html"><![CDATA[<h4 id="1-Definition"><a href="#1-Definition" class="headerlink" title="1. Definition"></a>1. Definition</h4><ul><li>The simplified definition: “a process is a <strong>running instance</strong> of a program”<ul><li>A program is <strong>passive</strong> entity and “sits” on a disk, not doing anything.</li><li>A process has <strong>control structures</strong> associated with it, may be <strong>active</strong>, and may have <strong>resources</strong> assigned to it (e.g. I/O devices, memory, processor). It has a program, input, output and a state.</li><li>A single <strong>processor</strong> may be shared among several <strong>processes</strong>.</li></ul></li><li>A process is registered with the OS using its <strong>“control structures”</strong>: i.e. an entry in the OS’s <strong>process table</strong> to a <strong>process control blocks</strong> (PCB)</li><li>The <strong>process control block</strong> contains all information necessary to <strong>administer the process</strong> and is <strong>essential</strong> for <strong>context switching</strong> in <strong>multiprogramming systems</strong></li></ul><h4 id="2-Menory-Image-of-Processes"><a href="#2-Menory-Image-of-Processes" class="headerlink" title="2. Menory Image of Processes"></a>2. Menory Image of Processes</h4><ul><li>A <strong>process’ memory image</strong> contains:<ul><li>The program <strong>code</strong> (could be shared between multiple processes running the same code)</li><li>A <strong>data</strong> segment: process-specified data (input and output, global variable)</li><li>call <strong>stack</strong>: keep track of active subroutines (function parameters, local variables)</li><li><strong>Heap</strong>: hold intermediate computation data generated during run time</li></ul></li><li>Every process has its own <strong>logical address space</strong>, in which the <strong>stack</strong> and <strong>heap</strong> are placed at <strong>opposite sides</strong> to allow them to grow</li></ul><h4 id="3-Process-States-and-Transitions"><a href="#3-Process-States-and-Transitions" class="headerlink" title="3. Process States and Transitions"></a>3. Process States and Transitions</h4><ul><li><p>Diagram</p><img src="/2020/10/10/Process/Screen Shot 2020-12-21 at 1.50.28 PM.png" style="zoom:50%;"></li><li><p>State transitions include:</p><ul><li>1  <strong>New -&gt; ready</strong>: admit the process and commit to execution</li><li>2  <strong>Running -&gt; blocked</strong>: e.g. process is waiting for input or carried out a system call</li><li>3  <strong>Ready -&gt; running</strong>: the process is selected by the <strong>process sceduler</strong></li><li>4  <strong>Blocked -&gt; ready</strong>: event happens, e.g. I/O operation has finished</li><li>5  <strong>Running -&gt; ready</strong>: the process is preempted, e.g., by a <strong>timer interrupt</strong> or by <strong>pause</strong></li><li>6  <strong>Running -&gt; exit</strong>: process has finished, e.g. program ended or exception encountered</li></ul></li></ul><h4 id="4-Context-Switching-Multiprogramming"><a href="#4-Context-Switching-Multiprogramming" class="headerlink" title="4. Context Switching (Multiprogramming)"></a>4. Context Switching (Multiprogramming)</h4><ul><li><p>Modern computers are <strong>multiprogramming</strong> systems:</p></li><li><p>Assuming a <strong>single processor system</strong>, the instructions of individual processes are executed <strong>sequentially</strong></p><ul><li>CPU’s rapid switching back and forth from process to process is called <strong>multiprogramming</strong>.</li><li>Multiprogramming is achieved by <strong>alternating</strong> processes and <strong>context switching</strong></li><li><strong>True parallelism</strong> requires <strong>mutiple processors</strong></li></ul></li><li><p>When a <strong>context switch</strong> takes place, the system <strong>saves the state</strong> of the old process and <strong>loads the state</strong> of the new process (created <strong>overhead</strong>)</p><ul><li><strong>Saved</strong> =&gt; the process control block is <strong>updated</strong></li><li><strong>(Re-)started</strong> =&gt; the process control block <strong>read</strong></li></ul></li><li><p>A <strong>trade-off</strong> exists between <strong>“responsiveness”</strong> and <strong>“overhead”</strong></p><ul><li><strong>Short time slices</strong> result in <strong>good response time</strong> but <strong>low effective “utilisation”</strong></li><li><strong>Long time slices</strong> result in <strong>poor response time</strong> but <strong>better effective “utilisation”</strong></li></ul></li><li><p>The OS uses <strong>process control block</strong> and a <strong>process table</strong> to manage processes and maintain their information</p></li><li><p>A <strong>process control block</strong> contains three types of <strong>attributes</strong>:</p><ul><li><strong>Process identification</strong> (PID, UID, Parent PID)</li><li><strong>Process state information</strong> (user registers, program counters, stack pointer, program status word, memory management information, files, etc.)</li><li><strong>Process control information</strong> (process state, scheduling information, etc.)</li></ul></li><li><p><strong>Process control blocks</strong> are <strong>kernel data structures</strong>, i.e. they are <strong>protected</strong> and only accessible in <strong>kernel mode!</strong></p><ul><li>Allowing user applications to access them directly could <strong>compromise their integrity</strong></li><li>The <strong>operating system manages</strong> them on the user’s behalf through <strong>system calls</strong></li></ul></li><li><p>Switching Processes</p><ul><li><img src="/2020/10/10/Process/Screen Shot 2020-12-21 at 3.42.30 PM.png" style="zoom:50%;"></li><li><p>1  Save process state (program counter, registers)</p></li><li><p>2  Update PCB (running -&gt; ready)</p></li><li><p>3  Move PCB to appropriate queue (ready/blocked)</p></li><li><p>4  Run scheduler, select new process</p></li><li><p>5  Update to running state in PCB</p></li><li><p>6  Update memory structures</p></li><li><p>7  Restore process</p></li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> class notes </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Operating System </tag>
+            
+            <tag> Context Switching </tag>
             
         </tags>
       
