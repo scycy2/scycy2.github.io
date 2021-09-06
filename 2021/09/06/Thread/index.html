@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="二叉树有关算法, 学习, 算法, java, 记录">
+    <meta name="keywords" content="Thread, 学习, 算法, java, 记录">
     <meta name="description" content="大学狗的学习之旅">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>二叉树有关算法 | 再`見</title>
+    <title>Thread | 再`見</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -287,12 +287,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">二叉树有关算法</h1>
+                    <h1 class="description center-align post-title">Thread</h1>
                 </div>
             </div>
         </div>
@@ -407,45 +407,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                <span class="chip bg-color">算法</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%80%BB%E7%BB%93/">
-                                <span class="chip bg-color">总结</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
-                                <span class="chip bg-color">未完待续</span>
-                            </a>
-                        
-                            <a href="/tags/Java/">
-                                <span class="chip bg-color">Java</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                                <span class="chip bg-color">数据结构</span>
-                            </a>
-                        
-                            <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">
-                                <span class="chip bg-color">二叉树</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">No tag</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="post-category">
-                                学习笔记
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -454,21 +421,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2020-09-16
+                    2021-09-06
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-09-03
+                    2021-09-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    88
+                    312
                 </div>
                 
 
@@ -485,29 +452,66 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="1-二叉树定义-java"><a href="#1-二叉树定义-java" class="headerlink" title="1. 二叉树定义(java)"></a>1. 二叉树定义(java)</h4><pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">// Definition for a binary tree node.</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TreeNode</span> <span class="token punctuation">{</span>
-    <span class="token keyword">int</span> val<span class="token punctuation">;</span>
-  TreeNode left<span class="token punctuation">;</span>
-  TreeNode right<span class="token punctuation">;</span>
-  <span class="token function">TreeNode</span><span class="token punctuation">(</span><span class="token keyword">int</span> x<span class="token punctuation">)</span> <span class="token punctuation">{</span> val <span class="token operator">=</span> x<span class="token punctuation">;</span> <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="2-二叉树翻转"><a href="#2-二叉树翻转" class="headerlink" title="2. 二叉树翻转"></a>2. 二叉树翻转</h4><img src="/2020/09/16/%E4%BA%8C%E5%8F%89%E6%A0%91%E6%9C%89%E5%85%B3%E7%AE%97%E6%B3%95/截屏2020-09-16 下午4.04.19.png" style="zoom:50%;">
-
-<pre class="line-numbers language-java"><code class="language-java"><span class="token comment" spellcheck="true">//简单递归即可实现</span>
-<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">Solution</span><span class="token punctuation">{</span>
-  <span class="token keyword">public</span> TreeNode <span class="token function">invertTree</span><span class="token punctuation">(</span>TreeNode root<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>root <span class="token operator">==</span> null<span class="token punctuation">)</span> <span class="token keyword">return</span> null<span class="token punctuation">;</span>
-    TreeNode left <span class="token operator">=</span> <span class="token function">invertTree</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>left<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    TreeNode right <span class="token operator">=</span> <span class="token function">invertTree</span><span class="token punctuation">(</span>root<span class="token punctuation">.</span>right<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    root<span class="token punctuation">.</span>right <span class="token operator">=</span> left<span class="token punctuation">;</span>
-    root<span class="token punctuation">.</span>left <span class="token operator">=</span> right<span class="token punctuation">;</span>
-    <span class="token keyword">return</span> root<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-<span class="token comment" spellcheck="true">// 当然还可以用四种遍历来解决这道题</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <h4 id="1-Thread-Usage"><a href="#1-Thread-Usage" class="headerlink" title="1. Thread Usage"></a>1. Thread Usage</h4><ul>
+<li>Thread can be viewed as <strong>miniprocesses</strong> within a process</li>
+<li>Why do we need multiple threads in a process?<ul>
+<li>Multiple <strong>related activities</strong> apply to the <strong>same resources</strong>, these resources should be accessible/shared (share address space and data)</li>
+<li>Easy to create and destroy.<ul>
+<li>10 - 100 times faster than creating a process</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-User-Threads-Many-to-One"><a href="#2-User-Threads-Many-to-One" class="headerlink" title="2. User Threads (Many-to-One)"></a>2. User Threads (Many-to-One)</h4><ul>
+<li><p><strong>Thread management</strong> (creating, destroying, scheduling, thread control block manipulation) is carried out <strong>in user space</strong> with the help of a <strong>user library</strong></p>
+</li>
+<li><p>The process maintains a <strong>thread table</strong> managed by the <strong>runtime system</strong> without the <strong>kernel’s knowledge</strong></p>
+<ul>
+<li>Similar to <strong>process table</strong></li>
+<li>Used for <strong>thread switching</strong></li>
+<li>Tracks thread related information</li>
+</ul>
+</li>
+<li><p>They can be implemented on <strong>OS</strong> that <strong>does not support multithreading</strong></p>
+</li>
+<li><img src="/2021/09/06/Thread/Screen Shot 2020-12-21 at 9.15.22 PM.png" style="zoom:50%;"></li>
+<li><p>Advantages:</p>
+<ul>
+<li>Threads are in user space (i.e., <strong>no mode switches</strong> required)</li>
+<li><strong>Full control</strong> over the thread scheduler (e.g. website server)</li>
+<li><strong>OS independent</strong> (threads can run on OS that do not support them)</li>
+<li>The runtime system can <strong>switch local blocking threads</strong> in user space (e.g. wait for another thread to complete)</li>
+</ul>
+</li>
+<li><p>Disadvantages:</p>
+<ul>
+<li><strong>Blocking system calls</strong> suspend the entire process (user threads are mapped onto a single process, managed by the kernel)</li>
+<li><strong>Page fault</strong> result in blocking the process</li>
+<li><strong>No true parallelism</strong> (a process is scheduled on a single CPU)\</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-Kernel-Threads-One-to-One"><a href="#3-Kernel-Threads-One-to-One" class="headerlink" title="3. Kernel Threads (One-to-One)"></a>3. Kernel Threads (One-to-One)</h4><ul>
+<li><img src="/2021/09/06/Thread/Screen Shot 2020-12-21 at 9.41.55 PM.png" style="zoom:50%;"></li>
+<li>The <strong>kernel manages</strong> the threads, user application accesses threading facilities through <strong>API</strong> and <strong>System calls</strong><ul>
+<li><strong>Thread table</strong> is in the kernel, containing thread control blocks (subset of process control blocks)</li>
+<li>If a <strong>thread blocks</strong>, the kernel chooses thread from same or different process</li>
+</ul>
+</li>
+<li>Advantages:<ul>
+<li><strong>True parallelism</strong> can be achieved</li>
+<li>No run-time system needed</li>
+</ul>
+</li>
+<li>Frequent <strong>mode switches</strong> take place, resulting in lower performance</li>
+</ul>
+<h4 id="4-Hybrid-Implementation"><a href="#4-Hybrid-Implementation" class="headerlink" title="4. Hybrid Implementation"></a>4. Hybrid Implementation</h4><ul>
+<li>User threads are <strong>multiplexed</strong> onto kernel threads</li>
+<li>Kernel sees and schedules the kernel threads (a limited number)</li>
+<li>User application sees user threads and creates/schedules these (an “unrestricted” number)</li>
+<li><img src="/2021/09/06/Thread/Screen Shot 2020-12-22 at 2.14.12 PM.png" style="zoom:50%;"></li>
+</ul>
 
             </div>
             <hr/>
@@ -533,7 +537,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://scycy2.github.io/2020/09/16/%E4%BA%8C%E5%8F%89%E6%A0%91%E6%9C%89%E5%85%B3%E7%AE%97%E6%B3%95/">https://scycy2.github.io/2020/09/16/%E4%BA%8C%E5%8F%89%E6%A0%91%E6%9C%89%E5%85%B3%E7%AE%97%E6%B3%95/</a>
+                    <a href="https://scycy2.github.io/2021/09/06/Thread/">https://scycy2.github.io/2021/09/06/Thread/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -570,31 +574,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/%E7%AE%97%E6%B3%95/">
-                                    <span class="chip bg-color">算法</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%80%BB%E7%BB%93/">
-                                    <span class="chip bg-color">总结</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
-                                    <span class="chip bg-color">未完待续</span>
-                                </a>
-                            
-                                <a href="/tags/Java/">
-                                    <span class="chip bg-color">Java</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">
-                                    <span class="chip bg-color">数据结构</span>
-                                </a>
-                            
-                                <a href="/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/">
-                                    <span class="chip bg-color">二叉树</span>
-                                </a>
-                            
+                            <span class="chip bg-color">No tag</span>
                         </div>
                     
                 </div>
@@ -634,53 +614,42 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2020/10/10/Process/">
+                <a href="/2021/09/06/Thread/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Process">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Thread">
                         
-                        <span class="card-title">Process</span>
+                        <span class="card-title">Thread</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Process
+                            1. Thread Usage
+Thread can be viewed as miniprocesses within a process
+Why do we need multiple threads in a process?
+Mul
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-10-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-06
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/class-notes/" class="post-category">
-                                    class notes
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            CL Turbo
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Operating-System/">
-                        <span class="chip bg-color">Operating System</span>
-                    </a>
-                    
-                    <a href="/tags/Context-Switching/">
-                        <span class="chip bg-color">Context Switching</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
@@ -691,31 +660,31 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/09/15/%E6%8E%92%E5%BA%8F%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB/">
+                <a href="/2021/08/24/Neural-Network-Implementation/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="排序方法汇总">
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Neural-Network Implementation">
                         
-                        <span class="card-title">排序方法汇总</span>
+                        <span class="card-title">Neural-Network Implementation</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            各种常见排序方法汇总
+                            Neural-Network Implementation
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-09-15
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-24
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E8%87%AA%E5%AD%A6%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    自学笔记
+                            <a href="/categories/self-study-notes/" class="post-category">
+                                    self-study notes
                                 </a>
                             
                             
@@ -725,12 +694,16 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E7%AE%97%E6%B3%95/">
-                        <span class="chip bg-color">算法</span>
+                    <a href="/tags/Machine-Learning/">
+                        <span class="chip bg-color">Machine Learning</span>
                     </a>
                     
-                    <a href="/tags/%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD/">
-                        <span class="chip bg-color">未完待续</span>
+                    <a href="/tags/Neural-Network/">
+                        <span class="chip bg-color">Neural Network</span>
+                    </a>
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
                     </a>
                     
                 </div>
