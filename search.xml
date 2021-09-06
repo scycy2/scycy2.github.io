@@ -4,19 +4,6 @@
   
     
     <entry>
-      <title>Thread</title>
-      <link href="2021/09/06/Thread/"/>
-      <url>2021/09/06/Thread/</url>
-      
-        <content type="html"><![CDATA[<h4 id="1-Thread-Usage"><a href="#1-Thread-Usage" class="headerlink" title="1. Thread Usage"></a>1. Thread Usage</h4><ul><li>Thread can be viewed as <strong>miniprocesses</strong> within a process</li><li>Why do we need multiple threads in a process?<ul><li>Multiple <strong>related activities</strong> apply to the <strong>same resources</strong>, these resources should be accessible/shared (share address space and data)</li><li>Easy to create and destroy.<ul><li>10 - 100 times faster than creating a process</li></ul></li></ul></li></ul><h4 id="2-User-Threads-Many-to-One"><a href="#2-User-Threads-Many-to-One" class="headerlink" title="2. User Threads (Many-to-One)"></a>2. User Threads (Many-to-One)</h4><ul><li><p><strong>Thread management</strong> (creating, destroying, scheduling, thread control block manipulation) is carried out <strong>in user space</strong> with the help of a <strong>user library</strong></p></li><li><p>The process maintains a <strong>thread table</strong> managed by the <strong>runtime system</strong> without the <strong>kernel’s knowledge</strong></p><ul><li>Similar to <strong>process table</strong></li><li>Used for <strong>thread switching</strong></li><li>Tracks thread related information</li></ul></li><li><p>They can be implemented on <strong>OS</strong> that <strong>does not support multithreading</strong></p></li><li><img src="/2021/09/06/Thread/Screen Shot 2020-12-21 at 9.15.22 PM.png" style="zoom:50%;"></li><li><p>Advantages:</p><ul><li>Threads are in user space (i.e., <strong>no mode switches</strong> required)</li><li><strong>Full control</strong> over the thread scheduler (e.g. website server)</li><li><strong>OS independent</strong> (threads can run on OS that do not support them)</li><li>The runtime system can <strong>switch local blocking threads</strong> in user space (e.g. wait for another thread to complete)</li></ul></li><li><p>Disadvantages:</p><ul><li><strong>Blocking system calls</strong> suspend the entire process (user threads are mapped onto a single process, managed by the kernel)</li><li><strong>Page fault</strong> result in blocking the process</li><li><strong>No true parallelism</strong> (a process is scheduled on a single CPU)\</li></ul></li></ul><h4 id="3-Kernel-Threads-One-to-One"><a href="#3-Kernel-Threads-One-to-One" class="headerlink" title="3. Kernel Threads (One-to-One)"></a>3. Kernel Threads (One-to-One)</h4><ul><li><img src="/2021/09/06/Thread/Screen Shot 2020-12-21 at 9.41.55 PM.png" style="zoom:50%;"></li><li>The <strong>kernel manages</strong> the threads, user application accesses threading facilities through <strong>API</strong> and <strong>System calls</strong><ul><li><strong>Thread table</strong> is in the kernel, containing thread control blocks (subset of process control blocks)</li><li>If a <strong>thread blocks</strong>, the kernel chooses thread from same or different process</li></ul></li><li>Advantages:<ul><li><strong>True parallelism</strong> can be achieved</li><li>No run-time system needed</li></ul></li><li>Frequent <strong>mode switches</strong> take place, resulting in lower performance</li></ul><h4 id="4-Hybrid-Implementation"><a href="#4-Hybrid-Implementation" class="headerlink" title="4. Hybrid Implementation"></a>4. Hybrid Implementation</h4><ul><li>User threads are <strong>multiplexed</strong> onto kernel threads</li><li>Kernel sees and schedules the kernel threads (a limited number)</li><li>User application sees user threads and creates/schedules these (an “unrestricted” number)</li><li><img src="/2021/09/06/Thread/Screen Shot 2020-12-22 at 2.14.12 PM.png" style="zoom:50%;"></li></ul>]]></content>
-      
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Neural-Network Implementation</title>
       <link href="2021/08/24/Neural-Network-Implementation/"/>
       <url>2021/08/24/Neural-Network-Implementation/</url>
@@ -93,9 +80,9 @@
       
         <tags>
             
-            <tag> Algorithm </tag>
-            
             <tag> Machine Learning </tag>
+            
+            <tag> Algorithm </tag>
             
         </tags>
       
@@ -314,6 +301,31 @@
             <tag> Data Structure </tag>
             
             <tag> Algorithm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Thread</title>
+      <link href="2020/10/14/Thread/"/>
+      <url>2020/10/14/Thread/</url>
+      
+        <content type="html"><![CDATA[<h4 id="1-Thread-Usage"><a href="#1-Thread-Usage" class="headerlink" title="1. Thread Usage"></a>1. Thread Usage</h4><ul><li>Thread can be viewed as <strong>miniprocesses</strong> within a process</li><li>Why do we need multiple threads in a process?<ul><li>Multiple <strong>related activities</strong> apply to the <strong>same resources</strong>, these resources should be accessible/shared (share address space and data)</li><li>Easy to create and destroy.<ul><li>10 - 100 times faster than creating a process</li></ul></li></ul></li></ul><h4 id="2-User-Threads-Many-to-One"><a href="#2-User-Threads-Many-to-One" class="headerlink" title="2. User Threads (Many-to-One)"></a>2. User Threads (Many-to-One)</h4><ul><li><p><strong>Thread management</strong> (creating, destroying, scheduling, thread control block manipulation) is carried out <strong>in user space</strong> with the help of a <strong>user library</strong></p></li><li><p>The process maintains a <strong>thread table</strong> managed by the <strong>runtime system</strong> without the <strong>kernel’s knowledge</strong></p><ul><li>Similar to <strong>process table</strong></li><li>Used for <strong>thread switching</strong></li><li>Tracks thread related information</li></ul></li><li><p>They can be implemented on <strong>OS</strong> that <strong>does not support multithreading</strong></p></li><li><img src="/2020/10/14/Thread/Screen Shot 2020-12-21 at 9.15.22 PM.png" style="zoom:50%;"></li><li><p>Advantages:</p><ul><li>Threads are in user space (i.e., <strong>no mode switches</strong> required)</li><li><strong>Full control</strong> over the thread scheduler (e.g. website server)</li><li><strong>OS independent</strong> (threads can run on OS that do not support them)</li><li>The runtime system can <strong>switch local blocking threads</strong> in user space (e.g. wait for another thread to complete)</li></ul></li><li><p>Disadvantages:</p><ul><li><strong>Blocking system calls</strong> suspend the entire process (user threads are mapped onto a single process, managed by the kernel)</li><li><strong>Page fault</strong> result in blocking the process</li><li><strong>No true parallelism</strong> (a process is scheduled on a single CPU)\</li></ul></li></ul><h4 id="3-Kernel-Threads-One-to-One"><a href="#3-Kernel-Threads-One-to-One" class="headerlink" title="3. Kernel Threads (One-to-One)"></a>3. Kernel Threads (One-to-One)</h4><ul><li><img src="/2020/10/14/Thread/Screen Shot 2020-12-21 at 9.41.55 PM.png" style="zoom:50%;"></li><li>The <strong>kernel manages</strong> the threads, user application accesses threading facilities through <strong>API</strong> and <strong>System calls</strong><ul><li><strong>Thread table</strong> is in the kernel, containing thread control blocks (subset of process control blocks)</li><li>If a <strong>thread blocks</strong>, the kernel chooses thread from same or different process</li></ul></li><li>Advantages:<ul><li><strong>True parallelism</strong> can be achieved</li><li>No run-time system needed</li></ul></li><li>Frequent <strong>mode switches</strong> take place, resulting in lower performance</li></ul><h4 id="4-Hybrid-Implementation"><a href="#4-Hybrid-Implementation" class="headerlink" title="4. Hybrid Implementation"></a>4. Hybrid Implementation</h4><ul><li>User threads are <strong>multiplexed</strong> onto kernel threads</li><li>Kernel sees and schedules the kernel threads (a limited number)</li><li>User application sees user threads and creates/schedules these (an “unrestricted” number)</li><li><img src="/2020/10/14/Thread/Screen Shot 2020-12-22 at 2.14.12 PM.png" style="zoom:50%;"></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> class notes </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Operating System </tag>
             
         </tags>
       
