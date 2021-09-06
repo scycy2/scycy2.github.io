@@ -1,10 +1,10 @@
 ---
 title: Thread
-date: 2021-09-06 13:35:03
-tags:
-categories:
+date: 2020-10-14 13:35:03
+tags: ['Operating System']
+categories: ['class notes']
 cover:
-summary:
+summary: Thread
 img:
 ---
 
