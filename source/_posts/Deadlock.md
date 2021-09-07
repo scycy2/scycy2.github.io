@@ -1,6 +1,6 @@
 ---
 title: Deadlock
-date: 2021-09-07 12:55:14
+date: 2020-10-20 12:55:14
 tags: ["Operating System"]
 categories: ['class notes']
 cover:
