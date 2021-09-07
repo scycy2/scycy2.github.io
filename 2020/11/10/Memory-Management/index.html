@@ -470,7 +470,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-09-07
+                    2020-11-10
                 </div>
                 
 
@@ -507,12 +507,12 @@
 <li>Registers, L1/L2/L3 cache (volatile)</li>
 <li>Main memory (volatile)</li>
 <li>Disks (nonvolatile)</li>
-<li><img src="/2021/09/07/Memory-Management/Memory%20Hierarchies.png?lastModify=1630990878" alt="img"></li>
+<li><img src="/2020/11/10/Memory-Management/Memory%20Hierarchies.png?lastModify=1630990878" alt="img"></li>
 </ul>
 </li>
 <li><strong>Higher memory</strong> is faster, more expensive and volatile, <strong>lower memory</strong> is slower, cheaper and non-volatile.</li>
 <li>Memory can be seen as one <strong>linear array</strong> of bytes/words.<ul>
-<li><img src="/2021/09/07/Memory-Management/Memory%20Structure.png?lastModify=1630990878" alt="img"></li>
+<li><img src="/2020/11/10/Memory-Management/Memory%20Structure.png?lastModify=1630990878" alt="img"></li>
 </ul>
 </li>
 <li><strong>OS responsibilities:</strong><ul>
@@ -550,7 +550,7 @@
 </ul>
 </li>
 <li>逻辑地址生成<ul>
-<li><img src="/2021/09/07/Memory-Management/Screen%20Shot%202020-12-09%20at%203.54.27%20PM.png?lastModify=1630990878" alt="img"></li>
+<li><img src="/2020/11/10/Memory-Management/Screen%20Shot%202020-12-09%20at%203.54.27%20PM.png?lastModify=1630990878" alt="img"></li>
 </ul>
 </li>
 <li>地址生成时机和限制<ul>
@@ -590,7 +590,7 @@
 </ul>
 </li>
 <li>地址检查<ul>
-<li><img src="/2021/09/07/Memory-Management/Screen%20Shot%202020-12-09%20at%204.34.03%20PM.png?lastModify=1630990878" alt="img"></li>
+<li><img src="/2020/11/10/Memory-Management/Screen%20Shot%202020-12-09%20at%204.34.03%20PM.png?lastModify=1630990878" alt="img"></li>
 </ul>
 </li>
 </ol>
@@ -723,7 +723,7 @@
 <li>Each link also contains a <strong>pointer to the next</strong> in the chain</li>
 </ul>
 </li>
-<li><img src="/2021/09/07/Memory-Management/Picture1.png?lastModify=1630990878" alt="img"></li>
+<li><img src="/2020/11/10/Memory-Management/Picture1.png?lastModify=1630990878" alt="img"></li>
 </ul>
 </li>
 </ul>
@@ -967,7 +967,7 @@
 </li>
 <li>The <strong>offset</strong> within the page and frame <strong>remains the same</strong> (they are the same size)</li>
 <li>The page number to frame number mapping is held in the <strong>page table</strong></li>
-<li><img src="/2021/09/07/Memory-Management/Screen%20Shot%202020-12-23%20at%205.13.44%20PM.png?lastModify=1630990878" alt="img"></li>
+<li><img src="/2020/11/10/Memory-Management/Screen%20Shot%202020-12-23%20at%205.13.44%20PM.png?lastModify=1630990878" alt="img"></li>
 </ul>
 </li>
 <li>Relocation: Address Translation<ul>
@@ -1076,7 +1076,7 @@
 </ul>
 </li>
 <li>Multi-level Page Tables<ul>
-<li><img src="/2021/09/07/Memory-Management/Screen%20Shot%202020-12-24%20at%205.05.59%20PM.png?lastModify=1630990878" alt="img"></li>
+<li><img src="/2020/11/10/Memory-Management/Screen%20Shot%202020-12-24%20at%205.05.59%20PM.png?lastModify=1630990878" alt="img"></li>
 <li><img src="file:///Users/apple/Desktop/Y3/OSC/diagrams/Screen%20Shot%202020-12-24%20at%205.06.20%20PM.png?lastModify=1630990878" alt="img"></li>
 </ul>
 </li>
@@ -1101,7 +1101,7 @@
 </ul>
 </li>
 <li>The principle behind TLBs is similar to other types of <strong>caching in operating systems</strong></li>
-<li><img src="/2021/09/07/Memory-Management/Screen%20Shot%202020-12-24%20at%205.56.16%20PM.png?lastModify=1630990878" alt="img"></li>
+<li><img src="/2020/11/10/Memory-Management/Screen%20Shot%202020-12-24%20at%205.56.16%20PM.png?lastModify=1630990878" alt="img"></li>
 <li>Memory access with TLBs:<ul>
 <li>Assume a 20ns associative <strong>TLB lookup</strong></li>
 <li>Assume a 100ns <strong>memory access time</strong> and with a single level page table<ul>
@@ -1134,7 +1134,7 @@
 </ul>
 </li>
 <li>The OS maintains a <strong>single inverted page table</strong> for all processes</li>
-<li><img src="/2021/09/07/Memory-Management/Screen%20Shot%202020-12-24%20at%208.56.49%20PM.png?lastModify=1630990878" alt="img"></li>
+<li><img src="/2020/11/10/Memory-Management/Screen%20Shot%202020-12-24%20at%208.56.49%20PM.png?lastModify=1630990878" alt="img"></li>
 <li>Advantages:<ul>
 <li>The OS maintains a <strong>single inverted page table</strong> for all processes</li>
 <li>It saves lots of space (especially when the virtual address space is much larger than the physical memory)</li>
@@ -1334,7 +1334,7 @@
 </ul>
 </li>
 <li>CPU <strong>utilisation drops further</strong> -&gt; scheduler increases degree of multi-programming</li>
-<li><img src="/2021/09/07/Memory-Management/20200610182224879.png"></li>
+<li><img src="/2020/11/10/Memory-Management/20200610182224879.png"></li>
 <li><strong>Causes</strong> of thrashing include:<ul>
 <li>The degree of multi-programming is too high, i.e., the total <strong>demand</strong> (i.e., the sum of all <strong>working set</strong> sizes) <strong>exceeds supply</strong> (i.e. the available frames)</li>
 <li>An individual process is allocated <strong>too few pages</strong></li>
@@ -1370,7 +1370,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://scycy2.github.io/2021/09/07/Memory-Management/">https://scycy2.github.io/2021/09/07/Memory-Management/</a>
+                    <a href="https://scycy2.github.io/2020/11/10/Memory-Management/">https://scycy2.github.io/2020/11/10/Memory-Management/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -1487,30 +1487,29 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;Current
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/09/07/Memory-Management/">
+                <a href="/2020/11/22/Heap/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Memory Management">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Heap">
                         
-                        <span class="card-title">Memory Management</span>
+                        <span class="card-title">Heap</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Memory Management
+                            Heap Introduction
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-07
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-22
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1523,48 +1522,15 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Operating-System/">
-                        <span class="chip bg-color">Operating System</span>
+                    <a href="/tags/Data-Structure/">
+                        <span class="chip bg-color">Data Structure</span>
                     </a>
                     
-                    <a href="/tags/Relocation/">
-                        <span class="chip bg-color">Relocation</span>
-                    </a>
-                    
-                    <a href="/tags/Dynamic-Partitioning/">
-                        <span class="chip bg-color">Dynamic Partitioning</span>
-                    </a>
-                    
-                    <a href="/tags/Segmentation/">
-                        <span class="chip bg-color">Segmentation</span>
-                    </a>
-                    
-                    <a href="/tags/Paging/">
-                        <span class="chip bg-color">Paging</span>
-                    </a>
-                    
-                    <a href="/tags/Virtual-Memory/">
-                        <span class="chip bg-color">Virtual Memory</span>
-                    </a>
-                    
-                    <a href="/tags/Page-Faults/">
-                        <span class="chip bg-color">Page Faults</span>
-                    </a>
-                    
-                    <a href="/tags/Translation-Look-Aside-Buffers/">
-                        <span class="chip bg-color">Translation Look Aside Buffers</span>
-                    </a>
-                    
-                    <a href="/tags/Inverted-Page-Tables/">
-                        <span class="chip bg-color">Inverted Page Tables</span>
-                    </a>
-                    
-                    <a href="/tags/Page-Replacement/">
-                        <span class="chip bg-color">Page Replacement</span>
+                    <a href="/tags/Algorithm/">
+                        <span class="chip bg-color">Algorithm</span>
                     </a>
                     
                 </div>
@@ -1578,31 +1544,31 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/08/24/Neural-Network-Implementation/">
+                <a href="/2020/10/20/Deadlock/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Neural-Network Implementation">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Deadlock">
                         
-                        <span class="card-title">Neural-Network Implementation</span>
+                        <span class="card-title">Deadlock</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Neural-Network Implementation
+                            Deadlock
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-10-20
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/self-study-notes/" class="post-category">
-                                    self-study notes
+                            <a href="/categories/class-notes/" class="post-category">
+                                    class notes
                                 </a>
                             
                             
@@ -1612,16 +1578,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Machine-Learning/">
-                        <span class="chip bg-color">Machine Learning</span>
-                    </a>
-                    
-                    <a href="/tags/Neural-Network/">
-                        <span class="chip bg-color">Neural Network</span>
-                    </a>
-                    
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
+                    <a href="/tags/Operating-System/">
+                        <span class="chip bg-color">Operating System</span>
                     </a>
                     
                 </div>
