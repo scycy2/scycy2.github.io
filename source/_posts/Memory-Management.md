@@ -8,8 +8,6 @@ summary: Memory Management
 img:
 ---
 
-[TOC]
-
 #### 1. 内存层次(Memory Hierarchies)
 
 1. Computers typically have memory hierarchies: 
