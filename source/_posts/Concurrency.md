@@ -1,7 +1,7 @@
 ---
 title: Concurrency
 date: 2020-10-16 15:14:32
-tags: ['Operating System']
+tags: ['Operating System', "Mutual Exclusion"]
 categories: ['class notes']
 cover:
 summary: Concurrency
