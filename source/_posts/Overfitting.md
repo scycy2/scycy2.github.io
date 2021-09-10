@@ -1,10 +1,10 @@
 ---
 title: Overfitting
 date: 2021-06-09 16:14:59
-tags: ['Machine Learning', 'Overfitting', 'Classification', 'Regression', 'Regularization']
+tags: ['Machine Learning']
 categories: ['self-study notes']
 cover:
-summary: Overfitting
+summary: Overfitting (Regularization)
 img: /medias/featureimages/16.jpg
 mathjax: true
 ---

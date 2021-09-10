@@ -1,7 +1,7 @@
 ---
 title: Red-Black Tree
 date: 2021-05-26 13:22:45
-tags: ['Data Structure','Algorithm']
+tags: ['Data Structure', 'Algorithm']
 categories: 'class notes'
 cover: false
 summary: "Red Black Tree and Operations"

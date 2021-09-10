@@ -1,10 +1,10 @@
 ---
 title: Formal Languages
 date: 2021-05-15 13:50:30
-tags: ['Grammer', 'Automata', 'Regular Languages', 'Pumping Lemma', 'Context-Free Languages', 'Turing Machine']
+tags: ['Language and Computation']
 categories: ['class notes']
 cover:
-summary: Formal Languages (Language and Computation Module)
+summary: Formal Languages (Automata, Regular Languages, Pumping Lemma, Context-Free Languages, Turing Machine)
 img:
 mathjax: true
 ---

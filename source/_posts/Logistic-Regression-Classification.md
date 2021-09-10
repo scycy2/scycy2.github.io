@@ -1,10 +1,10 @@
 ---
 title: Logistic Regression -- Classification
 date: 2021-06-08 15:26:22
-tags: ['Machine Learning' ,'Classification']
+tags: ['Machine Learning']
 categories: ['self-study notes']
 cover: true
-summary: Logistic Regression
+summary: Logistic Regression (Classification)
 img: /medias/featureimages/21.jpg
 mathjax: true
 ---

@@ -1,7 +1,7 @@
 ---
 title: Process Scheduling
 date: 2020-10-13 12:11:50
-tags: ['Operating System', 'Process Classification']
+tags: ['Operating System']
 categories: ['class notes']
 cover:
 summary: Process Classification and Process Scheduling

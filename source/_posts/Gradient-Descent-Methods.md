@@ -1,10 +1,10 @@
 ---
 title: Gradient Descent Methods
 date: 2021-09-09 14:37:58
-tags: ['Mini-batch Gradient Descent', 'Stochastic Gradient Descent', 'Optimization Methods', 'Neural Network']
+tags: ['Optimization Methods', 'Neural Network']
 categories: ['self-study notes']
 cover:
-summary: Comparison of different gradient descent methods
+summary: Comparison of different gradient descent methods (Mini-batch Gradient Descent, Stochastic Gradient Descent, )
 img:
 mathjax: true
 ---

@@ -4,7 +4,7 @@ date: 2020-10-20 12:55:14
 tags: ["Operating System"]
 categories: ['class notes']
 cover:
-summary: Deadlock
+summary: Deadlock (Detect, Recover and Avoidance)
 img:
 mathjax: true
 ---
