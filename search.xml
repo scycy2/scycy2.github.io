@@ -20,10 +20,6 @@
       
         <tags>
             
-            <tag> Mini-batch Gradient Descent </tag>
-            
-            <tag> Stochastic Gradient Descent </tag>
-            
             <tag> Optimization Methods </tag>
             
             <tag> Neural Network </tag>
@@ -167,14 +163,6 @@
             
             <tag> Machine Learning </tag>
             
-            <tag> Classification </tag>
-            
-            <tag> Overfitting </tag>
-            
-            <tag> Regression </tag>
-            
-            <tag> Regularization </tag>
-            
         </tags>
       
     </entry>
@@ -199,8 +187,6 @@
         <tags>
             
             <tag> Machine Learning </tag>
-            
-            <tag> Classification </tag>
             
         </tags>
       
@@ -304,17 +290,7 @@
       
         <tags>
             
-            <tag> Grammer </tag>
-            
-            <tag> Automata </tag>
-            
-            <tag> Regular Languages </tag>
-            
-            <tag> Pumping Lemma </tag>
-            
-            <tag> Context-Free Languages </tag>
-            
-            <tag> Turing Machine </tag>
+            <tag> Language and Computation </tag>
             
         </tags>
       
@@ -420,24 +396,6 @@
             
             <tag> Operating System </tag>
             
-            <tag> Relocation </tag>
-            
-            <tag> Dynamic Partitioning </tag>
-            
-            <tag> Segmentation </tag>
-            
-            <tag> Paging </tag>
-            
-            <tag> Virtual Memory </tag>
-            
-            <tag> Page Faults </tag>
-            
-            <tag> Translation Look Aside Buffers </tag>
-            
-            <tag> Inverted Page Tables </tag>
-            
-            <tag> Page Replacement </tag>
-            
         </tags>
       
     </entry>
@@ -487,8 +445,6 @@
         <tags>
             
             <tag> Operating System </tag>
-            
-            <tag> Mutual Exclusion </tag>
             
         </tags>
       
@@ -540,8 +496,6 @@
             
             <tag> Operating System </tag>
             
-            <tag> Process Classification </tag>
-            
         </tags>
       
     </entry>
@@ -566,8 +520,6 @@
         <tags>
             
             <tag> Operating System </tag>
-            
-            <tag> Context Switching </tag>
             
         </tags>
       
@@ -594,15 +546,11 @@
             
             <tag> 算法 </tag>
             
-            <tag> 总结 </tag>
-            
             <tag> 未完待续 </tag>
             
             <tag> Java </tag>
             
             <tag> 数据结构 </tag>
-            
-            <tag> 二叉树 </tag>
             
         </tags>
       
@@ -655,8 +603,6 @@
         <tags>
             
             <tag> 算法 </tag>
-            
-            <tag> 总结 </tag>
             
             <tag> 未完待续 </tag>
             
