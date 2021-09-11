@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="Advice for applying machine learning, 学习, 算法, java, 记录">
+    <meta name="keywords" content="Hash Table, 学习, 算法, java, 记录">
     <meta name="description" content="大学狗的学习之旅">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Advice for applying machine learning | 再`見</title>
+    <title>Hash Table | 再`見</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -287,12 +287,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/10.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Advice for applying machine learning</h1>
+                    <h1 class="description center-align post-title">Hash Table</h1>
                 </div>
             </div>
         </div>
@@ -409,8 +409,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Machine-Learning/">
-                                <span class="chip bg-color">Machine Learning</span>
+                            <a href="/tags/Data-Structure/">
+                                <span class="chip bg-color">Data Structure</span>
+                            </a>
+                        
+                            <a href="/tags/Algorithm/">
+                                <span class="chip bg-color">Algorithm</span>
                             </a>
                         
                     </div>
@@ -421,8 +425,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/self-study-notes/" class="post-category">
-                                self-study notes
+                            <a href="/categories/class-notes/" class="post-category">
+                                class notes
                             </a>
                         
                     </div>
@@ -434,28 +438,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-06-29
+                    2021-09-11
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-09-10
+                    2021-09-11
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.1k
+                    680
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    7 Min
+                    4 Min
                 </div>
                 
 
@@ -465,116 +469,137 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="1-Evaluating-a-Learning-Algorithm"><a href="#1-Evaluating-a-Learning-Algorithm" class="headerlink" title="1. Evaluating a Learning Algorithm"></a>1. Evaluating a Learning Algorithm</h4><h5 id="1-1-Evaluating-a-Hypothesis"><a href="#1-1-Evaluating-a-Hypothesis" class="headerlink" title="1.1 Evaluating a Hypothesis"></a>1.1 Evaluating a Hypothesis</h5><ul>
-<li><p>A hypothesis may have a low error for the training examples but still be inaccurate (because of overfitting). Thus, to evaluate a hypothesis, given a dataset of training examples, we can split up the data into two sets: a <strong>training set</strong> and a <strong>test set</strong>. Typically, the training set consists of $70%$ of data and the test set is the remaining $30%$.</p>
+                <h4 id="1-Definition"><a href="#1-Definition" class="headerlink" title="1. Definition"></a>1. Definition</h4><ul>
+<li><strong>Hash tables</strong> are a concrete data structure which is suitable for implementing maps.</li>
+<li>Basic idea: convert each key into an index.</li>
+<li>Look-up of keys, insertion and deletion in a hash table usually runs in $O(1)$ time.</li>
+</ul>
+<h4 id="2-Hash-Tables-and-Hash-Functions"><a href="#2-Hash-Tables-and-Hash-Functions" class="headerlink" title="2. Hash Tables and Hash Functions"></a>2. Hash Tables and Hash Functions</h4><ul>
+<li>A <strong>hash table</strong> for a given key type consists of<ul>
+<li>Array $A$ (called table) of size $N$</li>
+<li>Hash function $h$</li>
+</ul>
 </li>
-<li><p>The new procedure using these two sets is then:</p>
+<li>A <strong>hash function</strong> $h$ maps keys of a given type to integers in a fixed interval $[0, N-1]$</li>
+<li>When implementing a map with a hash table, the goal is to store item $(k, o)$ at index $i = h(k)$ in the array $A$</li>
+</ul>
+<h4 id="3-Hash-Functions"><a href="#3-Hash-Functions" class="headerlink" title="3. Hash Functions"></a>3. Hash Functions</h4><ul>
+<li>A hash function is usually specified as the <em>composition</em> of two function:<ul>
+<li><strong>Hash code</strong>: $h_1: keys \rightarrow integers$</li>
+<li><strong>Compression function</strong>: $h_2: integers \rightarrow [0, N - 1]$</li>
+</ul>
+</li>
+<li>The hash code is applied first, and the compression function is applied next on the result, i.e., $h(x) = h_2(h_1(x))$</li>
+<li>The goal of the hash function is to <strong>“disperse”</strong> the keys in an apparently <strong>random</strong> way</li>
+</ul>
+<h4 id="4-Collision-Handling"><a href="#4-Collision-Handling" class="headerlink" title="4. Collision Handling"></a>4. Collision Handling</h4><ul>
+<li>Collisions occur when different elements are mapped to the same cell.</li>
+<li><strong>Separate Chaining</strong>: let each cell in the table point to a list of entries  that map there<ul>
+<li>Separate chaining is simple, but requires additional mempry outside the table</li>
+</ul>
+</li>
+<li><strong>Linear Probing</strong><ul>
+<li><strong>Open addressing</strong>: the colliding item is placed in a different cell of the table</li>
+<li><strong>Linear probing</strong>: handles collisions by placing the colliding item in the next (circularly) available table cell</li>
+<li>Accessing a cell of the array is referred to as a “probe”</li>
+<li>Disadvantage: Colliding items lump together, causing future collisions to cause a longer sequence of probes</li>
+</ul>
+</li>
+<li>Updates with Linear Probing<ul>
+<li>To handle insertions and deletions, we introduce a special object, called <em><strong>DEFUNCT</strong></em>, which replaces deleted elements</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-Double-Hashing"><a href="#5-Double-Hashing" class="headerlink" title="5. Double Hashing"></a>5. Double Hashing</h4><ul>
+<li><p>Double hashing uses a secondary hash function $d(k)$ and handles collisions by placing an item in the first available cell of the series<br>$$<br>(h(k) + jd(k))\mod N<br>$$<br>for $j = 0, 1, \cdots, N-1$</p>
+</li>
+<li><p>The secondary hash function $d(k)$ cannot have zero values</p>
+</li>
+<li><p>Linear probing is a special case where $d(k) = 1$</p>
+</li>
+<li><p>The table size $N$ must be a <em>prime</em> to allow probing of all the cells</p>
+</li>
+<li><p>Common choice of compression function for the secondary hash function:<br>$$<br>d(k) = q - (k\mod q)<br>$$<br>where</p>
 <ul>
-<li>Learn $\Theta$ and minimize $J_{train}(\Theta)$ using the training set</li>
-<li>Compute the test set error $J_{test}(\Theta)$</li>
+<li>$q &lt; N$</li>
+<li>$q$ is a <em>prime</em></li>
 </ul>
 </li>
-<li><p><strong>The test set error</strong></p>
+<li><p>The possible values for $d(k)$ are $1, 2, \cdots, q$</p>
+</li>
+</ul>
+<h4 id="6-Performance-of-Hashing"><a href="#6-Performance-of-Hashing" class="headerlink" title="6. Performance of Hashing"></a>6. Performance of Hashing</h4><ul>
+<li>In the worst case, searches, insertions and removals on a hash table take $O(n)$ time</li>
+<li>The worst case occurs when all the keys inserted into the map collide</li>
+<li>The load factor $\alpha = n/N$ affects the performance of a hash table</li>
+<li>The expected running time of all the map ADT operations in a hash table is $O(1)$</li>
+</ul>
+<h4 id="7-Summary"><a href="#7-Summary" class="headerlink" title="7. Summary"></a>7. Summary</h4><ul>
+<li><p>Let $n$ denote the number of entries in the map, and we assume that the bucket array supporting the hash table is maintained such that its capacity is proportional to the number of entries in the map.</p>
+</li>
+<li><style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-7btt{border-color:inherit;font-weight:bold;text-align:center;vertical-align:top}
+</style>
+<table class="tg">
+<thead align="center">
+  <tr>
+    <th class="tg-7btt" rowspan="2">Method</th>
+    <th class="tg-7btt" rowspan="2">Unsorted<br>List</th>
+    <th class="tg-7btt" colspan="2">Hash Table</th>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">expected</td>
+    <td class="tg-c3ow">worst case</td>
+  </tr>
+</thead>
+<tbody align="center">
+  <tr>
+    <td class="tg-c3ow">get</td>
+    <td class="tg-c3ow">O(n)</td>
+    <td class="tg-c3ow"><span style="font-weight:normal;font-style:normal;text-decoration:none">O(1)</span></td>
+    <td class="tg-c3ow"><span style="font-weight:normal;font-style:normal;text-decoration:none">O(n)</span></td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">put</td>
+    <td class="tg-c3ow">O(n)</td>
+    <td class="tg-c3ow"><span style="font-weight:normal;font-style:normal;text-decoration:none">O(1)</span></td>
+    <td class="tg-c3ow"><span style="font-weight:normal;font-style:normal;text-decoration:none">O(n)</span></td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">remove</td>
+    <td class="tg-c3ow">O(n)</td>
+    <td class="tg-c3ow"><span style="font-weight:normal;font-style:normal;text-decoration:none">O(1)</span></td>
+    <td class="tg-c3ow"><span style="font-weight:normal;font-style:normal;text-decoration:none">O(n)</span></td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">size, isEmpty</td>
+    <td class="tg-c3ow">O(1)</td>
+    <td class="tg-c3ow"><span style="font-weight:normal;font-style:normal;text-decoration:none">O(1)</span></td>
+    <td class="tg-c3ow"><span style="font-weight:normal;font-style:normal;text-decoration:none">O(1)</span></td>
+  </tr>
+  <tr>
+    <td class="tg-c3ow">entrySet, keySet, values</td>
+    <td class="tg-c3ow">O(n)</td>
+    <td class="tg-c3ow"><span style="font-weight:normal;font-style:normal;text-decoration:none">O(n)</span></td>
+    <td class="tg-c3ow"><span style="font-weight:normal;font-style:normal;text-decoration:none">O(n)</span></td>
+  </tr>
+</tbody>
+</table></li>
+<li><p>Why disperse?</p>
 <ul>
-<li><p>For linear regression: $J_{test}(\Theta) = \frac{1}{2m_{test}}\Sigma_{i=1}^{m_{test}}(h_\Theta(x_{test}^{(i)})-y_{test}^{(i)})^2$</p>
-</li>
-<li><p>For classification ~ Misclassification error (aka $0/1$ misclassification error):<br>$$<br>err(h_\Theta(x), y) = \begin{cases}1\quad \text{if } h_\Theta \ge 0.5 \text{ and } y=0 \text{ or } h_\Theta \lt 0.5 \text{ and } y=1\ 0\quad \text{otherwise}\end{cases}<br>$$</p>
-<p>$$<br>\text{Test Error} = \frac{1}{m_{test}}\Sigma_{i=1}^{m_{test}}err(h_\Theta(x_{test}^{(i)}), y_{test}^{(i)})<br>$$</p>
-</li>
+<li>To reduce numbers of collisions</li>
 </ul>
 </li>
-</ul>
-<h5 id="1-2-Model-Selection-and-Train-Validation-Test-Sets"><a href="#1-2-Model-Selection-and-Train-Validation-Test-Sets" class="headerlink" title="1.2 Model Selection and Train/Validation/Test Sets"></a>1.2 Model Selection and Train/Validation/Test Sets</h5><ul>
-<li><p>Just because a learning algorithm fits a training set well, that does not mean it is a good hypothesis. It could overfit and as a result the predication on the test set would be poor. The error of the hypothesis as measured on the dataset with which you trained the parameters will be lower than the error on any other data set.</p>
-</li>
-<li><p>Given many models with different polynomial degrees, we can use a systematic approach to identify the ‘best’ function. In order to choose the model of the hypothesis, test each degree of polynomial and look at the error result.</p>
-</li>
-<li><p>One way to break down the dataset into the three sets is:</p>
+<li><p>Why random?</p>
 <ul>
-<li>Training set: $60%$</li>
-<li>Cross validation set: $20%$</li>
-<li>Test set: $20%$</li>
-</ul>
-</li>
-<li><p>Calculate three separate error values for the three different sets using the following method:</p>
-<ol>
-<li>Optimize the parameters in $\Theta$ using the training set for each polynomial degree.</li>
-<li>Find the polynomial degree $d$ with the least error using the cross validation set.</li>
-<li>Estimate the generalization error using the test set with $J_{test}(\Theta^{(d)})$, (d = theta from polynomial with lower error);</li>
-</ol>
-</li>
-<li><p>This way, the degree of the polynomial $d$ has not been trained using the test set.</p>
-</li>
-</ul>
-<h4 id="2-Bias-vs-Variance"><a href="#2-Bias-vs-Variance" class="headerlink" title="2. Bias vs. Variance"></a>2. Bias vs. Variance</h4><h5 id="2-1-Diagnosing-Bias-vs-Variance"><a href="#2-1-Diagnosing-Bias-vs-Variance" class="headerlink" title="2.1 Diagnosing Bias vs. Variance"></a>2.1 Diagnosing Bias vs. Variance</h5><ul>
-<li><p>Need to distinguish whether <strong>bias</strong> or <strong>variance</strong> is the problem contributing to bad predictions.</p>
-</li>
-<li><p>High bias is underfitting and high variance is overfitting. Ideally, we need to find a golden mean between these two.</p>
-</li>
-<li><p>The training error will tend to <strong>decrease</strong> as we increase the degree $d$ of the polynomial.</p>
-<p>At the same time, the cross validation error will tend to <strong>decrease</strong> as we increase $d$ up to a point, and then it will <strong>increase</strong> as $d$ is increased, forming a convex curve.</p>
-</li>
-<li><p><strong>High bias (underfitting)</strong>: both $J_{train}(\Theta)$ and $J_{CV}(\Theta)$ will be high. Also, $J_{CV}(\Theta) \approx J_{train}(\Theta)$</p>
-</li>
-<li><p><strong>High variance (overfitting)</strong>: $J_{train}(\Theta)$ will be low and $J_{CV}(\Theta)$ will be much greater than $J_{train}(\Theta)$</p>
-</li>
-<li><p>Summurized in the figure below:</p>
-<img src="/2021/06/29/Advice-for-applying-machine-learning/BiasAndVariance.png" style="zoom:50%;"></li>
-</ul>
-<h5 id="2-2-Regularization-and-Bias-Variance"><a href="#2-2-Regularization-and-Bias-Variance" class="headerlink" title="2.2 Regularization and Bias/Variance"></a>2.2 Regularization and Bias/Variance</h5><ul>
-<li><img src="/2021/06/29/Advice-for-applying-machine-learning/RegularizationAndBias:Variance.png" style="zoom:50%;"></li>
-<li><p>In the figure above, as $\lambda$ increases, the fit becomes more rigid. On the other hand, as $\lambda$ approaches $0$, the model tends to overfit the data.</p>
-</li>
-<li><p>In order to choose the model and the regularization term $\lambda$, need to:</p>
-<ol>
-<li>Create a list of lambdas (i.e. $\lambda \in {0, 0.01, 0.02, 0.04, 0.08, 0.16, 0.32, 0.64, 1.28, 2.56, 5.12, 10.24}$);</li>
-<li>Create a set of models with different degrees or any other variants.</li>
-<li>Iterate through the $\lambda$s and for each $\lambda$ go through all the models to learn some $\Theta$.</li>
-<li>Compute the cross validation error using the learned $\Theta$ (computed with $\lambda$) on the $J_{CV}(\Theta)$ <strong>without</strong> regularization or $\lambda = 0$.</li>
-<li>Select the best combo that produces the lowest error on the cross validation set.</li>
-<li>Using the best combo $\Theta$ and $\lambda$, apply in on $J_{test}(\Theta)$ to see if it has a good generalization of the problem.</li>
-</ol>
-</li>
-</ul>
-<h5 id="2-3-Learning-Curves"><a href="#2-3-Learning-Curves" class="headerlink" title="2.3 Learning Curves"></a>2.3 Learning Curves</h5><ul>
-<li>Training an algorithm on a very few number of data points (such as 1, 2 or 3) will easily have 0 errors because we can always find a quadratic curve that touches exactly those number of points. Hence<ul>
-<li>As the training set gets larger, the error for a quadratic function increases.</li>
-<li>The error value will plateau out after a certain $m$, or training set size.</li>
-</ul>
-</li>
-<li><strong>Experiencing high bias</strong>:<ul>
-<li><strong>Low training set size</strong>: causes $J_{train}(\Theta)$ to be low and $J_{CV}(\Theta)$ to be high.</li>
-<li><strong>Large traning set size</strong>: causes both $J_{train}(\Theta)$ and $J_{CV}(\Theta)$ to be high with $J_{train}(\Theta) \approx J_{CV}(\Theta)$.</li>
-<li>If a learning algorithm is suffering from <strong>high bias</strong>, getting more training data will not <strong>(by itself)</strong> help much.</li>
-</ul>
-</li>
-<li><strong>Experiencing high variance</strong>:<ul>
-<li><strong>Low training set size</strong>: $J_{train}(\Theta)$ will be low and $J_{CV}(\Theta)$ will be high.</li>
-<li><strong>Large training set size</strong>: $J_{train}(\Theta)$ increases with training set size and $J_{CV}(\Theta)$ continues to decrease without leveling off. Also, $J_{train}(\Theta) \lt J_{CV}(\Theta)$ but the difference between them remains significant.</li>
-<li>If a learning algorithm is suffering from <strong>high variance</strong>, getting more training data is likely to help.</li>
-</ul>
-</li>
-</ul>
-<h5 id="2-4-Deciding-what-to-do-next-revisited"><a href="#2-4-Deciding-what-to-do-next-revisited" class="headerlink" title="2.4 Deciding what to do next revisited"></a>2.4 Deciding what to do next revisited</h5><ul>
-<li>The decision process can be broken down as follows:<ul>
-<li><strong>Getting more training examples</strong>: Fixes high variance</li>
-<li><strong>Trying smaller sets of features</strong>: Fixes high variance</li>
-<li><strong>Adding features</strong>: Fixes high bias</li>
-<li><strong>Adding polynomial features</strong>: Fixes high bias</li>
-<li><strong>Decreasing $\lambda$</strong>: Fixes high bias</li>
-<li><strong>Increasing $\lambda$</strong>: Fixes high variance</li>
-</ul>
-</li>
-<li><strong>Diagnosing Neural Networks</strong><ul>
-<li>A neural network with fewer parameters is <strong>prone to underfitting</strong>. It is also <strong>Computationally cheaper</strong>.</li>
-<li>A large neural network with more parameters is <strong>prone to overfitting</strong>. It is also <strong>computationally expensive</strong>. In this case, use regularization (increase $\lambda$) to address overfitting.</li>
-<li>Using a single hidden layer is a good starting default. You can train your neural network on a number of hidden layers using cross validation set. Then select the one that performs best.</li>
-</ul>
-</li>
-<li><strong>Model Complexity Effects</strong>:<ul>
-<li>Lower-order polynomials (low model complexity) have high bias and low variance. In this case, the model fits poorly consistently.</li>
-<li>Higher-order polynomials (high model complexity) fit the training data extremely well and the test data extremely poorly. These have low bias on the training data, but very high variance.</li>
-<li>In reality, we would want to choose a model somewhere in between, that can generalize well but also fits the data reasonably well.</li>
+<li>Random means no pattern</li>
+<li>If there is an obvious pattern, then the incoming data may have a matching pattern that leads to many collisions.</li>
 </ul>
 </li>
 </ul>
@@ -603,7 +628,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://scycy2.github.io/2021/06/29/Advice-for-applying-machine-learning/">https://scycy2.github.io/2021/06/29/Advice-for-applying-machine-learning/</a>
+                    <a href="https://scycy2.github.io/2021/09/11/Hash-Table/">https://scycy2.github.io/2021/09/11/Hash-Table/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -641,8 +666,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Machine-Learning/">
-                                    <span class="chip bg-color">Machine Learning</span>
+                                <a href="/tags/Data-Structure/">
+                                    <span class="chip bg-color">Data Structure</span>
+                                </a>
+                            
+                                <a href="/tags/Algorithm/">
+                                    <span class="chip bg-color">Algorithm</span>
                                 </a>
                             
                         </div>
@@ -684,54 +713,52 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2021/08/24/Neural-Network-Implementation/">
+                <a href="/2021/09/11/Hash-Table/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Neural-Network Implementation">
+                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="Hash Table">
                         
-                        <span class="card-title">Neural-Network Implementation</span>
+                        <span class="card-title">Hash Table</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Neural-Network Implementation
+                            Hash Table (Hash Functions, Collision Handling)
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-24
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-11
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/self-study-notes/" class="post-category">
-                                    self-study notes
+                            <a href="/categories/class-notes/" class="post-category">
+                                    class notes
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Machine-Learning/">
-                        <span class="chip bg-color">Machine Learning</span>
+                    <a href="/tags/Data-Structure/">
+                        <span class="chip bg-color">Data Structure</span>
                     </a>
                     
-                    <a href="/tags/Neural-Network/">
-                        <span class="chip bg-color">Neural Network</span>
-                    </a>
-                    
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
+                    <a href="/tags/Algorithm/">
+                        <span class="chip bg-color">Algorithm</span>
                     </a>
                     
                 </div>
@@ -745,24 +772,24 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/06/22/Support-Vector-Machine/">
+                <a href="/2021/09/09/Gradient-Descent-Methods/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="Support Vector Machine">
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="Gradient Descent Methods">
                         
-                        <span class="card-title">Support Vector Machine</span>
+                        <span class="card-title">Gradient Descent Methods</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Support Vector Machine
+                            Comparison of different gradient descent methods (Mini-batch Gradient Descent, Stochastic Gradient Descent, )
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-09
                             </span>
                         <span class="publish-author">
                             
@@ -779,12 +806,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Machine-Learning/">
-                        <span class="chip bg-color">Machine Learning</span>
+                    <a href="/tags/Optimization-Methods/">
+                        <span class="chip bg-color">Optimization Methods</span>
                     </a>
                     
-                    <a href="/tags/Algorithm/">
-                        <span class="chip bg-color">Algorithm</span>
+                    <a href="/tags/Neural-Network/">
+                        <span class="chip bg-color">Neural Network</span>
                     </a>
                     
                 </div>

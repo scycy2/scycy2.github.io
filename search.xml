@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Hash Table</title>
+      <link href="2021/09/11/Hash-Table/"/>
+      <url>2021/09/11/Hash-Table/</url>
+      
+        <content type="html"><![CDATA[<h4 id="1-Definition"><a href="#1-Definition" class="headerlink" title="1. Definition"></a>1. Definition</h4><ul><li><strong>Hash tables</strong> are a concrete data structure which is suitable for implementing maps.</li><li>Basic idea: convert each key into an index.</li><li>Look-up of keys, insertion and deletion in a hash table usually runs in $O(1)$ time.</li></ul><h4 id="2-Hash-Tables-and-Hash-Functions"><a href="#2-Hash-Tables-and-Hash-Functions" class="headerlink" title="2. Hash Tables and Hash Functions"></a>2. Hash Tables and Hash Functions</h4><ul><li>A <strong>hash table</strong> for a given key type consists of<ul><li>Array $A$ (called table) of size $N$</li><li>Hash function $h$</li></ul></li><li>A <strong>hash function</strong> $h$ maps keys of a given type to integers in a fixed interval $[0, N-1]$</li><li>When implementing a map with a hash table, the goal is to store item $(k, o)$ at index $i = h(k)$ in the array $A$</li></ul><h4 id="3-Hash-Functions"><a href="#3-Hash-Functions" class="headerlink" title="3. Hash Functions"></a>3. Hash Functions</h4><ul><li>A hash function is usually specified as the <em>composition</em> of two function:<ul><li><strong>Hash code</strong>: $h_1: keys \rightarrow integers$</li><li><strong>Compression function</strong>: $h_2: integers \rightarrow [0, N - 1]$</li></ul></li><li>The hash code is applied first, and the compression function is applied next on the result, i.e., $h(x) = h_2(h_1(x))$</li><li>The goal of the hash function is to <strong>“disperse”</strong> the keys in an apparently <strong>random</strong> way</li></ul><h4 id="4-Collision-Handling"><a href="#4-Collision-Handling" class="headerlink" title="4. Collision Handling"></a>4. Collision Handling</h4><ul><li>Collisions occur when different elements are mapped to the same cell.</li><li><strong>Separate Chaining</strong>: let each cell in the table point to a list of entries  that map there<ul><li>Separate chaining is simple, but requires additional mempry outside the table</li></ul></li><li><strong>Linear Probing</strong><ul><li><strong>Open addressing</strong>: the colliding item is placed in a different cell of the table</li><li><strong>Linear probing</strong>: handles collisions by placing the colliding item in the next (circularly) available table cell</li><li>Accessing a cell of the array is referred to as a “probe”</li><li>Disadvantage: Colliding items lump together, causing future collisions to cause a longer sequence of probes</li></ul></li><li>Updates with Linear Probing<ul><li>To handle insertions and deletions, we introduce a special object, called <em><strong>DEFUNCT</strong></em>, which replaces deleted elements</li></ul></li></ul><h4 id="5-Double-Hashing"><a href="#5-Double-Hashing" class="headerlink" title="5. Double Hashing"></a>5. Double Hashing</h4><ul><li><p>Double hashing uses a secondary hash function $d(k)$ and handles collisions by placing an item in the first available cell of the series<br>$$<br>(h(k) + jd(k))\mod N<br>$$<br>for $j = 0, 1, \cdots, N-1$</p></li><li><p>The secondary hash function $d(k)$ cannot have zero values</p></li><li><p>Linear probing is a special case where $d(k) = 1$</p></li><li><p>The table size $N$ must be a <em>prime</em> to allow probing of all the cells</p></li><li><p>Common choice of compression function for the secondary hash function:<br>$$<br>d(k) = q - (k\mod q)<br>$$<br>where</p><ul><li>$q &lt; N$</li><li>$q$ is a <em>prime</em></li></ul></li><li><p>The possible values for $d(k)$ are $1, 2, \cdots, q$</p></li></ul><h4 id="6-Performance-of-Hashing"><a href="#6-Performance-of-Hashing" class="headerlink" title="6. Performance of Hashing"></a>6. Performance of Hashing</h4><ul><li>In the worst case, searches, insertions and removals on a hash table take $O(n)$ time</li><li>The worst case occurs when all the keys inserted into the map collide</li><li>The load factor $\alpha = n/N$ affects the performance of a hash table</li><li>The expected running time of all the map ADT operations in a hash table is $O(1)$</li></ul><h4 id="7-Summary"><a href="#7-Summary" class="headerlink" title="7. Summary"></a>7. Summary</h4><ul><li><p>Let $n$ denote the number of entries in the map, and we assume that the bucket array supporting the hash table is maintained such that its capacity is proportional to the number of entries in the map.</p></li><li><style type="text/css">.tg  {border-collapse:collapse;border-spacing:0;}.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;  overflow:hidden;padding:10px 5px;word-break:normal;}.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}.tg .tg-7btt{border-color:inherit;font-weight:bold;text-align:center;vertical-align:top}</style><table class="tg"><thead align="center">  <tr>    <th class="tg-7btt" rowspan="2">Method</th>    <th class="tg-7btt" rowspan="2">Unsorted<br>List</th>    <th class="tg-7btt" colspan="2">Hash Table</th>  </tr>  <tr>    <td class="tg-c3ow">expected</td>    <td class="tg-c3ow">worst case</td>  </tr></thead><tbody align="center">  <tr>    <td class="tg-c3ow">get</td>    <td class="tg-c3ow">O(n)</td>    <td class="tg-c3ow"><span style="font-weight:normal;font-style:normal;text-decoration:none">O(1)</span></td>    <td class="tg-c3ow"><span style="font-weight:normal;font-style:normal;text-decoration:none">O(n)</span></td>  </tr>  <tr>    <td class="tg-c3ow">put</td>    <td class="tg-c3ow">O(n)</td>    <td class="tg-c3ow"><span style="font-weight:normal;font-style:normal;text-decoration:none">O(1)</span></td>    <td class="tg-c3ow"><span style="font-weight:normal;font-style:normal;text-decoration:none">O(n)</span></td>  </tr>  <tr>    <td class="tg-c3ow">remove</td>    <td class="tg-c3ow">O(n)</td>    <td class="tg-c3ow"><span style="font-weight:normal;font-style:normal;text-decoration:none">O(1)</span></td>    <td class="tg-c3ow"><span style="font-weight:normal;font-style:normal;text-decoration:none">O(n)</span></td>  </tr>  <tr>    <td class="tg-c3ow">size, isEmpty</td>    <td class="tg-c3ow">O(1)</td>    <td class="tg-c3ow"><span style="font-weight:normal;font-style:normal;text-decoration:none">O(1)</span></td>    <td class="tg-c3ow"><span style="font-weight:normal;font-style:normal;text-decoration:none">O(1)</span></td>  </tr>  <tr>    <td class="tg-c3ow">entrySet, keySet, values</td>    <td class="tg-c3ow">O(n)</td>    <td class="tg-c3ow"><span style="font-weight:normal;font-style:normal;text-decoration:none">O(n)</span></td>    <td class="tg-c3ow"><span style="font-weight:normal;font-style:normal;text-decoration:none">O(n)</span></td>  </tr></tbody></table></li><li><p>Why disperse?</p><ul><li>To reduce numbers of collisions</li></ul></li><li><p>Why random?</p><ul><li>Random means no pattern</li><li>If there is an obvious pattern, then the incoming data may have a matching pattern that leads to many collisions.</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> class notes </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Data Structure </tag>
+            
+            <tag> Algorithm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Gradient Descent Methods</title>
       <link href="2021/09/09/Gradient-Descent-Methods/"/>
       <url>2021/09/09/Gradient-Descent-Methods/</url>
@@ -540,11 +567,11 @@
             
             <tag> 算法 </tag>
             
-            <tag> 数据结构 </tag>
+            <tag> 未完待续 </tag>
             
             <tag> Java </tag>
             
-            <tag> 未完待续 </tag>
+            <tag> 数据结构 </tag>
             
         </tags>
       
@@ -598,11 +625,11 @@
             
             <tag> 算法 </tag>
             
-            <tag> 数据结构 </tag>
+            <tag> 未完待续 </tag>
             
             <tag> Java </tag>
             
-            <tag> 未完待续 </tag>
+            <tag> 数据结构 </tag>
             
         </tags>
       
