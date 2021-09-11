@@ -63,7 +63,7 @@ mathjax: true
 
 * Blue: Momentum; Green: RMSprop
 
-  ![](Deep-Learning-Optimization-Methods/Screen Shot 2021-09-11 at 11.50.06 AM.png)
+  <img src="Deep-Learning-Optimization-Methods/Screen Shot 2021-09-11 at 11.50.06 AM.png" style="zoom:50%;" />
 
 * Implementation details:
 
