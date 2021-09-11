@@ -27,13 +27,13 @@ mathjax: true
     v_t = \beta \times v_{t-1} + (1 - \beta) \times x_t
     $$
 
-  * ![](Deep-Learning-Optimization-Methods/Screen Shot 2021-09-11 at 11.31.19 AM.png)
+  * <img src="Deep-Learning-Optimization-Methods/Screen Shot 2021-09-11 at 11.31.19 AM.png" style="zoom:50%;" />
 
     $\beta = 0.9$
 
 * $\beta = 0.98$, green line; $\beta = 0.5$, yellow line
 
-  ![](Deep-Learning-Optimization-Methods/Screen Shot 2021-09-11 at 11.35.13 AM.png)
+  <img src="Deep-Learning-Optimization-Methods/Screen Shot 2021-09-11 at 11.35.13 AM.png" style="zoom:50%;" />
 
 #### 2. Momentum
 
