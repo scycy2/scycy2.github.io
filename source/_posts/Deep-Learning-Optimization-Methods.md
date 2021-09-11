@@ -1,11 +1,13 @@
+---
 title: Deep Learning Optimization Methods
-date: 2021-09-11 10:50:50
+date: 2021-09-03 10:50:50
 tags: ['Optimization Methods', 'Neural Network']
 categories: ['self-study notes']
 cover:
 summary: Optimizors in Deep Learning (Momentum, RMSprop, Adam)
 img:
 mathjax: true
+---
 
 #### 1. Exponentially Weighted Moving Average (EWMA)
 

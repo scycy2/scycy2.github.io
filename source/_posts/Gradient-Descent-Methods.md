@@ -1,6 +1,6 @@
 ---
 title: Gradient Descent Methods
-date: 2021-09-09 14:37:58
+date: 2021-09-01 14:37:58
 tags: ['Optimization Methods', 'Neural Network']
 categories: ['self-study notes']
 cover:
