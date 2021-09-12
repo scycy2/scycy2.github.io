@@ -3,9 +3,9 @@ title: Introduction to Clouds
 date: 2021-09-12 16:38:59
 tags: ["Cloud Computing"]
 categories: ['self-study notes']
-cover:
+cover: true
 summary: Introduction to clouds
-img:
+img: /medias/featureimages/27.jpg
 ---
 
 #### 1. What is a Cloud?
