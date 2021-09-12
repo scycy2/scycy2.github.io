@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="Gradient Descent Methods, 学习, 算法, java, 记录">
+    <meta name="keywords" content="Introduction to Clouds, 学习, 算法, java, 记录">
     <meta name="description" content="大学狗的学习之旅">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Gradient Descent Methods | 再`見</title>
+    <title>Introduction to Clouds | 再`見</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -287,12 +287,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Gradient Descent Methods</h1>
+                    <h1 class="description center-align post-title">Introduction to Clouds</h1>
                 </div>
             </div>
         </div>
@@ -409,12 +409,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Optimization-Methods/">
-                                <span class="chip bg-color">Optimization Methods</span>
-                            </a>
-                        
-                            <a href="/tags/Neural-Network/">
-                                <span class="chip bg-color">Neural Network</span>
+                            <a href="/tags/Cloud-Computing/">
+                                <span class="chip bg-color">Cloud Computing</span>
                             </a>
                         
                     </div>
@@ -438,28 +434,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-09-01
+                    2021-09-12
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-09-11
+                    2021-09-12
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    561
+                    385
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    3 Min
+                    2 Min
                 </div>
                 
 
@@ -469,144 +465,96 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="1-Batch-Gradient-Descent"><a href="#1-Batch-Gradient-Descent" class="headerlink" title="1. (Batch) Gradient Descent"></a>1. (Batch) Gradient Descent</h4><ul>
-<li><p>All the training examples do gradient descent together</p>
+                <h4 id="1-What-is-a-Cloud"><a href="#1-What-is-a-Cloud" class="headerlink" title="1. What is a Cloud?"></a>1. What is a Cloud?</h4><ul>
+<li><p>Cloud = Lots of storage + compute cycles nearby</p>
 </li>
-<li><p>Advantages: better performance</p>
-</li>
-<li><p>Disadvantages: if dataset is too big, the training process will be slow</p>
-</li>
-<li><p>Code example:</p>
-<pre class="line-numbers language-python"><code class="language-python">X <span class="token operator">=</span> data_input
-Y <span class="token operator">=</span> labels
-parameters <span class="token operator">=</span> initialize_parameters<span class="token punctuation">(</span>layers_dims<span class="token punctuation">)</span>
-<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> num_iterations<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token comment" spellcheck="true"># Forward propagation</span>
-    a<span class="token punctuation">,</span> caches <span class="token operator">=</span> forward_propagation<span class="token punctuation">(</span>X<span class="token punctuation">,</span> parameters<span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true"># Compute cost.</span>
-    cost <span class="token operator">+=</span> compute_cost<span class="token punctuation">(</span>a<span class="token punctuation">,</span> Y<span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true"># Backward propagation.</span>
-    grads <span class="token operator">=</span> backward_propagation<span class="token punctuation">(</span>a<span class="token punctuation">,</span> caches<span class="token punctuation">,</span> parameters<span class="token punctuation">)</span>
-    <span class="token comment" spellcheck="true"># Update parameters.</span>
-    parameters <span class="token operator">=</span> update_parameters<span class="token punctuation">(</span>parameters<span class="token punctuation">,</span> grads<span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-</ul>
-<h4 id="2-Stochastic-Gradient-Descent"><a href="#2-Stochastic-Gradient-Descent" class="headerlink" title="2. Stochastic Gradient Descent"></a>2. Stochastic Gradient Descent</h4><ul>
-<li><p>Computing gradients on just one training example at a time, rather than on the whole training set</p>
-</li>
-<li><p>Advantages: speed up convergence</p>
-</li>
-<li><p>Disadvantages: the parameters will “oscillate” toward the minimum rather than converge smoothly</p>
-<p>![](Gradient-Descent-Methods/Screen Shot 2021-09-09 at 2.48.18 PM.png)</p>
-</li>
-<li><p>Code example:</p>
-<pre class="line-numbers language-python"><code class="language-python">X <span class="token operator">=</span> data_input
-Y <span class="token operator">=</span> labels
-parameters <span class="token operator">=</span> initialize_parameters<span class="token punctuation">(</span>layers_dims<span class="token punctuation">)</span>
-<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> num_iterations<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">for</span> j <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> m<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># Forward propagation</span>
-        a<span class="token punctuation">,</span> caches <span class="token operator">=</span> forward_propagation<span class="token punctuation">(</span>X<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> parameters<span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># Compute cost</span>
-        cost <span class="token operator">+=</span> compute_cost<span class="token punctuation">(</span>a<span class="token punctuation">,</span> Y<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># Backward propagation</span>
-        grads <span class="token operator">=</span> backward_propagation<span class="token punctuation">(</span>a<span class="token punctuation">,</span> caches<span class="token punctuation">,</span> parameters<span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># Update parameters.</span>
-        parameters <span class="token operator">=</span> update_parameters<span class="token punctuation">(</span>parameters<span class="token punctuation">,</span> grads<span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-</ul>
-<h4 id="3-Mini-batch-Gradient-Descent"><a href="#3-Mini-batch-Gradient-Descent" class="headerlink" title="3. Mini-batch Gradient Descent"></a>3. Mini-batch Gradient Descent</h4><ul>
-<li><p>The number of training examples that do gradient descent at a time is $n (1\lt n\lt m)$</p>
-</li>
-<li><p>If $n = 1$, it becomes stochastic gradient descent; if $n=m$, it becomes batch gradient descent</p>
-</li>
-<li><p>Advantages: more smooth than SGD, faster than BGD</p>
-<p>![](Gradient-Descent-Methods/Screen Shot 2021-09-09 at 3.04.00 PM.png)</p>
-</li>
-<li><p>Disadvantages: one more hyper parameter <strong>batch_size</strong> need to be tuned</p>
-</li>
-<li><p>Code example:</p>
+<li><p>A single-site cloud (aka “Datacenter”) consists of</p>
 <ul>
-<li><p>First, random mini batches</p>
-<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># GRADED FUNCTION: random_mini_batches</span>
-
-<span class="token keyword">def</span> <span class="token function">random_mini_batches</span><span class="token punctuation">(</span>X<span class="token punctuation">,</span> Y<span class="token punctuation">,</span> mini_batch_size <span class="token operator">=</span> <span class="token number">64</span><span class="token punctuation">,</span> seed <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token triple-quoted-string string">"""
-    Creates a list of random minibatches from (X, Y)
-    
-    Arguments:
-    X -- input data, of shape (input size, number of examples)
-    Y -- true "label" vector (1 for blue dot / 0 for red dot), of shape (1, number of examples)
-    mini_batch_size -- size of the mini-batches, integer
-    
-    Returns:
-    mini_batches -- list of synchronous (mini_batch_X, mini_batch_Y)
-    """</span>
-    
-    np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>seed<span class="token punctuation">(</span>seed<span class="token punctuation">)</span>            <span class="token comment" spellcheck="true"># To make your "random" minibatches the same as ours</span>
-    m <span class="token operator">=</span> X<span class="token punctuation">.</span>shape<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span>                  <span class="token comment" spellcheck="true"># number of training examples</span>
-    mini_batches <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        
-    <span class="token comment" spellcheck="true"># Step 1: Shuffle (X, Y)</span>
-    permutation <span class="token operator">=</span> list<span class="token punctuation">(</span>np<span class="token punctuation">.</span>random<span class="token punctuation">.</span>permutation<span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">)</span>
-    shuffled_X <span class="token operator">=</span> X<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> permutation<span class="token punctuation">]</span>
-    shuffled_Y <span class="token operator">=</span> Y<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> permutation<span class="token punctuation">]</span><span class="token punctuation">.</span>reshape<span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> m<span class="token punctuation">)</span><span class="token punctuation">)</span>
-    
-    inc <span class="token operator">=</span> mini_batch_size
-
-    <span class="token comment" spellcheck="true"># Step 2 - Partition (shuffled_X, shuffled_Y).</span>
-    <span class="token comment" spellcheck="true"># Cases with a complete mini batch size only i.e each of 64 examples.</span>
-    num_complete_minibatches <span class="token operator">=</span> math<span class="token punctuation">.</span>floor<span class="token punctuation">(</span>m <span class="token operator">/</span> mini_batch_size<span class="token punctuation">)</span> <span class="token comment" spellcheck="true"># number of mini batches of size mini_batch_size in your partitionning</span>
-    <span class="token keyword">for</span> k <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> num_complete_minibatches<span class="token punctuation">)</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># (approx. 2 lines)</span>
-        <span class="token comment" spellcheck="true"># mini_batch_X =  </span>
-        <span class="token comment" spellcheck="true"># mini_batch_Y =</span>
-        <span class="token comment" spellcheck="true"># YOUR CODE STARTS HERE</span>
-        mini_batch_X <span class="token operator">=</span> shuffled_X<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> k <span class="token operator">*</span> inc <span class="token punctuation">:</span> <span class="token punctuation">(</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> inc<span class="token punctuation">]</span>
-        mini_batch_Y <span class="token operator">=</span> shuffled_Y<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> k <span class="token operator">*</span> inc <span class="token punctuation">:</span> <span class="token punctuation">(</span>k<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">*</span> inc<span class="token punctuation">]</span>
-        <span class="token comment" spellcheck="true"># YOUR CODE ENDS HERE</span>
-        mini_batch <span class="token operator">=</span> <span class="token punctuation">(</span>mini_batch_X<span class="token punctuation">,</span> mini_batch_Y<span class="token punctuation">)</span>
-        mini_batches<span class="token punctuation">.</span>append<span class="token punctuation">(</span>mini_batch<span class="token punctuation">)</span>
-    
-    <span class="token comment" spellcheck="true"># For handling the end case (last mini-batch &lt; mini_batch_size i.e less than 64)</span>
-    <span class="token keyword">if</span> m <span class="token operator">%</span> mini_batch_size <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true">#(approx. 2 lines)</span>
-        <span class="token comment" spellcheck="true"># mini_batch_X =</span>
-        <span class="token comment" spellcheck="true"># mini_batch_Y =</span>
-        <span class="token comment" spellcheck="true"># YOUR CODE STARTS HERE</span>
-        mini_batch_X <span class="token operator">=</span> shuffled_X<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> inc <span class="token operator">*</span> num_complete_minibatches <span class="token punctuation">:</span> m<span class="token punctuation">]</span>
-        mini_batch_Y <span class="token operator">=</span> shuffled_Y<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token punctuation">,</span> inc <span class="token operator">*</span> num_complete_minibatches <span class="token punctuation">:</span> m<span class="token punctuation">]</span>
-        <span class="token comment" spellcheck="true"># YOUR CODE ENDS HERE</span>
-        mini_batch <span class="token operator">=</span> <span class="token punctuation">(</span>mini_batch_X<span class="token punctuation">,</span> mini_batch_Y<span class="token punctuation">)</span>
-        mini_batches<span class="token punctuation">.</span>append<span class="token punctuation">(</span>mini_batch<span class="token punctuation">)</span>
-    
-    <span class="token keyword">return</span> mini_batches
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<li>Compute nodes (grouped into racks)</li>
+<li>Switches, connecting the racks</li>
+<li>A network topology, e.g. hierarchical</li>
+<li>Storage (backend) nodes connected to the network</li>
+<li>Front-end for submitting jobs and receiving client requests</li>
+<li>Software Services</li>
+</ul>
 </li>
-<li><p>Second, gradient descent</p>
-<pre class="line-numbers language-python"><code class="language-python">seed <span class="token operator">=</span> <span class="token number">0</span>
-<span class="token keyword">for</span> i <span class="token keyword">in</span> range<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> num_iterations<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token comment" spellcheck="true"># Define the random minibatches. We increment the seed to reshuffle differently the dataset after each epoch</span>
-    seed <span class="token operator">=</span> seed <span class="token operator">+</span> <span class="token number">1</span>
-    minibatches <span class="token operator">=</span> random_mini_batches<span class="token punctuation">(</span>X<span class="token punctuation">,</span> Y<span class="token punctuation">,</span> mini_batch_size<span class="token punctuation">,</span> seed<span class="token punctuation">)</span>
-    <span class="token keyword">for</span> minibatch <span class="token keyword">in</span> minibatches<span class="token punctuation">:</span>
-        <span class="token comment" spellcheck="true"># Select a minibatch</span>
-        <span class="token punctuation">(</span>minibatch_X<span class="token punctuation">,</span> minibatch_Y<span class="token punctuation">)</span> <span class="token operator">=</span> minibatch
-        <span class="token comment" spellcheck="true"># Forward propagation</span>
-        AL<span class="token punctuation">,</span> caches <span class="token operator">=</span> forward_propagation<span class="token punctuation">(</span>minibatch_X<span class="token punctuation">,</span> parameters<span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># Compute cost</span>
-        cost <span class="token operator">=</span> compute_cost<span class="token punctuation">(</span>AL<span class="token punctuation">,</span> minibatch_Y<span class="token punctuation">)</span>
-        <span class="token comment" spellcheck="true"># Backward propagation</span>
-        grads <span class="token operator">=</span> backward_propagation<span class="token punctuation">(</span>AL<span class="token punctuation">,</span> minibatch_Y<span class="token punctuation">,</span> caches<span class="token punctuation">)</span>
-        parameters <span class="token operator">=</span> update_parameters<span class="token punctuation">(</span>parameters<span class="token punctuation">,</span> grads<span class="token punctuation">,</span> learning_rate<span class="token punctuation">)</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<li><p>A geographically distributed cloud consists of</p>
+<ul>
+<li>Multiple such sites</li>
+<li>Each site perhaps with a different structure and services</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-What’s-new-in-today’s-clouds"><a href="#2-What’s-new-in-today’s-clouds" class="headerlink" title="2. What’s new in today’s clouds"></a>2. What’s new in today’s clouds</h4><ul>
+<li>Four features new in today’s clouds<ul>
+<li>Massive scale.</li>
+<li>On-demand access: Pay-as-you-go, no upfront commitment.<ul>
+<li>Anyone can access it.</li>
+</ul>
+</li>
+<li>Data-intensive Nature: What was MBs has now become TBs, PBs, and XBs.<ul>
+<li>Daily logs, forensics, Web data, etc.</li>
+<li>Humans have data numbness: Wikipedia (large) compress is only about 10 GB!</li>
+</ul>
+</li>
+<li>New Cloud Programming Paradigms: MapReduce/Hadoop, NoSQL/Cassandra/MongoDB and many others.<ul>
+<li>High in accessibility and ease of programmability.</li>
+<li>Lots of open-source</li>
+</ul>
 </li>
 </ul>
 </li>
-<li><p><strong>batch_size</strong> usually is a power of two, which is more conducive to GPU acceleration</p>
+</ul>
+<h4 id="3-New-Aspects-of-Clouds"><a href="#3-New-Aspects-of-Clouds" class="headerlink" title="3. New Aspects of Clouds"></a>3. New Aspects of Clouds</h4><ol>
+<li>Massive Scale (easy to understand)</li>
+<li>On-demand Access: *aaS Classification<ul>
+<li>HaaS: Hardware as a Service<ul>
+<li>You get access to barebones hardware machines, do whatever you want with them</li>
+<li>Not always a good idea because of security risks</li>
+</ul>
 </li>
+<li>IaaS: Infrastructure as a Service<ul>
+<li>You get access to flexible computing and storage infrastructure. Virtualization is one way of achieving this. Often said to subsume HaaS.</li>
+</ul>
+</li>
+<li>PaaS: Platform as a Service<ul>
+<li>You get access to flexible computing and storage infrastructure, coupled with a software platform (often tightly)</li>
+</ul>
+</li>
+<li>SaaS: Software as a Service<ul>
+<li>You get access to software services, when you need them. Often said to subsume SOA (Service Oriented Architectures).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Data-intensive Computing<ul>
+<li>Computation-Intensive Computing<ul>
+<li>Example areas: MPI-based, High-performance computing, Grids</li>
+<li>Typically run on supercomputers</li>
+</ul>
+</li>
+<li>Data-Intensive<ul>
+<li>Typically store data at datacenters</li>
+<li>Use compute nodes nearby</li>
+<li>Compute nodes run computation services</li>
+</ul>
+</li>
+<li>In data-intensive computing, the <strong>focus shifts from computation to the data</strong>: CPU utilization no longer the most important resource metric, instead I/O is (disk and/or network)</li>
+</ul>
+</li>
+<li>New Cloud Programming Paradigms<ul>
+<li>Easy to write and run highly parallel programs in new cloud programming paradigms</li>
+</ul>
+</li>
+</ol>
+<h4 id="4-Economics-of-Clouds"><a href="#4-Economics-of-Clouds" class="headerlink" title="4. Economics of Clouds"></a>4. Economics of Clouds</h4><ul>
+<li>Two categories of clouds<ul>
+<li>Can either be a public cloud, or private cloud</li>
+<li>Private clouds are accessible only to company employees</li>
+<li>Public clouds provide service to any paying customer</li>
+</ul>
+</li>
+<li>To Outsource or Own?</li>
 </ul>
 
             </div>
@@ -633,7 +581,7 @@ parameters <span class="token operator">=</span> initialize_parameters<span clas
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://scycy2.github.io/2021/09/01/Gradient-Descent-Methods/">https://scycy2.github.io/2021/09/01/Gradient-Descent-Methods/</a>
+                    <a href="https://scycy2.github.io/2021/09/12/Introduction-to-Clouds/">https://scycy2.github.io/2021/09/12/Introduction-to-Clouds/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -671,12 +619,8 @@ parameters <span class="token operator">=</span> initialize_parameters<span clas
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Optimization-Methods/">
-                                    <span class="chip bg-color">Optimization Methods</span>
-                                </a>
-                            
-                                <a href="/tags/Neural-Network/">
-                                    <span class="chip bg-color">Neural Network</span>
+                                <a href="/tags/Cloud-Computing/">
+                                    <span class="chip bg-color">Cloud Computing</span>
                                 </a>
                             
                         </div>
@@ -718,9 +662,60 @@ parameters <span class="token operator">=</span> initialize_parameters<span clas
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
+            <div class="card">
+                <a href="/2021/09/12/Introduction-to-Clouds/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="Introduction to Clouds">
+                        
+                        <span class="card-title">Introduction to Clouds</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Introduction to clouds
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-12
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/self-study-notes/" class="post-category">
+                                    self-study notes
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Cloud-Computing/">
+                        <span class="chip bg-color">Cloud Computing</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2021/09/03/Deep-Learning-Optimization-Methods/">
                     <div class="card-image">
@@ -738,9 +733,9 @@ parameters <span class="token operator">=</span> initialize_parameters<span clas
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-09-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-03
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -762,63 +757,6 @@ parameters <span class="token operator">=</span> initialize_parameters<span clas
                     
                     <a href="/tags/Neural-Network/">
                         <span class="chip bg-color">Neural Network</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/08/24/Neural-Network-Implementation/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Neural-Network Implementation">
-                        
-                        <span class="card-title">Neural-Network Implementation</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Neural-Network Implementation
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-24
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/self-study-notes/" class="post-category">
-                                    self-study notes
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Machine-Learning/">
-                        <span class="chip bg-color">Machine Learning</span>
-                    </a>
-                    
-                    <a href="/tags/Neural-Network/">
-                        <span class="chip bg-color">Neural Network</span>
-                    </a>
-                    
-                    <a href="/tags/Python/">
-                        <span class="chip bg-color">Python</span>
                     </a>
                     
                 </div>
@@ -953,53 +891,9 @@ parameters <span class="token operator">=</span> initialize_parameters<span clas
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
-
 
 
     <footer class="page-footer bg-color">
-    
-    <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-    "HTML-CSS": { 
-        preferredFont: "TeX", 
-        availableFonts: ["STIX","TeX"], 
-        linebreaks: { automatic:true }, 
-        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
-    },
-    tex2jax: { 
-        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
-        processEscapes: true, 
-        ignoreClass: "tex2jax_ignore|dno",
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {  
-        equationNumbers: { autoNumber: "AMS" },
-        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
-        Macros: { href: "{}" } 
-    },
-    messageStyle: "none"
-    }); 
-</script>
-<!-- 给MathJax元素添加has-jax class -->
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<!-- 通过连接CDN加载MathJax的js代码 -->
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
     
     
         <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">

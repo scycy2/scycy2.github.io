@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Introduction to Clouds</title>
+      <link href="2021/09/12/Introduction-to-Clouds/"/>
+      <url>2021/09/12/Introduction-to-Clouds/</url>
+      
+        <content type="html"><![CDATA[<h4 id="1-What-is-a-Cloud"><a href="#1-What-is-a-Cloud" class="headerlink" title="1. What is a Cloud?"></a>1. What is a Cloud?</h4><ul><li><p>Cloud = Lots of storage + compute cycles nearby</p></li><li><p>A single-site cloud (aka “Datacenter”) consists of</p><ul><li>Compute nodes (grouped into racks)</li><li>Switches, connecting the racks</li><li>A network topology, e.g. hierarchical</li><li>Storage (backend) nodes connected to the network</li><li>Front-end for submitting jobs and receiving client requests</li><li>Software Services</li></ul></li><li><p>A geographically distributed cloud consists of</p><ul><li>Multiple such sites</li><li>Each site perhaps with a different structure and services</li></ul></li></ul><h4 id="2-What’s-new-in-today’s-clouds"><a href="#2-What’s-new-in-today’s-clouds" class="headerlink" title="2. What’s new in today’s clouds"></a>2. What’s new in today’s clouds</h4><ul><li>Four features new in today’s clouds<ul><li>Massive scale.</li><li>On-demand access: Pay-as-you-go, no upfront commitment.<ul><li>Anyone can access it.</li></ul></li><li>Data-intensive Nature: What was MBs has now become TBs, PBs, and XBs.<ul><li>Daily logs, forensics, Web data, etc.</li><li>Humans have data numbness: Wikipedia (large) compress is only about 10 GB!</li></ul></li><li>New Cloud Programming Paradigms: MapReduce/Hadoop, NoSQL/Cassandra/MongoDB and many others.<ul><li>High in accessibility and ease of programmability.</li><li>Lots of open-source</li></ul></li></ul></li></ul><h4 id="3-New-Aspects-of-Clouds"><a href="#3-New-Aspects-of-Clouds" class="headerlink" title="3. New Aspects of Clouds"></a>3. New Aspects of Clouds</h4><ol><li>Massive Scale (easy to understand)</li><li>On-demand Access: *aaS Classification<ul><li>HaaS: Hardware as a Service<ul><li>You get access to barebones hardware machines, do whatever you want with them</li><li>Not always a good idea because of security risks</li></ul></li><li>IaaS: Infrastructure as a Service<ul><li>You get access to flexible computing and storage infrastructure. Virtualization is one way of achieving this. Often said to subsume HaaS.</li></ul></li><li>PaaS: Platform as a Service<ul><li>You get access to flexible computing and storage infrastructure, coupled with a software platform (often tightly)</li></ul></li><li>SaaS: Software as a Service<ul><li>You get access to software services, when you need them. Often said to subsume SOA (Service Oriented Architectures).</li></ul></li></ul></li><li>Data-intensive Computing<ul><li>Computation-Intensive Computing<ul><li>Example areas: MPI-based, High-performance computing, Grids</li><li>Typically run on supercomputers</li></ul></li><li>Data-Intensive<ul><li>Typically store data at datacenters</li><li>Use compute nodes nearby</li><li>Compute nodes run computation services</li></ul></li><li>In data-intensive computing, the <strong>focus shifts from computation to the data</strong>: CPU utilization no longer the most important resource metric, instead I/O is (disk and/or network)</li></ul></li><li>New Cloud Programming Paradigms<ul><li>Easy to write and run highly parallel programs in new cloud programming paradigms</li></ul></li></ol><h4 id="4-Economics-of-Clouds"><a href="#4-Economics-of-Clouds" class="headerlink" title="4. Economics of Clouds"></a>4. Economics of Clouds</h4><ul><li>Two categories of clouds<ul><li>Can either be a public cloud, or private cloud</li><li>Private clouds are accessible only to company employees</li><li>Public clouds provide service to any paying customer</li></ul></li><li>To Outsource or Own?</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> self-study notes </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Cloud Computing </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Deep Learning Optimization Methods</title>
       <link href="2021/09/03/Deep-Learning-Optimization-Methods/"/>
       <url>2021/09/03/Deep-Learning-Optimization-Methods/</url>
@@ -594,11 +619,11 @@
             
             <tag> 算法 </tag>
             
-            <tag> 未完待续 </tag>
+            <tag> 数据结构 </tag>
             
             <tag> Java </tag>
             
-            <tag> 数据结构 </tag>
+            <tag> 未完待续 </tag>
             
         </tags>
       
@@ -652,11 +677,11 @@
             
             <tag> 算法 </tag>
             
-            <tag> 未完待续 </tag>
+            <tag> 数据结构 </tag>
             
             <tag> Java </tag>
             
-            <tag> 数据结构 </tag>
+            <tag> 未完待续 </tag>
             
         </tags>
       
