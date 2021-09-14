@@ -424,6 +424,33 @@
     
     
     <entry>
+      <title>Binary Search Tree</title>
+      <link href="2021/03/11/Binary-Search-Tree/"/>
+      <url>2021/03/11/Binary-Search-Tree/</url>
+      
+        <content type="html"><![CDATA[<h4 id="1-Ordered-Maps"><a href="#1-Ordered-Maps" class="headerlink" title="1. Ordered Maps"></a>1. Ordered Maps</h4><ul><li>Keys are assumed to come from a total order</li><li>Items are stored in order by their keys</li><li>This allows us to support <strong>nearest neighbor queries</strong>:<ul><li>Item with largest key less than or equal to $k$</li><li>Item with smallest key greater than or equal to $k$</li></ul></li></ul><h4 id="2-Sorted-Search-Tables"><a href="#2-Sorted-Search-Tables" class="headerlink" title="2. Sorted Search Tables"></a>2. Sorted Search Tables</h4><ul><li><p>Store the map’s entries in an array list $A$ so that they are in increasing order of their keys.</p></li><li><p>We refer to this implementation as a <em><strong>sorted search table</strong></em>.</p></li><li><p>A search table is an ordered map implemented by means of a sorted sequence</p><ul><li>We store the items in an array-based sequence, sorted by key</li><li>We use an external comparator for the keys</li></ul></li><li><p>Performance:</p><ul><li>Searches take $O(\log n)$ time, using binary search</li><li>Inserting a new item takes $O(n)$ time, since in the worst case we have to shift $n$ items to make room for the new item</li><li>Removing an item takes $O(n)$ time, since in the worst case we have to shift $n$ items to compact the items after the removal</li></ul></li><li><p>The lookup table is efficient only for ordered maps of small size or for maps on which searches are the most common operations, while insertions and removals are rarely performed</p></li><li><p>Performance of a sorted map (implemented using a sorted search table)</p><ul><li><table><thead><tr><th align="center">Method</th><th align="center">Running Time</th></tr></thead><tbody><tr><td align="center">size</td><td align="center">$O(1)$</td></tr><tr><td align="center">get</td><td align="center">$O(\log n)$</td></tr><tr><td align="center">put</td><td align="center">$O(n)$; $O(\log n)$ if map has entry<br>with given key</td></tr><tr><td align="center">remove</td><td align="center">$O(n)$</td></tr><tr><td align="center">firstEntry, lastEntry</td><td align="center">$O(1)$</td></tr><tr><td align="center">ceilingEntry, floorEntry<br>lowerEntry, higherEntry</td><td align="center">$O(\log n)$</td></tr><tr><td align="center">subMap</td><td align="center">$O(s+\log n)$ where $s$ items are<br>reported</td></tr><tr><td align="center">entrySet, keySet, values</td><td align="center">$O(n)$</td></tr></tbody></table></li></ul></li><li><p>Motivation</p><ul><li>Binary search on ordered arrays is efficient: $O(\log_2 n)$</li><li>However insertion or removal os an item in an ordered array is slow: $O(n)$</li><li>Ordered arrays are best suited for static searching, where search space does not change</li><li>Binary search trees can be used for efficient dynamic searching</li></ul></li></ul><h4 id="3-Binary-Search-Trees"><a href="#3-Binary-Search-Trees" class="headerlink" title="3. Binary Search Trees"></a>3. Binary Search Trees</h4><ul><li>A binary search tree is a <em>proper</em> binary tree storing keys (or key-value entries) at its <em>internal nodes</em> and satisfying the following properties:<ul><li>Let $u, v$, and $w$ be three nodes such that $u$ is in the left <em>subtree</em> of $v$ and $w$ is in the right <em>subtree</em> of $v$. We have $key(u)\le key(v)\le key(w)$</li><li>Assuming there are no duplicate keys, we have $key(u)\lt key(v)\lt key(w)$</li></ul></li><li>External nodes do not store items<ul><li>and likely are not actually implemented, but are just null links from the parent</li></ul></li><li>Search<ul><li>To search for a key $k$, we trace a downward path starting at the root</li><li>The next node visited depends on the comparison of $k$ with the key of the current node</li><li>If we reach a leaf, the key is not found</li></ul></li><li>Insertion<ul><li>Have to insert $k$ where a $get(k)$ would find it</li><li>So natural that $put(k, o)$ starts with $get(k)$</li><li>Search for key $k$ (using TreeSearch)</li><li>Assume $k$ is already in the tree then just replace the value</li><li>Otherwise, let $w$ be the leaf reached by the search, we insert $k$ at node $w$ and expand $w$ into an internal node</li></ul></li><li>Deletion<ul><li>To perform operation $remove(k)$, we search for $k$</li><li>Assume key $k$ is in the tree, and let $v$ be the node storing $k$</li><li>If node $v$ has a leaf child $w$, we remove $v$ and $w$ from the tree with operation $removeExternal(w)$, which removes $w$ and its parent</li><li>We consider the case where the key $k$ to be removed is stored at a node $v$ whose children are both internal<ul><li>we find the internal node $w$ that follows $v$ in an <strong>inorder traversal</strong></li><li>we copy $key(w)$ into node $v$</li><li>we remove node $w$ and its left child $z$ (which must be a leaf) by means of operation $removeExternal(z)$</li></ul></li></ul></li><li>Performance<ul><li>Consider an ordered map with $n$ items implemented by means of a binary search tree of height $h$<ul><li>the space used is $O(n)$</li><li>methods <em>get</em>, <em>put</em> and <em>remove</em> take $O(h)$ time</li></ul></li><li>The height $h$ is $n$ in the worst case and $\log n$ in the best case</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> class notes </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Data Structure </tag>
+            
+            <tag> Algorithm </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Heap</title>
       <link href="2020/11/22/Heap/"/>
       <url>2020/11/22/Heap/</url>
@@ -619,11 +646,11 @@
             
             <tag> 算法 </tag>
             
-            <tag> 未完待续 </tag>
+            <tag> 数据结构 </tag>
             
             <tag> Java </tag>
             
-            <tag> 数据结构 </tag>
+            <tag> 未完待续 </tag>
             
         </tags>
       
@@ -677,11 +704,11 @@
             
             <tag> 算法 </tag>
             
-            <tag> 未完待续 </tag>
+            <tag> 数据结构 </tag>
             
             <tag> Java </tag>
             
-            <tag> 数据结构 </tag>
+            <tag> 未完待续 </tag>
             
         </tags>
       

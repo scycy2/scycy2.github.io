@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="Neural Network, 学习, 算法, java, 记录">
+    <meta name="keywords" content="Binary Search Tree, 学习, 算法, java, 记录">
     <meta name="description" content="大学狗的学习之旅">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Neural Network | 再`見</title>
+    <title>Binary Search Tree | 再`見</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -287,12 +287,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Neural Network</h1>
+                    <h1 class="description center-align post-title">Binary Search Tree</h1>
                 </div>
             </div>
         </div>
@@ -409,12 +409,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Machine-Learning/">
-                                <span class="chip bg-color">Machine Learning</span>
+                            <a href="/tags/Data-Structure/">
+                                <span class="chip bg-color">Data Structure</span>
                             </a>
                         
-                            <a href="/tags/Neural-Network/">
-                                <span class="chip bg-color">Neural Network</span>
+                            <a href="/tags/Algorithm/">
+                                <span class="chip bg-color">Algorithm</span>
                             </a>
                         
                     </div>
@@ -425,8 +425,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/self-study-notes/" class="post-category">
-                                self-study notes
+                            <a href="/categories/class-notes/" class="post-category">
+                                class notes
                             </a>
                         
                     </div>
@@ -438,28 +438,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-06-16
+                    2021-03-11
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-09-03
+                    2021-09-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1k
+                    687
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    6 Min
+                    4 Min
                 </div>
                 
 
@@ -469,96 +469,133 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="1-Model-Representation"><a href="#1-Model-Representation" class="headerlink" title="1. Model Representation"></a>1. Model Representation</h4><ul>
-<li><p>Input: features $x_1\cdots x_n$</p>
-</li>
-<li><p>Output: the result of the hypothesis function.</p>
-</li>
-<li><img src="/2021/06/16/Neural-Network/Neural Network Rep1.png" style="zoom:50%;"></li>
-<li><p>$x_0$ input node is called the “bias unit”. It is always equal to $1$.</p>
-</li>
-<li><p>The same logistic function as in classification, $\frac{1}{1+e^{-\theta^Tx}}$, which is also called sigmoid (logistic) <strong>activation</strong> function.</p>
-</li>
-<li><p>“theta” parameters are called “weights”.</p>
-</li>
-<li><p>A simplistic representation:<br>$$<br>[x_0x_1x_2]\rightarrow [\ ]\rightarrow h_\theta(x)<br>$$</p>
-</li>
-<li><p>Inpur nodes (layer 1), known as the “input layer”, go into another node (layer 2), which finally outputs the hypothesis function, known as the “output layer”.</p>
-</li>
-<li><p>The intermediate layers of nodes between the input and output layers called the “hidden layers”.</p>
-</li>
-<li><img src="/2021/06/16/Neural-Network/Neural Network Rep2.png" style="zoom:50%;"></li>
-<li><p>We label these intermediate or “hidden” layer nodes $a_0^2\cdots a_n^2$ and call them “activation units”.</p>
-</li>
-<li><p>$$<br>\begin{align*}<br>&amp; a_i^{(j)} = \text{activation}\ \text{of unit}\ i\ \text{in layer}\ j\<br>&amp; \Theta^{(j)} = \text{matrix of weights controlling function mapping from layer}\ j \text{ to layer}\ j+1<br>\end{align*}<br>$$</p>
-</li>
-<li><p>$$<br>[x_0x_1x_2x_3]\rightarrow \left[a_1^{(2)}a_2^{(2)}a_3^{(2)}\right]\rightarrow h_\theta(x)<br>$$</p>
-</li>
-<li><p>The values for each of the “activation” nodes is obtained as follows:<br>$$<br>\begin{align*}<br>&amp;&amp; a_1^{(2)} = g(\Theta_{10}^{(1)}x_0 + \Theta_{11}^{(1)}x_2 + \Theta_{12}^{(1)}x_1 + \Theta_{13}^{(1)}x_3)\<br>&amp;&amp; a_2^{(2)} = g(\Theta_{20}^{(1)}x_0 + \Theta_{21}^{(1)}x_2 + \Theta_{22}^{(1)}x_1 + \Theta_{23}^{(1)}x_3)\<br>&amp;&amp; a_3^{(2)} = g(\Theta_{30}^{(1)}x_0 + \Theta_{31}^{(1)}x_2 + \Theta_{32}^{(1)}x_1 + \Theta_{33}^{(1)}x_3)\<br>&amp;&amp; h_\Theta(x) = a_1^{(3)} = g(\Theta_{10}^{(2)}a_0^{(2)} + \Theta_{11}^{(2)}a_1^{(2)} + \Theta_{12}^{(2)}a_2^{(2)} + \Theta_{13}^{(2)}a_3^{(2)})<br>\end{align*}<br>$$</p>
-</li>
-<li><p>The dimensions of matrices of weights is determined as follows:</p>
-<p><strong>If network has $s_j$ units in layer $j$ and $s_{j+1}$ units in layer $j+1$, then $\Theta^{(j)}$ will be of dimension $s_{j+1}\times (s_j+1)$</strong>.</p>
-<p>The $+1$ comes from the addition in $\Theta^{(j)}$ of the “bias nodes”, $x_0$ and $\Theta_0^{(j)}$. In other words the output nodes will not include the bias nodes while the inputs will.</p>
+                <h4 id="1-Ordered-Maps"><a href="#1-Ordered-Maps" class="headerlink" title="1. Ordered Maps"></a>1. Ordered Maps</h4><ul>
+<li>Keys are assumed to come from a total order</li>
+<li>Items are stored in order by their keys</li>
+<li>This allows us to support <strong>nearest neighbor queries</strong>:<ul>
+<li>Item with largest key less than or equal to $k$</li>
+<li>Item with smallest key greater than or equal to $k$</li>
+</ul>
 </li>
 </ul>
-<h4 id="2-Vectorized-Representation"><a href="#2-Vectorized-Representation" class="headerlink" title="2. Vectorized Representation"></a>2. Vectorized Representation</h4><ul>
-<li><p>Setting $x = a^{(1)}$</p>
-<p>$z^{(j)} = \Theta^{(j-1)}a^{(j-1)}$</p>
+<h4 id="2-Sorted-Search-Tables"><a href="#2-Sorted-Search-Tables" class="headerlink" title="2. Sorted Search Tables"></a>2. Sorted Search Tables</h4><ul>
+<li><p>Store the map’s entries in an array list $A$ so that they are in increasing order of their keys.</p>
 </li>
-<li><p>Multiply matrix $\Theta^{(j-1)}$ with dimensions $s_j\times (n+1)$ (where $s_j$ is the number of activation nodes) by vector $a^{(j-1)}$ with height $n+1$. This gives vector $z^{(j)}$ with height $s_j$. Now the vector of activation nodes for layer $j$ as follows:<br>$$<br>a^{(j)} = g(z^{(j)})<br>$$<br>where function $g$ can be applied element-wise to vector $z^{(j)}$</p>
+<li><p>We refer to this implementation as a <em><strong>sorted search table</strong></em>.</p>
 </li>
-<li><p>Add a bias unit (equal to $1$) to layer $j$ after we have computed $a^{(j)}$. This will be element $a_0^{(j)}$ and will be equal to $1$.</p>
-</li>
-<li><p>Final result $h_\Theta(x) = a^{(j+1)} = g(z^{(j+1)}) = g(\Theta^{(j)}a^{(j)})$</p>
-</li>
-</ul>
-<h4 id="3-Cost-Function"><a href="#3-Cost-Function" class="headerlink" title="3. Cost Function"></a>3. Cost Function</h4><ul>
-<li><p>First define a few variables need to use:</p>
+<li><p>A search table is an ordered map implemented by means of a sorted sequence</p>
 <ul>
-<li>$L = \text{total number of layers in the network}$</li>
-<li>$s_l = \text{number of units (not counting bias unit) in layer } l$</li>
-<li>$K = \text{number of output units/classes}$</li>
+<li>We store the items in an array-based sequence, sorted by key</li>
+<li>We use an external comparator for the keys</li>
 </ul>
 </li>
-<li><p>In neural networks, we may have many output nodes. Denote $h_\theta(x)_k$ as being a hypothesis that results in the $k^{th}$ output.</p>
-</li>
-<li><p>The cost function for neural networks is going to be generalization of the one used for logistic regression.<br>$$<br>J(\Theta) = -\frac{1}{m} \sum_{i=1}^{m} \sum_{k-1}^{K} \left[y_{k}^{(i)} \log((h_\Theta(x^{(i)}))<em>k) + (1-y_k^{(i)})\log(1-(h_\Theta(x^{(i)}))<em>k)\right] + \frac{\lambda}{2m} \sum</em>{l=1}^{L-1} \sum</em>{i=1}^{s_l} \sum_{j=1}^{s_l+1}(\Theta_{j, i}^{(i)})^2<br>$$<br>We have added a few nested summations to account for our multiple output nodes. In the first part of the equation, before the square brackets, we have an additional nested summation that loops through the number of output nodes.</p>
-</li>
-<li><p>In the regularization part, after the square brackets, we must account for multiple theta matrices. The number of columns in our current theta matrix is equal to the number of nodes in our current layer (including the bias unit). The number of rows in our current theta matrix is equal to the number of nodes in the next layer (excluding the bias unit). As before with logistic regression, we square every term.</p>
-</li>
-<li><p>Note:</p>
+<li><p>Performance:</p>
 <ul>
-<li>the double sum simply adds up the logistic regression costs calculated for each cell in the output layer.</li>
-<li>the triple sum simply adds up the squares of all the individual $\Theta$s in the entire network.</li>
-<li>the $i$ in the triple sum does <strong>not</strong> refer to training example $i$.</li>
+<li>Searches take $O(\log n)$ time, using binary search</li>
+<li>Inserting a new item takes $O(n)$ time, since in the worst case we have to shift $n$ items to make room for the new item</li>
+<li>Removing an item takes $O(n)$ time, since in the worst case we have to shift $n$ items to compact the items after the removal</li>
 </ul>
 </li>
-</ul>
-<h4 id="4-Backpropagation-Algorithm"><a href="#4-Backpropagation-Algorithm" class="headerlink" title="4. Backpropagation Algorithm"></a>4. Backpropagation Algorithm</h4><ul>
-<li><p>“Backpropagation” is neural-network terminology for minimizing the cost function.</p>
+<li><p>The lookup table is efficient only for ordered maps of small size or for maps on which searches are the most common operations, while insertions and removals are rarely performed</p>
 </li>
-<li><p>Compute the partial derivative of $J(\Theta)$:<br>$$<br>\frac{\partial}{\partial \Theta_{i, j}^{(l)}}J(\Theta)<br>$$</p>
-</li>
-<li><p>Procedure:</p>
+<li><p>Performance of a sorted map (implemented using a sorted search table)</p>
 <ul>
-<li>Given training examples set ${(x^{(1)}, y^{(1)})\cdots(x^{(m)}, y^{(m)})}$</li>
-<li>Set $\Delta_{ij}^{(l)} = 0$ for all $(l, i, j)$</li>
-<li>For $i = 1$ to $m$:<ul>
-<li>Set $a^{(1)} = x^{(i)}$</li>
-<li>Perform forward propagation to compute $a^{(l)}$ for $l = 2,3,\cdots, L$</li>
-<li>Using $y^{(i)}$, compute $\delta^{(L)} = a^{(L)} - y^{(i)}$</li>
-<li>Compute $\delta^{(L-1)}, \delta^{(L-2)}, \cdots, \delta^{(2)}$ using $\delta^{(l)} = ((\Theta^{(l)})^T\delta^{(l+1)})\ .*\ a^{(l)}\ .*\ (1-a^{(l)})$<ul>
-<li>The delta values of layer $l$ are calculated by multiplying the delta values in the next layer with the theta matrix of layer $l$. We then element-wise multiply that with a function called $g^{\prime}$, or g-prime, which is the derivative of the activation function $g$ evaluated with the input values given by $z^{(l)}$.</li>
+<li><table>
+<thead>
+<tr>
+<th align="center">Method</th>
+<th align="center">Running Time</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">size</td>
+<td align="center">$O(1)$</td>
+</tr>
+<tr>
+<td align="center">get</td>
+<td align="center">$O(\log n)$</td>
+</tr>
+<tr>
+<td align="center">put</td>
+<td align="center">$O(n)$; $O(\log n)$ if map has entry<br>with given key</td>
+</tr>
+<tr>
+<td align="center">remove</td>
+<td align="center">$O(n)$</td>
+</tr>
+<tr>
+<td align="center">firstEntry, lastEntry</td>
+<td align="center">$O(1)$</td>
+</tr>
+<tr>
+<td align="center">ceilingEntry, floorEntry<br>lowerEntry, higherEntry</td>
+<td align="center">$O(\log n)$</td>
+</tr>
+<tr>
+<td align="center">subMap</td>
+<td align="center">$O(s+\log n)$ where $s$ items are<br>reported</td>
+</tr>
+<tr>
+<td align="center">entrySet, keySet, values</td>
+<td align="center">$O(n)$</td>
+</tr>
+</tbody></table>
+</li>
 </ul>
 </li>
-<li>$\Delta_{ij}^{(l)} := \Delta_{ij}^{(l)} + a_j^{(l)}\delta_i^{(l+1)}$</li>
+<li><p>Motivation</p>
+<ul>
+<li>Binary search on ordered arrays is efficient: $O(\log_2 n)$</li>
+<li>However insertion or removal os an item in an ordered array is slow: $O(n)$</li>
+<li>Ordered arrays are best suited for static searching, where search space does not change</li>
+<li>Binary search trees can be used for efficient dynamic searching</li>
 </ul>
 </li>
-<li>$D_{ij}^{(l)} := \Delta_{ij}^{(l)} + \lambda \Theta_{ij}^{(l)} \text{ if } j \ne 0$</li>
-<li>$D_{ij}^{(l)} := \Delta_{ij}^{(l)} \text{ if } j = 0$</li>
+</ul>
+<h4 id="3-Binary-Search-Trees"><a href="#3-Binary-Search-Trees" class="headerlink" title="3. Binary Search Trees"></a>3. Binary Search Trees</h4><ul>
+<li>A binary search tree is a <em>proper</em> binary tree storing keys (or key-value entries) at its <em>internal nodes</em> and satisfying the following properties:<ul>
+<li>Let $u, v$, and $w$ be three nodes such that $u$ is in the left <em>subtree</em> of $v$ and $w$ is in the right <em>subtree</em> of $v$. We have $key(u)\le key(v)\le key(w)$</li>
+<li>Assuming there are no duplicate keys, we have $key(u)\lt key(v)\lt key(w)$</li>
 </ul>
 </li>
-<li><p>Intuitively, $\delta_j^{(l)}$ is the “error” for $a_j^{(l)}$ (unit $j$ in layer $l$). More formally, the delta values are actually the derivative of the cost function: $\delta_j^{(l)} = \frac{\partial}{\partial z_j^{(l)}}cost(t)$</p>
+<li>External nodes do not store items<ul>
+<li>and likely are not actually implemented, but are just null links from the parent</li>
+</ul>
+</li>
+<li>Search<ul>
+<li>To search for a key $k$, we trace a downward path starting at the root</li>
+<li>The next node visited depends on the comparison of $k$ with the key of the current node</li>
+<li>If we reach a leaf, the key is not found</li>
+</ul>
+</li>
+<li>Insertion<ul>
+<li>Have to insert $k$ where a $get(k)$ would find it</li>
+<li>So natural that $put(k, o)$ starts with $get(k)$</li>
+<li>Search for key $k$ (using TreeSearch)</li>
+<li>Assume $k$ is already in the tree then just replace the value</li>
+<li>Otherwise, let $w$ be the leaf reached by the search, we insert $k$ at node $w$ and expand $w$ into an internal node</li>
+</ul>
+</li>
+<li>Deletion<ul>
+<li>To perform operation $remove(k)$, we search for $k$</li>
+<li>Assume key $k$ is in the tree, and let $v$ be the node storing $k$</li>
+<li>If node $v$ has a leaf child $w$, we remove $v$ and $w$ from the tree with operation $removeExternal(w)$, which removes $w$ and its parent</li>
+<li>We consider the case where the key $k$ to be removed is stored at a node $v$ whose children are both internal<ul>
+<li>we find the internal node $w$ that follows $v$ in an <strong>inorder traversal</strong></li>
+<li>we copy $key(w)$ into node $v$</li>
+<li>we remove node $w$ and its left child $z$ (which must be a leaf) by means of operation $removeExternal(z)$</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Performance<ul>
+<li>Consider an ordered map with $n$ items implemented by means of a binary search tree of height $h$<ul>
+<li>the space used is $O(n)$</li>
+<li>methods <em>get</em>, <em>put</em> and <em>remove</em> take $O(h)$ time</li>
+</ul>
+</li>
+<li>The height $h$ is $n$ in the worst case and $\log n$ in the best case</li>
+</ul>
 </li>
 </ul>
 
@@ -586,7 +623,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://scycy2.github.io/2021/06/16/Neural-Network/">https://scycy2.github.io/2021/06/16/Neural-Network/</a>
+                    <a href="https://scycy2.github.io/2021/03/11/Binary-Search-Tree/">https://scycy2.github.io/2021/03/11/Binary-Search-Tree/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -624,12 +661,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Machine-Learning/">
-                                    <span class="chip bg-color">Machine Learning</span>
+                                <a href="/tags/Data-Structure/">
+                                    <span class="chip bg-color">Data Structure</span>
                                 </a>
                             
-                                <a href="/tags/Neural-Network/">
-                                    <span class="chip bg-color">Neural Network</span>
+                                <a href="/tags/Algorithm/">
+                                    <span class="chip bg-color">Algorithm</span>
                                 </a>
                             
                         </div>
@@ -675,31 +712,31 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
             <div class="card">
-                <a href="/2021/06/22/Support-Vector-Machine/">
+                <a href="/2021/04/10/Graph/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="Support Vector Machine">
+                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Graph">
                         
-                        <span class="card-title">Support Vector Machine</span>
+                        <span class="card-title">Graph</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Support Vector Machine
+                            Graph (traversal algorithms, Dijkstra's algorithm, Topological sort, Minimal spanning tree)
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-22
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-10
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/self-study-notes/" class="post-category">
-                                    self-study notes
+                            <a href="/categories/class-notes/" class="post-category">
+                                    class notes
                                 </a>
                             
                             
@@ -709,8 +746,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Machine-Learning/">
-                        <span class="chip bg-color">Machine Learning</span>
+                    <a href="/tags/Data-Structure/">
+                        <span class="chip bg-color">Data Structure</span>
                     </a>
                     
                     <a href="/tags/Algorithm/">
@@ -728,30 +765,31 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/06/09/Overfitting/">
+                <a href="/2020/11/22/Heap/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="Overfitting">
                         
-                        <span class="card-title">Overfitting</span>
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Heap">
+                        
+                        <span class="card-title">Heap</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Overfitting (Regularization)
+                            Heap Introduction
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-09
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-22
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/self-study-notes/" class="post-category">
-                                    self-study notes
+                            <a href="/categories/class-notes/" class="post-category">
+                                    class notes
                                 </a>
                             
                             
@@ -761,8 +799,12 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Machine-Learning/">
-                        <span class="chip bg-color">Machine Learning</span>
+                    <a href="/tags/Data-Structure/">
+                        <span class="chip bg-color">Data Structure</span>
+                    </a>
+                    
+                    <a href="/tags/Algorithm/">
+                        <span class="chip bg-color">Algorithm</span>
                     </a>
                     
                 </div>
