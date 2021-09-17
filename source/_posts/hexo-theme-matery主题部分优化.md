@@ -5,7 +5,7 @@ tags: ["hexo"]
 categories: "博客优化"
 summary: "hexo 优化"
 cover: true
-img: /medias/featureimages/6.jpg
+img: /medias/featureimages/1.jpg
 ---
 
 hexo-theme-matery下载与配置: <https://github.com/blinkfox/hexo-theme-matery>

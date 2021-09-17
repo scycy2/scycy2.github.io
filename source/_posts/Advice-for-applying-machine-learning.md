@@ -5,7 +5,7 @@ tags: ['Machine Learning']
 categories: ['self-study notes']
 cover:
 summary: Advice when applying ML (Bias/Variance, Cross Validation, Learning Curves)
-img:
+img: /medias/featureimages/25.jpg
 mathjax: true
 ---
 

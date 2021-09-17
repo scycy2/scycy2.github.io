@@ -5,7 +5,7 @@ tags: ['Data Structure', 'Algorithm']
 categories: ['class notes']
 cover:
 summary: Hash Table (Hash Functions, Collision Handling)
-img:
+img: /medias/featureimages/15.jpg
 mathjax: true
 ---
 

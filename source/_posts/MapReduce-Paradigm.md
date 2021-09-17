@@ -5,7 +5,7 @@ tags: ['Cloud Computing']
 categories: ['self-study notes']
 cover:
 summary: MapReduce (Scheduling, Fault-tolerance)
-img:
+img: /medias/featureimages/30.jpg
 ---
 
 #### 1. What is MapReduce?

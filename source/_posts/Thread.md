@@ -5,7 +5,7 @@ tags: ['Operating System']
 categories: ['class notes']
 cover:
 summary: Thread
-img:
+img: /medias/featureimages/8.jpg
 ---
 
 #### 1. Thread Usage

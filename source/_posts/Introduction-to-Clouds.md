@@ -5,7 +5,7 @@ tags: ["Cloud Computing"]
 categories: ['self-study notes']
 cover: true
 summary: Introduction to clouds
-img: /medias/featureimages/27.jpg
+img: /medias/featureimages/29.jpg
 ---
 
 #### 1. What is a Cloud?

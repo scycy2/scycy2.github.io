@@ -5,7 +5,7 @@ tags: ['Data Structure', 'Algorithm']
 categories: 'class notes'
 cover: false
 summary: "Red Black Tree and Operations"
-img:
+img: /medias/featureimages/18.jpg
 mathjax: true
 ---
 

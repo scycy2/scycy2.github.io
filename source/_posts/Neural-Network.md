@@ -5,7 +5,7 @@ tags: ['Neural Network', 'Machine Learning']
 categories: ['self-study notes']
 cover:
 summary: Neural Network
-img:
+img: /medias/featureimages/23.jpg
 mathjax: true
 ---
 

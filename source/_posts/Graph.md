@@ -5,7 +5,7 @@ tags: ['Data Structure', 'Algorithm']
 categories: ['class notes']
 cover:
 summary: "Graph (traversal algorithms, Dijkstra's algorithm, Topological sort, Minimal spanning tree)"
-img:
+img: /medias/featureimages/14.jpg
 mathjax: true
 ---
 

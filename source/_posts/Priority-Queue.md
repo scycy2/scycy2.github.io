@@ -5,7 +5,7 @@ tags: ["Data Structure", 'Algorithm']
 categories: ["class notes"]
 cover: false
 summary: "Priority Queue Introduction"
-img:
+img: /medias/featureimages/20.jpg
 mathjax: true
 ---
 

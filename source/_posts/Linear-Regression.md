@@ -5,7 +5,7 @@ tags: ['Machine Learning']
 categories: ['self-study notes']
 cover: true
 summary: Linear Regression
-img: /medias/featureimages/26.jpg
+img: /medias/featureimages/19.jpg
 mathjax: true
 ---
 

@@ -5,7 +5,7 @@ tags: ['Optimization Methods', 'Neural Network']
 categories: ['self-study notes']
 cover:
 summary: Optimizors in Deep Learning (Momentum, RMSprop, Adam)
-img:
+img: /medias/featureimages/28.jpg
 mathjax: true
 ---
 

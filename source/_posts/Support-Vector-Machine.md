@@ -5,7 +5,7 @@ tags: ['Machine Learning', 'Algorithm']
 categories: ['self-study notes']
 cover: 
 summary: Support Vector Machine
-img:
+img: /medias/featureimages/24.jpg
 mathjax: true
 ---
 

@@ -5,7 +5,7 @@ tags: ["Operating System"]
 categories: ['class notes']
 cover:
 summary: Deadlock (Detect, Recover and Avoidance)
-img:
+img: /medias/featureimages/10.jpg
 mathjax: true
 ---
 

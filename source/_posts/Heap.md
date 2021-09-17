@@ -5,7 +5,7 @@ tags: ["Data Structure", "Algorithm"]
 categories: ["class notes"]
 cover:
 summary: "Heap Introduction"
-img:
+img: /medias/featureimages/12.jpg
 mathjax: true
 ---
 

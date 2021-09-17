@@ -5,7 +5,7 @@ tags: ['Language and Computation']
 categories: ['class notes']
 cover:
 summary: Formal Languages (Automata, Regular Languages, Pumping Lemma, Context-Free Languages, Turing Machine)
-img:
+img: /medias/featureimages/17.jpg
 mathjax: true
 ---
 

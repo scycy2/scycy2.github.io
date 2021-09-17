@@ -5,7 +5,7 @@ tags: ['Machine Learning']
 categories: ['self-study notes']
 cover:
 summary: Overfitting (Regularization)
-img: /medias/featureimages/16.jpg
+img: /medias/featureimages/22.jpg
 mathjax: true
 ---
 

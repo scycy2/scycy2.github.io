@@ -5,7 +5,7 @@ tags: ["Operating System"]
 categories: ["class notes"]
 cover:
 summary: Process
-img:
+img: /medias/featureimages/6.jpg
 ---
 
 #### 1. Definition

@@ -5,7 +5,7 @@ tags: ['Data Structure', 'Algorithm']
 categories: ['class notes']
 cover:
 summary: Binary Search Tree (Definition, Search, Insertion, Deletion)
-img:
+img: /medias/featureimages/13.jpg
 mathjax: true
 ---
 

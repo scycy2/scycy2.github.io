@@ -5,7 +5,7 @@ tags: ['Optimization Methods', 'Neural Network']
 categories: ['self-study notes']
 cover:
 summary: Comparison of different gradient descent methods (Mini-batch Gradient Descent, Stochastic Gradient Descent, )
-img:
+img: /medias/featureimages/27.jpg
 mathjax: true
 ---
 

@@ -5,7 +5,7 @@ tags: ['Operating System']
 categories: ['class notes']
 cover:
 summary: Process Classification and Process Scheduling
-img:
+img: /medias/featureimages/7.jpg
 ---
 
 #### 1. CPU密集型进程

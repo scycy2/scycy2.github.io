@@ -5,7 +5,7 @@ tags: ['Operating System']
 categories: ['class notes']
 cover:
 summary: Concurrency
-img:
+img: /medias/featureimages/9.jpg
 ---
 
 ##### 竞争条件(race conditions): 多个线程或者进程在读写一个共享数据时结果依赖于它们执行的相对时间的情形。

@@ -5,7 +5,7 @@ tags: ['Neural Network', 'Machine Learning', 'Python']
 categories: ['self-study notes']
 cover:
 summary: Neural-Network Implementation
-img:
+img: /medias/featureimages/26.jpg
 mathjax: false
 ---
 
