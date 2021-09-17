@@ -42,7 +42,7 @@ mathjax: true
 
 * Disadvantages: the parameters will "oscillate" toward the minimum rather than converge smoothly
 
-  ![](Gradient-Descent-Methods/Screen Shot 2021-09-09 at 2.48.18 PM.png)
+  <img src="Gradient-Descent-Methods/Screen Shot 2021-09-09 at 2.48.18 PM.png" style="zoom:50%;" />
 
 * Code example:
 
@@ -70,7 +70,7 @@ mathjax: true
 
 * Advantages: more smooth than SGD, faster than BGD
 
-  ![](Gradient-Descent-Methods/Screen Shot 2021-09-09 at 3.04.00 PM.png)
+  <img src="Gradient-Descent-Methods/Screen Shot 2021-09-09 at 3.04.00 PM.png" style="zoom:50%;" />
 
 * Disadvantages: one more hyper parameter **batch_size** need to be tuned
 
