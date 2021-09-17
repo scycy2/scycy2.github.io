@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="Binary Search Tree, 学习, 算法, java, 记录">
+    <meta name="keywords" content="MapReduce Paradigm, 学习, 算法, java, 记录">
     <meta name="description" content="大学狗的学习之旅">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Binary Search Tree | 再`見</title>
+    <title>MapReduce Paradigm | 再`見</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -287,12 +287,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Binary Search Tree</h1>
+                    <h1 class="description center-align post-title">MapReduce Paradigm</h1>
                 </div>
             </div>
         </div>
@@ -409,12 +409,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Data-Structure/">
-                                <span class="chip bg-color">Data Structure</span>
-                            </a>
-                        
-                            <a href="/tags/Algorithm/">
-                                <span class="chip bg-color">Algorithm</span>
+                            <a href="/tags/Cloud-Computing/">
+                                <span class="chip bg-color">Cloud Computing</span>
                             </a>
                         
                     </div>
@@ -425,8 +421,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/class-notes/" class="post-category">
-                                class notes
+                            <a href="/categories/self-study-notes/" class="post-category">
+                                self-study notes
                             </a>
                         
                     </div>
@@ -438,28 +434,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-03-11
+                    2021-09-17
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-09-14
+                    2021-09-17
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    687
+                    515
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    4 Min
+                    3 Min
                 </div>
                 
 
@@ -469,132 +465,166 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="1-Ordered-Maps"><a href="#1-Ordered-Maps" class="headerlink" title="1. Ordered Maps"></a>1. Ordered Maps</h4><ul>
-<li>Keys are assumed to come from a total order</li>
-<li>Items are stored in order by their keys</li>
-<li>This allows us to support <strong>nearest neighbor queries</strong>:<ul>
-<li>Item with largest key less than or equal to $k$</li>
-<li>Item with smallest key greater than or equal to $k$</li>
-</ul>
+                <h4 id="1-What-is-MapReduce"><a href="#1-What-is-MapReduce" class="headerlink" title="1. What is MapReduce?"></a>1. What is MapReduce?</h4><ul>
+<li><p>Terms are borrowed from Functional Language (e.g., Lisp)</p>
 </li>
-</ul>
-<h4 id="2-Sorted-Search-Tables"><a href="#2-Sorted-Search-Tables" class="headerlink" title="2. Sorted Search Tables"></a>2. Sorted Search Tables</h4><ul>
-<li><p>Store the map’s entries in an array list $A$ so that they are in increasing order of their keys.</p>
-</li>
-<li><p>We refer to this implementation as a <em><strong>sorted search table</strong></em>.</p>
-</li>
-<li><p>A search table is an ordered map implemented by means of a sorted sequence</p>
+<li><p>Example: Sum of Square</p>
 <ul>
-<li>We store the items in an array-based sequence, sorted by key</li>
-<li>We use an external comparator for the keys</li>
-</ul>
-</li>
-<li><p>Performance:</p>
+<li><p>(map square ‘(1 2 3 4))</p>
 <ul>
-<li>Searches take $O(\log n)$ time, using binary search</li>
-<li>Inserting a new item takes $O(n)$ time, since in the worst case we have to shift $n$ items to make room for the new item</li>
-<li>Removing an item takes $O(n)$ time, since in the worst case we have to shift $n$ items to compact the items after the removal</li>
+<li>Output: (1 4 9 16)</li>
+<li>processes each record sequentially and independently</li>
 </ul>
 </li>
-<li><p>The lookup table is efficient only for ordered maps of small size or for maps on which searches are the most common operations, while insertions and removals are rarely performed</p>
-</li>
-<li><p>Performance of a sorted map (implemented using a sorted search table)</p>
+<li><p>(reduce + ‘(1 4 9 16))</p>
 <ul>
-<li><table>
-<thead>
-<tr>
-<th align="center">Method</th>
-<th align="center">Running Time</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">size</td>
-<td align="center">$O(1)$</td>
-</tr>
-<tr>
-<td align="center">get</td>
-<td align="center">$O(\log n)$</td>
-</tr>
-<tr>
-<td align="center">put</td>
-<td align="center">$O(n)$; $O(\log n)$ if map has entry<br>with given key</td>
-</tr>
-<tr>
-<td align="center">remove</td>
-<td align="center">$O(n)$</td>
-</tr>
-<tr>
-<td align="center">firstEntry, lastEntry</td>
-<td align="center">$O(1)$</td>
-</tr>
-<tr>
-<td align="center">ceilingEntry, floorEntry<br>lowerEntry, higherEntry</td>
-<td align="center">$O(\log n)$</td>
-</tr>
-<tr>
-<td align="center">subMap</td>
-<td align="center">$O(s+\log n)$ where $s$ items are<br>reported</td>
-</tr>
-<tr>
-<td align="center">entrySet, keySet, values</td>
-<td align="center">$O(n)$</td>
-</tr>
-</tbody></table>
+<li><p>(+ 16 (+ 9 (+ 4 1)))</p>
+</li>
+<li><p>Output: 30</p>
+</li>
+<li><p>processes set of all records in batches</p>
 </li>
 </ul>
 </li>
-<li><p>Motivation</p>
+</ul>
+</li>
+<li><p><strong>Map</strong></p>
 <ul>
-<li>Binary search on ordered arrays is efficient: $O(\log_2 n)$</li>
-<li>However insertion or removal os an item in an ordered array is slow: $O(n)$</li>
-<li>Ordered arrays are best suited for static searching, where search space does not change</li>
-<li>Binary search trees can be used for efficient dynamic searching</li>
+<li>Parallelly Process a large number of individual records to generate intermediate key/value pairs</li>
+</ul>
+</li>
+<li><p><strong>Reduce</strong></p>
+<ul>
+<li>Each key assigned to one Reduce</li>
+<li>Parallelly Processes and merges all intermediate values by partitioning keys</li>
 </ul>
 </li>
 </ul>
-<h4 id="3-Binary-Search-Trees"><a href="#3-Binary-Search-Trees" class="headerlink" title="3. Binary Search Trees"></a>3. Binary Search Trees</h4><ul>
-<li>A binary search tree is a <em>proper</em> binary tree storing keys (or key-value entries) at its <em>internal nodes</em> and satisfying the following properties:<ul>
-<li>Let $u, v$, and $w$ be three nodes such that $u$ is in the left <em>subtree</em> of $v$ and $w$ is in the right <em>subtree</em> of $v$. We have $key(u)\le key(v)\le key(w)$</li>
-<li>Assuming there are no duplicate keys, we have $key(u)\lt key(v)\lt key(w)$</li>
-</ul>
+<h4 id="2-MapReduce-Scheduling"><a href="#2-MapReduce-Scheduling" class="headerlink" title="2. MapReduce Scheduling"></a>2. MapReduce Scheduling</h4><ul>
+<li><p>Programming MapReduce</p>
+<ul>
+<li><p>Externally: For user</p>
+<ol>
+<li>Write a Map program (short), write a Reduce program (short)</li>
+<li>Submit job: wait for result</li>
+<li>Need to know nothing about parallel/distributed programming</li>
+</ol>
 </li>
-<li>External nodes do not store items<ul>
-<li>and likely are not actually implemented, but are just null links from the parent</li>
-</ul>
-</li>
-<li>Search<ul>
-<li>To search for a key $k$, we trace a downward path starting at the root</li>
-<li>The next node visited depends on the comparison of $k$ with the key of the current node</li>
-<li>If we reach a leaf, the key is not found</li>
-</ul>
-</li>
-<li>Insertion<ul>
-<li>Have to insert $k$ where a $get(k)$ would find it</li>
-<li>So natural that $put(k, o)$ starts with $get(k)$</li>
-<li>Search for key $k$ (using TreeSearch)</li>
-<li>Assume $k$ is already in the tree then just replace the value</li>
-<li>Otherwise, let $w$ be the leaf reached by the search, we insert $k$ at node $w$ and expand $w$ into an internal node</li>
-</ul>
-</li>
-<li>Deletion<ul>
-<li>To perform operation $remove(k)$, we search for $k$</li>
-<li>Assume key $k$ is in the tree, and let $v$ be the node storing $k$</li>
-<li>If node $v$ has a leaf child $w$, we remove $v$ and $w$ from the tree with operation $removeExternal(w)$, which removes $w$ and its parent</li>
-<li>We consider the case where the key $k$ to be removed is stored at a node $v$ whose children are both internal<ul>
-<li>we find the internal node $w$ that follows $v$ in an <strong>inorder traversal</strong></li>
-<li>we copy $key(w)$ into node $v$</li>
-<li>we remove node $w$ and its left child $z$ (which must be a leaf) by means of operation $removeExternal(z)$</li>
-</ul>
+<li><p>Internally: For the Paradigm and Scheduler</p>
+<ol>
+<li>Parallelize Map</li>
+<li>Transfer data from Map to Reduce</li>
+<li>Parallelize Reduce</li>
+<li>Implement Storage for Map input, Map output, Reduce input and Reduce output</li>
+</ol>
+<p>(Ensure that no Reduce starts before all Maps are finished. That is, ensure the <em><strong>barrier</strong></em> between the Map phase and Reduce phase)</p>
 </li>
 </ul>
 </li>
-<li>Performance<ul>
-<li>Consider an ordered map with $n$ items implemented by means of a binary search tree of height $h$<ul>
-<li>the space used is $O(n)$</li>
-<li>methods <em>get</em>, <em>put</em> and <em>remove</em> take $O(h)$ time</li>
+<li><p>Inside MapReduce</p>
+<ul>
+<li>For the cloud:<ol>
+<li>Parallelize Map: each map task is independent of the other<ul>
+<li>All Map outpur records with same key assigned to same Reduce</li>
 </ul>
 </li>
-<li>The height $h$ is $n$ in the worst case and $\log n$ in the best case</li>
+<li>Transfer data from Map to Reduce:<ul>
+<li>All Map output records with same key assigned to same Reduce task</li>
+<li>use partitioning function</li>
+</ul>
+</li>
+<li>Parallelize Reduce: each reduce task is independent of the other</li>
+<li>Implement Storage for Map input, Map output, Reduce input, and Reduce output<ul>
+<li>Map input: from distributed file system</li>
+<li>Map output: to local disk (at Map node); uses local file system</li>
+<li>Reduce input: from (multiple) remote disks; uses local file systems</li>
+<li>Reduce output: to distributed file system</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p><strong>The YARN Scheduler</strong></p>
+<ul>
+<li><p>Used in Hadoop 2.x +</p>
+</li>
+<li><p>YARN = Yet Another Resource Negotiator</p>
+</li>
+<li><p>Treats each server as a collection of <em>containers</em></p>
+<ul>
+<li>Container = some CPU + some memory</li>
+</ul>
+</li>
+<li><p>Has 3 main components</p>
+<ul>
+<li><p>Global <em>Resource Manager (RM)</em></p>
+<ul>
+<li>Scheduling</li>
+</ul>
+</li>
+<li><p>Per-server <em>Node Manager (NM)</em></p>
+<ul>
+<li>Daemon and server-specific functions</li>
+</ul>
+</li>
+<li><p>Per-application (job) <em>Application Master (AM)</em></p>
+<ul>
+<li><p>Container negotiation with RM and NMs</p>
+</li>
+<li><p>Detecting task failures of that job</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><img src="/2021/09/17/MapReduce-Paradigm/Screen Shot 2021-09-17 at 1.58.30 PM.png" style="zoom:50%;"></li>
+</ul>
+</li>
+</ul>
+<h4 id="3-MapReduce-Fault-Tolerance"><a href="#3-MapReduce-Fault-Tolerance" class="headerlink" title="3. MapReduce Fault-Tolerance"></a>3. MapReduce Fault-Tolerance</h4><ul>
+<li>Server Failure<ul>
+<li>NM heartbeats to RM<ul>
+<li>If server fails, RM lets all affected Ams know, and AMs take action</li>
+</ul>
+</li>
+<li>NM keeps track of each task running at its server<ul>
+<li>If task fails while in-progress, mark the task as idle and restart it</li>
+</ul>
+</li>
+<li>AM heartbeats to RM<ul>
+<li>On failure, RM restarts AM, which then syncs up with its running tasks</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>RM Failure<ul>
+<li>Use old checkpoints and bring up secondary RM</li>
+</ul>
+</li>
+<li>Heartbeats also used to piggyback container requests<ul>
+<li>Avoid extra messages</li>
+</ul>
+</li>
+<li>Slow Servers<ul>
+<li>The slowest machine slows the entire job down</li>
+<li>Dueto Bad Disk, Network Bandwidth, CPU, or Memory</li>
+<li>Keep track of “progress” of each task (% done)</li>
+<li>Perform backup (replicated) execution of straggler task: task considered done when first replica complete. Called <strong>Speculative Execution</strong></li>
+</ul>
+</li>
+<li>Locality<ul>
+<li>Since cloud has hierarchical topology (e.g. racks)</li>
+<li>GFS/HDFS stores 3 replicas of each of chunks<ul>
+<li>Maybe on different racks</li>
+</ul>
+</li>
+<li>Mapreduce attempts to schedule a map task on<ul>
+<li>a machine that contains a replica of corresponding input data, or failing that,</li>
+<li>on the same rack as a machine containing the input, or failing that,</li>
+<li>Anywhere</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -623,7 +653,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://scycy2.github.io/2021/03/11/Binary-Search-Tree/">https://scycy2.github.io/2021/03/11/Binary-Search-Tree/</a>
+                    <a href="https://scycy2.github.io/2021/09/17/MapReduce-Paradigm/">https://scycy2.github.io/2021/09/17/MapReduce-Paradigm/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -661,12 +691,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Data-Structure/">
-                                    <span class="chip bg-color">Data Structure</span>
-                                </a>
-                            
-                                <a href="/tags/Algorithm/">
-                                    <span class="chip bg-color">Algorithm</span>
+                                <a href="/tags/Cloud-Computing/">
+                                    <span class="chip bg-color">Cloud Computing</span>
                                 </a>
                             
                         </div>
@@ -708,50 +734,48 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2021/04/10/Graph/">
+                <a href="/2021/09/17/MapReduce-Paradigm/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/6.jpg" class="responsive-img" alt="Graph">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="MapReduce Paradigm">
                         
-                        <span class="card-title">Graph</span>
+                        <span class="card-title">MapReduce Paradigm</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Graph (traversal algorithms, Dijkstra's algorithm, Topological sort, Minimal spanning tree)
+                            MapReduce (Scheduling, Fault-tolerance)
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-17
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/class-notes/" class="post-category">
-                                    class notes
+                            <a href="/categories/self-study-notes/" class="post-category">
+                                    self-study notes
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Data-Structure/">
-                        <span class="chip bg-color">Data Structure</span>
-                    </a>
-                    
-                    <a href="/tags/Algorithm/">
-                        <span class="chip bg-color">Algorithm</span>
+                    <a href="/tags/Cloud-Computing/">
+                        <span class="chip bg-color">Cloud Computing</span>
                     </a>
                     
                 </div>
@@ -765,31 +789,30 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/11/22/Heap/">
+                <a href="/2021/09/12/Introduction-to-Clouds/">
                     <div class="card-image">
                         
+                        <img src="/medias/featureimages/27.jpg" class="responsive-img" alt="Introduction to Clouds">
                         
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Heap">
-                        
-                        <span class="card-title">Heap</span>
+                        <span class="card-title">Introduction to Clouds</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Heap Introduction
+                            Introduction to clouds
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-12
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/class-notes/" class="post-category">
-                                    class notes
+                            <a href="/categories/self-study-notes/" class="post-category">
+                                    self-study notes
                                 </a>
                             
                             
@@ -799,12 +822,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Data-Structure/">
-                        <span class="chip bg-color">Data Structure</span>
-                    </a>
-                    
-                    <a href="/tags/Algorithm/">
-                        <span class="chip bg-color">Algorithm</span>
+                    <a href="/tags/Cloud-Computing/">
+                        <span class="chip bg-color">Cloud Computing</span>
                     </a>
                     
                 </div>
@@ -939,53 +958,9 @@
 </main>
 
 
-<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-<script>
-    MathJax.Hub.Config({
-        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
-    });
-</script>
-
 
 
     <footer class="page-footer bg-color">
-    
-    <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-    "HTML-CSS": { 
-        preferredFont: "TeX", 
-        availableFonts: ["STIX","TeX"], 
-        linebreaks: { automatic:true }, 
-        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) 
-    },
-    tex2jax: { 
-        inlineMath: [ ["$", "$"], ["\\(","\\)"] ], 
-        processEscapes: true, 
-        ignoreClass: "tex2jax_ignore|dno",
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {  
-        equationNumbers: { autoNumber: "AMS" },
-        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, 
-        Macros: { href: "{}" } 
-    },
-    messageStyle: "none"
-    }); 
-</script>
-<!-- 给MathJax元素添加has-jax class -->
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<!-- 通过连接CDN加载MathJax的js代码 -->
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
     
     
         <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">

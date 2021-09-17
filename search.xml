@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>MapReduce Paradigm</title>
+      <link href="2021/09/17/MapReduce-Paradigm/"/>
+      <url>2021/09/17/MapReduce-Paradigm/</url>
+      
+        <content type="html"><![CDATA[<h4 id="1-What-is-MapReduce"><a href="#1-What-is-MapReduce" class="headerlink" title="1. What is MapReduce?"></a>1. What is MapReduce?</h4><ul><li><p>Terms are borrowed from Functional Language (e.g., Lisp)</p></li><li><p>Example: Sum of Square</p><ul><li><p>(map square ‘(1 2 3 4))</p><ul><li>Output: (1 4 9 16)</li><li>processes each record sequentially and independently</li></ul></li><li><p>(reduce + ‘(1 4 9 16))</p><ul><li><p>(+ 16 (+ 9 (+ 4 1)))</p></li><li><p>Output: 30</p></li><li><p>processes set of all records in batches</p></li></ul></li></ul></li><li><p><strong>Map</strong></p><ul><li>Parallelly Process a large number of individual records to generate intermediate key/value pairs</li></ul></li><li><p><strong>Reduce</strong></p><ul><li>Each key assigned to one Reduce</li><li>Parallelly Processes and merges all intermediate values by partitioning keys</li></ul></li></ul><h4 id="2-MapReduce-Scheduling"><a href="#2-MapReduce-Scheduling" class="headerlink" title="2. MapReduce Scheduling"></a>2. MapReduce Scheduling</h4><ul><li><p>Programming MapReduce</p><ul><li><p>Externally: For user</p><ol><li>Write a Map program (short), write a Reduce program (short)</li><li>Submit job: wait for result</li><li>Need to know nothing about parallel/distributed programming</li></ol></li><li><p>Internally: For the Paradigm and Scheduler</p><ol><li>Parallelize Map</li><li>Transfer data from Map to Reduce</li><li>Parallelize Reduce</li><li>Implement Storage for Map input, Map output, Reduce input and Reduce output</li></ol><p>(Ensure that no Reduce starts before all Maps are finished. That is, ensure the <em><strong>barrier</strong></em> between the Map phase and Reduce phase)</p></li></ul></li><li><p>Inside MapReduce</p><ul><li>For the cloud:<ol><li>Parallelize Map: each map task is independent of the other<ul><li>All Map outpur records with same key assigned to same Reduce</li></ul></li><li>Transfer data from Map to Reduce:<ul><li>All Map output records with same key assigned to same Reduce task</li><li>use partitioning function</li></ul></li><li>Parallelize Reduce: each reduce task is independent of the other</li><li>Implement Storage for Map input, Map output, Reduce input, and Reduce output<ul><li>Map input: from distributed file system</li><li>Map output: to local disk (at Map node); uses local file system</li><li>Reduce input: from (multiple) remote disks; uses local file systems</li><li>Reduce output: to distributed file system</li></ul></li></ol></li></ul></li><li><p><strong>The YARN Scheduler</strong></p><ul><li><p>Used in Hadoop 2.x +</p></li><li><p>YARN = Yet Another Resource Negotiator</p></li><li><p>Treats each server as a collection of <em>containers</em></p><ul><li>Container = some CPU + some memory</li></ul></li><li><p>Has 3 main components</p><ul><li><p>Global <em>Resource Manager (RM)</em></p><ul><li>Scheduling</li></ul></li><li><p>Per-server <em>Node Manager (NM)</em></p><ul><li>Daemon and server-specific functions</li></ul></li><li><p>Per-application (job) <em>Application Master (AM)</em></p><ul><li><p>Container negotiation with RM and NMs</p></li><li><p>Detecting task failures of that job</p></li></ul></li></ul></li><li><img src="/2021/09/17/MapReduce-Paradigm/Screen Shot 2021-09-17 at 1.58.30 PM.png" style="zoom:50%;"></li></ul></li></ul><h4 id="3-MapReduce-Fault-Tolerance"><a href="#3-MapReduce-Fault-Tolerance" class="headerlink" title="3. MapReduce Fault-Tolerance"></a>3. MapReduce Fault-Tolerance</h4><ul><li>Server Failure<ul><li>NM heartbeats to RM<ul><li>If server fails, RM lets all affected Ams know, and AMs take action</li></ul></li><li>NM keeps track of each task running at its server<ul><li>If task fails while in-progress, mark the task as idle and restart it</li></ul></li><li>AM heartbeats to RM<ul><li>On failure, RM restarts AM, which then syncs up with its running tasks</li></ul></li></ul></li><li>RM Failure<ul><li>Use old checkpoints and bring up secondary RM</li></ul></li><li>Heartbeats also used to piggyback container requests<ul><li>Avoid extra messages</li></ul></li><li>Slow Servers<ul><li>The slowest machine slows the entire job down</li><li>Dueto Bad Disk, Network Bandwidth, CPU, or Memory</li><li>Keep track of “progress” of each task (% done)</li><li>Perform backup (replicated) execution of straggler task: task considered done when first replica complete. Called <strong>Speculative Execution</strong></li></ul></li><li>Locality<ul><li>Since cloud has hierarchical topology (e.g. racks)</li><li>GFS/HDFS stores 3 replicas of each of chunks<ul><li>Maybe on different racks</li></ul></li><li>Mapreduce attempts to schedule a map task on<ul><li>a machine that contains a replica of corresponding input data, or failing that,</li><li>on the same rack as a machine containing the input, or failing that,</li><li>Anywhere</li></ul></li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> self-study notes </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Cloud Computing </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Introduction to Clouds</title>
       <link href="2021/09/12/Introduction-to-Clouds/"/>
       <url>2021/09/12/Introduction-to-Clouds/</url>
@@ -646,11 +671,11 @@
             
             <tag> 算法 </tag>
             
-            <tag> 数据结构 </tag>
+            <tag> 未完待续 </tag>
             
             <tag> Java </tag>
             
-            <tag> 未完待续 </tag>
+            <tag> 数据结构 </tag>
             
         </tags>
       
@@ -704,11 +729,11 @@
             
             <tag> 算法 </tag>
             
-            <tag> 数据结构 </tag>
+            <tag> 未完待续 </tag>
             
             <tag> Java </tag>
             
-            <tag> 未完待续 </tag>
+            <tag> 数据结构 </tag>
             
         </tags>
       
