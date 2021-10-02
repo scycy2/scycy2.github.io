@@ -240,9 +240,9 @@ mySkills:
     Java:
       background: 'linear-gradient(to right, #FF0066 0%, #FF00CC 100%)'
       percent: 70%
-    JavaScript:
+    Haskell:
       background: 'linear-gradient(to right, #9900FF 0%, #CC66FF 100%)'
-      percent: 50%
+      percent: 80%
     Python:
       background: 'linear-gradient(to right, #2196F3 0%, #42A5F5 100%)'
       percent: 60%
@@ -254,7 +254,7 @@ mySkills:
       percent: 80%
     'Machine Learning':
       background: 'linear-gradient(to right, #FFEB3B 0%, #FFF176 100%)'
-      percent: 50%
+      percent: 60%
 
 # config gallery of my photos in about page.
 # If you don't want to display this `Gallery` content, you can deactivate or delete this configuration.
