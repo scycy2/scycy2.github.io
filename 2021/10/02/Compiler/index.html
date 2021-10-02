@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="Priority Queue, 学习, 算法, java, 记录">
+    <meta name="keywords" content="Compiler, 学习, 算法, java, 记录">
     <meta name="description" content="大学狗的学习之旅">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Priority Queue | 再`見</title>
+    <title>Compiler | 再`見</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -287,12 +287,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/31.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Priority Queue</h1>
+                    <h1 class="description center-align post-title">Compiler</h1>
                 </div>
             </div>
         </div>
@@ -409,12 +409,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Data-Structure/">
-                                <span class="chip bg-color">Data Structure</span>
+                            <a href="/tags/Compiler/">
+                                <span class="chip bg-color">Compiler</span>
                             </a>
                         
-                            <a href="/tags/Algorithm/">
-                                <span class="chip bg-color">Algorithm</span>
+                            <a href="/tags/Continuously-updated/">
+                                <span class="chip bg-color">Continuously updated</span>
                             </a>
                         
                     </div>
@@ -438,28 +438,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-06-02
+                    2021-10-02
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-09-17
+                    2021-10-02
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    356
+                    312
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    2 Min
+                    1 Min
                 </div>
                 
 
@@ -469,58 +469,83 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="1-Definition"><a href="#1-Definition" class="headerlink" title="1. Definition"></a>1. Definition</h4><ul>
-<li>A priority queue is an abstract data type for storing a collection of prioritized elements that supports<ul>
-<li>arbitrary element insertion,</li>
-<li>removal of elements in order of priority (the element with the first priority can be removed at any time)</li>
+                <h3 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h3><h4 id="1-1-What-is-a-Compiler"><a href="#1-1-What-is-a-Compiler" class="headerlink" title="1.1 What is a Compiler?"></a>1.1 What is a Compiler?</h4><ul>
+<li><p>Compilers are <strong>program translators</strong>:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-09-23 at 10.43.33 AM.png" style="zoom:50%;"></li>
+<li><p>To make it easier for human beings to write programs.</p>
+</li>
+</ul>
+<h4 id="1-2-Source-and-Target-Languages"><a href="#1-2-Source-and-Target-Languages" class="headerlink" title="1.2 Source and Target Languages"></a>1.2 Source and Target Languages</h4><ul>
+<li>Large spectrum of possibilities, for example:<ul>
+<li>Source languages:<ul>
+<li>(High-level) programming languages</li>
+<li>Modelling languages</li>
+<li>Document Markup languages</li>
+<li>Database query languages</li>
+</ul>
+</li>
+<li>Target languages:<ul>
+<li>High-level programming language</li>
+<li>Low-level programming language (assembly or machine code, byte code)</li>
 </ul>
 </li>
 </ul>
-<h4 id="2-Priority-Queue-ADT"><a href="#2-Priority-Queue-ADT" class="headerlink" title="2. Priority Queue ADT"></a>2. Priority Queue ADT</h4><ul>
-<li>A priority queue stores a collection of entries</li>
-<li>Each entry is a pair (key, value)</li>
-<li><strong>Entry ADT</strong><ul>
-<li>An <em>entry</em> in a priority queue is simply a key-value pair</li>
-<li>Priority queues store entries to allow for efficient insertion and removal based on keys</li>
+</li>
+</ul>
+<h4 id="1-3-Compilers-vs-Interpreters"><a href="#1-3-Compilers-vs-Interpreters" class="headerlink" title="1.3 Compilers vs. Interpreters"></a>1.3 Compilers vs. Interpreters</h4><p><strong>Intepreters</strong> are another class of translators:</p>
+<ul>
+<li>Compiler: translates a program once for all into target language.</li>
+<li>Interpreter: effectively translates (the used parts of) a source program, on the fly, every time it is run.</li>
+<li>Techniques such as <strong>Just-In-Time Compilation</strong> (JIT) blur this distinction.</li>
+<li>Compilers and interpreters are sometimes used together, e.g., in Java:<ul>
+<li>Java is first complied into Java byte code;</li>
+<li>Then, the byte code is interpreted by a Java Virtual Machine (JVM).</li>
+<li>JVM might use JIT.</li>
 </ul>
 </li>
 </ul>
-<h4 id="3-Sequence-based-Priority-Queue"><a href="#3-Sequence-based-Priority-Queue" class="headerlink" title="3. Sequence-based Priority Queue"></a>3. Sequence-based Priority Queue</h4><ul>
-<li>Implementation with an unsorted list<ul>
-<li><em>insert</em> takes $O(1)$ time since we can insert the item at the beginning or end of the sequence</li>
-<li><em>removeMin</em> and <em>min</em> take $O(n)$ time since we have to traverse the entire sequence to find the smallest key</li>
+<h4 id="1-4-Inside-the-Compiler"><a href="#1-4-Inside-the-Compiler" class="headerlink" title="1.4 Inside the Compiler"></a>1.4 Inside the Compiler</h4><ul>
+<li><p>A compiler is usually composed of several components, such as:</p>
+<ul>
+<li><strong>Scanner</strong>: lexical analysis</li>
+<li><strong>Parser</strong>: syntactic analysis</li>
+<li><strong>Checker</strong>: contextual analysis (e.g. type checking)</li>
+<li><strong>Optimizer</strong>: code improvement</li>
+<li><strong>Code generator</strong></li>
 </ul>
 </li>
-<li>Implementation with a sorted list<ul>
-<li><em>insert</em> takes $O(n)$ time since we have to find the place where to insert the item</li>
-<li><em>removeMin</em> and <em>min</em> take $O(1)$ time, since the smallest key is at the beginning</li>
+<li><img src="/2021/10/02/Compiler/Screen Shot 2021-09-23 at 11.01.40 AM.png" style="zoom:50%;"></li>
+<li><p>The aim of lexical analysis is to:</p>
+<ul>
+<li>verify that the input character sequence is lexically valid.</li>
+<li>group characters into sequence of lexical symbols, i.e., <strong>tokens</strong>.</li>
+<li>discard white space and comments (typically).</li>
 </ul>
 </li>
-</ul>
-<h4 id="4-Priority-Queue-Sorting"><a href="#4-Priority-Queue-Sorting" class="headerlink" title="4. Priority Queue Sorting"></a>4. Priority Queue Sorting</h4><ul>
-<li>Use a priority queue to sort a list of comparable elements<ul>
-<li>Insert the elements one by one with a series of <em>insert</em> operations</li>
-<li>Remove the elements in sorted order with a series of <em>removeMin</em> operations</li>
-</ul>
-</li>
-<li>Selection-Sort<ul>
-<li>Selection-sort is the variation of PQ-sort where the prioroty queue is implemented with an unsorted sequence</li>
-<li>Running time of Selection-sort:<ul>
-<li>Inserting the elements into the priority queue with $n$ insert operations takes $O(n)$ time</li>
-<li>Removing the elements in sorted order from the priority queue with $n$ <em>removeMin</em> operations takes time proportional to $1+2+\cdots + n$</li>
+<li><p>The purpose of syntactic analysis/parsing is to:</p>
+<ul>
+<li>verify that the input program is syntactically valid, i.e., conforms to the <strong>Context Free Grammer</strong> of the language.</li>
+<li>determine the program structure.</li>
+<li>construct a representation of the program reflecting that structure without unnecessary details, usually an <strong>Abstract Syntax Tree</strong> (AST).</li>
 </ul>
 </li>
-<li>Selection-sort runs in $O(n^2)$ time</li>
+<li><p>Contexttual Analysis/Checking Static Semantics:</p>
+<ul>
+<li>Resolve meaning of symbols.</li>
+<li>Report undefined symbols.</li>
+<li>Type checking.</li>
 </ul>
 </li>
-<li>Insertion-Sort<ul>
-<li>Insertion-sort is the variation of PQ-sort where the priority queue is implemented with a sorted sequence</li>
-<li>Running time of Insertion-sort:<ul>
-<li>Inserting the elements into the priority queue with $n$ <em>insert</em> operations takes time proportional to $1+2+\cdots +n$</li>
-<li>Removing the elements in sorted order from the priority queue with a series of $n$ <em>removeMin</em> operations takes $O(n)$ time</li>
+<li><p>Optimization:</p>
+<ul>
+<li>Making the generated code run faster, use less space, energy, etc.</li>
+<li>Almost always <strong>heuristic</strong>: cannot <strong>guarantee</strong> optimal result.</li>
 </ul>
 </li>
-<li>Insertion-sort runs in $O(n^2)$ time</li>
+<li><p>Code Generation:</p>
+<ul>
+<li>Output the appropriate sequence of target language instructions.</li>
+<li>Might involve further <strong>low-level</strong> (target-specific) optimization.</li>
 </ul>
 </li>
 </ul>
@@ -549,7 +574,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://scycy2.github.io/2021/06/02/Priority-Queue/">https://scycy2.github.io/2021/06/02/Priority-Queue/</a>
+                    <a href="https://scycy2.github.io/2021/10/02/Compiler/">https://scycy2.github.io/2021/10/02/Compiler/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -587,12 +612,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Data-Structure/">
-                                    <span class="chip bg-color">Data Structure</span>
+                                <a href="/tags/Compiler/">
+                                    <span class="chip bg-color">Compiler</span>
                                 </a>
                             
-                                <a href="/tags/Algorithm/">
-                                    <span class="chip bg-color">Algorithm</span>
+                                <a href="/tags/Continuously-updated/">
+                                    <span class="chip bg-color">Continuously updated</span>
                                 </a>
                             
                         </div>
@@ -634,45 +659,51 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2021/06/08/Logistic-Regression-Classification/">
+                <a href="/2021/10/02/Compiler/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Logistic Regression -- Classification">
+                        <img src="/medias/featureimages/31.jpg" class="responsive-img" alt="Compiler">
                         
-                        <span class="card-title">Logistic Regression -- Classification</span>
+                        <span class="card-title">Compiler</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Logistic Regression (Classification)
+                            Compilers: Principles, Techniques and Tools
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-08
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-02
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/self-study-notes/" class="post-category">
-                                    self-study notes
+                            <a href="/categories/class-notes/" class="post-category">
+                                    class notes
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Machine-Learning/">
-                        <span class="chip bg-color">Machine Learning</span>
+                    <a href="/tags/Compiler/">
+                        <span class="chip bg-color">Compiler</span>
+                    </a>
+                    
+                    <a href="/tags/Continuously-updated/">
+                        <span class="chip bg-color">Continuously updated</span>
                     </a>
                     
                 </div>
@@ -686,23 +717,23 @@
                 Next&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/06/01/Linear-Regression/">
+                <a href="/2021/09/17/MapReduce-Paradigm/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Linear Regression">
+                        <img src="/medias/featureimages/30.jpg" class="responsive-img" alt="MapReduce Paradigm">
                         
-                        <span class="card-title">Linear Regression</span>
+                        <span class="card-title">MapReduce Paradigm</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Linear Regression
+                            MapReduce (Scheduling, Fault-tolerance)
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-09-17
                             </span>
                         <span class="publish-author">
                             
@@ -719,8 +750,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Machine-Learning/">
-                        <span class="chip bg-color">Machine Learning</span>
+                    <a href="/tags/Cloud-Computing/">
+                        <span class="chip bg-color">Cloud Computing</span>
                     </a>
                     
                 </div>

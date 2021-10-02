@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Compiler</title>
+      <link href="2021/10/02/Compiler/"/>
+      <url>2021/10/02/Compiler/</url>
+      
+        <content type="html"><![CDATA[<h3 id="1-Introduction"><a href="#1-Introduction" class="headerlink" title="1. Introduction"></a>1. Introduction</h3><h4 id="1-1-What-is-a-Compiler"><a href="#1-1-What-is-a-Compiler" class="headerlink" title="1.1 What is a Compiler?"></a>1.1 What is a Compiler?</h4><ul><li><p>Compilers are <strong>program translators</strong>:</p><img src="/2021/10/02/Compiler/Screen Shot 2021-09-23 at 10.43.33 AM.png" style="zoom:50%;"></li><li><p>To make it easier for human beings to write programs.</p></li></ul><h4 id="1-2-Source-and-Target-Languages"><a href="#1-2-Source-and-Target-Languages" class="headerlink" title="1.2 Source and Target Languages"></a>1.2 Source and Target Languages</h4><ul><li>Large spectrum of possibilities, for example:<ul><li>Source languages:<ul><li>(High-level) programming languages</li><li>Modelling languages</li><li>Document Markup languages</li><li>Database query languages</li></ul></li><li>Target languages:<ul><li>High-level programming language</li><li>Low-level programming language (assembly or machine code, byte code)</li></ul></li></ul></li></ul><h4 id="1-3-Compilers-vs-Interpreters"><a href="#1-3-Compilers-vs-Interpreters" class="headerlink" title="1.3 Compilers vs. Interpreters"></a>1.3 Compilers vs. Interpreters</h4><p><strong>Intepreters</strong> are another class of translators:</p><ul><li>Compiler: translates a program once for all into target language.</li><li>Interpreter: effectively translates (the used parts of) a source program, on the fly, every time it is run.</li><li>Techniques such as <strong>Just-In-Time Compilation</strong> (JIT) blur this distinction.</li><li>Compilers and interpreters are sometimes used together, e.g., in Java:<ul><li>Java is first complied into Java byte code;</li><li>Then, the byte code is interpreted by a Java Virtual Machine (JVM).</li><li>JVM might use JIT.</li></ul></li></ul><h4 id="1-4-Inside-the-Compiler"><a href="#1-4-Inside-the-Compiler" class="headerlink" title="1.4 Inside the Compiler"></a>1.4 Inside the Compiler</h4><ul><li><p>A compiler is usually composed of several components, such as:</p><ul><li><strong>Scanner</strong>: lexical analysis</li><li><strong>Parser</strong>: syntactic analysis</li><li><strong>Checker</strong>: contextual analysis (e.g. type checking)</li><li><strong>Optimizer</strong>: code improvement</li><li><strong>Code generator</strong></li></ul></li><li><img src="/2021/10/02/Compiler/Screen Shot 2021-09-23 at 11.01.40 AM.png" style="zoom:50%;"></li><li><p>The aim of lexical analysis is to:</p><ul><li>verify that the input character sequence is lexically valid.</li><li>group characters into sequence of lexical symbols, i.e., <strong>tokens</strong>.</li><li>discard white space and comments (typically).</li></ul></li><li><p>The purpose of syntactic analysis/parsing is to:</p><ul><li>verify that the input program is syntactically valid, i.e., conforms to the <strong>Context Free Grammer</strong> of the language.</li><li>determine the program structure.</li><li>construct a representation of the program reflecting that structure without unnecessary details, usually an <strong>Abstract Syntax Tree</strong> (AST).</li></ul></li><li><p>Contexttual Analysis/Checking Static Semantics:</p><ul><li>Resolve meaning of symbols.</li><li>Report undefined symbols.</li><li>Type checking.</li></ul></li><li><p>Optimization:</p><ul><li>Making the generated code run faster, use less space, energy, etc.</li><li>Almost always <strong>heuristic</strong>: cannot <strong>guarantee</strong> optimal result.</li></ul></li><li><p>Code Generation:</p><ul><li>Output the appropriate sequence of target language instructions.</li><li>Might involve further <strong>low-level</strong> (target-specific) optimization.</li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> class notes </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Compiler </tag>
+            
+            <tag> Continuously updated </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>MapReduce Paradigm</title>
       <link href="2021/09/17/MapReduce-Paradigm/"/>
       <url>2021/09/17/MapReduce-Paradigm/</url>
