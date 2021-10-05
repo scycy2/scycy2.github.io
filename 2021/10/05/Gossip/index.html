@@ -4,7 +4,7 @@
 
 <head>
     <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-    <meta name="keywords" content="Priority Queue, 学习, 算法, java, 记录">
+    <meta name="keywords" content="Gossip, 学习, 算法, java, 记录">
     <meta name="description" content="大学狗的学习之旅">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Priority Queue | 再`見</title>
+    <title>Gossip | 再`見</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -287,12 +287,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/20.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/32.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Priority Queue</h1>
+                    <h1 class="description center-align post-title">Gossip</h1>
                 </div>
             </div>
         </div>
@@ -409,12 +409,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Data-Structure/">
-                                <span class="chip bg-color">Data Structure</span>
-                            </a>
-                        
-                            <a href="/tags/Algorithm/">
-                                <span class="chip bg-color">Algorithm</span>
+                            <a href="/tags/Cloud-Computing/">
+                                <span class="chip bg-color">Cloud Computing</span>
                             </a>
                         
                     </div>
@@ -425,8 +421,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/class-notes/" class="post-category">
-                                class notes
+                            <a href="/categories/self-study-notes/" class="post-category">
+                                self-study notes
                             </a>
                         
                     </div>
@@ -438,28 +434,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>Publish Date:&nbsp;&nbsp;
-                    2021-06-02
+                    2021-10-05
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-09-17
+                    2021-10-05
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    356
+                    0
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    2 Min
+                    1 Min
                 </div>
                 
 
@@ -469,62 +465,7 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="1-Definition"><a href="#1-Definition" class="headerlink" title="1. Definition"></a>1. Definition</h4><ul>
-<li>A priority queue is an abstract data type for storing a collection of prioritized elements that supports<ul>
-<li>arbitrary element insertion,</li>
-<li>removal of elements in order of priority (the element with the first priority can be removed at any time)</li>
-</ul>
-</li>
-</ul>
-<h4 id="2-Priority-Queue-ADT"><a href="#2-Priority-Queue-ADT" class="headerlink" title="2. Priority Queue ADT"></a>2. Priority Queue ADT</h4><ul>
-<li>A priority queue stores a collection of entries</li>
-<li>Each entry is a pair (key, value)</li>
-<li><strong>Entry ADT</strong><ul>
-<li>An <em>entry</em> in a priority queue is simply a key-value pair</li>
-<li>Priority queues store entries to allow for efficient insertion and removal based on keys</li>
-</ul>
-</li>
-</ul>
-<h4 id="3-Sequence-based-Priority-Queue"><a href="#3-Sequence-based-Priority-Queue" class="headerlink" title="3. Sequence-based Priority Queue"></a>3. Sequence-based Priority Queue</h4><ul>
-<li>Implementation with an unsorted list<ul>
-<li><em>insert</em> takes $O(1)$ time since we can insert the item at the beginning or end of the sequence</li>
-<li><em>removeMin</em> and <em>min</em> take $O(n)$ time since we have to traverse the entire sequence to find the smallest key</li>
-</ul>
-</li>
-<li>Implementation with a sorted list<ul>
-<li><em>insert</em> takes $O(n)$ time since we have to find the place where to insert the item</li>
-<li><em>removeMin</em> and <em>min</em> take $O(1)$ time, since the smallest key is at the beginning</li>
-</ul>
-</li>
-</ul>
-<h4 id="4-Priority-Queue-Sorting"><a href="#4-Priority-Queue-Sorting" class="headerlink" title="4. Priority Queue Sorting"></a>4. Priority Queue Sorting</h4><ul>
-<li>Use a priority queue to sort a list of comparable elements<ul>
-<li>Insert the elements one by one with a series of <em>insert</em> operations</li>
-<li>Remove the elements in sorted order with a series of <em>removeMin</em> operations</li>
-</ul>
-</li>
-<li>Selection-Sort<ul>
-<li>Selection-sort is the variation of PQ-sort where the prioroty queue is implemented with an unsorted sequence</li>
-<li>Running time of Selection-sort:<ul>
-<li>Inserting the elements into the priority queue with $n$ insert operations takes $O(n)$ time</li>
-<li>Removing the elements in sorted order from the priority queue with $n$ <em>removeMin</em> operations takes time proportional to $1+2+\cdots + n$</li>
-</ul>
-</li>
-<li>Selection-sort runs in $O(n^2)$ time</li>
-</ul>
-</li>
-<li>Insertion-Sort<ul>
-<li>Insertion-sort is the variation of PQ-sort where the priority queue is implemented with a sorted sequence</li>
-<li>Running time of Insertion-sort:<ul>
-<li>Inserting the elements into the priority queue with $n$ <em>insert</em> operations takes time proportional to $1+2+\cdots +n$</li>
-<li>Removing the elements in sorted order from the priority queue with a series of $n$ <em>removeMin</em> operations takes $O(n)$ time</li>
-</ul>
-</li>
-<li>Insertion-sort runs in $O(n^2)$ time</li>
-</ul>
-</li>
-</ul>
-
+                
             </div>
             <hr/>
 
@@ -549,7 +490,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://scycy2.github.io/2021/06/02/Priority-Queue/">https://scycy2.github.io/2021/06/02/Priority-Queue/</a>
+                    <a href="https://scycy2.github.io/2021/10/05/Gossip/">https://scycy2.github.io/2021/10/05/Gossip/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -587,12 +528,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Data-Structure/">
-                                    <span class="chip bg-color">Data Structure</span>
-                                </a>
-                            
-                                <a href="/tags/Algorithm/">
-                                    <span class="chip bg-color">Algorithm</span>
+                                <a href="/tags/Cloud-Computing/">
+                                    <span class="chip bg-color">Cloud Computing</span>
                                 </a>
                             
                         </div>
@@ -634,75 +571,28 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;Previous</div>
+                <i class="far fa-dot-circle"></i>&nbsp;Current
+            </div>
             <div class="card">
-                <a href="/2021/06/08/Logistic-Regression-Classification/">
+                <a href="/2021/10/05/Gossip/">
                     <div class="card-image">
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="Logistic Regression -- Classification">
+                        <img src="/medias/featureimages/32.jpg" class="responsive-img" alt="Gossip">
                         
-                        <span class="card-title">Logistic Regression -- Classification</span>
+                        <span class="card-title">Gossip</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Logistic Regression (Classification)
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-08
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/self-study-notes/" class="post-category">
-                                    self-study notes
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Machine-Learning/">
-                        <span class="chip bg-color">Machine Learning</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                Next&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/06/01/Linear-Regression/">
-                    <div class="card-image">
-                        
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Linear Regression">
-                        
-                        <span class="card-title">Linear Regression</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Linear Regression
+                            Gossip Protocol (Multicast Problem)
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-05
                             </span>
                         <span class="publish-author">
                             
@@ -716,11 +606,64 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Machine-Learning/">
-                        <span class="chip bg-color">Machine Learning</span>
+                    <a href="/tags/Cloud-Computing/">
+                        <span class="chip bg-color">Cloud Computing</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                Next&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/10/02/Compiler/">
+                    <div class="card-image">
+                        
+                        <img src="/medias/featureimages/31.jpg" class="responsive-img" alt="Compiler">
+                        
+                        <span class="card-title">Compiler</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            Compilers: Principles, Techniques and Tools
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/class-notes/" class="post-category">
+                                    class notes
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Compiler/">
+                        <span class="chip bg-color">Compiler</span>
+                    </a>
+                    
+                    <a href="/tags/Continuously-updated/">
+                        <span class="chip bg-color">Continuously updated</span>
                     </a>
                     
                 </div>
