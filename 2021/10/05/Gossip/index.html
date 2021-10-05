@@ -448,7 +448,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    0
+                    300
                 </div>
                 
 
@@ -465,7 +465,49 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h4 id="1-Multicast-Problem"><a href="#1-Multicast-Problem" class="headerlink" title="1. Multicast Problem"></a>1. Multicast Problem</h4><ul>
+<li><p>Multicast</p>
+<img src="/2021/10/05/Gossip/Screen Shot 2021-10-05 at 12.06.15 PM.png" style="zoom:50%;"></li>
+<li><p>Fault-Tolerance and Scalability</p>
+<img src="/2021/10/05/Gossip/Screen Shot 2021-10-05 at 12.12.36 PM.png" style="zoom:50%;">
+
+<ul>
+<li>The protocal that is executed at the individual nodes, as well as the senders, what is known as the multicast protocol.</li>
+<li>The multicast protocal typically sits at the application level, meaning that is does not deal with the underlying network. IP multicast is what’s available in the underlying network, typically this is implemented in routers and switches.</li>
+</ul>
+</li>
+<li><p>Centralized</p>
+<img src="/2021/10/05/Gossip/Screen Shot 2021-10-05 at 12.18.26 PM.png" style="zoom:50%;">
+
+<ul>
+<li>Problem 1: when it comes to fault tolerance, if the sender fails when it’s halfway through its for loop, essentially, only half the receivers would have received the multicast.</li>
+<li>Problem 2: the overhead on the sender is very high. Imagine a group where you have thousands of nodes in the group, and the sender has to send a lot of messages (increases the latency). The average time of for a reveiver to receive a multicast could be as high as $O(N)$.</li>
+</ul>
+</li>
+<li><p>Tree-based</p>
+<img src="/2021/10/05/Gossip/Screen Shot 2021-10-05 at 12.25.08 PM.png" style="zoom:50%;">
+
+<ul>
+<li>Protocols develop a spanning tree among the nodes or the processes in the group.</li>
+<li>The latency for a message to reach any of the nodes in the group is $O(\log (N))$.</li>
+<li>The overhead on each member in the group, both the sender and any of the receivers, is constant especially if the number of children is constant.</li>
+<li>Problem 1: set up and maintain the tree. When load failures happen, the nodes in the system might actually not receive multicast for a while. </li>
+<li>Use either acknowledgments (ACKs) or negative acknowledgments (NAKs) to repair multicasts not received.</li>
+<li>SRM (Scalable Reliable Multicast)<ul>
+<li>Uses NAKs</li>
+<li>But adds random delays, and uses exponential backoff to avoid NAK storms</li>
+</ul>
+</li>
+<li>RMTP (Reliable Multicast Transport Protocol)<ul>
+<li>Uses ACKs</li>
+<li>But ACKs only sent to designated receivers, which then re-transmit missing multicasts</li>
+</ul>
+</li>
+<li>These protocols still cause an $O(N)$ ACK/NCK overhead</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-The-Gossip-Protocol"><a href="#2-The-Gossip-Protocol" class="headerlink" title="2. The Gossip Protocol"></a>2. The Gossip Protocol</h4>
             </div>
             <hr/>
 
@@ -898,7 +940,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">37k</span>&nbsp;字
+                class="white-color">37.3k</span>&nbsp;字
             
             
             
