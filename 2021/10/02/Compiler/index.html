@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 <body>
@@ -452,7 +452,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.5k
+                    1.6k
                 </div>
                 
 
@@ -782,6 +782,22 @@
 <li>Abstract syntax: <strong>tree</strong></li>
 </ul>
 <p>(Ways to describe <strong>graphical</strong> concrete syntax are more varied)</p>
+<h4 id="2-17-Concrete-AST-Representation"><a href="#2-17-Concrete-AST-Representation" class="headerlink" title="2.17 Concrete AST Representation"></a>2.17 Concrete AST Representation</h4><p>Algebraic datatypes (as in Haskell) allow a direct way to represent the abstract syntax:</p>
+<ul>
+<li>Each non-terminal is mapped to a <strong>type</strong></li>
+<li>Each label is mapped to a <strong>constructor</strong> for the corresponding type</li>
+<li>The constructors get one argument for each non-terminal and “variable” terminal in the RHS of the production</li>
+<li>Sequences are represented by lists</li>
+<li>Options are represented by values of type $Maybe$</li>
+<li>“Literal” terminals are ignored</li>
+</ul>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-10-20 at 3.24.08 PM.png" style="zoom:50%;">
+
+<img src="/2021/10/02/Compiler/Screen Shot 2021-10-20 at 3.24.13 PM.png" style="zoom:50%;">
+
+<p>One may use labeled fields. It is also possible to include source position for error reporting to facilitate debugging:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-10-20 at 3.24.19 PM.png" style="zoom:50%;">
+
 
             </div>
             <hr/>
@@ -1213,7 +1229,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">38.4k</span>&nbsp;字
+                class="white-color">38.5k</span>&nbsp;字
             
             
             
