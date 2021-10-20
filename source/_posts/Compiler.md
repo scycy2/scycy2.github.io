@@ -303,3 +303,22 @@ Key points:
 
 (Ways to describe **graphical** concrete syntax are more varied)
 
+#### 2.17 Concrete AST Representation
+
+Algebraic datatypes (as in Haskell) allow a direct way to represent the abstract syntax:
+
+* Each non-terminal is mapped to a **type**
+* Each label is mapped to a **constructor** for the corresponding type
+* The constructors get one argument for each non-terminal and "variable" terminal in the RHS of the production
+* Sequences are represented by lists
+* Options are represented by values of type $Maybe$
+* "Literal" terminals are ignored
+
+<img src="Compiler/Screen Shot 2021-10-20 at 3.24.08 PM.png" style="zoom:50%;" />
+
+<img src="Compiler/Screen Shot 2021-10-20 at 3.24.13 PM.png" style="zoom:50%;" />
+
+One may use labeled fields. It is also possible to include source position for error reporting to facilitate debugging:
+
+<img src="Compiler/Screen Shot 2021-10-20 at 3.24.19 PM.png" style="zoom:50%;" />
+
