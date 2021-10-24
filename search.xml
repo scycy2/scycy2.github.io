@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>Convolutional Neural Networks</title>
+      <link href="2021/10/24/Convolutional-Neural-Networks/"/>
+      <url>2021/10/24/Convolutional-Neural-Networks/</url>
+      
+        <content type="html"><![CDATA[<h4 id="1-Edge-Detection"><a href="#1-Edge-Detection" class="headerlink" title="1. Edge Detection"></a>1. Edge Detection</h4><ul><li><p>Vertical Edge Detection</p><img src="/2021/10/24/Convolutional-Neural-Networks/Screen Shot 2021-10-24 at 4.36.38 PM.png" style="zoom:50%;"></li><li><p>Vertical and Horizontal Edge Detection</p><img src="/2021/10/24/Convolutional-Neural-Networks/Screen Shot 2021-10-24 at 4.38.54 PM.png" style="zoom:50%;"><ul><li>By using different filter kernel.</li></ul></li></ul><h4 id="2-Padding"><a href="#2-Padding" class="headerlink" title="2. Padding"></a>2. Padding</h4><ul><li>If there is no padding:<ul><li>shrink output</li><li>throw away info from edge</li></ul></li><li><strong>Zero-Padding</strong></li></ul><img src="/2021/10/24/Convolutional-Neural-Networks/apple/Desktop/selfstudy/CNN/pics/Screen Shot 2021-10-24 at 4.41.20 PM.png" style="zoom:50%;"><ul><li>Suppose input image is $n\times n$, filter is $f\times f$, padding is $p$, then the output is $(n+2p-f+1)\times (n+2p-f+1)$</li><li><strong>Valid and Same convolutions</strong><ul><li><strong>Valid</strong>: no padding, output $(n-f+1)*(n-f+1)$</li><li><strong>Same</strong>: Pad so that output size is the same as the input size<ul><li>$n+2p-f+1=n \Rightarrow p=\frac{f-1}{2}$</li><li>$f$ is usually odd</li></ul></li></ul></li></ul><h4 id="3-Strided-convolutions"><a href="#3-Strided-convolutions" class="headerlink" title="3. Strided convolutions"></a>3. Strided convolutions</h4><img src="/2021/10/24/Convolutional-Neural-Networks/Screen Shot 2021-10-24 at 4.48.50 PM.png" style="zoom:50%;"><ul><li><p>$n\times n$ * $f\times f$</p><p>padding $p$, stride $s$</p><p>Output size: $\lfloor\frac{n+2p-f}{s}+1\rfloor \times \lfloor\frac{n+2p-f}{s}+1\rfloor$</p></li></ul><h4 id="4-Convolutions-over-volumes"><a href="#4-Convolutions-over-volumes" class="headerlink" title="4. Convolutions over volumes"></a>4. Convolutions over volumes</h4><ul><li><p>Convolutions on RGB images</p><img src="/2021/10/24/Convolutional-Neural-Networks/Screen Shot 2021-10-24 at 4.54.49 PM.png" style="zoom:50%;"><img src="/2021/10/24/Convolutional-Neural-Networks/Screen Shot 2021-10-24 at 4.57.05 PM.png" style="zoom:50%;"></li><li><p>Summary:</p><p>$n\times n \times n_c$ * $f\times f \times n_c$ $\Rightarrow$ $(n-f+1) \times (n-f+1) \times n_c’$</p><p>where $n_c’$ is the number of filters</p></li></ul><h4 id="5-One-layer-of-a-convolutional-network"><a href="#5-One-layer-of-a-convolutional-network" class="headerlink" title="5. One layer of a convolutional network"></a>5. One layer of a convolutional network</h4><ul><li><p>one example:</p><p>input image $n\times n \times C$ $\rightarrow$ 10 filters $\rightarrow$ Relu(convolutional output $\lfloor\frac{n+2p-f}{s}+1\rfloor \times \lfloor\frac{n+2p-f}{s}+1\rfloor \times n_c’$ + bias $b$)</p><img src="/2021/10/24/Convolutional-Neural-Networks/Screen Shot 2021-10-24 at 5.20.02 PM.png" style="zoom:50%;"></li><li><p>Number of parameters in one layer</p><p>If you have 10 filters that are 3 x 3 x 3 in one layer of a neural network, how many parameters does that layer have?</p><img src="/2021/10/24/Convolutional-Neural-Networks/Screen Shot 2021-10-24 at 5.21.12 PM.png" style="zoom:50%;"></li><li><p>Summary of notation</p><p>If layer $l$ is a convolution layer:<br>$$<br>\begin{align*}<br>&amp; f^{[l]} = \text{filter size}\<br>&amp; p^{[l]} = \text{padding}\<br>&amp; s^{[l]} = \text{stride}\<br>&amp; n_c^{[l]} = \text{number of filters}\<br>&amp; \text{Each filter is: } f^{[l]} \times f^{[l]} \times n_c^{[l-1]}\<br>&amp; \text{Activations: } a^{[l]} \rightarrow n_H^{[l]} \times n_W^{[l]} \times n_c^{[l]}\<br>&amp; \text{Weights: } f^{[l]} \times f^{[l]} \times n_c^{[l-1]} \times n_c^{[l]}\<br>&amp; \text{bias: } (1,1,1,n_c^{[l]})\<br>&amp; \text{Input: } n_H^{[l-1]} \times n_W^{[l-1]}\times n_c^{[l-1]}\<br>&amp; \text{Output: } n_H^{[l-1]} \times n_W^{[l-1]}\times n_c^{[l]}\<br>\end{align*}<br>$$</p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> self-study notes </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Machine Learning </tag>
+            
+            <tag> Computer Vision </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Gossip</title>
       <link href="2021/10/05/Gossip/"/>
       <url>2021/10/05/Gossip/</url>
@@ -723,11 +750,11 @@
             
             <tag> 算法 </tag>
             
-            <tag> 数据结构 </tag>
+            <tag> 未完待续 </tag>
             
             <tag> Java </tag>
             
-            <tag> 未完待续 </tag>
+            <tag> 数据结构 </tag>
             
         </tags>
       
@@ -781,11 +808,11 @@
             
             <tag> 算法 </tag>
             
-            <tag> 数据结构 </tag>
+            <tag> 未完待续 </tag>
             
             <tag> Java </tag>
             
-            <tag> 未完待续 </tag>
+            <tag> 数据结构 </tag>
             
         </tags>
       
