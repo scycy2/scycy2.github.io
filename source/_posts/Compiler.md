@@ -652,8 +652,6 @@ Idea:
 
 * Thus, it is OK to have two or more simultaneously valid complete items, as long as their lookahead sets are ***disjoint***.
 
-<h2 align='center'>Syntactic Analysis: Parser Generators</h2>
-
 ### 4. Syntactic Analysis: Parser Generators
 
 #### 4.1 Parser Genereators
