@@ -445,21 +445,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-10-20
+                    2021-11-10
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    1.6k
+                    4.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    9 Min
+                    29 Min
                 </div>
                 
 
@@ -798,6 +798,454 @@
 <p>One may use labeled fields. It is also possible to include source position for error reporting to facilitate debugging:</p>
 <img src="/2021/10/02/Compiler/Screen Shot 2021-10-20 at 3.24.19 PM.png" style="zoom:50%;">
 
+<h3 id="3-Syntactic-Analysis-Bottom-Up-Parsing"><a href="#3-Syntactic-Analysis-Bottom-Up-Parsing" class="headerlink" title="3. Syntactic Analysis: Bottom-Up Parsing"></a>3. Syntactic Analysis: Bottom-Up Parsing</h3><h4 id="3-1-Parsing-Strategies"><a href="#3-1-Parsing-Strategies" class="headerlink" title="3.1 Parsing Strategies"></a>3.1 Parsing Strategies</h4><ul>
+<li>There are two basic strategies for parsing:<ol>
+<li><em><strong>Top-down parsing</strong></em>:<ul>
+<li>Attempts to construct the parse tree <em>from the root downward</em>.</li>
+<li>Traces out a <em><strong>leftmost derivation</strong></em>.</li>
+</ul>
+</li>
+<li><em><strong>Bottom-up parsing</strong></em>:<ul>
+<li>Attempts to construct the parse tree <em>from the leaves working up toward the root</em>.</li>
+<li>Traces out a <em><strong>rightmost derivation in reverse</strong></em>.</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h4 id="3-2-Top-Down-Leftmost-Derivation"><a href="#3-2-Top-Down-Leftmost-Derivation" class="headerlink" title="3.2 Top-Down: Leftmost Derivation"></a>3.2 Top-Down: Leftmost Derivation</h4><p> Consider the grammar:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-10-20 at 4.26.37 PM.png" style="zoom:50%;">
+
+<p>Call sequence for predictive parser on <em>abccde</em>:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-10-20 at 4.27.32 PM.png" style="zoom:50%;">
+
+<h4 id="3-3-Bottom-Up-Parsing"><a href="#3-3-Bottom-Up-Parsing" class="headerlink" title="3.3 Bottom-Up Parsing"></a>3.3 Bottom-Up Parsing</h4><ul>
+<li>In practice, bottom-up parsers are more common, because they are more efficient.</li>
+<li>The machinery behind them, however, is significantly more complicated than that of top-down parsers.</li>
+<li>Thus, it is advisable to use <strong>parse generator tools</strong>, instead of coding parsers by hand in conventional programming languages.</li>
+<li>Using these specialized tools makes the process a lot simpler, <strong>yet it is important to acquire some basic knowledge of the operations involved in bottom-up parsing.</strong></li>
+</ul>
+<h4 id="3-4-Shift-Reduce-Parsing"><a href="#3-4-Shift-Reduce-Parsing" class="headerlink" title="3.4 Shift-Reduce Parsing"></a>3.4 Shift-Reduce Parsing</h4><p>There are many different approaches to bottom-up parsing, but most implementations are based on <strong>shift-reduce parsing</strong>.</p>
+<p>A shift-reduce parser:</p>
+<ul>
+<li>performs a single left-to-right pass over the input without any backtracking.</li>
+<li>works from leaves toward the root of the parse tree.</li>
+<li>has two basic actions:<ul>
+<li><em><strong>Shift</strong></em> (read) next terminal symbol</li>
+<li><em><strong>Reduce</strong></em> a sequence of terminals (that have been read already) and previously reduced nonterminals, corresponding to the right-hand side (RHS) of a production, to left-hand side (LHS) nonterminal of that production.</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-5-Bottom-Up-A-Simple-Example"><a href="#3-5-Bottom-Up-A-Simple-Example" class="headerlink" title="3.5 Bottom-Up: A Simple Example"></a>3.5 Bottom-Up: A Simple Example</h4><ul>
+<li><p>Consider the context-free grammar (CFG) $G$ with productions:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-10-21 at 1.50.09 PM.png" style="zoom:50%;">
+
+<p>for simple arithmetic expressions, with:</p>
+<ul>
+<li>a single terminal ‘<em>a</em>‘</li>
+<li>two operations + and *</li>
+<li>all ending in $<ul>
+<li>(This makes the example easier to handle.)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>The aim is to design a pushdown automaton (PDA) $NB(G)$ that accepts the language $L(G)$, effectively performing a bottom-up parsing, and producing rightmost derivations in reverse.</p>
+</li>
+<li><p>In the nondeterministic bottom-up PDA $NB(G)$, the two types of moves, other than the initial move and the moves to accept, are shifts and reductions.</p>
+</li>
+<li><p>There are five possible reductions in the PDA $NB(G)$, two requiring only one move and three requiring two or more.</p>
+</li>
+<li><p>Nondeterminism arises in two ways: first, in choosing whether to shift or to reduce, and second, in making a choice of reductions if more than one is possible.</p>
+</li>
+<li><p>There is only one correct move at each step, and $G$ turns out to be a grammar for which the combination of the input symbol and stack symbol will allow us to find the correct move.</p>
+</li>
+<li><p>One basic principle is that, if there is a reduction that should be made, then it should be made as soon as it is possible.</p>
+</li>
+<li><p>For example, if ‘$a$’ is on top of the stack, then a reduction, not a shift, is the move to make.</p>
+<ul>
+<li>Any symbol that goes onto the stack, will have to be removed later in order to execute the reduction of ‘$a$’ or $T*a$ to $T$.</li>
+<li>The only way to remove it is to do another reduction</li>
+<li>and because the derivation tree is built from the bottom up, any subsequent reduction to construct the portion of the tree involving the ‘<em>a</em>‘ node needs its parent, not the node itself.</li>
+</ul>
+</li>
+<li><p>Another principle that is helpful is that, in the moves made by $NB(G)$, the current string in the derivation being simulated contains the reverse of the stack contents (not including $Z_0$) followed by the remaining input.</p>
+</li>
+<li><p>We can use this to answer the question of which reduction to execute if there seems to be a choice:</p>
+<ul>
+<li>If $a * T$ (the reverse of $T<em>a$) were on top of the stack, and we simply reduced $a$ to $T$, then the current string in a rightmost derivation would contain the substring $T</em>T$, which is never possible.</li>
+<li>Similarly, if $T<em>S_1$ (the reverse of $S_1</em>T$) were on top, then reducing $T$ to $S_1$ cannot be correct.</li>
+</ul>
+</li>
+<li><p>These two situations can summarized by saying that <strong>when a reduction is executed, the longest possible string should be removed from the stack during the reduction.</strong></p>
+</li>
+<li><p>Essentially, the only remaining question is what to do when $T$ is the top stack symbol: shift or reduce?</p>
+</li>
+<li><p>We can answer this by considering the possibilities for the next input symbol.</p>
+<ul>
+<li>If it is $+$, then this $+$ should eventually be part of the expression $S_1 + T$ (in reverse) on the stack, so that $S_1 + T$ can be reduced to $S_1$; therefore, the non-terminal $T$ should eventually be reduced to $S_1$, and so the time to do it is now.</li>
+<li>Similarly, if the next input is $$$, then the non-terminal $T$ should be reduced to $S_1$, so that $S_1$$ can be reduced to $S$.</li>
+<li>The only other symbol that can follow $T$ in a rightmost derivation is $<em>$, and $</em>$ cannot follow any other symbol; therefore, $*$ should be shifted onto the stack.</li>
+</ul>
+</li>
+</ul>
+<p>With these observations, we can formulate the rules that the deterministic bottom-up PDA should follow in choosing its moves:</p>
+<ol>
+<li>If the top stack symbol is $Z_0$, $S_1$, $+$, or $*$, shift the next input symbol to the stack. (None of these four symbols is the rightmost symbol in the right side of a production.)</li>
+<li>If the top stack symbol is $$$, reduce $S_1$$ to $S$.</li>
+<li>If the top stack symbol is ‘$a$’, reduce $T*a$ to $T$ if possible; otherwise reduce $a$ to $T$.</li>
+<li>If the top stack symbol is $T$, then reduce (to $S_1$) if the next input is $+$ or $$$, otherwise shift.</li>
+<li>If the top stack symbol is $S$, then pop it from the stack; if $Z_0$ is the next top symbol, accept, otherwise reject.</li>
+</ol>
+<ul>
+<li><p>All these rules, except rule 4, are easily incorporated into a transition table for a deterministic pushdown automaton (DPDA), but the fourth may require a little clarification:</p>
+<ul>
+<li>If the PDA sees the combination ($<em>$, $T$) of next input symbol and stack symbol, then it shifts $</em>$ onto the stack.</li>
+<li>If it sees ($+$, $T$) or ($$$, $T$), then the moves it makes are the ones that carry out the appropriate reduction, and then shift the input symbol onto the stack.</li>
+</ul>
+</li>
+<li><p>The point is that “seeing” ($+$, $T$), for example, implies reading the $+$, and the PDA then uses auxiliary states to remember that after it has performed a reduction, it should place $+$ on the stack.</p>
+</li>
+<li><p>We now have the essential specifications for a DPDA.</p>
+</li>
+<li><p>Like the non-deterministic PDA $NB(G)$, the moves it makes in accepting a string simulate, <strong>in reverse</strong>, the steps in a <strong>rightmost derivation</strong> of that string.</p>
+</li>
+<li><p>and in this sense, our DPDA serves as a bottom-up parser for $G$.</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-10-25 at 2.59.01 PM.png" style="zoom:50%;"></li>
+<li><p>The moves for the DPDA and the input string $a+a*a$$ are shown in the table above.</p>
+</li>
+<li><p>For each configuration, we show the rule (from the set of five rules) that the PDA used to get there, and, in the case of rule 4, whether the move was a shift or a reduction.</p>
+</li>
+<li><p>As mentioned before, the details of the shift-reduce theory are quite involved.</p>
+</li>
+<li><p>The previous example serves as a relatively simpler starting point for obtaining a general understanding of the method.</p>
+</li>
+<li><p>In what follows, we will discuss some details that are helpful in understanding the general concepts.</p>
+</li>
+<li><p>This will make it easier to understand how to use parser generators.</p>
+</li>
+</ul>
+<h4 id="3-6-Bottom-Up-Rightmost-Derivation-in-Reverse"><a href="#3-6-Bottom-Up-Rightmost-Derivation-in-Reverse" class="headerlink" title="3.6 Bottom-Up: Rightmost Derivation in Reverse"></a>3.6 Bottom-Up: Rightmost Derivation in Reverse</h4><p>Consider (again) the grammar:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-10-20 at 4.26.37 PM.png" style="zoom:50%;">
+
+<p>The reduction steps for the sentence $abccde$ to $S$:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-10-25 at 3.11.18 PM.png" style="zoom:50%;">
+
+<p>trace out a rightmost derivation in reverse:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-10-25 at 3.11.49 PM.png" style="zoom:50%;">
+
+<p>How can we know when and what to reduce?</p>
+<p><strong>Idea</strong>:</p>
+<ul>
+<li>Construct a deterministic finite automaton (DFA) in which:<ul>
+<li><strong>each state is labeled by “all possibilities”</strong>, considering the input and reductions thus far.</li>
+</ul>
+</li>
+<li>A bit similar to the subset construction that we had for converting a non-deterministic finite automaton (NFA) to an equivalent DFA.</li>
+<li>Whenever reduction is possible,<ul>
+<li>if there is only one possible reduction, then it is clear what to do.</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-7-LL-LR-and-LALR-parsing"><a href="#3-7-LL-LR-and-LALR-parsing" class="headerlink" title="3.7 LL, LR, and LALR parsing"></a>3.7 LL, LR, and LALR parsing</h4><p>Three important classes of parsing methods:</p>
+<ul>
+<li><em><strong>LL(k):</strong></em><ul>
+<li>input scanned left to right</li>
+<li>Leftmost derivation</li>
+<li>$k$ symbols of lookahead</li>
+</ul>
+</li>
+<li><em><strong>LR(k):</strong></em><ul>
+<li>input scanned left to right</li>
+<li>Rightmost derivation in reverse</li>
+<li>$k$ symbols of lookahead</li>
+</ul>
+</li>
+<li><em><strong>LALR(k):</strong></em> Look Ahead <em><strong>LR</strong></em>, simplified LR parsing</li>
+</ul>
+<p>By extension, the classes of grammars these methods can handle are also classified as LL($k$), LR($k$), and LALR($k$).</p>
+<h4 id="3-8-Why-study-LR-and-LALR-parsing"><a href="#3-8-Why-study-LR-and-LALR-parsing" class="headerlink" title="3.8 Why study LR and LALR parsing?"></a>3.8 Why study LR and LALR parsing?</h4><ul>
+<li>These methods handle a wide class of grammars of <strong>practical significance</strong>.</li>
+<li>In particular, <strong>left- and right-recursive grammars</strong><ul>
+<li>but left-recursive needs smaller stack.</li>
+</ul>
+</li>
+<li>LALR is a good compromise between <strong>expressiveness and space cost</strong> of implementation.</li>
+<li>Consequently, <strong>many parser generator tools are based on LALR</strong>.</li>
+<li>We will mainly study LR(0) parsing because:<ul>
+<li>it is the simplest,</li>
+<li>yet, it used the same fundamental principles as LR(1) and LALR(1).</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-9-Shift-Reduce-Parsing-Theory"><a href="#3-9-Shift-Reduce-Parsing-Theory" class="headerlink" title="3.9 Shift-Reduce Parsing Theory"></a>3.9 Shift-Reduce Parsing Theory</h4><p>Terminology:</p>
+<p>An <strong>item</strong> for a CFG is a production with a dot anywhere in the RHS.</p>
+<p>For example, the items for the grammar</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-10-25 at 3.32.33 PM.png" style="zoom:50%;">
+
+<p>are</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-10-25 at 3.33.05 PM.png" style="zoom:50%;">
+
+<ul>
+<li><p>Given a CFG $G=(N,T,P,A)$, a string $\phi \in (N\cup T)^*$ is a <strong>sentantial form</strong> for $G$ iff $S\mathop{\stackrel*\Rightarrow}_{G} \phi$.</p>
+</li>
+<li><p>A <strong>right-sentential form</strong> is a sentential form that can be derived by a <strong>rightmost derivation</strong>.</p>
+</li>
+<li><p>A <strong>handle</strong> of a right-sentential form $\phi = \delta \alpha w$ is the substring $\alpha$ such that:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-10-26 at 1.49.12 PM.png" style="zoom:50%;">
+
+<p>where $\alpha, \delta, \phi \in (N\cup T)^*$, and $w\in T^*$.</p>
+<ul>
+<li>The grammar must have the production $A\rightarrow \alpha$.</li>
+</ul>
+</li>
+</ul>
+<p>For example, consider the grammar:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-10-20 at 4.26.37 PM.png" style="zoom:50%;">
+
+<p>The following is a rightmost derivation:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-10-26 at 1.53.15 PM.png" style="zoom:50%;">
+
+<ul>
+<li>$aABe$, $aAde$ and $abcAde$ are right-sentential forms.</li>
+<li>Handle for each? $aABe$, $d$, and $bcA$, respectively.</li>
+</ul>
+<p>For an unambiguous grammar, the rightmost derivation is unique. Thus, we can talk about <em>“the handle”</em> rather than merely “a handle”.</p>
+<ul>
+<li><p><em>Finding handles is a central issue in bottom-up parsing.</em></p>
+</li>
+<li><p>Efficient handle finding is the key to efficient bottom-up parsing.</p>
+</li>
+<li><p>A <strong>viable prefix</strong> of a right-sentential form $\phi$ is any <strong>prefix $\gamma$</strong> of $\phi$ ending <strong>no farther</strong> right than the right end of the handle of $\phi$.</p>
+</li>
+<li><p>An item $A\rightarrow \alpha · \beta$ is <strong>valid</strong> for a viable prefix $\gamma$ if there is a rightmost derivation</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-10-26 at 2.00.45 PM.png" style="zoom:50%;">
+
+<p>and $\delta \alpha = \gamma$.</p>
+</li>
+<li><p>An item in <strong>complete</strong> if the <strong>dot is the rightmost</strong> symbol in the item.</p>
+</li>
+<li><p>The right-sentential form $abcAde$ has handle $bcA$.</p>
+</li>
+<li><p>Viabel prefixes? $\epsilon, a, ab, abc, abcA$.</p>
+</li>
+</ul>
+<p>Last derivation step <img src="/2021/10/02/Compiler/Screen Shot 2021-10-26 at 2.07.33 PM.png" style="zoom:50%;"> by production $A\rightarrow bcA$, indicating that the handle is $bcA$.</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-10-26 at 2.08.34 PM.png" style="zoom:50%;">
+
+<p>Knowing the valid items for a viable prefix allows us to find a rightmost derivation in reverse:</p>
+<ul>
+<li>If $A\rightarrow \alpha·$ is a <strong>complete</strong> valid item for a viable prefix $\gamma = \delta \alpha$ of a right-sentential form $\gamma w$, then it <strong>appears</strong> that $A\rightarrow \alpha$ can be used at the last step, and that the previous right-sentential form is $\delta A w$.</li>
+<li>If this is <strong>always the case</strong> for a CFG $G$, then for any $x\in L(G)$, since $x$ is a right-sentential form, previous right-sentential forms can be determined until $S$ is reached, giving a right-most derivation of $x$.</li>
+</ul>
+<p>If $A\rightarrow \alpha·$ is a complete valid item for a viable prefix $\gamma = \delta \alpha$, we only know that it may be possible to use $A\rightarrow \alpha$ to derive $\gamma w$ from $\delta Aw$.</p>
+<p>For example:</p>
+<ul>
+<li><p>$A\rightarrow \alpha·$ may be valid because of a <strong>different</strong> rightmost derivation <img src="/2021/10/02/Compiler/Screen Shot 2021-10-26 at 2.18.08 PM.png" style="zoom:50%;"></p>
+</li>
+<li><p>There could be <strong>two or more complete items</strong> valid for $\gamma$.</p>
+</li>
+<li><p>There could be a handle of $\gamma w$ that <strong>includes symbols of $w$</strong>.</p>
+</li>
+</ul>
+<h4 id="3-10-LR-0-Parsing"><a href="#3-10-LR-0-Parsing" class="headerlink" title="3.10 LR(0) Parsing"></a>3.10 LR(0) Parsing</h4><ul>
+<li><p><strong>LR(0) grammar:</strong></p>
+<p>A CFG for which knowing a complete valid item is enough to determine the previous right-sentential form.</p>
+</li>
+<li><p>The set of viable prefixes for any CFG is <strong>regular</strong>!</p>
+<p>(A bit unexpected: the language of a CFG is not regular in general.)</p>
+</li>
+<li><p>We can develop an <strong>efficient parser</strong> for the LR(0) CFG based on a <strong>DFA for recognizing viable prefixes and their valid items</strong>.</p>
+</li>
+<li><p>The <strong>states of the DFA</strong> are <strong>sets of items</strong> valid for a recognized viable prefix.</p>
+</li>
+</ul>
+<p>A DFA recognizing viable prefixes for thr CFG</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-10-20 at 4.26.37 PM.png" style="zoom:50%;">
+
+<img src="/2021/10/02/Compiler/Screen Shot 2021-10-26 at 2.30.28 PM.png" style="zoom:50%;">
+
+<p>Drawing conventions for “LR DFAs”:</p>
+<ul>
+<li>For the purpose of recognizing the set of viable prefixes, all drawn states are considered accepting.</li>
+<li>Error transitions and error states are not drawn.</li>
+</ul>
+<p>Recall that:</p>
+<ul>
+<li>the <strong>viable prefixes</strong> for the right-sentential form $abcAde$ are $\epsilon, a, ab, abc, abcA$. They are indeed all recognized by the DFA (all states are considered accepting).</li>
+<li>the item $A\rightarrow bc·A$ is valid for the viable prefix $abc$. The corresponding DFA state indeed contains that item. (Along with <em><strong>more items</strong></em> in this case!)</li>
+<li>item $A\rightarrow bcA·$ is a <strong>complete</strong> valid item for the viable prefix $abcA$. The corresponding DFA state indeed contains that item (and <em><strong>only</strong></em> that item).</li>
+</ul>
+<p>Given a DFA recognizing viable prefixes, an LR(0) parser can be constructed as follows:</p>
+<ul>
+<li>In a state <em>without complete items</em>: <em><strong>Shift</strong></em><ul>
+<li>Read the next terminal symbol and push it onto an internal parse stack.</li>
+<li>Move to new state by following the edge labeled by the terminal symbol just read.</li>
+</ul>
+</li>
+<li>In a state with a <em>single complete item</em>: <em><strong>Reduce</strong></em><ul>
+<li>The top of the parse stack contains the <em><strong>handle</strong></em> of the current right-sentential form (since we have recognized a viable prefix for which a single <em><strong>complete</strong></em> item is valid).</li>
+<li>The handle is just the <em><strong>RHS</strong></em> of the valid item.</li>
+<li>Reduce to the previous right-sentential form by <em><strong>replacing the handle</strong></em> on the parse stack with the <em><strong>LHS</strong></em> of the valid item.</li>
+<li><em><strong>Move</strong></em> to the state indicated by the new viable prefix on the parse stack.</li>
+</ul>
+</li>
+<li>If a state contains both complete and incomplete items, or if a state contains more than one complete item, then the grammar <em><strong>is not LR(0)</strong></em>.</li>
+</ul>
+<p>Complete sequence ($\gamma w$ is right-sentential form):</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-10-26 at 4.57.23 PM.png" style="zoom:50%;">
+
+<p>Cf: <img src="/2021/10/02/Compiler/Screen Shot 2021-10-26 at 5.04.41 PM.png" style="zoom:50%;"></p>
+<p>To see more clearly that the parser carries out the rightmost derivation in reverse, look at the right-sentential forms $\gamma w$ of the <strong>reduction steps only</strong>:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-10-26 at 5.06.10 PM.png" style="zoom:50%;">
+
+<h4 id="3-11-LR-Parsing-amp-Left-Right-Recursion"><a href="#3-11-LR-Parsing-amp-Left-Right-Recursion" class="headerlink" title="3.11 LR Parsing &amp; Left/Right Recursion"></a>3.11 LR Parsing &amp; Left/Right Recursion</h4><p>Consider parsing of strings such as:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-10-26 at 5.16.18 PM.png" style="zoom:50%;">
+
+<ul>
+<li>Note how the <em><strong>right-recursive</strong></em> production $A\rightarrow bcA$ causes symbols $bc$ to pile up on the parse stack until a reduction by $A\rightarrow c$ can occur, which, in turn, allows the stacked symbols to be reduced away.</li>
+<li><em><strong>Left-recursive</strong></em> allows reduction to happen sooner, thus keeping the size of the parse stack down.</li>
+<li>This is why left-recursive grammars are often preferred for LR parsing.</li>
+</ul>
+<h4 id="3-12-LR-1-Grammars"><a href="#3-12-LR-1-Grammars" class="headerlink" title="3.12 LR(1) Grammars"></a>3.12 LR(1) Grammars</h4><ul>
+<li>In practice, LR(0) tends to be a bit too restrictive.</li>
+<li>If we add one symbol of “lookahead” by determining the set of <em><strong>terminals that could possibly follow a handle</strong></em> being reduced by a production $A\rightarrow \beta$, then a wider class of grammars can be handled.</li>
+<li>Such grammars are called <em><strong>LR(1)</strong></em>.</li>
+</ul>
+<p>Idea:</p>
+<ul>
+<li><p>Associate a <em><strong>lookahead set</strong></em> with items:<br>$$<br>A \rightarrow \alpha · \beta, {a_1, a_2, \cdots, a_n}<br>$$</p>
+</li>
+<li><p>On reduction, a complete item is <em><strong>only valid</strong></em> if the next input symbol belongs to its lookahead set.</p>
+</li>
+<li><p>Thus, it is OK to have two or more simultaneously valid complete items, as long as their lookahead sets are <em><strong>disjoint</strong></em>.</p>
+</li>
+</ul>
+<h2 align="center">Syntactic Analysis: Parser Generators</h2>
+
+<h3 id="4-Syntactic-Analysis-Parser-Generators"><a href="#4-Syntactic-Analysis-Parser-Generators" class="headerlink" title="4. Syntactic Analysis: Parser Generators"></a>4. Syntactic Analysis: Parser Generators</h3><h4 id="4-1-Parser-Genereators"><a href="#4-1-Parser-Genereators" class="headerlink" title="4.1 Parser Genereators"></a>4.1 Parser Genereators</h4><ul>
+<li><p>Constructing parsers by hand can be very tedious and time consuming.</p>
+</li>
+<li><p>This is true in particular for LR(<em>k</em>) and LALR parsers: constructing the corresponding deterministic finite automata (DFAs) is extremely laborious.</p>
+</li>
+<li><p>For instance, this simple grammar:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-10-20 at 4.26.37 PM.png" style="zoom:50%;">
+
+<p>gives rise to a 10 state LR(0) DFA.</p>
+</li>
+<li><p><strong>Parser construction</strong> is, for the most part, an <strong>algorithmic</strong> process.</p>
+</li>
+<li><p>Why not write a program to do the heavy and tedious work for us?</p>
+</li>
+<li><p>A <strong>Parser Generator</strong> (or “compiler compiler”) takes a grammar as input and outputs a parser (i.e., a program) for that grammar.</p>
+</li>
+<li><p>The input grammar is augmented with <strong>“semantic actions”</strong>, i.e., code fragments that get invoked when a derivation step is performed.</p>
+</li>
+<li><p>The semantic actions typically:</p>
+<ul>
+<li>construct an abstract syntax tree (AST) or</li>
+<li>interpret the program being parsed.</li>
+</ul>
+</li>
+</ul>
+<p>Consider an LR shift-reduce parser:</p>
+<ul>
+<li>A <strong>reduction</strong> corresponds to a derivation step in the grammar:<ul>
+<li>Remember that an LR parser performs a rightmost derivation in reverse.</li>
+</ul>
+</li>
+<li>At a reduction, the terminals and non-terminals of the right-hand side (RHS) of the production (the <strong>handle</strong>) are on the parse stack, associated with:<ul>
+<li><strong>semantic information</strong>, e. g., the correspoding AST fragments, or</li>
+<li><strong>semantic values</strong>, e. g., expression values.</li>
+</ul>
+</li>
+<li>Both construction of an AST and evaluation of expressions proceed in <strong>bottom-up</strong> order.</li>
+</ul>
+<h4 id="4-2-Happy-Parser-for-TXL"><a href="#4-2-Happy-Parser-for-TXL" class="headerlink" title="4.2 Happy Parser for TXL"></a>4.2 Happy Parser for TXL</h4><ul>
+<li>In order to impart associativity, a <strong>left-recursive</strong> grammar is provided.<ul>
+<li>A grammar $G$ is left-recursive if and only if there exists a nonterminal symbol $A$ that can derive to a sentential form with itself as the leftmost symbol, i. e., $A\rightarrow^+ A\alpha$ in which $\alpha$ is any sequence of terminal and nonterminal symbols.</li>
+<li>The dual definition provides right-recursive grammars.</li>
+</ul>
+</li>
+<li>LR parsers have no problem with left- or right-recursion, except that right-recursion requires more stack.</li>
+</ul>
+<p>We are going to use Happy to develop a parser for the TXL language, generated by the CFG:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-11-10 at 7.57.32 PM.png" style="zoom:50%;">
+
+<img src="/2021/10/02/Compiler/Screen Shot 2021-11-10 at 7.57.59 PM.png" style="zoom:50%;">
+
+<img src="/2021/10/02/Compiler/Screen Shot 2021-11-10 at 7.58.21 PM.png" style="zoom:50%;">
+
+<img src="/2021/10/02/Compiler/Screen Shot 2021-11-10 at 7.58.42 PM.png" style="zoom:50%;">
+
+<img src="/2021/10/02/Compiler/Screen Shot 2021-11-10 at 7.59.02 PM.png" style="zoom:50%;">
+
+<img src="/2021/10/02/Compiler/Screen Shot 2021-11-10 at 7.59.22 PM.png" style="zoom:50%;">
+
+<ul>
+<li>The code fragment between curly braces is a Haskell <strong>pattern</strong> that is matched against the actual tokens returned by the parsing function.</li>
+<li>If this pattern contains the special variable $$, then the corresponding part of the matched token becomes the semantic value.</li>
+<li>Otherwise the entire token becomes the semantic value.</li>
+<li>The semantic values of different terminal symbols may thus have different types.</li>
+</ul>
+<p>The grammar productions are written in BNF, with an additional semantic action defining the semantic value for each production:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-11-10 at 8.03.40 PM.png" style="zoom:50%;">
+
+<p>It is also possible to add type annotations:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-11-10 at 8.04.23 PM.png" style="zoom:50%;">
+
+<h4 id="4-3-Shift-Red-and-Red-Red-Conflicts"><a href="#4-3-Shift-Red-and-Red-Red-Conflicts" class="headerlink" title="4.3 Shift/Red. and Red./Red. Conflicts"></a>4.3 Shift/Red. and Red./Red. Conflicts</h4><p>In LR-parsing, ambiguous grammars lead to <strong>shift/reduce</strong> and <strong>reduce/reduce</strong> conflicts:</p>
+<ul>
+<li><p>shift/reduce: some states of the DFA have mixed complete and incomplete items:<br>$$<br>A\rightarrow a·\<br>A\rightarrow a·b<br>$$</p>
+</li>
+<li><p>reduce/reduce: some states have more than one complete item:<br>$$<br>A\rightarrow a·\<br>B\rightarrow a·<br>$$</p>
+</li>
+<li><p>Shift/reduce conflicts are often resolved by <strong>opting for shifting</strong>:</p>
+<ul>
+<li>Typically the default option.</li>
+<li>Usually gives the desired result. For instance, it resolves the dangling else problem in a natural way.</li>
+</ul>
+</li>
+<li><p>Reduce/reduce conflicts are not so easy, because there is no obvious reason for picking one production over another: the grammar <strong>must</strong> be manually disambiguated.</p>
+</li>
+</ul>
+<h4 id="4-4-Precedence-and-Associativity"><a href="#4-4-Precedence-and-Associativity" class="headerlink" title="4.4 Precedence and Associativity"></a>4.4 Precedence and Associativity</h4><p>Happy (like Yacc and Bison) allows operator precedence and associativity to be explicitly specified to disambiguate a grammar:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-11-10 at 8.14.10 PM.png" style="zoom:50%;">
+
+<p>The relative precedence is implicit in the ordering: lower precedences precede higher precedences. For instance, ‘+’ and ‘-‘ appear before ‘*’ and ‘/‘.</p>
+<h4 id="4-5-A-TXL-Interpreter"><a href="#4-5-A-TXL-Interpreter" class="headerlink" title="4.5 A TXL Interpreter"></a>4.5 A TXL Interpreter</h4><ul>
+<li><p>The semantic actions do not have to construct an AST.</p>
+</li>
+<li><p>An alternative is to <strong>interpret</strong> the code being parsed.</p>
+</li>
+<li><p>Basic idea:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-11-10 at 8.31.06 PM.png" style="zoom:50%;"></li>
+<li><p>But TXL has a <strong>let</strong>-construct</p>
+<ul>
+<li><p>What about TXL <strong>variables</strong>? For instance, how should we reflect the assignment of $3$ to $x$ in the following expression?</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-11-10 at 8.32.49 PM.png" style="zoom:50%;"></li>
+</ul>
+</li>
+</ul>
+<p>One option:</p>
+<ul>
+<li><p>Each semantic action returns a function of type</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-11-10 at 8.33.37 PM.png" style="zoom:50%;"></li>
+</ul>
+<p>​        where (for example)</p>
+<p>​                                                                <img src="/2021/10/02/Compiler/Screen Shot 2021-11-10 at 8.34.07 PM.png" style="zoom:50%;"></p>
+<ul>
+<li><p>The semantic action for evaluating a composite expression passes on the environment. For instance, the semantic action for + could be:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-11-10 at 8.35.45 PM.png" style="zoom:50%;"></li>
+<li><p>The semantic action for a variable looks up the variable value in the environment:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-11-10 at 8.36.32 PM.png" style="zoom:50%;"></li>
+<li><p>The semantic action for $let$ extends the argument environment and then evaluates the body in the extended environment:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-11-10 at 8.37.34 PM.png" style="zoom:50%;"></li>
+<li><p>The semantic action for literal just returns the value of the literal, ignoring the environment:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-11-10 at 8.38.19 PM.png" style="zoom:50%;"></li>
+<li><p>A program get evaluated by applying the overall result function to the <strong>empty environment</strong>:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-11-10 at 8.39.05 PM.png" style="zoom:50%;"></li>
+</ul>
 
             </div>
             <hr/>
@@ -1229,7 +1677,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">38.9k</span>&nbsp;字
+                class="white-color">42.1k</span>&nbsp;字
             
             
             
