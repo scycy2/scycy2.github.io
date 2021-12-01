@@ -528,7 +528,8 @@
 <p>If you have 10 filters that are 3 x 3 x 3 in one layer of a neural network, how many parameters does that layer have?</p>
 <img src="/2021/10/24/Convolutional-Neural-Networks/Screen Shot 2021-10-24 at 5.21.12 PM.png" style="zoom:50%;"></li>
 <li><p>Summary of notation</p>
-<p>If layer $l$ is a convolution layer:<br>$$<br>f^{[l]} = \text{filter size}\<br>p^{[l]} = \text{padding}\<br>s^{[l]} = \text{stride}\<br>n_c^{[l]} = \text{number of filters}\<br>\text{Each filter is: } f^{[l]} \times f^{[l]} \times n_c^{[l-1]}\<br>\text{Activations: } a^{[l]} \rightarrow n_H^{[l]} \times n_W^{[l]} \times n_c^{[l]}\<br>\text{Weights: } f^{[l]} \times f^{[l]} \times n_c^{[l-1]} \times n_c^{[l]}\<br>\text{bias: } (1,1,1,n_c^{[l]})\<br>\text{Input: } n_H^{[l-1]} \times n_W^{[l-1]}\times n_c^{[l-1]}\<br>\text{Output: } n_H^{[l-1]} \times n_W^{[l-1]}\times n_c^{[l]}\<br>$$</p>
+<p>If layer $l$ is a convolution layer:</p>
+<p>$f^{[l]} = \text{filter size}$<br>$p^{[l]} = \text{padding}$<br>$s^{[l]} = \text{stride}$<br>$n_c^{[l]} = \text{number of filters}$<br>$\text{Each filter is: } f^{[l]} \times f^{[l]} \times n_c^{[l-1]}$<br>$\text{Activations: } a^{[l]} \rightarrow n_H^{[l]} \times n_W^{[l]} \times n_c^{[l]}$<br>$\text{Weights: } f^{[l]} \times f^{[l]} \times n_c^{[l-1]} \times n_c^{[l]}$<br>$\text{bias: } (1,1,1,n_c^{[l]})$<br>$\text{Input: } n_H^{[l-1]} \times n_W^{[l-1]}\times n_c^{[l-1]}$<br>$\text{Output: } n_H^{[l-1]} \times n_W^{[l-1]}\times n_c^{[l]}$</p>
 </li>
 </ul>
 
