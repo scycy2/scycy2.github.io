@@ -78,16 +78,15 @@ mathjax: true
 * Summary of notation
 
   If layer $l$ is a convolution layer:
-  $$
-  f^{[l]} = \text{filter size}\\
-  p^{[l]} = \text{padding}\\
-  s^{[l]} = \text{stride}\\
-  n_c^{[l]} = \text{number of filters}\\
-  \text{Each filter is: } f^{[l]} \times f^{[l]} \times n_c^{[l-1]}\\
-  \text{Activations: } a^{[l]} \rightarrow n_H^{[l]} \times n_W^{[l]} \times n_c^{[l]}\\
-  \text{Weights: } f^{[l]} \times f^{[l]} \times n_c^{[l-1]} \times n_c^{[l]}\\
-  \text{bias: } (1,1,1,n_c^{[l]})\\
-  \text{Input: } n_H^{[l-1]} \times n_W^{[l-1]}\times n_c^{[l-1]}\\
-  \text{Output: } n_H^{[l-1]} \times n_W^{[l-1]}\times n_c^{[l]}\\
-  $$
+  
+  $f^{[l]} = \text{filter size}$
+  $p^{[l]} = \text{padding}$
+  $s^{[l]} = \text{stride}$
+  $n_c^{[l]} = \text{number of filters}$
+  $\text{Each filter is: } f^{[l]} \times f^{[l]} \times n_c^{[l-1]}$
+  $\text{Activations: } a^{[l]} \rightarrow n_H^{[l]} \times n_W^{[l]} \times n_c^{[l]}$
+  $\text{Weights: } f^{[l]} \times f^{[l]} \times n_c^{[l-1]} \times n_c^{[l]}$
+  $\text{bias: } (1,1,1,n_c^{[l]})$
+  $\text{Input: } n_H^{[l-1]} \times n_W^{[l-1]}\times n_c^{[l-1]}$
+  $\text{Output: } n_H^{[l-1]} \times n_W^{[l-1]}\times n_c^{[l]}$
 
