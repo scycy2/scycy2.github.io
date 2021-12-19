@@ -225,11 +225,11 @@ myProjects:
         iconBackground: 'linear-gradient(to bottom right, #F06292 0%, #EF5350 100%)'
         url: https://github.com/scycy2/Developing_Maintainable_Software_Coursework
         desc: This is Developing Maintainable Software Coursework。
-    # typora-vue-theme:
-    #     icon: fas fa-file-alt
-    #     iconBackground: 'linear-gradient(to bottom right, #29B6F6 0%, #1E88E5 100%)'
-    #     url: https://github.com/blinkfox/typora-vue-theme
-    #     desc: This is a typora theme inspired by Vue document style.
+    Eye Tracking for Simulation Assessment:
+        icon: fas fa-eye
+        iconBackground: 'linear-gradient(to bottom right, #29B6F6 0%, #1E88E5 100%)'
+        url: https://github.com/UNNC2018Team11/eye-tracking-for-simulation-assessment
+        desc: This is one year team project for Year 3.
 
 # config my skills informations in about page.
 # If you don't want to display this `My Skills` content, you can deactivate or delete this configuration.
