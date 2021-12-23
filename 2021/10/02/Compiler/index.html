@@ -445,21 +445,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2021-11-10
+                    2021-12-23
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    4.8k
+                    6.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    29 Min
+                    38 Min
                 </div>
                 
 
@@ -1244,6 +1244,226 @@
 <li><p>A program get evaluated by applying the overall result function to the <strong>empty environment</strong>:</p>
 <img src="/2021/10/02/Compiler/Screen Shot 2021-11-10 at 8.39.05 PM.png" style="zoom:50%;"></li>
 </ul>
+<h3 id="5-Contextual-Analysis-Scope-1"><a href="#5-Contextual-Analysis-Scope-1" class="headerlink" title="5. Contextual Analysis: Scope 1"></a>5. Contextual Analysis: Scope 1</h3><h4 id="5-1-Contextual-Analysis"><a href="#5-1-Contextual-Analysis" class="headerlink" title="5.1 Contextual Analysis"></a>5.1 Contextual Analysis</h4><p>The aim of contextual analysis is to ensure that a program is <strong>statically well-formed</strong>.</p>
+<ul>
+<li>But syntax is also related to “form”.</li>
+<li>So, why is it not possible to perform contextual analysis using the context-free grammar (CFG) that generates the context-free syntax?</li>
+<li>For instance, is it possible to use CFGs to express <em>type constraints</em>?<ul>
+<li>Note that, if we could do this, then the parser would be able to do the type checking for us as well.</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-2-Limitations-of-CFGs"><a href="#5-2-Limitations-of-CFGs" class="headerlink" title="5.2 Limitations of CFGs"></a>5.2 Limitations of CFGs</h4><p>Let us see if we can enforce the “declare before use” requirement using a CFG.</p>
+<p>If we have only <strong>one</strong> variable <strong>a</strong>:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-12-22 at 2.17.09 PM.png" style="zoom:50%;">
+
+<p>Now, let us see how the same approach may be generalized to <strong>two</strong> variables, <strong>a</strong> and <strong>b</strong>:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-12-22 at 2.18.05 PM.png" style="zoom:50%;">
+
+<p>Some observations:</p>
+<ul>
+<li>Already for two variables, the grammar is a lot more complicated.</li>
+<li>If we extend the same approach to <em>n</em> variables, then how many “<em>ExprXYZ</em>“ rules will be needed?<ul>
+<li>The number of nonterminals grows exponentially: for a set of $n$ variables $V = {a_i\mid 1\le i \le n}$, we need $2^n$ nonterminals $Expr[W]$, one for each subset $W\subseteq V$.</li>
+<li>Moreover, normally, the number of variables is <strong>unlimited</strong>, which would imply <strong>infinitely</strong> many productions.<ul>
+<li>This will no longer be a CFG.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Attempt to describe simple type constraints using a CFG:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-12-22 at 2.24.16 PM.png" style="zoom:50%;">
+
+<p>This might look reasonable at first sight. <strong>However</strong>:</p>
+<ul>
+<li>The scheme hinges on partitioning the variables <strong>by name</strong> into two groups, i. e.:<ul>
+<li>integer variables and boolean variables.</li>
+</ul>
+</li>
+<li>But in most languages the type of a variable is given by the <strong>context</strong>, not its name.</li>
+<li>Furthermore, how could we, in general, infer argument types from the name of a procedure or function?</li>
+</ul>
+<p>In simple terms, <strong>context-free</strong> grammars are not powerful enough to capture <strong>context-sensitive</strong> information.</p>
+<h4 id="5-3-Unrestricted-Grammars"><a href="#5-3-Unrestricted-Grammars" class="headerlink" title="5.3 Unrestricted Grammars"></a>5.3 Unrestricted Grammars</h4><ul>
+<li><p>These previous arguments and examples do not form a mathematical <strong>proof</strong> that it is impossible to check static semantics using CFGs.</p>
+</li>
+<li><p>For a clear proof, using the pumping lemma for context-free languages (CFLs).</p>
+</li>
+<li><p>Contextual constraints result in <strong>context sensitive</strong>, or even <strong>recursively enumerable</strong>, languages:</p>
+<ul>
+<li>Recall the Chomsky hierarchy.</li>
+<li>Such languages cannot be described by CFGs.</li>
+</ul>
+</li>
+<li><p><strong>Unrestricted grammars</strong> with productions<br>$$<br>\alpha \rightarrow \beta,<br>$$<br>where $\alpha$ and $\beta$ are both <strong>arbitrary strings</strong>, could be used to express arbitrary contextual constraints.</p>
+</li>
+<li><p>Unrestricted grammars are, however, equivalent to Turing Machines in their expressive power.</p>
+</li>
+<li><p>Thus, to check contextual constraints, we must use Turing machines.</p>
+</li>
+<li><p>Simpler machines such as pushdown automata (PDAs) are not powerful enough.</p>
+</li>
+</ul>
+<h4 id="5-4-Expressing-Contextual-Constraints"><a href="#5-4-Expressing-Contextual-Constraints" class="headerlink" title="5.4 Expressing Contextual Constraints"></a>5.4 Expressing Contextual Constraints</h4><p>Turing Machines are abstract models and Unrestricted Grammars are not very practical. Therefore, we consider the following approach:</p>
+<ul>
+<li>Specifying contextual constraints:<ul>
+<li>Informally: using natural language.</li>
+<li>Formally: using a mathematical formalism such as logical inference rules.</li>
+</ul>
+</li>
+<li>Implementing contextual checks:<ul>
+<li>General purpose programming languages.</li>
+<li>Direct support of mathematical formalism, unifying specification and implementation.</li>
+</ul>
+</li>
+</ul>
+<h4 id="5-5-Contexual-Analysis"><a href="#5-5-Contexual-Analysis" class="headerlink" title="5.5 Contexual Analysis"></a>5.5 Contexual Analysis</h4><p>Two important contextual constraints on which we will focus in this course:</p>
+<ul>
+<li><strong>Scope rules</strong>: where in a program a declaration is valid.</li>
+<li><strong>Type rules</strong>: ensuring that every expression computes a value of acceptable form, i. e., has a valid type.</li>
+</ul>
+<p>Corresponding subphrases of the contextual analysis:</p>
+<ul>
+<li><strong>Identification</strong> or <strong>Name Resolution</strong>: applying the scope rules in order to relate each applied identifier occurrence to its declaration.</li>
+<li><strong>Type checking</strong>: applying the type rules to infer the type of each expression, and compare it with the expected type.</li>
+</ul>
+<p>Note that, there exist other kinds of contextual constraints in common programming languages.</p>
+<p>For instance, Java has rules concerning:</p>
+<ul>
+<li><strong>Abstract class</strong>; e. g.:<ul>
+<li>Only abstract classes may have abstract methods.</li>
+<li>Abstract classes may not be instantiated.</li>
+</ul>
+</li>
+<li><strong>Final classes</strong>; e. g.:<ul>
+<li>a final class cannot be extended.</li>
+<li>a class cannot be both final and abstract.</li>
+</ul>
+</li>
+<li><strong>Exceptions</strong>; e. g., the set of exceptions that a method can raise must be declared (except for unchecked exceptions).</li>
+<li><strong>Definite assignment</strong>: Each local variable and every blank final field must have a definitely assigned value when any access of its value occurs.</li>
+</ul>
+<h4 id="5-6-Identification"><a href="#5-6-Identification" class="headerlink" title="5.6 Identification"></a>5.6 Identification</h4><p><strong>Identification</strong> (or <strong>Name Resolution</strong>) is the task of relating each <strong>applied</strong> identifier occurrence to its <strong>declaration</strong>.</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-12-22 at 2.57.02 PM.png" style="zoom:50%;">
+
+<p>In the body of set, the applied occurrence of:</p>
+<ul>
+<li>$x$ refers to the <strong>instance variable</strong> $x$.</li>
+<li>$n$ refers to the <strong>argument</strong> $n$, not the instance variable $n$.</li>
+</ul>
+<h4 id="5-7-Scope-and-Scope-Rules"><a href="#5-7-Scope-and-Scope-Rules" class="headerlink" title="5.7 Scope and Scope Rules"></a>5.7 Scope and Scope Rules</h4><p>The identification process is governed by the <strong>scope rules</strong> of the language.</p>
+<p>Important terms:</p>
+<ul>
+<li><strong>Scope</strong>: the section of a program over which a declaration takes effect.</li>
+<li><strong>Block</strong>: a program phrase that delimits the scope of declarations within it.</li>
+</ul>
+<p>Consider the MiniTriangle $let$ block command: $let$ <em>decls</em> $in$ <em>body</em></p>
+<p>The scope of each declaration is the rest of the block.</p>
+<p>For example:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-12-22 at 3.02.05 PM.png" style="zoom:50%;">
+
+<p>In contrast with MiniTriangle, in Haskell’s let-expression: $let$ <em>id = expr</em> $in$ <em>body</em></p>
+<p>the scope of <em>id</em> includes both <em>expr</em> and <em>body</em>.</p>
+<p>For example:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-12-22 at 3.10.09 PM.png" style="zoom:50%;">
+
+<p>In addition to deciding the range of declarations, the scope rules also deal with issues such as:</p>
+<ul>
+<li>whether explicit declarations are required;</li>
+<li>whether multiple declarations at the same level are allowed;</li>
+<li>whether shadowing/hiding is allowed.</li>
+</ul>
+<p>Let us now consider a version of Mini-Triangle extended with procedures and functions.</p>
+<ul>
+<li>The scope of a declared entity is extended to include the bodies of <strong>all</strong> procedures and functions declared in the same let-block.</li>
+<li>This allows procedures and functions to be (mutually) recursive.</li>
+<li>However, definition/initialization expressions for constants/variables must not use functions defined in the same let-block.<ul>
+<li>This avoids calling function that may refer to as-yet uninitialized variables.</li>
+</ul>
+</li>
+</ul>
+<p>With the above scope rule, it is possible to write programs such as:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-12-23 at 8.19.49 PM.png" style="zoom:50%;">
+
+<h4 id="5-8-Some-Java-Scope-Rules"><a href="#5-8-Some-Java-Scope-Rules" class="headerlink" title="5.8 Some Java Scope Rules"></a>5.8 Some Java Scope Rules</h4><p>From the Java Language Specification ver. 1.0:</p>
+<ul>
+<li>The scope of a member declared in, or inherited by, a class type or interface type, is the <em>entire</em> declaration of the class or interface type.</li>
+<li>The declaration of a member needs to appear before it is used only when the use is in a field initialization.</li>
+<li>The scope of a parameter of a method is the entire body of the method.</li>
+<li>Hiding the name of a local variable is not permitted.</li>
+</ul>
+<h4 id="5-9-Symbol-Table"><a href="#5-9-Symbol-Table" class="headerlink" title="5.9 Symbol Table"></a>5.9 Symbol Table</h4><p>A <strong>symbol table</strong>, also called <strong>identification table</strong> or <strong>environment</strong>, is used during identification to keep track of <strong>symbols</strong> and their <strong>attributes</strong>, such as:</p>
+<ul>
+<li>kind of symbol (class name, local variable, etc.)</li>
+<li>scope level</li>
+<li>type</li>
+<li>source code position</li>
+</ul>
+<h4 id="5-10-Block-Structure"><a href="#5-10-Block-Structure" class="headerlink" title="5.10 Block Structure"></a>5.10 Block Structure</h4><p>The organization of the symbol table depends on the source language’s <strong>block structure</strong>:</p>
+<ul>
+<li><strong>Monolithic block structure</strong>: one common, global scope.</li>
+<li><strong>Flat block strucrure</strong>: blocks with local scope enclosed in a global scope.</li>
+<li><strong>Nested block structure</strong>: blocks can be nested to arbitrary depth.</li>
+</ul>
+<p>We focus on <strong>nested block structure</strong> because:</p>
+<ul>
+<li>Nested block structure is by far the most common in modern high-level languages.</li>
+<li>Monolithic and flat block structures may be considered special cases of nested block structure.</li>
+</ul>
+<h4 id="5-11-Using-the-Symbol-Table"><a href="#5-11-Using-the-Symbol-Table" class="headerlink" title="5.11 Using the Symbol Table"></a>5.11 Using the Symbol Table</h4><p>For a simple language with:</p>
+<ol>
+<li>a declare-before-use rule and</li>
+<li>redeclarations not allowed,</li>
+</ol>
+<p>during identification, the symbol table would be used as follows:</p>
+<ul>
+<li>Initialize the table; e. g., enter the standard environment.</li>
+<li>When a declaration is encountered:<ul>
+<li>check if declared identifier clashes with existing symbol;</li>
+<li>if it does, then report error;</li>
+<li>if not, then enter the declared identifier into the table, along with its attributes.</li>
+</ul>
+</li>
+<li>When an applied identifier occurrence is encountered:<ul>
+<li>look up the identifier in the table, taking scope rules into account;</li>
+<li>if the identifier is not found, then report error;</li>
+<li>if found, then annotate the applied occurrence with symbol attributes from the table.</li>
+</ul>
+</li>
+</ul>
+<p>Before identification:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-12-23 at 8.38.19 PM.png" style="zoom:50%;">
+
+<p>After identification:</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-12-23 at 8.38.50 PM.png" style="zoom:50%;">
+
+<p>(Textual representation of annotated abstract syntax tree (AST).)</p>
+<p>Suppose variables have to be declared, and that redeclarations are not allowed.</p>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-12-23 at 8.41.00 PM.png" style="zoom:50%;">
+
+<p>During symbol table insert and lookup it would be discovered that:</p>
+<ul>
+<li>$x$ is declared twice at the same scope level,</li>
+<li>$y$ is not declared at all.</li>
+</ul>
+<ul>
+<li>When entering a new block, arrange so that symbols that are entered subsequently become associated with the scope corresponding to the block (<strong>“open scope”</strong>).</li>
+<li>When leaving a block, remove/make inaccessible symbols declared in that block (<strong>“close scope”</strong>).</li>
+</ul>
+<img src="/2021/10/02/Compiler/Screen Shot 2021-12-23 at 8.45.31 PM.png" style="zoom:50%;">
+
+<ul>
+<li>A new scope is opened for the inner let-block (on line 3) when it is analyzed.</li>
+<li>When the inner let-block has been analyzed, its scope is closed.</li>
+<li>It is then discovered that $y$ (at the end of line 3) is no longer in scope. ($x$ is, however, still in scope.)</li>
+</ul>
+<h4 id="5-12-Summary"><a href="#5-12-Summary" class="headerlink" title="5.12 Summary"></a>5.12 Summary</h4><ul>
+<li>Contextual analysis includes checking scope rules and types.</li>
+<li>Contextual constraints lead to <strong>context-sensitive</strong> languages and thus cannot be captured by a context-free grammar.</li>
+<li><strong>Identification</strong> is the task of relating each <strong>applied</strong> identifier occurrence to its declaration. This is a key step for any contextual analysis.</li>
+<li>The <strong>Symbol Table</strong> or <strong>Environment</strong> records information about declared entities and is the central data structure during contextual analysis.</li>
+</ul>
 
             </div>
             <hr/>
@@ -1675,7 +1895,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">42.1k</span>&nbsp;字
+                class="white-color">43.5k</span>&nbsp;字
             
             
             
