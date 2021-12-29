@@ -21,21 +21,21 @@ mathjax: true
     * Concatenation: **vw = abaabaaa**
     * Reverse: **w<sup>R</sup> = aaaba**
     * Repetition: **v<sup>2</sup> = abaaba** and **v<sup>0</sup> = $\lambda$**
-* If $\Sigma$ is an alphabet, then we use $\Sigma^{*}$ to denote the set of strings obtained by concatenating zero or more symbols from $\Sigma$. The set $\Sigma^{*}$ always contains $\lambda$.
+* If $\Sigma$ is an alphabet, then we use $\Sigma^*$ to denote the set of strings obtained by concatenating zero or more symbols from $\Sigma$. The set $\Sigma^*$ always contains $\lambda$.
 
-  * $\Sigma^{*}$ = the set of **all strings** formed by concatenating zero or more symbols in $\Sigma$
-  * $\Sigma^{+}$ = the set of all **non-empty** strings formed by concatenating symbols in $\Sigma$
-  * $\Sigma^{+} = \Sigma^{*} - \{\lambda\}$
-* A **formal language L** is any subset of $\Sigma^{*}$
+  * $\Sigma^*$ = the set of **all strings** formed by concatenating zero or more symbols in $\Sigma$
+  * $\Sigma^+$ = the set of all **non-empty** strings formed by concatenating symbols in $\Sigma$
+  * $\Sigma^+ = \Sigma^* - \{\lambda\}$
+* A **formal language L** is any subset of $\Sigma^*$
 
-  * The **complement** of **L** is: $\overline{L} = \Sigma^{*} - L$
-  * Reverse: $L^{R} = \{w^{R}, w\in L\}$
-  * Concatenation: $L_{1}L_{2} = \{xy: x\in L_{1}, y \in L_{2}\}$
-  * $L^{n}$ as $L$ concatenated with itself $n$ times
-    * $L^{0} = \{\lambda\}$
-    * $L^{1} = L$
-  * **Star-closure**: $L^{*} = L^{0}\bigcup L^{1}\bigcup L^{2}\cdots$
-  * **Positive-closure**: $L^{+} = L^{1}\bigcup L^2\cdots$
+  * The **complement** of **L** is: $\overline{L} = \Sigma^* - L$
+  * Reverse: $L^R = \{w^R, w\in L\}$
+  * Concatenation: $L_1L_2 = \{xy: x\in L_1, y \in L_2\}$
+  * $L^n$ as $L$ concatenated with itself $n$ times
+    * $L^0 = \{\lambda\}$
+    * $L^1 = L$
+  * **Star-closure**: $L^* = L^0\bigcup L^1\bigcup L^2\cdots$
+  * **Positive-closure**: $L^+ = L^1\bigcup L^2\cdots$
   * 空集和$\{\lambda\}$都是一种语言
 * A grammar G is defined as a quadruple $G = (V, T, S, P)$ (the sets $V$ and $T$ are non-empty and disjoint):
   * $V$: a finite set of objects called **variables** or non-terminal symbols
