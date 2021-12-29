@@ -1041,3 +1041,437 @@ During symbol table insert and lookup it would be discovered that:
 * Contextual constraints lead to **context-sensitive** languages and thus cannot be captured by a context-free grammar.
 * **Identification** is the task of relating each **applied** identifier occurrence to its declaration. This is a key step for any contextual analysis.
 * The **Symbol Table** or **Environment** records information about declared entities and is the central data structure during contextual analysis.
+
+### 6. Types and Type Systems
+
+#### 6.1 Types and Type Systems
+
+Type systems that we study in this course are an example of **lightweight formal methods**, in that they are:
+
+* highly automated
+* but with limited expressive power.
+
+Note that:
+
+* The aim of **static checking** is to prove **absence** of certain errors.
+* Done by **classifying** syntactic phrases (or **terms**) according to the **kinds** of values they compute:
+  * A type system computes a **static approximation** of the run-time behavior.
+
+* Example:
+  * If we know that two program fragments $exp_1$ and $exp_2$ compute integers (**classification**), then it is safe to add those numbers together (**absence of errors**)
+  * We also know that the result is an integer.
+  * While we do not know what the values are, we know for sure that they are integers and nothing else (**static approximation**).
+* **Dynamically typed** languages do not have a type system according to this definition.
+  * Perhaps, **'dynamically checked'** is a more appropriate phrase for describing these languages.
+
+A type system is necessarily **conservative**, in the sense that, some well-behaved programs will be rejected.
+
+* For example, typically:
+
+  <img src="Compiler/Screen Shot 2021-12-23 at 9.48.26 PM.png" style="zoom:50%;" />
+
+  will be rejected as ill-typed, even if we know that complex_test always evaluates to true.
+
+* The reason is that, in general, these tests cannot be automatically proved.
+
+A type system checks for **certain** kinds of bad program behavior (**run-time errors**). Exactly which depends on the type system and the language design.
+
+For example: current main-stream type systems typically:
+
+* **do check** that arithmetic operations are done only on numbers;
+* **do not check** that the second operand of division is not zero, or that array indices are within bounds.
+
+The **safety** or **soundness** of a type system must be judged with respect to its own set of run-time errors.
+
+#### 6.2 Language Safety
+
+* Programming languages typically make a distiction between normal program actions and erroneous actions.
+* For Turing-complete languages (such as C, Java, Haskell, Python, etc.) it is impossible to decide (statically) whether a program will end up in an error or not. In fact, even simpler problems-e. g., checking whether a program terminates or not-may not be decidable
+* The only option is to run the code and see.
+* In a safe programming language, errors are **trapped** as they happen.
+* Java, for example, is largely safe via its exception system.
+* In an **unsafe** programming language, errors are not trapped.
+* After executing an erroneous operation, the computation continues, but in a silent and faulty way that may have severe consequences.
+* C and C++ are unsafe in a strong sense:
+  * executing an erroneous operation causes the entire program to be meaningless,
+  * as opposed to just the erroneous operation having an unpredictable result.
+* In these languages, erroneous operations are said to have undefined behavior.
+* Language safety is **not** the same as static typing:
+  * Safety can be achieved through static typing **and/or** dynamic run-time checks.
+  * There are languages that are dynamically checked and safe, e. g., **Lisp**.
+* A statically typed language may also perform dynamic checks, e. g.:
+  * checking of array bounds
+  * down-casting (e. g., Java)
+  * checking for division by zero
+  * pattern-matching failure
+
+Some examples of statically and dynamically checked safe and unsafe high-level languages:
+
+<img src="Compiler/Screen Shot 2021-12-23 at 10.08.48 PM.png" style="zoom:50%;" />
+
+#### 6.3 Advantages of Typing
+
+* **Detecting errors earlier**: Programs in richly typed languages often "just work", for the following reasons:
+  * Many of the simple and common mistakes arise from type inconsistencies.
+  * Programmers are forced to think a bit more before coding.
+* **Enforcing disciplined programming**: Type systems form the backbone of:
+  * Modules
+  * Classes
+* **Documentation**:
+  * Unlike comments, type signatures will always remain current.
+* **Efficiency**:
+  * First use of types in computing was to distinguish between integer and floating point numbers.
+  * This led to the elimination of many of the dynamic checks that otherwise would have been needed to guarantee safety.
+
+#### 6.4 Disadvantages of Typing
+
+* Type systems sometimes do get in the way:
+  * Simple concepts may require complicated coding if one has to work around the type system, e. g., heterogeneous lists in Haskell.
+  * Sometimes it becomes impossible to do what one wants to do, at least not without loss of efficiency.
+* Increasingly sophisticated type systems can help. But that can make the type systems harder to understand and less automatic.
+
+#### 6.5 Static and Dynamic Semantics
+
+In summary:
+
+* A type system **statically** proves properties about the **dynamic** behavior of a program.
+* To make precise exactly what these properties are, and formally **prove** that a type system achieves its goals, both of the following must be formalized first:
+  * **static semantics**,
+  * **dynamic semantics**.
+
+#### 6.6 Example Language: Abstract Syntax
+
+Example language. (Will be extended later.)
+
+<img src="Compiler/Screen Shot 2021-12-24 at 12.46.56 PM.png" style="zoom:50%;" />
+
+#### 6.7 Values
+
+* The **values** of a language are a subset of the terms that are **possible results of evaluation**.
+* In other words, values are the **meaning** of terms according to the **dynamic semantics** of the language.
+* A term is **reduced** using a given set of evaluation rules until a value is obtained, at which point no further reduction is possible.
+  * For instance, **pred(succ(0))** may be reduced to **0**, at which point, no further reduction is possible.
+* In general, a term to which no (further) evaluation rule applies is said to be in **normal form**.
+* All values are in normal form.
+
+<img src="Compiler/Screen Shot 2021-12-24 at 12.52.24 PM.png" style="zoom:50%;" />
+
+#### 6.8 One Step Evaluation Relation
+
+$t\rightarrow t'$ is an **evaluation relation** on terms.
+
+**Read**: $t$ evaluates to $t'$ in one step.
+
+The evaluation relation constitutes an **operational** (dynamic) **semantics** for the example language.
+
+<img src="Compiler/Screen Shot 2021-12-24 at 12.55.09 PM.png" style="zoom:50%;" />
+
+* Evaluation Relation
+
+  * Recall that a **relation** between two sets $X$ and $Y$ is just a subset of $X\times Y$.
+
+  * For example, the "less than or equal" relation $\le$ on $N$ is a subset of $N\times N$, and we have:
+
+    $\{(1,1),(1,2),(1,3),(2,2),(2,3)\} \subseteq (\le)$
+
+  * The "one step evaluation" is a relation on **terms**. **One term is related to another iff the first evaluates to the second in one step**.
+
+  * For example:
+
+    <img src="Compiler/Screen Shot 2021-12-24 at 1.11.41 PM.png" style="zoom:50%;" />
+
+  * The evaluation relation is infinite. Hence, we cannot enumerate all pairs.
+
+  * Instead, (schematic) **inference rules** are used to specify relations:
+
+    <img src="Compiler/Screen Shot 2021-12-24 at 1.13.50 PM.png" style="zoom:50%;" />
+
+  * If there are no premises, the line is often omitted:
+
+    <img src="Compiler/Screen Shot 2021-12-24 at 1.14.56 PM.png" style="zoom:50%;" />
+
+  * **Schematic** means that universally quantified variables are allowed in the rules.
+
+  * For example, the following holds **for all** $t_2$ and $t_3$:
+
+  * <img src="Compiler/Screen Shot 2021-12-24 at 1.20.09 PM.png" style="zoom:50%;" />
+
+  * In other words, such a **rule schema** actually stands for an **infinite set** of rules:
+
+  * <img src="Compiler/Screen Shot 2021-12-24 at 1.21.07 PM.png" style="zoom:50%;" />
+
+  * The **domain** of a variable is often specified by **naming conventions**.
+
+  * For example, the name of a variable may indicate some specific **syntactic category** such as $t$ (for terms), $v$ (for values), or $nv$ (for numeric values):
+
+  * <img src="Compiler/Screen Shot 2021-12-24 at 1.22.48 PM.png" style="zoom:50%;" />
+
+<img src="Compiler/Screen Shot 2021-12-24 at 1.35.35 PM.png" style="zoom:50%;" />
+
+**Note:** We have the rule $\text{pred}\ 0 \rightarrow 0$ instead of $\text{pred}\ 0$ reducing to $-1$ because the domain of our numeric values is the set of natural numbers $N = \{0,1,2,\cdots\}$.
+
+<img src="Compiler/Screen Shot 2021-12-24 at 1.37.47 PM.png" style="zoom:50%;" />
+
+#### 6.9 Values and Stuck Terms
+
+Note that:
+
+* **Values** cannot be evaluated further, e. g.:
+  * **true**
+  * $0$
+  * $\text{succ}(\text{succ}\ 0)$
+* Certain "obviously nonsensical" states result in the computation process **getting stuck**: the term cannot be evaluated further, but it is not a value.
+* Definition: A term is **stuck** if it is a normal form but not a value.
+* Why stuck?
+  * The program is **not well-defined** according to the dynamic semantics of the language.
+  * The **abstractions** of the language are being **broken**.
+
+#### 6.10 Stuckness and Run-Time Errors
+
+* The notion of **getting stuck** models **run-time errors**.
+* The **goal** of a type system is to **guarantee** that a program **never gets stuck** in this manner.
+
+#### 6.11 Why Should We Care About Safety?
+
+* One reason: security.
+* C and C++ are unsafe: **buffer overruns** are possible.
+* Buffer overruns allow input data to be executed as code.
+* This is one of the most common security holes. In other words, had a safe variant of C been used, one might speculate that billions of dollars would have been saved.
+
+#### 6.12 Types
+
+At this point, there are only two **types**, booleans and the natural numbers:
+
+<img src="Compiler/Screen Shot 2021-12-26 at 9.32.56 PM.png" style="zoom:50%;" />
+
+#### 6.13 Typing Relation
+
+We will define a **typing relation** between terms and types:
+
+$t:T$
+
+Read:
+
+$t$ has type $T$
+
+* A term that has a type, i. e., is related to a type by such a typing relation, is said to be **well-typed**.
+* The typing relation will be defined by (schematic) typing rules, in the same way as we defined the evaluation relation.
+
+#### 6.14 Typing Rules
+
+<img src="Compiler/Screen Shot 2021-12-26 at 9.35.40 PM.png" style="zoom:50%;" />
+
+#### 6.15 Safety = Progress + Preservation
+
+* An important reason for having a type system is **safety**.
+* In other words, **"well typed programs do not go wrong"**, where "wrong" means entering a "stuck state".
+
+This breaks down into two parts:
+
+**Progress**: A well-typed term is not stuck.
+
+**Preservation**: If a well-typed term is evaluated one step, then the resulting term is also well-typed (and has the same type).
+
+Together, these two properties say that a well-typed term can never reach a stuck state during evaluation.
+
+<img src="Compiler/Screen Shot 2021-12-26 at 9.39.47 PM.png" style="zoom:50%;" />
+
+#### 6.16 Exceptions
+
+What about terms such as the following that are (usually) considered well-typed?
+
+* division by zero
+* head of empty list
+* array indexing out of bounds (buffer overrun)
+
+If the type system does not rule them out, we need to differentiate those from stuck terms, or we can no longer claim that "well-typed programs do not go wrong".
+
+**Idea**: Allow **exceptions** to be raised, and make it **well-defined** what happens when exceptions are raised.
+
+For example:
+
+* introduce a term **error**
+
+* introduce evaluation rules like
+
+  <img src="Compiler/Screen Shot 2021-12-26 at 9.47.29 PM.png" style="zoom:50%;" />
+
+* typing rule: $error: T$
+
+* Introduce **propagation rules** to ensure that the **entire** program evaluates to **error** once the exception has been raised, unless there is some exception handling mechanism.
+
+* Change the Progress theorem slightly to allow for exceptions:
+
+  <img src="Compiler/Screen Shot 2021-12-26 at 9.49.42 PM.png" style="zoom:50%;" />
+
+#### 6.17 Extension: Let-bound Variables
+
+Syntactic extension:
+
+<img src="Compiler/Screen Shot 2021-12-28 at 9.53.13 PM.png" style="zoom:50%;" />
+
+New evaluation rules:
+
+<img src="Compiler/Screen Shot 2021-12-28 at 9.53.43 PM.png" style="zoom:50%;" />
+
+* We now need a **typing context** or **type environment** to keep track of types of variables.
+
+* This is an abstract version of a "symbol table"/
+
+* The typing relation thus becomes a **ternary relation**:
+
+  <img src="Compiler/Screen Shot 2021-12-28 at 10.10.18 PM.png" style="zoom:50%;" />
+
+  **Read:** term $t$ has type $T$ in type environment $\Gamma$.
+
+Environment-related notation:
+
+* Extending an environment:
+  $$
+  \Gamma, x : T
+  $$
+  The new declaration is understood to replace any earlier declaration for a variable with the same name.
+
+* Stating that the type of a variable is given by an environment:
+
+  <img src="Compiler/Screen Shot 2021-12-28 at 10.13.13 PM.png" style="zoom:50%;" />
+
+Updating typing rules:
+
+<img src="Compiler/Screen Shot 2021-12-28 at 10.13.43 PM.png" style="zoom:50%;" />
+
+<img src="Compiler/Screen Shot 2021-12-28 at 10.15.23 PM.png" style="zoom:50%;" />
+
+New typing rules:
+
+<img src="Compiler/Screen Shot 2021-12-28 at 10.15.47 PM.png" style="zoom:50%;" />
+
+Recursive bindings:
+
+* Typing is straightforward if the recursively-defined entity is **explicitly** typed:
+
+  <img src="Compiler/Screen Shot 2021-12-28 at 10.17.04 PM.png" style="zoom:50%;" />
+
+* If the recursively-defined entity is **not explicitly** typed, then the question is whether $T_1$ is uniquely defined (and in a type checker how to compute this type):
+
+  <img src="Compiler/Screen Shot 2021-12-28 at 10.19.21 PM.png" style="zoom:50%;" />
+
+#### 6.18 Introduction to $\lambda$-Calculus
+
+* Imperative languages (such as C, Java, and Python) are based on Turing machine model of computation.
+
+* In imperative languages, there is a clear distinction between *programs* and *data*:
+
+  **Programs**: sequences of instructions that are executed sequentially;
+
+  **Data**: values given as input, stored in memory, manipulated during computation, and returned as output.
+
+* Programs and data are distinct and are kept separated.
+
+* Programs are not modified during computation.
+
+  * Note that, in principle, it is possible to modify programs during computation, since they are stored in memory like any other data.
+  * This approach is, however, very difficult to manage. Hence, it is generally avoided.
+
+* In contrast, functional languages (such as Haskell and Lisp) are based on the $\lambda$-calculus model of computation.
+
+* In functional programming, there is no distiction between programs and data.
+
+  * Both are represented by terms/expressions belonging to the same language.
+  * Computation consists in the *reduction* of terms to *normal forms*, including terms that represent functions, i. e., the programs themselves.
+
+#### 6.19 Syntax of $\lambda$-calculus
+
+* Lambda calculus is a pure theory of functions, i. e., all the objects are functions.
+  * The objects of $\lambda$-calculus are represented as $\lambda$-terms.
+  * $\lambda$-terms represent both data structures and programs.
+* As $\lambda$-calculus is a pure theory of functions, the construction of $\lambda$-terms is very simple.
+
+<img src="Compiler/Screen Shot 2021-12-28 at 10.32.36 PM.png" style="zoom:50%;" />
+
+* At first glance, $\lambda$-terms seem rather limited:
+
+  * no numbers;
+  * no arithmetic operations;
+  * no data structures;
+  * no programming primitives;
+  * ...
+
+* It turns out that we do not really need them!
+
+* All (computable) numbers and operations can be defined as purely functional constructions, built using only abstraction and application.
+
+* Nonetheless, for thr purposes of this lesson, we use some operations and numbers without defining them as $\lambda$-terms.
+
+* Furthermore, we will not work within the framework of pure $\lambda$-calculus. Instead, we just add some concepts from $\lambda$-calculus to our example language.
+
+* As an example, let $t:= x^2+1$.
+
+* By **abstracting** $x$, we are designating this variable as an 'input' argument to the function that:
+
+  * takes the input of $x$;
+  * squares it;
+  * then adds 1 to the result.
+
+* This function is written as $\lambda x.x^2+1$.
+
+* Finally, the function $\lambda x.x^2+1$ is applied on any given argument using **application**.
+
+* As another example, let $s:=x^2+y$.
+
+* By abstracting $x$ and $y$, we are designating these two variables as the 'input' arguments to the function that:
+
+  * takes the inputs $x$ and $y$;
+  * squares $x$;
+  * then adds $y$ to the result.
+
+* This function is written as $\lambda x.\lambda y.x^2+y$, or simply $\lambda xy.x^2+y$.
+
+* Now, we expect the result of:
+
+  * $((\lambda xy.x^2+y)3)5$
+
+  to be $3^2+5=14$.
+
+#### 6.20 Some conventions
+
+* For convenience, we use some conventions that allow us to save on parentheses:
+  * Application associates to the left. Hence, we write $(t_1t_1t_3)$ for $((t_1t_2)t_3)$;
+  * $\lambda$-abstraction associates to the right. Thus, we write $\lambda x.\lambda y.x$ for $\lambda x.(\lambda y.x)$;
+  * We can use a single $\lambda$ symbol followed by several variables to mean consecutive abstractions. So, we write $\lambda xy.x$ for $\lambda x.\lambda y.x$.
+
+#### 6.21 Variables in $\lambda$-calculus
+
+* In $\lambda$-calculus, variables serve a different function to that of imperative programming.
+* In $\lambda$-calculus, *and as a consequence, pure functional programming*, a variable $x$ is just a place-holder to denote any possible value.
+* In imperative programming, on the other hand, variables represent mamory locations containing values that can be modified.
+* In other words, in pure functional programming, variables are *immutable*, while in imperative programming, they are *mutable*.
+
+#### 6.22 beta-reduction ($\beta$-reduction)
+
+* As $\lambda$-calculus is a model of computation, we need to describe how a basic computation step is carried out over $\lambda$-terms.
+* In computing $(\lambda x.x^2+1)3$, we substitute 3 for the variable $x$ in the *body* of the function $\lambda x.x^2 +1$, to obtain $3^2+1=10$.
+* This is called $\beta$-reduction.
+  * It is essentially the only kind of computation done in $\lambda$-calculus.
+* Let $t[x:=t_2]$ denote the term obtained from $t_1$ by substituting all occurrences of the variable $x$ with the term $t_2$.
+
+<img src="Compiler/Screen Shot 2021-12-28 at 10.52.06 PM.png" style="zoom:50%;" />
+
+#### 6.23 Extension: Functions
+
+Now, we return to our example language, and extend its syntax, as follows:
+
+<img src="Compiler/Screen Shot 2021-12-28 at 10.53.37 PM.png" style="zoom:50%;" />
+
+New evaluation rules:
+
+<img src="Compiler/Screen Shot 2021-12-28 at 10.54.02 PM.png" style="zoom:50%;" />
+
+Note:
+
+* **Left to right evaluation order**: first the function (E-APP1), then the argument (E-APP2).
+* **Call-by-value**: the argument fully evaluated before function "invoked" (E-APPABS).
+
+New typing rules:
+
+<img src="Compiler/Screen Shot 2021-12-28 at 10.55.37 PM.png" style="zoom:50%;" />
