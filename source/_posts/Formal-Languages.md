@@ -559,7 +559,7 @@ mathjax: true
 
 * **<u>Definition 7.2</u>**: Let $M = (Q, \Sigma, \Gamma, \delta, q_0, z, F)$ be an NPDA. The language accepted by $M$ is the set:
   $$
-  L(M) = \{w\in \Sigma^*\mid (q_0, w, z) \vdash^* (p, \lambda, u), p\in F, u \in \Gamma^*\}
+  L(M) = \lbrace w\in \Sigma^*\mid (q_0, w, z) \vdash^* (p, \lambda, u), p\in F, u \in \Gamma^*\rbrace
   $$
 
 ##### 6.4 NPDAs and CFLs
