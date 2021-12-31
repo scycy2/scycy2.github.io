@@ -4,7 +4,7 @@ date: 2020-07-18 15:23:52
 tags: ["hexo"]
 categories: "博客优化"
 summary: "hexo 优化"
-cover: true
+cover:
 img: /medias/featureimages/1.jpg
 ---
 

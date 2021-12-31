@@ -3,7 +3,7 @@ title: Memory Management
 date: 2020-11-10 12:59:07
 tags: ['Operating System']
 categories: ['class notes']
-cover: true
+cover:
 summary: Memory Management (Relocation, Dynamic Partitioning, Segmentation, Paging, Virtual Memory, Page Faults, Translation Look Aside Buffers, Inverted Page Tables, Page Replacement)
 img: /medias/featureimages/11.jpg
 ---

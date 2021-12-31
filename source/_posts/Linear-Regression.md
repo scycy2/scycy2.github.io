@@ -3,7 +3,7 @@ title: Linear Regression
 date: 2021-06-01 22:12:14
 tags: ['Machine Learning']
 categories: ['self-study notes']
-cover: true
+cover:
 summary: Linear Regression
 img: /medias/featureimages/19.jpg
 mathjax: true
