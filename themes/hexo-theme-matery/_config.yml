@@ -263,7 +263,7 @@ myGallery:
   enable: true
   data:
     - /medias/gallery/0.png
-    # - /medias/gallery/1.jpg
+    - /medias/gallery/1.png
     # - /medias/gallery/2.jpg
 
 # Whether to display post-calender in the `archive` page
