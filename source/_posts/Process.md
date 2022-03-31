@@ -30,7 +30,7 @@ img: /medias/featureimages/6.jpg
 
 * Diagram
 
-  <img src="Process-进程/Screen Shot 2020-12-21 at 1.50.28 PM.png" style="zoom:50%;" />
+  <img src="Process/Screen Shot 2020-12-21 at 1.50.28 PM.png" style="zoom:50%;" />
 
 * State transitions include:
 
@@ -76,7 +76,7 @@ img: /medias/featureimages/6.jpg
 
 * Switching Processes
 
-  * <img src="Process-进程/Screen Shot 2020-12-21 at 3.42.30 PM.png" style="zoom:50%;" />
+  * <img src="Process/Screen Shot 2020-12-21 at 3.42.30 PM.png" style="zoom:50%;" />
 
   * 1  Save process state (program counter, registers)
   * 2  Update PCB (running -> ready)
