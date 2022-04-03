@@ -441,21 +441,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>Update Date:&nbsp;&nbsp;
-                    2022-03-31
+                    2022-04-03
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    999
+                    1.3k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    4 Min
+                    5 Min
                 </div>
                 
 
@@ -571,7 +571,61 @@
 <span class="token punctuation">}</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="3-经典TopK问题"><a href="#3-经典TopK问题" class="headerlink" title="3. 经典TopK问题"></a>3. 经典TopK问题</h5><p>总感觉Leetcode上看见过，但就是没刷过。。。</p>
-<p>问了以后直接懵了，没思路（还是题刷的不够多）。。。面试官一直提醒我说用堆，我以为把数组建堆，每次取根节点，再调整堆。。。面试结束后查了才知道，先将数组前k个值建堆，再是后面的元素依次和堆顶元素比较。。。过段时间去做下这个题，再附上代码</p>
+<p>问了以后直接懵了，没思路（还是题刷的不够多）。。。面试官一直提醒我说用堆，我以为把数组建堆，每次取根节点，再调整堆。。。然后他问了下算法复杂度，我说是$O(n\log (n))$，确实算法复杂度和快排没区别。。面试结束后查了才知道，先将数组前k个值建堆，再是后面的元素依次和堆顶元素比较，这样算法复杂度是$O(n\log(k))$。。。过段时间去做下这个题，再附上代码</p>
+<p>4月3日更新，今天做了一下TopK问题，有思路以后其实不难，代码核心还是调整堆的代码</p>
+<pre class="line-numbers language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">TopK</span><span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">//牛客上这道题的输入输出</span>
+      <span class="token keyword">public</span> ArrayList<span class="token operator">&lt;</span>Integer<span class="token operator">></span> <span class="token function">GetLeastNumbers_Solution</span><span class="token punctuation">(</span><span class="token keyword">int</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> input<span class="token punctuation">,</span> <span class="token keyword">int</span> k<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        ArrayList<span class="token operator">&lt;</span>Integer<span class="token operator">></span> ans <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>k <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>k <span class="token operator">>=</span> input<span class="token punctuation">.</span>length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> input<span class="token punctuation">.</span>length<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                ans<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>input<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> ks <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> k<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            ks<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> input<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token punctuation">(</span>k<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">2</span><span class="token punctuation">;</span> i <span class="token operator">>=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">--</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token function">adjustHeap</span><span class="token punctuation">(</span>ks<span class="token punctuation">,</span> i<span class="token punctuation">,</span> k<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> k<span class="token punctuation">;</span> i <span class="token operator">&lt;</span> input<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>input<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">&lt;</span> ks<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                ks<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> input<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token function">adjustHeap</span><span class="token punctuation">(</span>ks<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> k<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> k<span class="token punctuation">;</span> <span class="token operator">++</span>i<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            ans<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>ks<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> ans<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+      
+      <span class="token comment" spellcheck="true">//核心代码，和堆排一样，根据问题去建立最大堆或者最小堆</span>
+      <span class="token comment" spellcheck="true">//这里是建立最大堆，因为要取前k个最小值，每次把堆顶即最大值和数组接下来的值比较，比堆顶元素小的值就和堆顶元素交换</span>
+      <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">adjustHeap</span><span class="token punctuation">(</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> nums<span class="token punctuation">,</span> <span class="token keyword">int</span> parent<span class="token punctuation">,</span> <span class="token keyword">int</span> length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> temp <span class="token operator">=</span> nums<span class="token punctuation">[</span>parent<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> leftnode <span class="token operator">=</span> <span class="token number">2</span><span class="token operator">*</span>parent <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token keyword">while</span> <span class="token punctuation">(</span>leftnode <span class="token operator">&lt;</span> length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">int</span> rightnode <span class="token operator">=</span> leftnode <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>rightnode <span class="token operator">&lt;</span> length <span class="token operator">&amp;&amp;</span> nums<span class="token punctuation">[</span>rightnode<span class="token punctuation">]</span> <span class="token operator">></span> nums<span class="token punctuation">[</span>leftnode<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                leftnode<span class="token operator">++</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>temp <span class="token operator">>=</span> nums<span class="token punctuation">[</span>leftnode<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">break</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            nums<span class="token punctuation">[</span>parent<span class="token punctuation">]</span> <span class="token operator">=</span> nums<span class="token punctuation">[</span>leftnode<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            parent <span class="token operator">=</span> leftnode<span class="token punctuation">;</span>
+            leftnode <span class="token operator">=</span> <span class="token number">2</span><span class="token operator">*</span>parent <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        nums<span class="token punctuation">[</span>parent<span class="token punctuation">]</span> <span class="token operator">=</span> temp<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h5 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h5><p>就是透心凉，被虐杀的感觉。。还是太菜，后端知识点确实也多，还有一堆没预习过hhh</p>
 <p>不管怎么说，也算是积累了一定的经验，也是很有意义的一次面试，毕竟第一次找工面试就直接编程题。。。</p>
 <p>最后我和面试官解释了一下，说我投错岗位了，投成春招全职了。。。我说我9月份还要去HKU读研究生，面试官也是恭喜我🤦‍♂️。</p>
@@ -966,7 +1020,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">47.2k</span>&nbsp;字
+                class="white-color">47.6k</span>&nbsp;字
             
             
             
