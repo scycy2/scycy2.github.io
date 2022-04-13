@@ -27,8 +27,7 @@ mathjax: true
   * shrink output
   * throw away info from edge
 * **Zero-Padding**
-
-<img src="/Users/apple/Desktop/selfstudy/CNN/pics/Screen Shot 2021-10-24 at 4.41.20 PM.png" style="zoom:50%;" />
+  * Fill the edges of the input matrix with zero values
 
 * Suppose input image is $n\times n$, filter is $f\times f$, padding is $p$, then the output is $(n+2p-f+1)\times (n+2p-f+1)$
 * **Valid and Same convolutions**
