@@ -264,7 +264,7 @@ myGallery:
   data:
     - /medias/gallery/0.png
     - /medias/gallery/1.png
-    # - /medias/gallery/2.jpg
+    - /medias/gallery/2.pdf
 
 # Whether to display post-calender in the `archive` page
 # 设置在归档页面中是否显示'文章日历'控件
