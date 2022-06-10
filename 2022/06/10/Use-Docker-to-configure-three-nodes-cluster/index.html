@@ -460,14 +460,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    875
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    5 Min
+                    6 Min
                 </div>
                 
 
@@ -727,6 +727,33 @@ docker run -itd --privileged<span class="token operator">=</span>true 879314144/
 <span class="token function">cd</span> <span class="token variable">${HADOOP_HOME}</span>/sbin/
 ./start-all.sh
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p><strong>Important!!! Every time you restarted the containers, some settings will restore, so I write some scripts to finish these settings automatically</strong></p>
+<ul>
+<li><p>myStart.sh (in containers)</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/sh</span>
+<span class="token keyword">echo</span> <span class="token string">"172.17.0.2      Master"</span> <span class="token operator">>></span> /etc/hosts
+<span class="token keyword">echo</span> <span class="token string">"172.17.0.3      Worker1"</span> <span class="token operator">>></span> /etc/hosts
+<span class="token keyword">echo</span> <span class="token string">"172.17.0.4      Worker2"</span> <span class="token operator">>></span> /etc/hosts
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">chmod</span> +x myStart.sh <span class="token comment" spellcheck="true"># make the script executable, run this when the script is written for the first time</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>Add one line to ~/.bashrc</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">source</span> /etc/profile <span class="token comment" spellcheck="true"># make the environment varibles take effect each time the terminal starts</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>start_Master (Unix Executable File, as my laptop is MacBook) (outside the container)</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true">#!/bin/zsh</span>
+docker start 1e0dc9a29fe7 <span class="token comment" spellcheck="true"># start container</span>
+docker <span class="token function">exec</span> -it 1e0dc9a29fe7 /myStart.sh <span class="token comment" spellcheck="true"># run myStart.sh script</span>
+docker <span class="token function">exec</span> -it 1e0dc9a29fe7 /bin/bash <span class="token comment" spellcheck="true"># interact with bash</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">chmod</span> +x start_Master <span class="token comment" spellcheck="true"># make the file executable</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>Two same files for workers but with different container ID. If you do not need to interact with bash for two workers, you can put all in one file.</p>
+</li>
+</ul>
 </li>
 </ul>
 
@@ -1143,7 +1170,7 @@ docker run -itd --privileged<span class="token operator">=</span>true 879314144/
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">47.1k</span>&nbsp;字
+                class="white-color">47.3k</span>&nbsp;字
             
             
             
