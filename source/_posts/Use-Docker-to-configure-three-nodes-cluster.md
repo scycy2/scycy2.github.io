@@ -325,4 +325,38 @@ img:
   ./start-all.sh
   ```
 
-  
+* **Important!!! Every time you restarted the containers, some settings will restore, so I write some scripts to finish these settings automatically**
+
+  * myStart.sh (in containers)
+
+    ```bash
+    #!/bin/sh
+    echo "172.17.0.2      Master" >> /etc/hosts
+    echo "172.17.0.3      Worker1" >> /etc/hosts
+    echo "172.17.0.4      Worker2" >> /etc/hosts
+    ```
+
+    ```bash
+    chmod +x myStart.sh # make the script executable, run this when the script is written for the first time
+    ```
+
+  * Add one line to ~/.bashrc
+
+    ```bash
+    source /etc/profile # make the environment varibles take effect each time the terminal starts
+    ```
+
+  * start_Master (Unix Executable File, as my laptop is MacBook) (outside the container)
+
+    ```bash
+    #!/bin/zsh
+    docker start 1e0dc9a29fe7 # start container
+    docker exec -it 1e0dc9a29fe7 /myStart.sh # run myStart.sh script
+    docker exec -it 1e0dc9a29fe7 /bin/bash # interact with bash
+    ```
+
+    ```bash
+    chmod +x start_Master # make the file executable
+    ```
+
+    Two same files for workers but with different container ID. If you do not need to interact with bash for two workers, you can put all in one file.
