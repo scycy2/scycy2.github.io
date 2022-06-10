@@ -325,7 +325,7 @@ img:
   ./start-all.sh
   ```
 
-* **Important!!! Every time you restarted the containers, some settings will restore, so I write some scripts to finish these settings automatically**
+* **Important!!! Every time you restarted the containers, some settings will fail, so I write some scripts to finish these settings automatically**
 
   * myStart.sh (in containers)
 
