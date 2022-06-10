@@ -460,14 +460,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>Word Count:&nbsp;&nbsp;
-                    783
+                    875
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>Read Times:&nbsp;&nbsp;
-                    4 Min
+                    5 Min
                 </div>
                 
 
@@ -708,7 +708,27 @@ Worker2
 <p>We can see three active nodes</p>
 </li>
 </ul>
-<p>Finished!!!</p>
+<h4 id="5-Using-the-configured-image-directly"><a href="#5-Using-the-configured-image-directly" class="headerlink" title="5. Using the configured image directly"></a>5. Using the configured image directly</h4><ul>
+<li><p>I have already pushed my image to docker hub, you can use my image directly</p>
+<pre class="line-numbers language-bash"><code class="language-bash">docker pull 879314144/centoshadoop:Master
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>Run three containers</p>
+<pre class="line-numbers language-bash"><code class="language-bash">docker run -itd -p 9870:9870 -p 8088:8088 --privileged<span class="token operator">=</span>true 879314144/centoshadoop:Master /sbin/init <span class="token comment" spellcheck="true"># Master, which maps ports to my local machine</span>
+
+docker run -itd --privileged<span class="token operator">=</span>true 879314144/centoshadoop:Master /sbin/init <span class="token comment" spellcheck="true"># Worker1</span>
+
+docker run -itd --privileged<span class="token operator">=</span>true 879314144/centoshadoop:Master /sbin/init <span class="token comment" spellcheck="true"># Worker2</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>Enter containers and run hadoop</p>
+<pre class="line-numbers language-bash"><code class="language-bash">docker <span class="token function">exec</span> -it containerID
+<span class="token function">source</span> /etc/profile
+<span class="token function">cd</span> <span class="token variable">${HADOOP_HOME}</span>/sbin/
+./start-all.sh
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ul>
 
             </div>
             <hr/>
@@ -1123,7 +1143,7 @@ Worker2
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">47k</span>&nbsp;字
+                class="white-color">47.1k</span>&nbsp;字
             
             
             
