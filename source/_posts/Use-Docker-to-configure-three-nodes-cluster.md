@@ -298,6 +298,31 @@ img:
 
   We can see three active nodes
 
+#### 5. Using the configured image directly
 
+* I have already pushed my image to docker hub, you can use my image directly
 
-Finished!!!
+  ```bash
+  docker pull 879314144/centoshadoop:Master
+  ```
+
+* Run three containers
+
+  ```bash
+  docker run -itd -p 9870:9870 -p 8088:8088 --privileged=true 879314144/centoshadoop:Master /sbin/init # Master, which maps ports to my local machine
+  
+  docker run -itd --privileged=true 879314144/centoshadoop:Master /sbin/init # Worker1
+  
+  docker run -itd --privileged=true 879314144/centoshadoop:Master /sbin/init # Worker2
+  ```
+
+* Enter containers and run hadoop
+
+  ```bash
+  docker exec -it containerID
+  source /etc/profile
+  cd ${HADOOP_HOME}/sbin/
+  ./start-all.sh
+  ```
+
+  
