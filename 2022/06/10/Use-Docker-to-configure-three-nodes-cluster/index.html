@@ -29,8 +29,8 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-<meta name="generator" content="Hexo 5.4.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
-<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
+<meta name="generator" content="Hexo 5.4.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
 
 <body>
@@ -757,7 +757,7 @@ docker <span class="token function">exec</span> -it 1e0dc9a29fe7 /bin/bash <span
 </li>
 </ul>
 <h4 id="6-Submit-jar-file-to-hadoop"><a href="#6-Submit-jar-file-to-hadoop" class="headerlink" title="6. Submit jar file to hadoop"></a>6. Submit jar file to hadoop</h4><ul>
-<li><p>When I submit jar file to hadoop, the status is always <strong>ACCEPTED</strong>, which means the cluster cannot run the job. Then in logs I find that <strong>UnknownHostException</strong> as below:<img src="/2022/06/10/Use-Docker-to-configure-three-nodes-cluster/apple/Desktop/Screen Shot 2022-06-11 at 13.10.41.png" alt="Screen Shot 2022-06-11 at 13.10.41" style="zoom:50%;"></p>
+<li><p>When I submit jar file to hadoop, the status is always <strong>ACCEPTED</strong>, which means the cluster cannot run the job. Then in logs I find that <strong>UnknownHostException</strong> as below:<img src="/2022/06/10/Use-Docker-to-configure-three-nodes-cluster/Screen Shot 2022-06-11 at 13.10.41.png" alt="Screen Shot 2022-06-11 at 13.10.41" style="zoom:50%;"></p>
 <p>As nodes cannot recognize each other, so the communication between nodes fails.</p>
 </li>
 <li><p>Therefore, we need add more lines to the script <strong>myStart.sh</strong>, that we mentioned above:</p>
