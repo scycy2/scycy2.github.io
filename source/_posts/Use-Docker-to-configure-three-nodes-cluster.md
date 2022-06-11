@@ -363,7 +363,7 @@ img:
 
 #### 6. Submit jar file to hadoop
 
-* When I submit jar file to hadoop, the status is always **ACCEPTED**, which means the cluster cannot run the job. Then in logs I find that **UnknownHostException** as below:<img src="/Users/apple/Desktop/Screen Shot 2022-06-11 at 13.10.41.png" alt="Screen Shot 2022-06-11 at 13.10.41" style="zoom:50%;" />
+* When I submit jar file to hadoop, the status is always **ACCEPTED**, which means the cluster cannot run the job. Then in logs I find that **UnknownHostException** as below:<img src="Use-Docker-to-configure-three-nodes-cluster/Screen Shot 2022-06-11 at 13.10.41.png" alt="Screen Shot 2022-06-11 at 13.10.41" style="zoom:50%;" />
 
   As nodes cannot recognize each other, so the communication between nodes fails.
 
