@@ -360,3 +360,30 @@ img:
     ```
 
     Two same files for workers but with different container ID. If you do not need to interact with bash for two workers, you can put all in one file.
+
+#### 6. Submit jar file to hadoop
+
+* When I submit jar file to hadoop, the status is always **ACCEPTED**, which means the cluster cannot run the job. Then in logs I find that **UnknownHostException** as below:<img src="/Users/apple/Desktop/Screen Shot 2022-06-11 at 13.10.41.png" alt="Screen Shot 2022-06-11 at 13.10.41" style="zoom:50%;" />
+
+  As nodes cannot recognize each other, so the communication between nodes fails.
+
+* Therefore, we need add more lines to the script **myStart.sh**, that we mentioned above:
+
+  ```bash
+  #!/bin/sh
+  echo "172.17.0.3      7be466059d81" >> /etc/hosts # new line
+  echo "172.17.0.4      17c34ea417e8" >> /etc/hosts # new line
+  echo "172.17.0.2      Master" >> /etc/hosts
+  echo "172.17.0.3      Worker1" >> /etc/hosts
+  echo "172.17.0.4      Worker2" >> /etc/hosts
+  ```
+
+  For all containers, we need to change the script, two added lines are hostname information about **another two containers**.
+
+* Then we can submit jar files to hadoop:
+
+  ```bash
+  hadoop jar xxx.jar ClassName arg1 arg2 ....
+  ```
+
+  
