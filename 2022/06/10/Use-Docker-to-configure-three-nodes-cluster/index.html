@@ -506,15 +506,16 @@ docker <span class="token function">exec</span> -it containerID /bin/bash
 </li>
 <li><p>Download JDK1.8 from website <a target="_blank" rel="noopener" href="https://www.oracle.com/java/technologies/downloads/">https://www.oracle.com/java/technologies/downloads/</a></p>
 </li>
-<li><p>Copy the tar or tar.gz file into the container (before running below command, stop the container)</p>
+<li><p>Copy the tar or tar.gz file into the container</p>
 <pre class="line-numbers language-bash"><code class="language-bash">docker <span class="token function">cp</span> jdk-8u333-linux-x64.tar containerID:/usr/java/
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
-<li><p>Then enter the container again, and unzip the tar or tar.gz file</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">tar</span> -xvf jdk-8u333-linux-x64.tar
+<li><p>Unzip the tar or tar.gz file</p>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> /usr/java
+<span class="token function">tar</span> -xvf jdk-8u333-linux-x64.tar
 <span class="token comment" spellcheck="true"># tar -xgvf jdk-8u333-linux-x64.tar.gz</span>
 <span class="token function">rm</span> -rf jdk-8u333-linux-x64.tar
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>Configure environment variables</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">vi</span> /etc/profile
@@ -587,8 +588,9 @@ yum -y <span class="token function">install</span> <span class="token function">
 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 </li>
 <li><p>Unzip</p>
-<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">tar</span> -xvf hadoop-3.3.3.tar
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<pre class="line-numbers language-bash"><code class="language-bash"><span class="token function">cd</span> /usr/hadoop
+<span class="token function">tar</span> -xvf hadoop-3.3.3.tar
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 <li><p>Configure environment variables</p>
 <pre class="line-numbers language-bash"><code class="language-bash"><span class="token comment" spellcheck="true"># vi /etc/profile</span>
