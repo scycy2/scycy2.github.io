@@ -46,15 +46,16 @@ img:
 
   * Download JDK1.8 from website https://www.oracle.com/java/technologies/downloads/
 
-  * Copy the tar or tar.gz file into the container (before running below command, stop the container)
+  * Copy the tar or tar.gz file into the container
 
     ```bash
     docker cp jdk-8u333-linux-x64.tar containerID:/usr/java/
     ```
 
-  * Then enter the container again, and unzip the tar or tar.gz file
+  * Unzip the tar or tar.gz file
 
     ```bash
+    cd /usr/java
     tar -xvf jdk-8u333-linux-x64.tar
     # tar -xgvf jdk-8u333-linux-x64.tar.gz
     rm -rf jdk-8u333-linux-x64.tar
@@ -152,6 +153,7 @@ img:
   * Unzip
 
     ```bash
+    cd /usr/hadoop
     tar -xvf hadoop-3.3.3.tar
     ```
 
