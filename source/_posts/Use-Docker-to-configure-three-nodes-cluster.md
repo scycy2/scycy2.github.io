@@ -5,7 +5,7 @@ tags: ['Big Data', 'Hadoop', 'Centos', 'Docker']
 categories: ['self-study notes']
 cover:
 summary: The steps to configure hadoop cluster using docker
-img:
+img: /medias/featureimages/35.jpg
 ---
 
 #### 1. Pull centos image and install prerequisites
