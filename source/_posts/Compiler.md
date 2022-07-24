@@ -408,7 +408,7 @@ A shift-reduce parser:
 * We can answer this by considering the possibilities for the next input symbol.
 
   * If it is $+$, then this $+$ should eventually be part of the expression $S_1 + T$ (in reverse) on the stack, so that $S_1 + T$ can be reduced to $S_1$; therefore, the non-terminal $T$ should eventually be reduced to $S_1$, and so the time to do it is now.
-  * Similarly, if the next input is $\$$, then the non-terminal $T$ should be reduced to $S_1$, so that $S_1\$$ can be reduced to $S$.
+  * Similarly, if the next input is \$, then the non-terminal $T$ should be reduced to $S_1$, so that $S_1\$$ can be reduced to $S$.
   * The only other symbol that can follow $T$ in a rightmost derivation is $*$, and $*$ cannot follow any other symbol; therefore, $*$ should be shifted onto the stack.
 
 With these observations, we can formulate the rules that the deterministic bottom-up PDA should follow in choosing its moves:
