@@ -873,8 +873,8 @@
 </li>
 <li><p>We can use this to answer the question of which reduction to execute if there seems to be a choice:</p>
 <ul>
-<li>If $a * T$ (the reverse of $T * a$) were on top of the stack, and we simply reduced $a$ to $T$, then the current string in a rightmost derivation would contain the substring $T*T$, which is never possible.</li>
-<li>Similarly, if $T*S_{1}$ (the reverse of $S_{1}*T$) were on top, then reducing $T$ to $S_{1}$ cannot be correct.</li>
+<li>If $a {<em>} T$ (the reverse of $T {</em>} a$) were on top of the stack, and we simply reduced $a$ to $T$, then the current string in a rightmost derivation would contain the substring $T{*}T$, which is never possible.</li>
+<li>Similarly, if $T{<em>}S_{1}$ (the reverse of $S_{1}{</em>}T$) were on top, then reducing $T$ to $S_{1}$ cannot be correct.</li>
 </ul>
 </li>
 <li><p>These two situations can summarized by saying that <strong>when a reduction is executed, the longest possible string should be removed from the stack during the reduction.</strong></p>
@@ -900,7 +900,7 @@
 <ul>
 <li><p>All these rules, except rule 4, are easily incorporated into a transition table for a deterministic pushdown automaton (DPDA), but the fourth may require a little clarification:</p>
 <ul>
-<li>If the PDA sees the combination ($<em>$, $T$) of next input symbol and stack symbol, then it shifts $</em>$ onto the stack.</li>
+<li>If the PDA sees the combination (${<em>}$, $T$) of next input symbol and stack symbol, then it shifts ${</em>}$ onto the stack.</li>
 <li>If it sees ($+$, $T$) or (${$}$, $T$), then the moves it makes are the ones that carry out the appropriate reduction, and then shift the input symbol onto the stack.</li>
 </ul>
 </li>
