@@ -398,7 +398,7 @@ A shift-reduce parser:
 
 * We can use this to answer the question of which reduction to execute if there seems to be a choice:
 
-  * If $a * T$ (the reverse of $T*a$) were on top of the stack, and we simply reduced $a$ to $T$, then the current string in a rightmost derivation would contain the substring $T*T$, which is never possible.
+  * If $a * T$ (the reverse of $T {*} a$) were on top of the stack, and we simply reduced $a$ to $T$, then the current string in a rightmost derivation would contain the substring $T*T$, which is never possible.
   * Similarly, if $T*S_1$ (the reverse of $S_1*T$) were on top, then reducing $T$ to $S_1$ cannot be correct.
 
 * These two situations can summarized by saying that **when a reduction is executed, the longest possible string should be removed from the stack during the reduction.**
@@ -408,13 +408,13 @@ A shift-reduce parser:
 * We can answer this by considering the possibilities for the next input symbol.
 
   * If it is $+$, then this $+$ should eventually be part of the expression $S_1 + T$ (in reverse) on the stack, so that $S_1 + T$ can be reduced to $S_1$; therefore, the non-terminal $T$ should eventually be reduced to $S_1$, and so the time to do it is now.
-  * Similarly, if the next input is \$, then the non-terminal $T$ should be reduced to $S_1$, so that $S_1\$$ can be reduced to $S$.
+  * Similarly, if the next input is ${$}$, then the non-terminal $T$ should be reduced to $S_1$, so that $S_1{$}$ can be reduced to $S$.
   * The only other symbol that can follow $T$ in a rightmost derivation is $*$, and $*$ cannot follow any other symbol; therefore, $*$ should be shifted onto the stack.
 
 With these observations, we can formulate the rules that the deterministic bottom-up PDA should follow in choosing its moves:
 
 1. If the top stack symbol is $Z_0$, $S_1$, $+$, or $*$, shift the next input symbol to the stack. (None of these four symbols is the rightmost symbol in the right side of a production.)
-2. If the top stack symbol is \$, reduce $S_1$\$ to $S$.
+2. If the top stack symbol is ${$}$, reduce $S_1{$}$ to $S$.
 3. If the top stack symbol is '$a$', reduce $T*a$ to $T$ if possible; otherwise reduce $a$ to $T$.
 4. If the top stack symbol is $T$, then reduce (to $S_1$) if the next input is $+$ or \$, otherwise shift.
 5. If the top stack symbol is $S$, then pop it from the stack; if $Z_0$ is the next top symbol, accept, otherwise reject.
@@ -422,7 +422,7 @@ With these observations, we can formulate the rules that the deterministic botto
 * All these rules, except rule 4, are easily incorporated into a transition table for a deterministic pushdown automaton (DPDA), but the fourth may require a little clarification:
 
   * If the PDA sees the combination ($*$, $T$) of next input symbol and stack symbol, then it shifts $*$ onto the stack.
-  * If it sees ($+$, $T$) or (\$, $T$), then the moves it makes are the ones that carry out the appropriate reduction, and then shift the input symbol onto the stack.
+  * If it sees ($+$, $T$) or (${$}$, $T$), then the moves it makes are the ones that carry out the appropriate reduction, and then shift the input symbol onto the stack.
 
 * The point is that "seeing" ($+$, $T$), for example, implies reading the $+$, and the PDA then uses auxiliary states to remember that after it has performed a reduction, it should place $+$ on the stack.
 
@@ -434,7 +434,7 @@ With these observations, we can formulate the rules that the deterministic botto
 
   <img src="Compiler/Screen Shot 2021-10-25 at 2.59.01 PM.png" style="zoom:50%;" />
 
-* The moves for the DPDA and the input string $a+a*a\$$ are shown in the table above.
+* The moves for the DPDA and the input string $a+a*a{$}$ are shown in the table above.
 
 * For each configuration, we show the rule (from the set of five rules) that the PDA used to get there, and, in the case of rule 4, whether the move was a shift or a reduction.
 
