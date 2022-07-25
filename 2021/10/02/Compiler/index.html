@@ -873,7 +873,7 @@
 </li>
 <li><p>We can use this to answer the question of which reduction to execute if there seems to be a choice:</p>
 <ul>
-<li>If $a * T$ (the reverse of $T<em>a$ ) were on top of the stack, and we simply reduced $a$ to $T$, then the current string in a rightmost derivation would contain the substring $T</em>T$, which is never possible.</li>
+<li>If $a * T$ (the reverse of $T {<em>} a$) were on top of the stack, and we simply reduced $a$ to $T$, then the current string in a rightmost derivation would contain the substring $T</em>T$, which is never possible.</li>
 <li>Similarly, if $T<em>S_1$ (the reverse of $S_1</em>T$) were on top, then reducing $T$ to $S_1$ cannot be correct.</li>
 </ul>
 </li>
@@ -884,7 +884,7 @@
 <li><p>We can answer this by considering the possibilities for the next input symbol.</p>
 <ul>
 <li>If it is $+$, then this $+$ should eventually be part of the expression $S_1 + T$ (in reverse) on the stack, so that $S_1 + T$ can be reduced to $S_1$; therefore, the non-terminal $T$ should eventually be reduced to $S_1$, and so the time to do it is now.</li>
-<li>Similarly, if the next input is $, then the non-terminal $T$ should be reduced to $S_1$, so that $S_1$$ can be reduced to $S$.</li>
+<li>Similarly, if the next input is ${$}$, then the non-terminal $T$ should be reduced to $S_1$, so that $S_1{$}$ can be reduced to $S$.</li>
 <li>The only other symbol that can follow $T$ in a rightmost derivation is $<em>$, and $</em>$ cannot follow any other symbol; therefore, $*$ should be shifted onto the stack.</li>
 </ul>
 </li>
@@ -901,7 +901,7 @@
 <li><p>All these rules, except rule 4, are easily incorporated into a transition table for a deterministic pushdown automaton (DPDA), but the fourth may require a little clarification:</p>
 <ul>
 <li>If the PDA sees the combination ($<em>$, $T$) of next input symbol and stack symbol, then it shifts $</em>$ onto the stack.</li>
-<li>If it sees ($+$, $T$) or ($, $T$), then the moves it makes are the ones that carry out the appropriate reduction, and then shift the input symbol onto the stack.</li>
+<li>If it sees ($+$, $T$) or (${$}$, $T$), then the moves it makes are the ones that carry out the appropriate reduction, and then shift the input symbol onto the stack.</li>
 </ul>
 </li>
 <li><p>The point is that “seeing” ($+$, $T$), for example, implies reading the $+$, and the PDA then uses auxiliary states to remember that after it has performed a reduction, it should place $+$ on the stack.</p>
@@ -912,7 +912,7 @@
 </li>
 <li><p>and in this sense, our DPDA serves as a bottom-up parser for $G$.</p>
 <img src="/2021/10/02/Compiler/Screen Shot 2021-10-25 at 2.59.01 PM.png" style="zoom:50%;"></li>
-<li><p>The moves for the DPDA and the input string $a+a*a$$ are shown in the table above.</p>
+<li><p>The moves for the DPDA and the input string $a+a*a{$}$ are shown in the table above.</p>
 </li>
 <li><p>For each configuration, we show the rule (from the set of five rules) that the PDA used to get there, and, in the case of rule 4, whether the move was a shift or a reduction.</p>
 </li>
