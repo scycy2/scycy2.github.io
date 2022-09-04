@@ -160,7 +160,7 @@ code:
 
 # 是否激活文章末尾的打赏功能，默认激活（你替换为的你自己的微信、支付宝二维码图片、或者使用网络图片也可以）.
 reward:
-  enable: true
+  enable: false
   title: 你的赏识是我前进的动力
   wechat: /medias/reward/wechat.jpeg
   alipay: /medias/reward/alipay.jpeg
@@ -169,7 +169,7 @@ reward:
 # minCharNumber: Approve copyright information by copying at least how many characters.
 # 是否激活复制文章时追加博客和作者的版权信息.
 copyright:
-  enable: false
+  enable: true
   minCharNumber: 120 # 至少复制多少个字符就追加版权信息.
   description: 本文章著作权归作者所有，任何形式的转载都请注明出处。
 
@@ -204,9 +204,9 @@ clicklove:
 # 在”关于”页面中配置个人信息，包括头像、职业和个人介绍.
 profile:
   avatar: /medias/头像.jpg
-  career: Undergraduate
-  school: University of Nottingham Ningbo China (UNNC)
-  major: Computer Science with Artificial Intelligence (4+0)
+  career: Postgraduate
+  school: The University of Hong Kong (HKU)
+  major: Master of Science in Computer Science (General Stream)
   introduction: If you wish to succeed, you should use persistence as your good friend, experience as your reference, prudence as your brother and hope as your sentry.
 
 # config my projects informations in about page.
